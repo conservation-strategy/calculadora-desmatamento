@@ -1,0 +1,688 @@
+{
+    "content": [
+        {
+            "id": "pt",
+            "common": {
+                "header_2": {
+                    "article": "A",
+                    "name": "Calculadora de Impactos do Desmatamento",
+                    "description": "é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desmatamento na Amazônia"
+                }
+            },
+            "navbar": {
+                "title_CSF": "Calculadora do Desmatamento",
+                "menu": [
+                    {
+                        "label": "Home",
+                        "href": "/"
+                    },
+                    {
+                        "label": "Calculadora",
+                        "href": "/calculadora"
+                    },
+                    {
+                        "label": "Sobre",
+                        "href": "/sobre"
+                    },
+                    {
+                        "label": "Metodologia",
+                        "href": "/metodologia"
+                    },
+                    {
+                        "label": "Equipe",
+                        "href": "/equipe"
+                    }
+                ]
+            },
+            "home": {
+                "hero": {
+                    "text": {
+                        "article": "A",
+                        "name": "Calculadora de Impactos do Desmatamento",
+                        "description": "é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desmatamento na Amazônia"
+                    },
+                    "button_1": "Guia de uso",
+                    "button_2": "Calculadora"
+                },
+                "main": {
+                    "section_1": {
+                        "heading": "Funções da Calculadora",
+                        "description": {
+                            "intro": "A Calculadora de Impactos do Desmatamento pode ser utilizada para três finalidades principais:",
+                            "list":[
+                                "Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações;",
+                                "Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;",
+                                "Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais."
+                            ],
+                            "conclusion": "Caso não tenha informações específicas, serão incluídos automaticamente valores médios de contexto e impacto e resultados e suas explicações serão gerados na sequência."
+                        }
+                    },
+                    "section_2": {
+                        "heading": "Entenda os impactos do desmatamento",
+                        "subsection_1": {
+                            "title": "Restauração",
+                            "description": "Refere-se aos gastos de implementação dos métodos necessários para restaurar o meio ambiente e promover o bem-estar humano que foi afetado. O custo de restauração é aplicado sempre que o desmatamento é ilegal."
+                        },
+                        "subsection_2": {
+                            "title": "Serviços Ecossistêmicos",
+                            "description": "O desmatamento resulta na perda de serviços ecossistêmicos gratuitamente providos pela floresta como o potencial para a bioprospecção, a redução na capacidade de captura e armazenamento de carbono, a erosão e a sedimentação dos corpos d'água, além da redução nas alternativas de uso da terra como a recreação, produtos florestais madeireiros e não madeireiros."
+                        }
+                    }
+                }
+            },
+            "calculadora": {
+                "description": {
+                    "article": "A",
+                    "name": "Calculadora de Impactos do Desmatamento",
+                    "description": "é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desmatamento na Amazônia"
+                },
+                "heading": "Calculadora",
+                "guia": {
+                    "heading": "Guia de uso",
+                    "local":{
+                        "title": "Defina o local",
+                        "intro": "Ao selecionar o município afetado, o modelo automaticamente utilizará informações de contexto, utilizando informações como:",
+                        "list": [
+                            "Densidade de carbono por hectare",
+                            "Rentabilidade da extração de madeira sob concessão florestal",
+                            "Rentabilidade do extrativismo de borracha e castanha do brasil",
+                            "Custo do frete para restauração",
+                            "Riqueza de espécies"
+                        ],
+                        "conclusion": "Caso não tenha informações específicas, você ainda pode realizar a pesquisa. Nesse caso, serão incluídos automaticamente valores médios de contexto e impacto."
+                    },
+                    "app": {
+                        "title": "Área de Preservação Permanente",
+                        "description": [
+                            "Uma Área de Preservação Permanente (APP) é uma área protegida, coberta ou não por vegetação nativa, com a função ambiental de preservar os recursos hídricos, a paisagem, a estabilidade geológica e a biodiversidade, facilitar o fluxo gênico de fauna e flora, proteger o solo e assegurar o bem-estar das populações humanas, conforme definição da Lei n. 12.651/2012.", 
+                            "Com o propósito de estabelecer uma ideia de equivalência ecológica, a calculadora de desmatamento utiliza um multiplicador de 3,8 vezes o valor do dano quando a área analisada corresponde a uma Área de Preservação Permanente (APP), considerando sua extrema importância (Gasparinetti et al, 2017)."
+                        ],
+                        "citation": "Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51."
+                    },
+                    "conservacao": {
+                        "title": "Área prioritária para conservação",
+                        "description": [
+                            "As Áreas Prioritárias para a Conservação, Utilização Sustentável e Repartição dos Benefícios da Biodiversidade são um instrumento de política pública para apoiar o planejamento e implementação de ações como a criação de unidades de conservação, licenciamento, fiscalização e fomento ao uso sustentável do solo. As regras para a identificação de tais áreas foram instituídas pelo Decreto nº 5092 de 21/05/2004 do Ministério do Meio Ambiente.", 
+                            "Com o propósito de estabelecer uma ideia de equivalência ecológica, a calculadora de desmatamento utiliza um multiplicador de 1,8 vezes o valor do dano quando a área analisada corresponde a uma área prioritária para conservação"
+                        ]
+                    },
+                    "recreacao": {
+                        "title": "Área com potencial de recreação",
+                        "description": [
+                            "Uma floresta preservada possui inúmeros atrativos naturais, como trilhas, cachoeiras, observação da fauna e flora, atividades de ecoturismo e contato direto com a natureza exuberante. No entanto, quando ocorre o desmatamento, a destruição do ecossistema e a perda de biodiversidade diminuem significativamente as oportunidades recreativas e turísticas que a área poderia oferecer. Além disso, a degradação do ecossistema também pode afetar negativamente as comunidades locais e populações indígenas que dependem da floresta para atividades culturais e tradicionais, restringindo suas possibilidades recreativas e reduzindo seu bem-estar geral.", 
+                            "Na valoração econômica, é crucial levar em conta o contexto do território. Em uma região com potencial de recreação, a calculadora considera os valores de recreação perdidos devido ao desmatamento, buscando quantificar os ganhos econômicos subtraídos pela supressão vegetal. Por outro lado, em áreas desmatadas isoladas, sem potencial de recreação, tais benefícios não serão contabilizados na calculadora."
+                        ]
+                    },
+                    "legalidade": {
+                        "title": "Legalidade/Ilegalidade",
+                        "description": "O Código Florestal Brasileiro (Lei 12.651/2012) estabelece regras para o uso e conservação das florestas no Brasil. Ele define limites para o desmatamento em propriedades privadas, garantindo que uma parte significativa da vegetação nativa seja preservada. De acordo com o Código Florestal, propriedades rurais na Amazônia devem manter 80% de sua área como Reserva Legal. Caso o usuário insira a informação de que o desmatamento é legal, a calculadora entenderá, automaticamente, que o empreendimento não deverá incorrer em custos para a restauração."
+                    },
+                    "restauracao": {
+                        "title": "Técnicas de Restauração",
+                        "name": ["Semeadura direta", "Regeneração natural"],
+                        "description": [
+                            " é uma técnica de restauração que envolve a dispersão de sementes diretamente no solo de áreas desmatadas ou degradadas. Essa técnica é especialmente útil na Amazônia devido à diversidade de espécies vegetais e à capacidade natural do solo de suportar o crescimento de uma grande variedade de plantas.",
+                            " é a prática de permitir que a vegetação se recupere por conta própria, sem intervenção humana significativa, em áreas degradadas. Essa técnica se baseia na capacidade intrínseca da floresta de se regenerar quando as condições ambientais são favoráveis."
+                        ]
+                    },
+                    "uso": {
+                        "title": "Usos da calculadora",
+                        "description": "A Calculadora de Impactos do Garimpo pode ser utilizada para três finalidades principais:",
+                        "list": [
+                            "Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações;",
+                            "Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;",
+                            "Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais."
+                        ]
+                    }
+                },
+                "inputs": {
+                    "valores_medios": {
+                        "title": "Valores médios ou específicos?",
+                        "values": ["Valores médios", "Valores específicos"]
+                    },
+                    "UF": "Estado",
+                    "mun": "Município",
+                    "area": "Área (ha)",
+                    "app": "A área é de APP?",
+                    "recreacao": "Área com potencial de recreação",
+                    "uso_solo": {
+                        "title": "Uso posterior do solo",
+                        "values": ["Pecuária", "Agricultura"]
+                    },
+                    "legalidade": {
+                        "title": "Legalidade do desmatamento",
+                        "values": ["Legal", "Ilegal"]
+                    },
+                    "restauracao": {
+                        "title": "Técnicas de Restauração",
+                        "values": ["Semeadura direta", "Regeneração natural"]
+                    },
+                    "true": "Sim",
+                    "false": "Não"
+                },
+                "button": "Calcular"
+            },
+            "results": {
+                "heading": "Resultados",
+                "section_1": {
+                    "heading": "Custo total estimado",
+                    "intro": {
+                        "parts":[
+                            "O custo total do desmatamento",
+                            ", calculado a partir dos valores inseridos, é de"
+                            ],
+                        "mun": " no município",
+                        "amazon": " na Amazônia"
+                        },
+                    "description": {
+                        "parts": [
+                            "Este valor representa a soma de todos os danos ambientais",
+                            "sociais",
+                            "necessários para mitigar os impactos causados pelo desmatamento."
+                        ],
+                        "conjunction": "e",
+                        "conditional": "e os custos de recuperação"
+                    },
+                    "info_rectangle": {
+                        "city": "Município / UF",
+                        "location": "Localização",
+                        "area": "Total de hectares impactados",
+                        "amazon": "Valores médios para a Amazônia"
+                    }
+                },
+                "section_2": {
+                    "heading": "Análise comparativa",
+                    "description": {
+                        "intro": "Os valores estimados podem ser divididos em duas grandes categorias:",
+                        "names": [
+                            "custos de recuperação",
+                            "perda de serviços ecossistêmicos"
+                        ],
+                        "conjunction": "e"
+                    },
+                    "chart": {
+                        "tooltips": [
+                            "Valor estimado em custos de recuperação",
+                            "Valor estimado em perda de serviços ecossistêmicos"
+                        ],
+                        "legal": "é zero para desmatamento legal.",
+                        "stack": "Custo total estimado",
+                        "opportunity": {
+                            "title": "Rentabilidade da",
+                            "usos": [
+                                "pecuária",
+                                "agricultura"
+                            ],
+                            "tooltip": {
+                                "parts": [
+                                    "O valor de rentabilidade da", 
+                                    "foi incluído como um dado externo para fins de comparação. Esse dado permite contextualizar os impactos financeiros do desmatamento em relação a uma alternativa econômica comum na região."
+                                ]
+                            }
+                        }
+                    }
+                },
+                "section_3": {
+                    "heading": "Perda de serviços ecossistêmicos",
+                    "detailed_info": {
+                        "description": "Com os valores estimados podemos analisar os custos ambientais do desmatamento na Amazônia. Esses custos incluem a perda de serviços ecossistêmicos como o potencial para a bioprospecção, o impacto negativo na capacidade da floresta de capturar e armazenar carbono, a erosão e sedimentação dos corpos d'água, e a redução na alternativas de uso da terra como a perda de potencial para recreação, assim como a perda de produtos florestais madeireiros e não madeireiros."
+                    },
+                    "slice_info": {
+                        "lines": [
+                            "Passe o mouse sobre o gráfico para ver mais detalhes sobre cada custo.",
+                            "Dica: clique em uma fatia para fixar um valor e compará-lo com os demais."
+                        ]
+                    },
+                    "data_labels": [
+                        "Restabelecimento do Potencial de Bioprospecção", 
+                        "Perda de Sequestro de Carbono", 
+                        "Erosão e Assoreamento", 
+                        "Perda de Produtos Madeireiros ou Não-Madeireiros", 
+                        "Perda de Oportunidades de Recreação"
+                    ]                    
+                },
+                "table": {                
+                    "bioprospeccao":"Restabelecimento do Potencial de Bioprospecção",
+                    "carbono":"Perda de Sequestro de Carbono",
+                    "erosao":"Erosão e Assoreamento",
+                    "pmnm":"Perda de Produtos Madeireiros ou Não-Madeireiros",
+                    "recreacao":"Perda de Pportunidades de Recreação",
+                    "total_eco":"Total de custos relacionados à perda de serviços ecossistêmicos",
+                    "recuperacao":"Custos de recuperação",
+                    "total":"Total"                
+                }
+
+            },
+            "sobre": {
+                "heading": "Sobre",
+                "section_1": {
+                    "heading": "O que é",
+                    "description": "A Calculadora de Impactos do Desmatamento é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desflorestamento da Amazônia. A ferramenta utiliza uma fórmula econômica que relaciona os efeitos esperados no ambiente e na sociedade com variáveis como a região analisada, a legalidade do desmatamento e a prioridade de conservação da área. A calculadora pode ser utilizada para três finalidades principais:",
+                    "list": [
+                        "Estimar valores de danos sociais e ambientais para apoiar a definição de compensações e indenizações;",
+                        "Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;",
+                        "Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais."
+                    ]
+                },
+                "section_2": {
+                    "heading": "Histórico",
+                    "description": "A ferramenta foi desenvolvida em 2023, inspirada pela premiada Calculadora de Impactos do Garimpo. Nesta, o desmatamento já constava como um dos principais impactos causados pela atividade ilegal de mineração. Porém, entendendo que outras atividades econômicas pressionavam o rápido desmatamento da Amazônia nos últimos anos, a Conservação Estratégica no Brasil (CSF Brasil) trabalhou em parceria com a Open Society para mensurar, de forma mais ampla, os impactos cumulativos que a perda da floresta causa ao meio ambiente, às comunidades que dependem dela e a todo país."
+                }
+            },
+            "metodologia":{
+                "heading": "Metodologia",
+                "main": {
+                    "heading": "Resumo",
+                    "first_paragraph": "A metodologia para valoração dos impactos socioambientais do desmatamento baseia-se no conceito de que o valor é uma medida de bem‐estar definida socialmente por meio da sua importância relativa para um conjunto de indivíduos. Ou seja, o valor é relativo, uma vez que se relaciona não apenas com as características do objeto em questão, mas também com o contexto no qual se está inserido. Depende de sua escassez relativa (oferta) e da pressão pelo uso dos recursos disponíveis (demanda), como demonstra a figura abaixo:",
+                    "paragraphs": [            
+                        "A imagem exemplifica como a sociedade declara um valor diferente a uma residência em função dos atributos ao seu redor e sua oferta. Da mesma forma, uma única árvore em uma área totalmente desmatada terá mais valor do que a mesma espécie em um ambiente totalmente florestado. Por isso, não se pode determinar um valor absoluto de uma floresta, já que dependerá do contexto e das alternativas de seu uso ou não uso.",
+                        "Além de determinado socialmente, o valor é algo marginal, uma vez que se refere a uma mudança de tendência esperada do estado dos recursos. Assim sendo, a determinação do que é perdido ou ganho com uma mudança de uso do solo, como a agricultura ou pecuária, está relacionada com a linha de base, ou seja, com a tendência que representa o status-quo como medida de variação da preferência dos indivíduos. Para chegar em valores monetários se faz uso de uma função de transferência de valor que busca correlacionar características contextuais com valores médios de perda econômica em diferentes países.",
+                        "A mensuração das categorias de impacto utiliza diferentes métodos de valoração, que podem ser divididos em duas abordagens:"
+                    ],
+                    "last_paragraph": "A magnitude destes impactos é ajustada por fatores contextuais que influenciam os valores econômicos, como a região analisada, a legalidade do desmatamento e a prioridade de conservação da área. A Calculadora de Impactos do Desmatamento pode produzir resultados médios para áreas na Amazônia ao determinar a região de pesquisa.",
+                    "list": [
+                        "Custo de substituição ou recuperação da área: representa o custo das técnicas apropriadas para recuperar o ambiente danificado e o bem-estar humano.",
+                        "Perda de serviços ecossistêmicos. o desmatamento gera uma perda de bem-estar, uma vez que a floresta em pé proporciona vários serviços ecossistêmicos que seriam afetados, como sequestro de carbono, regulação hídrica e controle da erosão. Além disso, considera-se o custo de oportunidade que corresponde ao retorno econômico esperado das alternativas de uso da terra daqueles que a possuem. As opções relacionadas ao custo de oportunidade incluem fornecer recursos madeireiros e não madeireiros da floresta. Além do retorno econômico, também são considerados valores de bem-estar perdidos que não são comercializados no mercado, como serviços culturais e recreativos."
+                    ]                    
+                },
+                "footnote": {
+                    "heading": "Documentos técnicos produzidos pela Conservação Estratégica",
+                    "lines": [
+                        "Conservação Estratégica (CSF) e Center for Climate Crimes Analysis (CCCA) (2022) Caso Casino: A Ligação entre o abastecimento de carne do Grupo Casino. Desmatamento e violações de direitos dos povos que habitam a Terra Indígena Uru-Eu-Wau-Wau na Amazônia Brasileira.",
+                        "Disponível em:"
+                    ]
+                }
+            },
+            "equipe": {
+                "heading": "Equipe",
+                "areas": [
+                    {
+                        "title": "Concepção e Coordenação Técnica",
+                        "team": ["Pedro Gasparinetti"]
+                    },
+                    {
+                        "title":"Valoração econômica",
+                        "team": [
+                            "Pedro Gasparinetti (Coordenador Geral)",
+                            "Leonardo Bakker (Analista Econômico)",
+                            "Victor Araújo (Analista de Dados)"
+                        ]
+                    },
+                    {
+                        "title": "Comunicação, redação, imprensa",
+                        "team": ["Luisa Turbay"]
+                    },
+                    {
+                        "title":"Website",
+                        "team": [
+                            "Desenvolvimento",
+                            "Linze User Experience"
+                        ]
+                    },
+                    {
+                        "title": "Design",
+                        "team": ["Carlos Eduardo Veloso"]
+                    },
+                    {
+                        "title": "Ilustrações",
+                        "team": ["Thaís Erre"]
+                    },
+                    {
+                        "title": "Roteiros",
+                        "team":["Luisa Turbay"]
+                    },
+                    {
+                        "title": "Imagens",
+                        "team":["Freepik"]
+                    },
+                    {
+                        "title": "Financiamento",
+                        "team": ["Open Society"]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "en",
+            "common": {
+                "header_2": {
+                    "article": "The",
+                    "name": "Deforestation Impact Calculator",
+                    "description": "is a tool designed to evaluate the social and environmental damage resulting from deforestation in the Amazon"
+                }
+            },
+            "navbar": {
+                "title_CSF": "Deforestation Impact Calculator",
+                "menu": [
+                    {
+                        "label": "Home",
+                        "href": "/"
+                    },
+                    {
+                        "label": "Calculator",
+                        "href": "/calculadora"
+                    },
+                    {
+                        "label": "About",
+                        "href": "/sobre"
+                    },
+                    {
+                        "label": "Methodology",
+                        "href": "/metodologia"
+                    },
+                    {
+                        "label": "Team",
+                        "href": "/equipe"
+                    }
+                ]
+            },
+            "home": {
+                "hero": {
+                    "text": {
+                        "article": "The",
+                        "name": "Deforestation Impact Calculator",
+                        "description": " is a tool designed to evaluate the social and environmental damage resulting from deforestation in the Amazon"
+                    },
+                    "button_1": "User Guide",
+                    "button_2": "Calculator"
+                },
+                "main": {
+                    "section_1": {
+                        "heading": "Uses of the Calculator",
+                        "description": {
+                            "intro": "The Deforestation Impact Calculator can be used for three main purposes:",
+                            "list":[
+                                "Estimating the value of environmental damages to support the determination of compensation and reparations;",
+                                "Assessing efficient investment levels for planning and preventing impacts;",
+                                "Estimating potential revenues the government could generate from its forest assets."
+                            ],
+                            "conclusion": "If specific information is not provided, average context and impact values will be automatically included, and the results along with their explanations will be generated accordingly."
+                        }
+                    },
+                    "section_2": {
+                        "heading": "Understand the types of impact of the calculator tool",
+                        "subsection_1": {
+                            "title": "Restoration",
+                            "description": "This refers to the costs involved in implementing the techniques necessary to restore the environment and enhance human well-being that have been impacted. Restoration costs are applied whenever deforestation occurs illegally."
+                        },
+                        "subsection_2": {
+                            "title": "Ecosystem Services",
+                            "description": "Deforestation results in the loss of ecosystem services freely provided by the forest, such as the potential for bioprospecting, reduced capacity for carbon capture and storage, increased erosion and sedimentation of water bodies, and a decline in alternative land uses like recreation and the harvesting of timber and non-timber forest products."
+                        }
+                    }
+                }
+            },
+            "calculadora": {
+                "description": {
+                    "article": "The",
+                    "name": "Deforestation Impact Calculator",
+                    "description": " is a tool designed to evaluate the social and environmental damage resulting from deforestation in the Amazon"
+                },
+                "heading": "Deforestation Impact Calculator",
+                "guia": {
+                    "heading": "User guide",
+                    "local":{
+                        "title": "Set location",
+                        "intro": "When you select the affected municipality, the model will automatically use contextual information, such as:",
+                        "list": [
+                            "Carbon density per hectare",
+                            "Profitability of timber extraction under forest concessions",
+                            "Profitability of rubber and Brazilian nut extraction",
+                            "Freight costs for restoration",
+                            "Species richness"
+                        ],
+                        "conclusion": "If specific information is not available, you can still proceed with the analysis. In this case, average contextual and impact values will be automatically included."
+                    },
+                    "app": {
+                        "title": "Riparian Forest",
+                        "description": [
+                            "A Permanent Preservation Area (APP in portuguese) is a protected area, whether covered by native vegetation or not, with the environmental function of preserving water resources, landscapes, geological stability, and biodiversity. It also facilitates the genetic flow of fauna and flora, protects the soil, and ensures the well-being of human populations, as defined by Law No. 12,651/2012.", 
+                            "To establish a measure of ecological equivalence, the deforestation calculator applies a multiplier of 3.8 times the damage value when the area under analysis is a Permanent Preservation Area (APP), recognizing its critical importance (Gasparinetti et al., 2017)."
+                        ],
+                        "citation": "Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51."
+                    },
+                    "conservacao": {
+                        "title": "Area with priority of conservation",
+                        "description": [
+                            "As Áreas Prioritárias para a Conservação, Utilização Sustentável e Repartição dos Benefícios da Biodiversidade são um instrumento de política pública para apoiar o planejamento e implementação de ações como a criação de unidades de conservação, licenciamento, fiscalização e fomento ao uso sustentável do solo. As regras para a identificação de tais áreas foram instituídas pelo Decreto nº 5092 de 21/05/2004 do Ministério do Meio Ambiente.", 
+                            "Com o propósito de estabelecer uma ideia de equivalência ecológica, a calculadora de desmatamento utiliza um multiplicador de 1,8 vezes o valor do dano quando a área analisada corresponde a uma área prioritária para conservação"
+                        ]
+                    },
+                    "recreacao": {
+                        "title": "Area with potential for recreation",
+                        "description": [
+                            "A preserved forest offers numerous natural attractions, such as hiking trails, waterfalls, wildlife observation, ecotourism activities, and direct contact with lush nature. However, when deforestation occurs, the destruction of the ecosystem and loss of biodiversity significantly reduce the recreational and tourism opportunities that the area could have provided. Additionally, ecosystem degradation can negatively impact local communities and indigenous populations who rely on the forest for cultural and traditional activities, limiting their recreational possibilities and diminishing their overall well-being.", 
+                            "In economic valuation, it is crucial to consider the territorial context. In regions with recreational potential, the calculator accounts for the loss of recreational value due to deforestation, aiming to quantify the economic benefits lost due to vegetation suppression. Conversely, in isolated deforested areas without recreational potential, such benefits are not included in the calculator."
+                        ]
+                    },
+                    "legalidade": {
+                        "title": "Legality/Illegality",
+                        "description": "The Brazilian Forest Code (Law 12,651/2012) establishes rules for the use and conservation of forests in Brazil. It sets limits for deforestation on private properties, ensuring that a significant portion of native vegetation is preserved. According to the Forest Code, rural properties in the Amazon must maintain 80% of their area as Legal Reserve. If the user inputs that the deforestation is legal, the calculator will automatically understand that the project will not incur restoration costs."
+                    },
+                    "restauracao": {
+                        "title": "Restoration Techniques",
+                        "name": ["Direct Seeding", "Natural Regeneration"],
+                        "description": [
+                            " is a restoration technique that involves dispersing seeds directly onto the soil of deforested or degraded areas. This technique is particularly useful in the Amazon due to the diversity of plant species and the soil's natural ability to support the growth of a wide variety of plants.",
+                            " is the practice of allowing vegetation to recover on its own, with minimal human intervention, in degraded areas. This technique relies on the forest's intrinsic ability to regenerate when environmental conditions are favorable."
+                        ]
+                    },
+                    "uso": {
+                        "title": "Uses of the Calculator",
+                        "description": "The Deforestation Impact Calculator can be used for three main purposes:",
+                        "list": [
+                            "Estimating the value of environmental damages to support the determination of compensation and reparations;",
+                            "Assessing efficient investment levels for planning and preventing impacts;",
+                            "Estimating potential revenues the government could generate from its forest assets."
+                        ]
+                    }
+                },
+                "inputs": {
+                    "valores_medios": {
+                        "title": "Average values or specific values?",
+                        "values": ["Average values", "Specific values"]
+                    },
+                    "UF": "State",
+                    "mun": "Municipality",
+                    "area": "Area (ha)",
+                    "app": "Is Riparian Forest?",
+                    "recreacao": "Area with recreational potential",
+                    "uso_solo": {
+                        "title": "Subsequent land use",
+                        "values": ["Livestock farming", "Agriculture"]
+                    },
+                    "legalidade": {
+                        "title": "Legality of deforestation",
+                        "values": ["Legal", "Ilegal"]
+                    },
+                    "restauracao": {
+                        "title": "Restoration Techniques",
+                        "values": ["Direct Seeding", "Natural Regeneration"]
+                    },
+                    "true": "Yes",
+                    "false": "No"
+                },
+                "button": "Calculate"
+            },
+            "results": {
+                "heading": "Results",
+                "section_1": {
+                    "heading": "Total estimated cost",
+                    "intro": {
+                        "parts":[
+                            "The total cost of deforestation", 
+                            ", calculated based on the values entered, is"
+                            ],
+                            "mun": " in the municipality of",
+                            "amazon": "in the Amazon"
+                        },
+                    "description": {
+                        "parts": [
+                            "This value represents the sum of all environmental damages",
+                            "socials",
+                            "needed to mitigate the impacts caused by deforestation."
+                        ],
+                        "conjunction": "and",
+                        "conditional": "and the restoration costs"
+                    },
+                    "info_rectangle": {
+                        "city": "Municipality / State",
+                        "location": "Location",
+                        "area": "Total area impacted",
+                        "amazon": "Average values for the Amazon"
+                    }
+                },
+                "section_2": {
+                    "heading": "Comparative analysis",
+                    "description": {
+                        "intro": "The estimated values can be divided into two main categories:",
+                        "names": [
+                            "restoration costs",
+                            "loss of ecosystem services"
+                        ],
+                        "conjunction": "and"
+                    },
+                    "chart": {
+                        "tooltips": [
+                            "Estimated value of restoration costs",
+                            "Estimated value of ecosystem service loss"
+                        ],
+                        "legal": "is zero for legal deforestation.",
+                        "stack": "Total estimated impact",
+                        "opportunity":{
+                            "title": "Profitability of",
+                            "usos": [
+                                "livestock farming",
+                                "agriculture"
+                            ],
+                            "tooltip": {
+                                "parts": [
+                                    "The profitability value of", 
+                                    "was included as external data for comparison purposes. This data allows for contextualizing the financial impacts of deforestation in relation to a common economic alternative in the region."                                    
+                                ]
+                            }
+                        }
+                    }
+                },
+                "section_3": {
+                    "heading": "Loss of ecosystem services",
+                    "detailed_info": {
+                        "description": "With the estimated values, we can analyze the environmental costs of deforestation in the Amazon. These costs include the loss of ecosystem services such as the potential for bioprospecting, the negative impact on the forest's capacity to capture and store carbon, erosion and sedimentation of water bodies, and the reduction in land use alternatives such as the loss of potential for recreation, as well as the loss of forest products, both timber and non-timber."
+                    },
+                    "slice_info": {
+                        "lines": [
+                            "Hover over the chart slices to see more details about each cost.",
+                            "Tip: click on each slice to fix a value and compare it to the others."
+                        ]
+                    },
+                    "data_labels": [
+                        "Bioprospecting Cost",
+                        "Carbon Cost",
+                        "Erosion Cost",
+                        "Timber and Non-Timber Cost",
+                        "Recreation Cost"
+                    ]
+                },
+                "table": {                    
+                    "bioprospeccao":"Loss of Future Potential with Bioprospecting",
+                    "carbono":"Loss of Carbon Sequestration",
+                    "erosao":"Erosion and Siltation",
+                    "pmnm":"Loss of Producing Timber or Non-Timber Products",
+                    "recreacao":"Loss of Recreational Opportunities",
+                    "recuperacao":"Total loss of ecosystem services",
+                    "total_eco":"Restoration costs",
+                    "total":"Total"                    
+                }
+
+            },
+            "sobre": {
+                "heading": "About",
+                "section_1": {
+                    "heading": "What It Is",
+                    "description": "The Deforestation Impact Calculator is a tool for assessing the social and environmental damages caused by deforestation in the Amazon. It uses an economic formula that links the anticipated effects on the environment and society to variables such as the region under analysis, the legality of deforestation, and the conservation priority of the area. The calculator serves three main purposes:",
+                    "list": [
+                        "Estimate Social and Environmental Damage: To support the determination of compensations and reparations;",
+                        "Assess Efficient Investment Levels: For planning and preventing impacts;",
+                        "Estimate Potential Revenue: That the government could generate from its forest assets."
+                    ]
+                },
+                "section_2": {
+                    "heading": "History",
+                    "description": "The tool was developed in 2023, inspired by the award-winning Mining Impact Calculator. In that tool, deforestation was already identified as one of the major impacts caused by illegal mining activities. Recognizing that other economic activities were also contributing to the rapid deforestation of the Amazon in recent years, Strategic Conservation Brazil (CSF Brasil) partnered with Open Society to more comprehensively measure the cumulative impacts of forest loss on the environment, the communities that depend on it, and the country as a whole."
+                }
+            },
+            "metodologia":{
+                "heading": "Methodology",
+                "main": {
+                    "heading": "Summary",
+                    "first_paragraph": "The methodology for valuing the socio-environmental impacts of deforestation is based on the concept that value is a measure of well-being socially defined by its relative importance to a group of individuals. In other words, value is relative, as it relates not only to the characteristics  of the object in question but also to the context in which it is situated. It depends on its relative scarcity (supply) and the pressure for the use of available resources (demand), as demonstrated in the figure below:",
+                    "paragraphs": [
+                        "The image illustrates how society assigns different values to a residence based on its surrounding attributes and its availability. Similarly, a single tree in a completely deforested area will have more value than the same species in a fully forested environment. Therefore, an absolute value for a forest cannot be determined, as it will depend on the context and the alternatives for its use or non-use.",
+                        "In addition to being socially determined, value is marginal, as it refers to an expected change in the state of resources. Thus, determining what is lost or gained with a change in land use, such as agriculture or livestock farming, is related to the baseline, or the trend representing the status quo as a measure of individual preference variation. To arrive at monetary values, a value transfer function is used to correlate contextual characteristics with average economic loss values in different countries.",
+                        "The measurement of impact categories uses different valuation methods, which can be divided into two approaches:"
+                    ],
+                    "last_paragraph": "The magnitude of these impacts is adjusted for contextual factors that influence economic values, such as the region analyzed, the legality of deforestation, and the conservation priority of the area. The Deforestation Impact Calculator can produce average results for areas in the Amazon by determining the research region.",
+                    "list": [
+                        "Cost of Replacement or Restoration: Represents the cost of appropriate techniques to restore the damaged environment and human well-being.",
+                        "Loss of Ecosystem Services: Deforestation results in a loss of well-being, as standing forests provide various ecosystem services that would be affected, such as carbon sequestration, water regulation, and erosion control. Additionally, the opportunity cost is considered, which corresponds to the expected economic return from alternative land uses by those who own it. Opportunity cost options include providing timber and non-timber resources from the forest. Beyond economic return, lost well-being values not traded in the market, such as cultural and recreational services, are also considered."
+                    ]
+                },
+                "footnote": {
+                    "heading": "Technical documents produced by Conservation Strategy Fund (CSF):",
+                    "lines": [
+                        "Conservation Strategy Fund (CSF) and Center for Climate Crimes Analysis (CCCA) (2022): Casino Case: The Link Between Casino Group’s Meat Supply, Deforestation, and Violations of the Rights of Indigenous Peoples in the Uru-Eu-Wau-Wau Indigenous Land in the Brazilian Amazon.",
+                        "Available at:"
+                    ]
+                }
+            },
+            "equipe": {
+                "heading": "Team",
+                "areas": [
+                    {
+                        "title": "Concept and Technical Coordination",
+                        "team": ["Pedro Gasparinetti"]
+                    },
+                    {
+                        "title":"Economic Valuation",
+                        "team": [
+                            "Pedro Gasparinetti (General Coordinator)",
+                            "Leonardo Bakker (Economic Analyst)",
+                            "Victor Araújo (Data Analyst)"
+                        ]
+                    },
+                    {
+                        "title": "Communication, Writing, Press",
+                        "team": ["Luisa Turbay"]
+                    },
+                    {
+                        "title":"Website",
+                        "team": [
+                            "Desenvolvimento",
+                            "Linze User Experience"
+                        ]
+                    },
+                    {
+                        "title": "Design",
+                        "team": ["Carlos Eduardo Veloso"]
+                    },
+                    {
+                        "title": "Ilustrations",
+                        "team": ["Thaís Erre"]
+                    },
+                    {
+                        "title": "Scripts",
+                        "team":["Luisa Turbay"]
+                    },
+                    {
+                        "title": "Images",
+                        "team":["Freepik"]
+                    },
+                    {
+                        "title": "Funding",
+                        "team": ["Open Society"]
+                    }
+                ]
+            }
+        }
+    ]
+}

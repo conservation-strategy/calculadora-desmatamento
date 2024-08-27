@@ -1,0 +1,24 @@
+
+.linePatternHorizontal {
+  /* --opt-color: #75A8E6; */
+  /* --opt-color: #FF8C00; */
+  /* --line-color: #ffffff;
+  --bg-color: #6283c5;
+
+
+  background-image: repeating-linear-gradient(
+    125deg,
+    var(--color),
+    var(--color) 5px,
+    var(--color) 5px,
+    var(--color) 10px,
+  ); */
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    #F3F4F6,
+    #F3F4F6 75px,
+    #ffffff 75px,
+    #ffffff 76px
+  );
+}
