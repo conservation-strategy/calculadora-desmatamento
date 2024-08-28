@@ -285,7 +285,7 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40">
-        <Header2 title={"Calculadora"} image="images/header2_bg_1.png" />
+        <Header2 title={"Calculadora"} image="images/header2_bg_1.png" bgPosition={'center'} />
 
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />

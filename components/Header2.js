@@ -5,13 +5,13 @@ import Button from "@mui/material/Button"
 import { useContext } from 'react';
 import { Language } from '../context/provider';
 
-function Header2({ title, image }) {
+function Header2({ title, image , bgPosition}) {
     // const { content } = useContext(Language);
     // const { common } = content;
 
     return (
         <div
-            className="flex items-center pt-32 pb-20 bg-cover bg-top pl-8 bg-black relative mt-20"
+            className={`flex items-center pt-32 pb-20 bg-cover bg-${bgPosition} pl-8 bg-black relative mt-20`}
             style={{ backgroundImage: `url(${image})` }}
         >
             <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.4)]'></div>
