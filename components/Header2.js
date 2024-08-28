@@ -5,24 +5,24 @@ import Button from "@mui/material/Button"
 import { useContext } from 'react';
 import { Language } from '../context/provider';
 
-function Header2() {
-    const { content } = useContext(Language);
-    const { common } = content;
+function Header2({ title, image }) {
+    // const { content } = useContext(Language);
+    // const { common } = content;
 
     return (
         <div
-            className="pt-32 bg-cover bg-center px-5 lg:px-0 bg-black"
-        //style={{ backgroundImage: `url("/images/test1.png")` }}
+            className="flex items-center pt-32 pb-20 bg-cover bg-top pl-8 bg-black relative mt-20"
+            style={{ backgroundImage: `url(${image})` }}
         >
-            <div className="flex mx-auto items-center border-b-0 border-black">
+            <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.4)]'></div>
+            <div className='font-bold text-2xl md:text-3xl text-white z-10 relative pl-2 pt-10'>
+                {title}
+            </div>
+            {/* <div className="flex mx-auto items-center border-b-0 border-black">
                 <div className="flex mx-auto items-center border-b-8 border-black">
                     <div className="flex flex-col lg:flex-row w-full items-center justify-between text-white pt-16 lg:pt-16 pb-10 px-4 lg:px-10 lg:pb-10 gap-10 lg:gap-0">
-                        <div className="text-lg font-light text-left mb-0 pt-0 lg:w-1/2">
-                            {common.header_2.article + " "}
-                            <span className="font-bold">
-                                {common.header_2.name}
-                            </span>{" "}
-                            {common.header_2.description}
+                        <div className="text-lg font-light text-left mb-0 pt-0 lg:w-1/2">                            
+                            {title}
                         </div>
                         <div className="hidden mx-auto gap-8">
                             <Button
@@ -48,7 +48,7 @@ function Header2() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

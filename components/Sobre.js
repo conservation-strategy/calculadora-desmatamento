@@ -31,28 +31,33 @@ export default function Calculate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-mt-40 pb-10 border-b-8 border-black">
-        <Header2/>
-        <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
+      <div className="-mt-40 border-b-8 border-black">
+        <Header2 title={"Sobre"} image='images/header2_bg_2.png'/>
+        {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {sobre.heading}
-        </h1>
+        </h1> */}
 
-        <div className="px-10 pt-10 prose prose-sm md:prose-lg">
-          <h2>{sobre.section_1.heading}</h2>
-          <p>
-            {sobre.section_1.description}
-          </p>
-          <ol>
-            {sobre.section_1.list.map((item, i) => (
-              <li key={i} >{item}</li>
-            ))}
-          </ol>
-
-          <h2>{sobre.section_2.heading}</h2>
-          <p>
-            {sobre.section_2.description}
-          </p>
+        <div className="border-black border-t-8 prose prose-sm md:prose-lg max-w-none">
+          <div className="flex flex-col lg:gap-8 lg:flex-row px-10 md:px-20 py-10 md:py-16">
+            <div className="lg:w-1/4 flex items-center"><h2>{sobre.section_1.heading}</h2></div>
+            <div className="lg:w-3/4">
+              <p>
+                {sobre.section_1.description}
+              </p>
+              <ol>
+                {sobre.section_1.list.map((item, i) => (
+                  <li key={i} >{item}</li>
+                ))}
+              </ol>
+            </div>
+          </div>
+          <div className="px-10 md:px-20 py-10 md:pt-16 md:pb-20 bg-[rgba(227,229,226,0.6)]">
+            <h2>{sobre.section_2.heading}</h2>
+            <p className="md:pt-4">
+              {sobre.section_2.description}
+            </p>
+          </div>
         </div>
 
       </div>
