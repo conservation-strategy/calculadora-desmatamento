@@ -109,28 +109,28 @@ export default function Home() {
         </div>
 
         <div className="w-full bg-darkGreen"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center${styles.section__title}`}>
-            <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-3xl leading-[2.5rem]">{home.main.section_1.heading}</span>
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl font-bold px-12 py-16 md:px-16 md:py-20 gap-4 items-center${styles.section__title}`}>
+            <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{home.main.section_1.heading}</span>
           </h1>
         </div>
 
-        <div className={`pt-10 pb-20 px-16 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
-          <div className={`flex gap-20 mx-auto `}>
-            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+        <div className={`pt-10 pb-20 px-12 md:px-16 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
+          <div className={`flex flex-col md:flex-row gap-20 mx-auto `}>
+            <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconPlant size={80} strokeWidth={1} />
-              <span className={`text-xl font-medium leading-[2.1rem]`}>
+              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
-            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+            <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconChartPie size={80} strokeWidth={1} />
-              <span className={`text-xl font-medium leading-[2.1rem]`}>
+              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
-            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+            <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconTimeline size={80} strokeWidth={1} />
-              <span className={`text-xl font-medium leading-[2.1rem]`}>
+              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
@@ -186,13 +186,13 @@ export default function Home() {
         </h1> */}
 
         <div className="w-full bg-neutral100"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center ${styles.section__title}`}>
-            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-3xl leading-[2.5rem]">{home.main.section_2.heading}</span>
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-12 py-16 md:px-16 md:py-20 gap-4 items-center ${styles.section__title}`}>
+            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_2.heading}</span>
           </h1>
         </div>
 
         <div className={`flex flex-col bg-neutral100`}>
-          <div className={`flex gap-20 mx-auto `}>
+          <div className={`flex flex-col lg:flex-row gap-20 mx-auto `}>
             <div className="w-full flex flex-col justify-start items-start p-6 sm:p-12 sm:py-6 bg-neutral200 gap-4 shadow-none lg:max-w-[55ch]">
               <div className="flex flex-col items-start">
                 {/* <img className="h-32 mx-auto pt-8" src="/images/ico1.svg" /> */}
