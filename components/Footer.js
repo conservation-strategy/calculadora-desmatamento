@@ -1,9 +1,21 @@
 import Link from "next/link"
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa/"
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import { useCallback } from "react";
 
 export default function Footer() {
+  const router = useRouter();
+
+  const handleIconClick = useCallback(() => {
+    const isHome = router.pathname === '/';
+    if(!isHome) {
+      router.push('/');
+    } else {
+      setTimeout(() => window.scrollTo({ top:0, behavior: 'smooth' }), 100);
+    }
+  },[router]);
+
   return (
     <div className="container-lg p-0 mb-0 bg-black bg-opacity-100 px-0 lg:px-0">
       <div className="mx-auto max-w-screen-sm md:max-w-screen-2xl  flex flex-col gap-0 text-white">
@@ -70,7 +82,10 @@ export default function Footer() {
                       sizes="(max-width: 1024px) 40px, 64px"
                       priority
                 /> */}
-              <a>
+              <div 
+              className="cursor-pointer"
+              onClick={handleIconClick}
+              >
                 <Image
                   // className="w-[70px]"
                   src="/images/Desmatamento_VersãoInvertida.svg"
@@ -81,8 +96,12 @@ export default function Footer() {
                   // sizes="(max-width: 1024px) 40px, 60px"
                   priority
                 />
-              </a>
-              <a>
+              </div>
+              <a
+              href="https://miningcalculator.conservation-strategy.org/"
+              target="_blank"
+              className="cursor-pointer"
+              >
                 <Image
                   // className="h-[calc(56px*1.1424)]"
                   src="images/Garimpo_VersãoInvertida.svg"
@@ -93,7 +112,11 @@ export default function Footer() {
                   priority
                 />
               </a>
-              <a>
+              <a 
+              href="https://indigenouscalculator.conservation-strategy.org/home"
+              target="_blank"
+              className="cursor-pointer"
+              >
                 <Image
                   // className="h-[calc(56px*1.1424*0.7086*1.4112*1.9038)]"
                   src="images/Indígena_VersãoInvertida.svg"

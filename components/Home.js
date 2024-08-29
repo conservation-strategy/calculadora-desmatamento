@@ -3,7 +3,7 @@
 import Head from "next/head"
 import Button from "@mui/material/Button"
 import { RiPlantLine } from "react-icons/ri/"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Language, ENGLISH } from "../context/provider"
 import React from "react"
 import Image from "next/image"
@@ -13,8 +13,7 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const { content, language } = useContext(Language);
   const { home } = content;
-  const [showVideo, setShowVideo] = useState(false);
-  console.log('showVideo', showVideo)
+  
   return (
     <>
       <Head>
