@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useContext } from "react"
 import { Language, PORTUGUES, ENGLISH } from "../context/provider";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { Menu, MenuItem, styled, Switch } from "@mui/material";
+import { Divider, Menu, MenuItem, styled, Switch } from "@mui/material";
 import styles from '../styles/Navbar.module.css';
 import LanguageToggle from "./LanguageToggle";
 
@@ -121,7 +121,7 @@ export default function Navbar() {
         ${hasScrolled ? 'opacity-90' : 'opacity-100'}
       `}
     > 
-      <div className="max-w-screen-sm md:max-w-screen-2xl mx-auto w-full flex gap-12 justify-between items-center">
+      <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex gap-12 justify-between items-center">
         <div className="justify-start items-end pl-2">
           {" "}
           {/*Left area*/}
@@ -129,12 +129,13 @@ export default function Navbar() {
             <button>
               <Link href="/">
                 <Image
-                  className="w-[70px]"
-                  src="/images/Desmatamento_VersãoInvertida.svg"
-                  alt="CSF Logo"
-                  width={64}
-                  height={64}
-                  sizes="(max-width: 1024px) 40px, 64px"
+                  // className="w-[70px]"
+                  // src="/images/Desmatamento_VersãoInvertida.svg"
+                  src="/images/logo-desmatamento.svg"
+                  alt="Calculadora Desmatamento Logo"
+                  width={60}
+                  height={60}
+                  sizes="(max-width: 1024px) 40px, 60px"
                   priority
                 />
               </Link>
@@ -144,8 +145,8 @@ export default function Navbar() {
             </span> */}
           </div>
         </div>
-        <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
         {/* center-area */}
+        {/* <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
               {" "}
               <ul className="flex gap-8 min-[1280px]:gap-14 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
                 {navbar.menu.map((item) => (
@@ -154,7 +155,7 @@ export default function Navbar() {
                   </li>
                 ))}                
               </ul>
-        </div>
+        </div> */}
 
         <div className="block lg:hidden text-white">
           <button onClick={handleOpenDropdown}>
@@ -194,21 +195,6 @@ export default function Navbar() {
                 <li>
                   <LanguageToggle onLanguageChange={handleChangeLanguage} />
                 </li>
-                {/* <li className="text-center hover:underline underline-offset-8 hover:text-white">
-                  <Link href="/calculadora">Calculadora</Link>
-                </li>
-                <li className="text-center hover:underline underline-offset-8 hover:text-white">
-                  <Link href="/sobre">Sobre</Link>
-                </li>
-                <li className="text-center hover:underline underline-offset-8 hover:text-white">
-                  <Link href="/metodologia">Metodologia</Link>
-                </li>
-                <li className="text-center hover:underline underline-offset-8 hover:text-white">
-                  <Link href="/equipe">Equipe</Link>
-                </li> */}
-                {/* <li className="text-center hover:underline underline-offset-8 hover:text-white">
-                  <Link href="/contato">Contato</Link>
-                </li> */}
               </ul>  
             </div>
           </div>
@@ -217,67 +203,56 @@ export default function Navbar() {
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
-          {/* <ul className="flex gap-6 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
+          <ul className="flex gap-8 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
               </li>
-            ))} */}
-            {/* <li className="hover:underline underline-offset-8 hover:text-white">
-              <Link href="/calculadora">Calculadora</Link>
-            </li>
-            <li className="hover:underline underline-offset-8 hover:text-white">
-              <Link href="/sobre">Sobre</Link>
-            </li>
-            <li className="hover:underline underline-offset-8 hover:text-white">
-              <Link href="/metodologia">Metodologia</Link>
-            </li>
-            <li className="hover:underline underline-offset-8 hover:text-white">
-              <Link href="/equipe">Equipe</Link>
-            </li> */}
-            {/* <li className="hover:underline underline-offset-8 hover:text-white">
-              <Link href="/contato">Contato</Link>
-            </li> */}
-          {/* </ul> */}
-          <button 
-            className={`${styles.language} relative uppercase text-[0.875rem] text-white font-semibold flex items-center gap-1`}
-            // onClick={onChangeLanguage}
-            onClick={handleLanguageButtonClick}
-          >
-            {language}
-            <RiArrowDropDownLine color="white" size={24} />
-          </button>
-          <StyledMenu
-            elevation={0}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            anchorEl={languageMenuAnchorEl}
-            open={open}
-            onClose={handleLanguageMenuClose}
-            
-          >
-            <MenuItem onClick={() => handleChangeLanguage(PORTUGUES)} disableRipple>
-              Português
-            </MenuItem>
-            <MenuItem onClick={() => handleChangeLanguage(ENGLISH)} disableRipple>
-              English
-            </MenuItem>
-          </StyledMenu>
-          <Image
-                    className="w-14"
-                    src="/images/logo.svg"
-                    alt="CSF Logo"
-                    width={64}
-                    height={64}
-                    sizes="(max-width: 1024px) 40px, 64px"
-                    priority
-                />
+            ))}
+          </ul>
+          <div className="flex gap-4">
+            <button 
+              className={`${styles.language} relative uppercase text-[0.875rem] text-white font-semibold flex items-center gap-1`}
+              // onClick={onChangeLanguage}
+              onClick={handleLanguageButtonClick}
+            >
+              {language}
+              <RiArrowDropDownLine color="white" size={24} />
+            </button>
+            <StyledMenu
+              elevation={0}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              anchorEl={languageMenuAnchorEl}
+              open={open}
+              onClose={handleLanguageMenuClose}
+              
+            >
+              <MenuItem onClick={() => handleChangeLanguage(PORTUGUES)} disableRipple>
+                Português
+              </MenuItem>
+              <MenuItem onClick={() => handleChangeLanguage(ENGLISH)} disableRipple>
+                English
+              </MenuItem>
+            </StyledMenu>
+            <Divider orientation="vertical" color="#F7EEEE" sx={{ opacity: 0.3, width: '1.5px' }} flexItem />
+            <Image
+              // className="w-14"
+              className="opacity-[0.6] ml-2"
+              src="/images/logo.svg"
+              alt="CSF Logo"
+              width={34}
+              height={34}
+              sizes="(max-width: 1024px) 40px, 34px"
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>

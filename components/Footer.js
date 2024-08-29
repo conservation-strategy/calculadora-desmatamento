@@ -55,13 +55,13 @@ export default function Footer() {
         <div className="container-lg flex flex-col md:flex-row gap-8 justify-between items-center py-6 bg-black px-14 ">
           <div>
             <div className="flex items-center gap-12 md:gap-12">
-              <a
+              {/* <a
                 className="hover:text-white"
                 href="https://www.conservation-strategy.org/"
                 target="_blank"
                 rel="noreferrer"
-              >
-                <Image
+              > */}
+                {/* <Image
                       className="w-16"
                       src="/images/logo.svg"
                       alt="CSF Logo"
@@ -69,19 +69,47 @@ export default function Footer() {
                       height={64}
                       sizes="(max-width: 1024px) 40px, 64px"
                       priority
+                /> */}
+              <a>
+                <Image
+                  // className="w-[70px]"
+                  src="/images/Desmatamento_VersãoInvertida.svg"
+                  // src="/images/logo-desmatamento3.svg"
+                  alt="Calculadora Desmatamento Logo"
+                  width={44}
+                  height={44}
+                  // sizes="(max-width: 1024px) 40px, 60px"
+                  priority
                 />
               </a>
               <a>
-                {/* x=0.525262077 */}
-                {/* 1/aspect-ratio=1.1424 */}
+                <Image
+                  // className="h-[calc(56px*1.1424)]"
+                  src="images/Garimpo_VersãoInvertida.svg"
+                  alt="CSF Logo"
+                  width={44}
+                  height={44}
+                  // sizes="(max-width: 1024px) 40px, 60px"
+                  priority
+                />
+              </a>
+              <a>
+                <Image
+                  // className="h-[calc(56px*1.1424*0.7086*1.4112*1.9038)]"
+                  src="images/Indígena_VersãoInvertida.svg"
+                  alt="CSF Logo"
+                  width={44}
+                  height={44}
+                  // sizes="(max-width: 1024px) 40px, 60px"
+                  priority
+                />
+              </a>
+              {/* <a>
                 <GarimpoIcon/>
               </a>
               <a>
-                {/* x=0.708590801 */}
-                {/* 1/x=1.4112 */}
-                {/* 1/aspect-ratio=1.9038 */}
                 <IndigenaIcon />
-              </a>
+              </a> */}
             </div>
             {/* <div className="flex w-full justify-center pb-2 text-sm text-white font-medium pt-2">
               &#169; CSF All rights reserved
@@ -130,8 +158,16 @@ export default function Footer() {
               </a>
           </div>
         </div>
-        <div className="flex w-full justify-center pb-2 text-sm text-white font-medium">
-            &#169; CSF All rights reserved
+        <div className="opacity-50 border-t-[1px] border-[#404040] px-14 pt-4 mb-2 flex gap-6 w-full justify-center items-center pb-2 text-sm text-white font-medium">
+          <Image
+            src="/images/logo.svg"
+            alt="CSF Logo"
+            width={36}
+            height={36}
+            sizes="(max-width: 1024px) 40px, 64px"
+            priority
+          />
+          &#169; CSF All rights reserved
         </div>
       </div>
     </div>
