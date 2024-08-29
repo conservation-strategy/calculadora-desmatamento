@@ -7,6 +7,7 @@ import { useContext, useState } from "react"
 import { Language, ENGLISH } from "../context/provider"
 import React from "react"
 import Image from "next/image"
+import { IconChartPie, IconPlant, IconTimeline } from '@tabler/icons-react';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -29,9 +30,9 @@ export default function Home() {
           style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
           <div className={styles.filter}></div>
-          <div className={`flex mx-auto px-4 items-center border-b-8 border-black h-full`}>
-            <div className="flex flex-col w-full items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 px-4 lg:px-10 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
-              <h1 className={`text-2xl md:text-4xl font-light text-left mb-0 pt-0 md:w-2/3 xl:w-1/2 z-10`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '125%'}) }}>
+          <div className={`flex mx-auto px-4 items-center h-full`}>
+            <div className="flex flex-col w-full items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 px-4 lg:px-12 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
+              <h1 className={`text-2xl md:text-4xl font-light text-left mb-2 pt-0 md:w-2/3 xl:w-[34ch] z-10`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
                 {home.hero.text.article + " "}
                 <span className="font-bold">
                   {home.hero.text.name}
@@ -41,7 +42,8 @@ export default function Home() {
               <div className={`${styles.buttons__container} z-10`}>
                 <Button
                   sx={{
-                    backgroundColor: "#6AA65B",
+                    borderRadius: '3px',
+                    backgroundColor: "#558448",
                     "&:hover": {
                       backgroundColor: "#40615C",
                     },
@@ -53,6 +55,7 @@ export default function Home() {
                     fontWeight: "600",
                     letterSpacing: "0.035em",
                     whiteSpace: 'nowrap',
+                    fontSize: '1rem',
                     '@media (max-width: 469px)': {
                       fontSize: '0.8rem',
                       padding: "12px 28px",
@@ -71,7 +74,8 @@ export default function Home() {
                 </Button>
                 <Button
                   sx={{
-                    backgroundColor: "#6AA65B",
+                    borderRadius: '3px',
+                    backgroundColor: "#558448",
                     "&:hover": {
                       backgroundColor: "#40615C",
                     },
@@ -82,6 +86,7 @@ export default function Home() {
                     color: "#FCF8F7",
                     fontWeight: "600",
                     letterSpacing: "0.035em",
+                    fontSize: '1rem',
                     '@media (max-width: 469px)': {
                       fontSize: '0.8rem',
                       padding: "12px 28px",
@@ -104,34 +109,42 @@ export default function Home() {
           
         </div>
 
-        <h1 className={`flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center ${styles.section__title}`}>
-          <RiPlantLine strokeWidth="0.5" size={28} style={{ minWidth: '28px' }} />
-          {home.main.section_1.heading}
+        <h1 className={`flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center bg-darkGreen ${styles.section__title}`}>
+          <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-3xl leading-[2.5rem]">{home.main.section_1.heading}</span>
         </h1>
 
-        <div className={`flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0`}>
-          <div className="w-full lg:w-1/2 p-10 lg:border-r-8 border-black">
+        <div className={`pt-10 pb-20 px-16 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
+          <div className={`flex gap-20 mx-auto `}>
+            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+              <IconPlant size={80} strokeWidth={1} />
+              <span className={`text-xl font-medium leading-[2.1rem]`}>
+                {home.main.section_1.description.list[0]}
+              </span>
+            </div>
+            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+              <IconChartPie size={80} strokeWidth={1} />
+              <span className={`text-xl font-medium leading-[2.1rem]`}>
+                {home.main.section_1.description.list[0]}
+              </span>
+            </div>
+            <div className={`flex flex-col gap-4 max-w-[32ch] `}>
+              <IconTimeline size={80} strokeWidth={1} />
+              <span className={`text-xl font-medium leading-[2.1rem]`}>
+                {home.main.section_1.description.list[0]}
+              </span>
+            </div>
+          </div>
+          
+          {/* <div className="w-full lg:w-1/2 p-10">
             <div className={`prose prose-lg leading-normal ${styles.section__body}`}>
               <p>
                 {home.main.section_1.description.intro}
               </p>
               <div className="">
-                <ul className="flex flex-col pl-4 border-l-0 border-black">
+                <ul className="flex flex-col pl-4">
                   {home.main.section_1.description.list.map((item, i) => (
                     <li key={i} className="mb-0 font-bold">{item}</li>
                   ))}
-                  {/* <li className="mb-0 font-bold">
-                    Estimar valores de danos ambientais para apoiar a
-                    definição de compensações e indenizações;
-                  </li>
-                  <li className="mb-0 font-bold">
-                    Estimar níveis eficientes de investimentos para
-                    planejamento e prevenção de impactos;
-                  </li>
-                  <li className="mb-0 font-bold">
-                    Estimar receitas potenciais que o Estado poderia ter com
-                    seus ativos florestais.
-                  </li> */}
                 </ul>
               </div>
 
@@ -139,9 +152,9 @@ export default function Home() {
                 {home.main.section_1.description.conclusion}
               </p>
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex items-center justify-center w-full lg:w-1/2 bg-black border-t-8 lg:border-t-0 border-black">
+          {/* <div className="flex items-center justify-center w-full lg:w-1/2 bg-black">
             {!showVideo
               ? <div className="flex items-center w-full h-full bg-white max-w-[943px] cursor-pointer" onClick={() => setShowVideo(true)}>
                   <img
@@ -164,62 +177,74 @@ export default function Home() {
                   ></iframe>
                 </div>
             }
-          </div>
+          </div> */}
         </div>
 
-        <h1 className={`flex text-2xl md:text-2xl font-bold p-10 border-t-8 border-black gap-4 items-center ${styles.section__title}`}>
-          <RiPlantLine strokeWidth="0.5" size={28} style={{ minWidth: '28px' }} /> {home.main.section_2.heading}
+        {/* <h1 className={`flex text-2xl md:text-2xl font-bold p-10 gap-4 items-center ${styles.section__title}`}>
+          {home.main.section_2.heading}
+        </h1> */}
+
+        <h1 className={`flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center bg-neutral100 ${styles.section__title}`}>
+          <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-3xl leading-[2.5rem]">{home.main.section_2.heading}</span>
         </h1>
 
-        <div className="mt-0 pt-0 pb-0 px-4 lg:px-0 border-y-8 border-black">
-          <div className="mx-auto p-0">
-            <div className="flex flex-col lg:flex-row justify-between p-0 gap-0">
-              <div className="flex flex-col justify-start items-start p-6 sm:p-12 bg-white border-b-4 lg:border-b-0 lg:pb-0 gap-4 shadow-none lg:w-1/2 lg:border-r-0 border-black">
-                <div className="flex flex-col items-start">
-                  {/* <img className="h-32 mx-auto pt-8" src="/images/ico1.svg" /> */}
-                  <Image
-                    className=" pt-8"
-                    src="/images/restauracao.png"
-                    alt="CSF Logo"
-                    width={88}
-                    height={88}
-                    // sizes="(max-width: 1024px) 40px, 64px"
-                    priority
-                  />
-                  {/* <div className="w-1/2 lg:w-2/3 mx-auto text-2xl xl:text-3xl font-bold mt-0 border-b-2 border-black px-4 py-4 text-center"> */}
-                  <div className={`w-full mx-auto text-2xl font-bold mt-0 py-4 text-left ${styles.section__title}`}>
-                    {home.main.section_2.subsection_1.title}
-                  </div>
-                </div>
-                <div className={`text-left prose prose-lg pb-4 ${styles.section__body}`}> 
-                  {home.main.section_2.subsection_1.description}
+        <div className={`flex flex-col bg-neutral100`}>
+          <div className={`flex gap-20 mx-auto `}>
+            <div className="w-full flex flex-col justify-start items-start p-6 sm:p-12 sm:py-6 bg-neutral200 gap-4 shadow-none lg:max-w-[55ch]">
+              <div className="flex flex-col items-start">
+                {/* <img className="h-32 mx-auto pt-8" src="/images/ico1.svg" /> */}
+                <Image
+                  className=" pt-8"
+                  src="/images/restauracao.png"
+                  alt="CSF Logo"
+                  width={88}
+                  height={88}
+                  // sizes="(max-width: 1024px) 40px, 64px"
+                  priority
+                />
+                {/* <div className="w-1/2 lg:w-2/3 mx-auto text-2xl xl:text-3xl font-bold mt-0 border-b-2 border-black px-4 py-4 text-center"> */}
+                <div className={`w-full mx-auto text-2xl font-bold mt-0 py-4 text-left ${styles.section__title}`}>
+                  {home.main.section_2.subsection_1.title}
                 </div>
               </div>
-
-              <div className="flex flex-col justify-start items-start bg-white p-6 sm:p-12 border-0 gap-4 shadow-none lg:w-1/2 lg:border-l-8 border-black">
-                <div className="flex flex-col items-start">
-                  {/* <img className="h-32 mx-auto pt-8" src="/images/ico2.svg" /> */}
-                  <Image
-                    // className="mx-auto pt-8 mt-[-26px]"
-                    className="pt-[24px]"
-                    src="/images/serv-ecossistemicos.png"
-                    alt="CSF Logo"
-                    width={100}
-                    height={100}
-                    // sizes="(max-width: 1024px) 40px, 64px"
-                    priority
-                  />
-                  <div className={`w-full mx-auto text-2xl font-bold mt-0 py-4 text-left ${styles.section__title}`}>
-                    {home.main.section_2.subsection_2.title}
-                  </div>
+              <div className={`text-left prose prose-lg pb-4 ${styles.section__body}`}> 
+                {home.main.section_2.subsection_1.description}
+              </div>
+            </div>
+            <div className="w-full flex flex-col justify-start items-start p-6 sm:p-12 sm:py-6 bg-neutral200 gap-4 shadow-none lg:max-w-[55ch]">
+              <div className="flex flex-col items-start">
+                <Image
+                  className="pt-[24px]"
+                  src="/images/serv-ecossistemicos.png"
+                  alt="CSF Logo"
+                  width={100}
+                  height={100}
+                  priority
+                />
+                <div className={`w-full mx-auto text-2xl font-bold mt-0 py-4 text-left ${styles.section__title}`}>
+                  {home.main.section_2.subsection_2.title}
                 </div>
-                <div className={`text-left prose prose-lg pb-4 ${styles.section__body}`}>
-                  {home.main.section_2.subsection_2.description}
-                </div>
+              </div>
+              <div className={`text-left prose prose-lg pb-4 ${styles.section__body}`}>
+                {home.main.section_2.subsection_2.description}
               </div>
             </div>
           </div>
+
+          <div>
+            <Image
+              // className="pt-[24px]"
+              src="/images/info-home.svg"
+              alt="Infográfico"
+              width={1536}
+              height={3264.48}
+              priority
+            />
+          </div>
+          
         </div>
+
+        
       </main>
     </>
   )

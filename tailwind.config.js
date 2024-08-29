@@ -27,14 +27,19 @@ module.exports = {
         /* Final colors */
         /*****************/
 
+        // Main colors
+        lightGreen: '#5C8D4A',
+        mediumGreen: '#558448',
+        darkGreen: '#101917',
+        neutral100: '#FCF8F8',
+        neutral200: '#F7EEEE',
+
         // BarsData.js
         lowValueColor: '#FFB65C',
         highValueColor: '#E07B00',
         barLabelBorderColor: '#646464',
 
         //Results.js
-        // infoRectColor: '#BFDDCE',
-        // infoRectColor: '#E6E6E6',
         detailedInfoRectColor: '#DADADA',
 
         //HighlightedCost.js
@@ -50,29 +55,15 @@ module.exports = {
         highValueColor: '#B62616',
         lowValueLightColor: '#E6E6E6',
         highValueLightColor: '#A6A6A6',
-        // red
+
         recValueColor: '#EA6557',
         envValueColor: '#C6402F',
-        // green
-        // recValueColor: '#5A8A70',
-        // envValueColor: '#0B5B3E',
-
-        // optValueColor: '#75A8E6',
-        // recValueColor: '#EA6557',
-        // envValueColor: '#B62616',
-        // optValueColor: '#75A8E6',
-        //blue
-        // optValueColor: '#3E7CB1',
-        // red
-        // optValueColor: '#EA6557',
-        // green
+        
         optValueColor: '#5A8A70',
         recValueTooltipColor: '#F8CDC8',
         envValueTooltipColor: '#E2A8A2',
         recValueTooltipHoverColor: '#F08B80',
         envValueTooltipHoverColor: '#CC675C',
-        // recPercentValueColor: '#A32314',
-        // envPercentValueColor: '#6D170D',
         recPercentValueColor: '#250804',
         envPercentValueColor: '#250804',
         barLabelColor: '#000000',
