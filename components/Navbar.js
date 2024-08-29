@@ -242,16 +242,22 @@ export default function Navbar() {
               </MenuItem>
             </StyledMenu>
             <Divider orientation="vertical" color="#F7EEEE" sx={{ opacity: 0.3, width: '1.5px' }} flexItem />
-            <Image
-              // className="w-14"
-              className="opacity-[0.6] ml-2"
-              src="/images/logo.svg"
-              alt="CSF Logo"
-              width={34}
-              height={34}
-              sizes="(max-width: 1024px) 40px, 34px"
-              priority
-            />
+            <a
+            href="https://www.conservation-strategy.org/"
+            target="_blank"
+            className="cursor-pointer"
+            >
+              <Image
+                // className="w-14"
+                className="opacity-[0.6] ml-2"
+                src="/images/logo.svg"
+                alt="CSF Logo"
+                width={34}
+                height={34}
+                sizes="(max-width: 1024px) 40px, 34px"
+                priority
+              />
+            </a>
           </div>
         </div>
       </div>
