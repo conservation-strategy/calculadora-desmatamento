@@ -105,12 +105,12 @@ export default function Navbar() {
         <div className="justify-start items-end pl-2">
           {" "}
           {/*Left area*/}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-12">
             <button>
               <Link href="/">
                 <Image
-                  className="w-10 lg:w-16"
-                  src="/images/logo.svg"
+                  className="w-[70px]"
+                  src="/images/Desmatamento_VersãoInvertida.svg"
                   alt="CSF Logo"
                   width={64}
                   height={64}
@@ -119,10 +119,21 @@ export default function Navbar() {
                 />
               </Link>
             </button>
-            <span className="text-white font-bold text-[1.125rem]">
+            {/* <span className="text-white font-bold text-[1.125rem]">
               {navbar.title_CSF}
-            </span>
+            </span> */}
           </div>
+        </div>
+        <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
+        {/* center-area */}
+              {" "}
+              <ul className="flex gap-8 min-[1280px]:gap-14 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
+                {navbar.menu.map((item) => (
+                  <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
+                    <Link href={item.href}>{item.label}</Link>
+                  </li>
+                ))}                
+              </ul>
         </div>
 
         <div className="block lg:hidden text-white">
@@ -186,12 +197,12 @@ export default function Navbar() {
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
-          <ul className="flex gap-6 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
+          {/* <ul className="flex gap-6 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
               </li>
-            ))}
+            ))} */}
             {/* <li className="hover:underline underline-offset-8 hover:text-white">
               <Link href="/calculadora">Calculadora</Link>
             </li>
@@ -207,7 +218,7 @@ export default function Navbar() {
             {/* <li className="hover:underline underline-offset-8 hover:text-white">
               <Link href="/contato">Contato</Link>
             </li> */}
-          </ul>
+          {/* </ul> */}
           <button 
             className={`${styles.language} relative uppercase text-[0.875rem] text-white font-semibold flex items-center gap-1`}
             // onClick={onChangeLanguage}
@@ -238,6 +249,15 @@ export default function Navbar() {
               English
             </MenuItem>
           </StyledMenu>
+          <Image
+                    className="w-14"
+                    src="/images/logo.svg"
+                    alt="CSF Logo"
+                    width={64}
+                    height={64}
+                    sizes="(max-width: 1024px) 40px, 64px"
+                    priority
+                />
         </div>
       </div>
     </div>
