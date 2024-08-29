@@ -16,6 +16,7 @@
     "@next/font": "13.5.3",
     "@sparticuz/chromium": "^123.0.1",
     "@tabler/icons": "^3.14.0",
+    "@tabler/icons-react": "^3.14.0",
     "apexcharts": "^3.49.2",
     "html-to-image": "^1.11.11",
     "next": "13.5.3",
