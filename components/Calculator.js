@@ -35,6 +35,7 @@ import Results from "./Results";
 import { lucroPecuaria, lucroSoja } from "../utils/globals";
 import { useContext } from "react";
 import { Language, useQuotation } from "../context/provider"
+import Header2 from "./Header2"
 
 // const densidadeDemograficaTeste = 10;
 
@@ -284,53 +285,14 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40">
-        <div
-          className="pt-32 bg-cover bg-center px-5 lg:px-0 bg-black"
-          //style={{ backgroundImage: `url("/images/test1.png")` }}
-        >
-          <div className="flex mx-auto items-center border-b-0 border-black">
-            <div className="flex mx-auto items-center border-b-8 border-black">
-              <div className="flex flex-col lg:flex-row w-full items-center justify-between text-white pt-16 lg:pt-16 pb-10 px-4 lg:px-10 lg:pb-10 gap-10 lg:gap-0">
-                <div className="text-lg font-light text-left mb-0 pt-0 lg:w-1/2">
-                  {calculadora.description.article + " "}
-                  <span className="font-bold">
-                    {calculadora.description.name + " "}
-                  </span>
-                  {calculadora.description.description}
-                </div>
-                <div className="hidden mx-auto gap-8">
-                  <Button
-                    className="bg-green-400 hover:bg-green-100 py-4 px-8 text-green-900 font-bold"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    href="/"
-                    target="_blank"
-                  >
-                    CALCULATOR
-                  </Button>
-                  <Button
-                    className="bg-green-400 hover:bg-green-100 py-4 px-8 text-green-900 font-bold"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    href="/"
-                    target="_blank"
-                  >
-                    GUIA DE USO
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Header2 title={"Calculadora"} image="images/header2_bg_1.png" bgPosition={'center'} />
 
-        <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
+        {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {calculadora.heading}
-        </h1>
+        </h1> */}
 
-        <div className="flex flex-col md:flex-row h-auto mx-0 md:mx-auto justify-between border-b-8 border-black items-stretch">
+        <div className="flex flex-col md:flex-row h-auto mx-0 md:mx-auto justify-between border-y-8 border-black items-stretch">
           {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
           <div className={`flex w-full md:w-2/3 md:border-r-8 md:flex-grow border-black`}>
             <div className="mb-0 text-xl prose px-8 py-4">

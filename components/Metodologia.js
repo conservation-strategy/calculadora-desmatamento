@@ -33,14 +33,13 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40 pb-10 border-b-8 border-black">
-        <Header2/>
-
-        <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
+        <Header2 title={"Metodologia"} image="images/header2_bg_1.png" bgPosition={'center'}/>
+        {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {metodologia.heading}
-        </h1>
+        </h1> */}
 
-        <div className="px-10 pt-10 prose prose-sm md:prose-lg">
+        <div className="px-10 py-10 md:py-16 prose prose-sm md:prose-lg max-w-none border-black border-t-8">
         <h2>{metodologia.main.heading}</h2>
         <p>
           {metodologia.main.first_paragraph}
@@ -79,10 +78,10 @@ export default function Calculate() {
           <strong>{metodologia.footnote.heading}</strong>
           <br/>
           {metodologia.footnote.lines.map((item, i) => (
-            <div key={i}>
+            <span key={i}>
             {item}
             <br/>
-            </div>
+            </span>
           ))}
           {/* Conservação Estratégica (CSF) e Center for Climate Crimes Analysis (CCCA) (2022) Caso Casino: A Ligação entre o abastecimento de carne do Grupo Casino. Desmatamento e violações de direitos dos povos que habitam a Terra Indígena Uru-Eu-Wau-Wau na Amazônia Brasileira. 
           <br/>

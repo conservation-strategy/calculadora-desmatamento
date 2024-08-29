@@ -32,19 +32,19 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40 pb-10 border-b-8 border-black">
-        <Header2/>
+        <Header2 title={"Equipe"} image="images/header2_bg_2.png" bgPosition={'top'}/>
 
-        <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
+        {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {equipe.heading}
-        </h1>
+        </h1> */}
 
-        <div className="pl-10 pt-10 prose prose-sm md:prose-lg">
+        <div className="pl-10 py-10 md:py-16 border-black border-t-8 prose prose-sm md:prose-lg text-justify max-w-none">
         
           <div className='flex flex-col gap-8'>
             {equipe.areas.map((item) => (
               <div key={item.title}>
-                <strong>{item.title}</strong>
+                <span className="text-xl md:text-2xl font-bold">{item.title}</span>
                 <br/>
                 {item.team.map((member) => (
                   <div key={item.title + member}>
