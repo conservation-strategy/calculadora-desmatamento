@@ -138,7 +138,7 @@ export default function Footer() {
               &#169; CSF All rights reserved
             </div> */}
           </div>
-          <div className="flex gap-12 text-gray-500">
+          <div className="flex gap-8 min-[425px]:gap-12 text-gray-500">
             <a
                 className="hover:text-white"
                 href="https://www.linkedin.com/company/conservationstrategyfund/"
