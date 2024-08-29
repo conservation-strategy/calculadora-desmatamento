@@ -30,7 +30,7 @@ export default function Home() {
           style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
           <div className={styles.filter}></div>
-          <div className={`flex mx-auto px-4 items-center h-full`}>
+          <div className={`max-w-screen-sm md:max-w-screen-2xl flex mx-auto px-4 items-center h-full`}>
             <div className="flex flex-col w-full items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 px-4 lg:px-12 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
               <h1 className={`text-2xl md:text-4xl font-light text-left mb-2 pt-0 md:w-2/3 xl:w-[34ch] z-10`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
                 {home.hero.text.article + " "}
@@ -109,9 +109,11 @@ export default function Home() {
           
         </div>
 
-        <h1 className={`flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center bg-darkGreen ${styles.section__title}`}>
-          <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-3xl leading-[2.5rem]">{home.main.section_1.heading}</span>
-        </h1>
+        <div className="w-full bg-darkGreen"> 
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center${styles.section__title}`}>
+            <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-3xl leading-[2.5rem]">{home.main.section_1.heading}</span>
+          </h1>
+        </div>
 
         <div className={`pt-10 pb-20 px-16 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
           <div className={`flex gap-20 mx-auto `}>
@@ -184,9 +186,11 @@ export default function Home() {
           {home.main.section_2.heading}
         </h1> */}
 
-        <h1 className={`flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center bg-neutral100 ${styles.section__title}`}>
-          <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-3xl leading-[2.5rem]">{home.main.section_2.heading}</span>
-        </h1>
+        <div className="w-full bg-neutral100"> 
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-16 py-20 gap-4 items-center ${styles.section__title}`}>
+            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-3xl leading-[2.5rem]">{home.main.section_2.heading}</span>
+          </h1>
+        </div>
 
         <div className={`flex flex-col bg-neutral100`}>
           <div className={`flex gap-20 mx-auto `}>
@@ -231,7 +235,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="mx-auto mt-4">
             <Image
               // className="pt-[24px]"
               src="/images/info-home.svg"

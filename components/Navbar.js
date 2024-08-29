@@ -121,7 +121,7 @@ export default function Navbar() {
         ${hasScrolled ? 'opacity-90' : 'opacity-100'}
       `}
     > 
-      <div className="mx-auto w-full flex gap-12 justify-between items-center">
+      <div className="max-w-screen-sm md:max-w-screen-2xl mx-auto w-full flex gap-12 justify-between items-center">
         <div className="justify-start items-end pl-2">
           {" "}
           {/*Left area*/}
