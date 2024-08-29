@@ -56,6 +56,8 @@ export default function Navbar() {
   const { content, language, setLanguage } = useContext(Language);
   const { navbar } = content;
 
+  const [hasScrolled, setHasScrolled] = useState(false);
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [languageMenuAnchorEl, setLanguageMenuAnchorEl] = useState(null);
   const open = Boolean(languageMenuAnchorEl);
@@ -67,7 +69,6 @@ export default function Navbar() {
     setLanguageMenuAnchorEl(null);
   };
 
-
   const handleChangeLanguage = (language) => {
     if(language === PORTUGUES)
       setLanguage(PORTUGUES);
@@ -77,6 +78,20 @@ export default function Navbar() {
       console.error('wrong language context');
     handleLanguageMenuClose();
   }
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 0) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -100,7 +115,12 @@ export default function Navbar() {
   }
 
   return (
-    <div className="container-lg sticky top-0 flex py-6 px-10 bg-black bg-opacity-90 z-20">
+    <div 
+      className={`
+        container-lg sticky top-0 flex py-6 px-14 bg-[#0A0F0F] bg-opacity-100 z-20 transition-opacity duration-300
+        ${hasScrolled ? 'opacity-90' : 'opacity-100'}
+      `}
+    > 
       <div className="mx-auto w-full flex gap-12 justify-between items-center">
         <div className="justify-start items-end pl-2">
           {" "}
@@ -133,7 +153,7 @@ export default function Navbar() {
         {/* overlay */}
         {
           <div
-            className={`fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-90 flex flex-col justify-between items-center transition-opacity duration-300 ease-in-out ${
+            className={`fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col justify-between items-center transition-opacity duration-300 ease-in-out ${
               isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >

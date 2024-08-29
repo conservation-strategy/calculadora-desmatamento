@@ -50,9 +50,9 @@
                         "description": {
                             "intro": "A Calculadora de Impactos do Desmatamento pode ser utilizada para três finalidades principais:",
                             "list":[
-                                "Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações;",
-                                "Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;",
-                                "Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais."
+                                "Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações",
+                                "Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos",
+                                "Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais"
                             ],
                             "conclusion": "Caso não tenha informações específicas, serão incluídos automaticamente valores médios de contexto e impacto e resultados e suas explicações serão gerados na sequência."
                         }

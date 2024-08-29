@@ -52,7 +52,7 @@ export default function LanguageToggle({ onLanguageChange }) {
           border: (theme) => `1px solid ${theme.palette.divider}`,
           flexWrap: 'wrap',
           width: 'fit-content',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backgroundColor: '#0A0F0F',
           border: '1px solid rgba(255, 255, 255, 0.5)',
         }}
       >
