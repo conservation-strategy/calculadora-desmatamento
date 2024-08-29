@@ -182,15 +182,22 @@ export default function Footer() {
           </div>
         </div>
         <div className="opacity-50 border-t-[1px] border-[#404040] px-14 pt-4 mb-2 flex gap-6 w-full justify-center items-center pb-2 text-sm text-white font-medium">
-          <Image
-            src="/images/logo.svg"
-            alt="CSF Logo"
-            width={36}
-            height={36}
-            sizes="(max-width: 1024px) 40px, 64px"
-            priority
-          />
-          &#169; CSF All rights reserved
+          <a
+            className="hover:text-white"
+            href="https://www.conservation-strategy.org/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              src="/images/logo.svg"
+              alt="CSF Logo"
+              width={36}
+              height={36}
+              sizes="(max-width: 1024px) 40px, 64px"
+              priority
+            />
+            &#169; CSF All rights reserved
+          </a>
         </div>
       </div>
     </div>
