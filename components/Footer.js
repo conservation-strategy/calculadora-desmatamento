@@ -19,69 +19,9 @@ export default function Footer() {
   return (
     <div className="container-lg p-0 mb-0 bg-black bg-opacity-100 px-0 lg:px-0">
       <div className="mx-auto max-w-screen-sm md:max-w-screen-2xl  flex flex-col gap-0 text-white">
-        {/* <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 py-10 text-xs tracking-widest font-semibold uppercase text-gray-200 text-center">
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/calculadora">Calculadora</Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/sobre">Sobre</Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/guias-de-uso">Guia de uso</Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/metodologia">Metodologia </Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/publicacoes">Publicações</Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/equipe">Equipe </Link>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="hover:underline underline-offset-8 hover:text-gray-300">
-              <Link href="/contato">Contato</Link>
-            </div>
-          </div>
-        </div> */}
-
         <div className="container-lg flex flex-col md:flex-row gap-8 justify-between items-center py-6 bg-black px-14 ">
           <div>
             <div className="flex items-center gap-12 md:gap-12">
-              {/* <a
-                className="hover:text-white"
-                href="https://www.conservation-strategy.org/"
-                target="_blank"
-                rel="noreferrer"
-              > */}
-                {/* <Image
-                      className="w-16"
-                      src="/images/logo.svg"
-                      alt="CSF Logo"
-                      width={64}
-                      height={64}
-                      sizes="(max-width: 1024px) 40px, 64px"
-                      priority
-                /> */}
               <div 
               className="cursor-pointer"
               onClick={handleIconClick}
@@ -196,8 +136,8 @@ export default function Footer() {
               sizes="(max-width: 1024px) 40px, 64px"
               priority
             />
-            &#169; CSF All rights reserved
           </a>
+          &#169; CSF All rights reserved
         </div>
       </div>
     </div>
