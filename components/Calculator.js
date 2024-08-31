@@ -14,6 +14,7 @@ import FormControl from "@mui/material/FormControl"
 import InputLabel from "@mui/material/InputLabel"
 import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from "react";
 import { 
   custoTotalAssoreamento, 
@@ -37,7 +38,17 @@ import { useContext } from "react";
 import { Language, useQuotation } from "../context/provider"
 import Header2 from "./Header2"
 
-// const densidadeDemograficaTeste = 10;
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff'
+    },
+    secondary: {
+      main: '#5C8D4A'
+    },
+  },
+});
+
 
 export default function Calculate() {
   //fetched data
@@ -292,19 +303,23 @@ export default function Calculate() {
           {calculadora.heading}
         </h1> */}
 
-        <div className="flex flex-col md:flex-row h-auto mx-0 md:mx-auto justify-between border-y-8 border-black items-stretch">
+        <div className="flex flex-col lg:flex-row h-auto mx-0 md:mx-auto justify-between items-stretch pt-16 pb-16 max-[500px]:px-8 px-14 bg-darkGreen">
           {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
-          <div className={`flex w-full md:w-2/3 md:border-r-8 md:flex-grow border-black`}>
-            <div className="mb-0 text-xl prose px-8 py-4">
-              <h3 className="py-1 font-bold text-[1.4rem]">{calculadora.guia.heading}</h3>
-              <div className="">
-                <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0 }, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}  }}>
+          <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow`}>      
+            <h1 className={`font-bold gap-4 items-center`}>
+              <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{calculadora.guia.heading}</span>
+            </h1>
+            {/* <h3 className="py-1 font-bold text-[1.4rem]">{calculadora.guia.heading}</h3> */}
+            <div className="mb-0 text-xl prose px-8 py-4">              
+              <div className="text-white">
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff','&.MuiAccordion-root': { boxShadow: 'none', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0 }, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}  }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
+                    sx={{ color: '#ffffff' }}
                   >
-                    <span className="text-base font-bold">{calculadora.guia.local.title}</span>
+                    <span className="text-lg font-bold">{calculadora.guia.local.title}</span>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography variant="body2" component="div">
@@ -318,7 +333,7 @@ export default function Calculate() {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -355,7 +370,7 @@ export default function Calculate() {
                     </Typography>
                   </AccordionDetails>
                 </Accordion> */}
-                <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -374,7 +389,7 @@ export default function Calculate() {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -395,7 +410,7 @@ export default function Calculate() {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1 , px: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1 , px: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -415,7 +430,7 @@ export default function Calculate() {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion sx={{ '&.MuiAccordion-root': { mb: 3, boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.17)', p: 1, px: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
+                <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { mb: 3, boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.17)', p: 1, px: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -441,12 +456,14 @@ export default function Calculate() {
               
             </div>
           </div>
-
-          <div className="flex flex-col gap-1 w-full md:w-1/2 mx-auto py-5">
-            <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3>
+          
+          {/* inputs */}
+          <div className="flex flex-col gap-1 w-full h-fit lg:w-1/2 mx-auto py-5 text-white bg-[#717171]">
+            {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
             <div className="flex flex-col mx-8 my-4 gap-4">
+              <ThemeProvider theme={theme} >
               <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="success" error={hasError && app === ''}>
+                  <InputLabel id="" error={hasError && app === ''} sx={{ color: '#ffffff' }}>
                     {calculadora.inputs.valores_medios.title}
                   </InputLabel>
                   <Select
@@ -455,16 +472,17 @@ export default function Calculate() {
                     value={valoresMedios}
                     onChange={(event) => handleChange('valoresMedios', event.target.value)}
                     label="Retort"
-                    color="success"
+                    color="primary"
+                    // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
                   >
-                    <MenuItem value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
+                    <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
                     <MenuItem value={false}>{calculadora.inputs.valores_medios.values[1]}</MenuItem>
                   </Select>
               </FormControl>
               {(valoresMedios === false) && 
               <div className="flex grid-cols-2 gap-4 justify-between">
                 <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="success" error={hasError && uf === ''}>
+                  <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#ffffff'}}>
                     {calculadora.inputs.UF}
                   </InputLabel>
                   <Select
@@ -473,7 +491,7 @@ export default function Calculate() {
                     value={uf}
                     onChange={(event) => handleChange('uf', event.target.value)}
                     label="Estado"
-                    color="success"
+                    color="primary"
                     disabled={!listaUf.length}
                   >
                     {listaUf.map((uf, i) => (
@@ -482,7 +500,7 @@ export default function Calculate() {
                   </Select>
                 </FormControl>
                 <FormControl className="w-full" variant="standard" error={hasError && municipio === ''}>
-                  <InputLabel id="" color="success">
+                  <InputLabel id="" color="primary" sx={{ color: '#ffffff'}}>
                     {calculadora.inputs.mun}
                   </InputLabel>
                   <Select
@@ -491,7 +509,7 @@ export default function Calculate() {
                     value={municipio}
                     onChange={(event) => handleChange('municipio', event.target.value)}
                     label="Município"
-                    color="success"
+                    color="primary"
                     disabled={!listaMunicipios.length}
                   >
                     {listaMunicipios.map((mun, i) => (
@@ -505,13 +523,14 @@ export default function Calculate() {
                   id="standard-basic"
                   label={calculadora.inputs.area}
                   variant="standard"
-                  color="success"
+                  color="primary"
                   className="w-full"
                   onChange={(event) => handleChange('area', Number(event.target.value))}
                   error={hasError && !area}
+                  sx={{ color: '#ffffff'}}
                 />
                 <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="success" error={hasError && app === ''}>
+                  <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#ffffff'}}>
                     {calculadora.inputs.app}
                   </InputLabel>
                   <Select
@@ -520,7 +539,7 @@ export default function Calculate() {
                     value={app}
                     onChange={(event) => handleChange('app', event.target.value)}
                     label="Retort"
-                    color="success"
+                    color="primary"
                   >
                     <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
                     <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
@@ -528,7 +547,7 @@ export default function Calculate() {
                 </FormControl>
               </div>              
               {/* <FormControl className="w-full" variant="standard">
-                <InputLabel id="" color="success" error={hasError && preservacao === ''}>
+                <InputLabel id="" color="primary" error={hasError && preservacao === ''}>
                   Área prioritária para preservação
                 </InputLabel>
                 <Select
@@ -537,14 +556,14 @@ export default function Calculate() {
                   value={preservacao}
                   onChange={(event) => handleChange('preservação', event.target.value)}
                   label="Unit(s) of measurement"
-                  color="success"
+                  color="primary"
                 >
                   <MenuItem value={true}>Sim</MenuItem>
                   <MenuItem value={false}>Não</MenuItem>
                 </Select>
               </FormControl> */}
               <FormControl className="w-full" variant="standard">
-                <InputLabel id="" color="success" error={hasError && recreacao === ''}>
+                <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
                   {calculadora.inputs.recreacao}
                 </InputLabel>
                 <Select
@@ -553,14 +572,14 @@ export default function Calculate() {
                   value={recreacao}
                   onChange={(event) => handleChange('recreação', event.target.value)}
                   label="Unit(s) of measurement"
-                  color="success"
+                  color="primary"
                 >
                   <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
                   <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
                 </Select>
               </FormControl>
               <FormControl className="w-full" variant="standard">
-                <InputLabel id="" color="success" error={hasError && recreacao === ''}>
+                <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
                   {calculadora.inputs.uso_solo.title}
                 </InputLabel>
                 <Select
@@ -569,14 +588,14 @@ export default function Calculate() {
                   value={usoPosterior}
                   onChange={(event) => handleChange('usoPosterior', event.target.value)}
                   label="Unit(s) of measurement"
-                  color="success"
+                  color="primary"
                 >
                   <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
                   <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
                 </Select>
               </FormControl>     
               <FormControl className="w-full" variant="standard">
-                <InputLabel id="" color="success" error={hasError && legal === ''}>
+                <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#ffffff'}}>
                   {calculadora.inputs.legalidade.title}
                 </InputLabel>
                 <Select
@@ -585,14 +604,14 @@ export default function Calculate() {
                   value={legal}
                   onChange={(event) => handleChange('legal', event.target.value)}
                   label="Unit(s) of measurement"
-                  color="success"
+                  color="primary"
                 >
                   <MenuItem value={true}>Legal</MenuItem>
                   <MenuItem value={false}>Ilegal</MenuItem>
                 </Select>
               </FormControl>
               {(legal === false) && <FormControl className="w-full" variant="standard">
-                <InputLabel id="" color="success" error={hasError && (legal === false && restauracao === '')}>
+                <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#ffffff'}}>
                   {calculadora.inputs.restauracao.title}
                 </InputLabel>
                 <Select
@@ -601,12 +620,13 @@ export default function Calculate() {
                   value={restauracao}
                   onChange={(event) => handleChange('restauração', event.target.value)}
                   label="Unit(s) of measurement"
-                  color="success"
+                  color="primary"
                 >
                   <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
                   <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>
                 </Select>
               </FormControl>}
+              </ThemeProvider>
               {/* <Button
                 sx={{
                   boxShadow: "sm",
