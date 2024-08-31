@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
         </div> */}
 
-        <div className="container-lg flex flex-col md:flex-row gap-8 justify-between items-center py-6 bg-black px-14 ">
+        <div className="container-lg flex flex-col md:flex-row gap-8 justify-between items-center py-6 bg-black max-[500px]:px-8 px-14 ">
           <div>
             <div className="flex items-center gap-12 md:gap-12">
               {/* <a
@@ -181,7 +181,7 @@ export default function Footer() {
               </a>
           </div>
         </div>
-        <div className="opacity-50 border-t-[1px] border-[#404040] px-14 pt-4 mb-2 flex gap-6 w-full justify-center items-center pb-2 text-sm text-white font-medium">
+        <div className="opacity-50 border-t-[1px] border-[#404040] max-[500px]:px-8 px-14 pt-4 mb-2 flex gap-6 w-full justify-center items-center pb-2 text-sm text-white font-medium">
           <Image
             src="/images/logo.svg"
             alt="CSF Logo"
