@@ -133,9 +133,9 @@ export default function Navbar() {
                   // src="/images/Desmatamento_VersãoInvertida.svg"
                   src="/images/logo-desmatamento.svg"
                   alt="Calculadora Desmatamento Logo"
-                  width={60}
-                  height={60}
-                  sizes="(max-width: 1024px) 40px, 60px"
+                  width={64}
+                  height={64}
+                  sizes="(max-width: 1024px) 40px, 64px"
                   priority
                 />
               </Link>
