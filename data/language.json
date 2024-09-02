@@ -158,7 +158,12 @@
                         "values": ["Semeadura direta", "Regeneração natural"]
                     },
                     "true": "Sim",
-                    "false": "Não"
+                    "false": "Não",
+                    "errors": [
+                        "Ocorreu um erro inesperado!",
+                        "Todos os campos são obrigatórios. Por favor, preencha os campos vazios e depois tente novamente.",
+                        "O valor da área precisa ser um número positivo. Por favor, corrija a entrada e tente novamente."
+                    ]
                 },
                 "button": "Calcular"
             },
@@ -500,7 +505,12 @@
                         "values": ["Direct Seeding", "Natural Regeneration"]
                     },
                     "true": "Yes",
-                    "false": "No"
+                    "false": "No",
+                    "errors":[
+                        "An unexpected error ocurred!",
+                        "All the inputs are required. Please fill the empty fields and try again.",
+                        "The value for area must be a positive number. Please correct the entry and try again."
+                    ]
                 },
                 "button": "Calculate"
             },

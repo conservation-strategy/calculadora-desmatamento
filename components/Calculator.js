@@ -680,10 +680,10 @@ export default function Calculate() {
                   hasError &&
                   <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
                     {hasError === '001' 
-                     ? 'Todos os campos são obrigatórios. Por favor, preencha os campos vazios e depois tente novamente.'
+                     ? calculadora.inputs.errors[1]
                      : hasError === '002'
-                      ? 'Entre um valor numérico positivo para a área.'
-                      : 'Ocorreu um erro inesperado!'
+                      ? calculadora.inputs.errors[2]
+                      : calculadora.inputs.errors[0]
                     }
                   </Alert>
                 }
