@@ -518,7 +518,7 @@ export default function Calculate() {
                     </Select>
                   </FormControl>
                 </div>}
-                <div className="flex grid-cols-2 gap-4 justify-between">
+                <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
                   <TextField
                     id="standard-basic"
                     label={calculadora.inputs.area}
