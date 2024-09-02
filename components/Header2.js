@@ -11,12 +11,14 @@ function Header2({ title, image , bgPosition}) {
 
     return (
         <div
-            className={`flex items-center pt-24 pb-16 bg-cover bg-${bgPosition} max-[500px]:px-8 px-14 bg-black relative mt-20`}
+            className={`flex items-center justify-center pt-24 pb-16 bg-cover bg-${bgPosition} max-[500px]:px-8 px-14 bg-black relative mt-20`}
             style={{ backgroundImage: `url(${image})` }}
         >
             <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.6)]'></div>
-            <div className='font-bold text-2xl min-[375px]:text-[1.75rem] md:text-3xl text-white z-10 relative pt-10'>
-                {title}
+            <div className='w-full max-w-screen-sm md:max-w-screen-2xl z-10 relative'>
+                <div className='font-bold text-2xl min-[375px]:text-[1.75rem] md:text-3xl text-white pt-10'>
+                    {title}
+                </div>
             </div>
             {/* <div className="flex mx-auto items-center border-b-0 border-black">
                 <div className="flex mx-auto items-center border-b-8 border-black">
