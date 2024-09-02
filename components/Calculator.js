@@ -87,23 +87,11 @@ export default function Calculate() {
   console.log('quotation', quotation);
   // console.log(calculadora)
   useEffect(() => {
-    // const fetchListaUf = async () => {
-    //   const response = await fetch('/api/getUFList');
-    //   const data = await response.json();
-    //   setListaUf(data);
-    // }
-    // fetchListaUf();
     setListaUf(getUFList(data));
   }, [])
 
   useEffect(() => {
     if(!uf) return
-    // const fetchListaMunicipios = async() => {
-    //   const response = await fetch(`/api/filterMunicipios?uf=${uf}`);
-    //   const data = await response.json();
-    //   setListaMunicipios(data);
-    // }
-    // fetchListaMunicipios();
     setListaMunicipios(getMunicipioList(data, uf));
   }, [uf]);
   // console.log(listaMunicipios)
@@ -116,12 +104,6 @@ export default function Calculate() {
   
   useEffect(() => {
     if(!municipio) return
-    // const fetchDadosMunicipio = async() => {
-    //   const response = await fetch(`/api/getDadosMunicipio?municipio=${municipio}`);
-    //   const data = await response.json();
-    //   setDadosMunicipio(data);
-    // }
-    // fetchDadosMunicipio();
     setDadosMunicipio(data.find(entry => entry.Município === municipio));
   }, [municipio]);
   // console.log('dados municipio', dadosMunicipio);
@@ -145,6 +127,28 @@ export default function Calculate() {
     }
   }, [custoTotal]);
 
+  const inputValidation = () => {
+    if(
+      area === ''
+      || app === ''
+      || recreacao === ''
+      || usoPosterior === ''
+      || legal === ''
+    ) return { valid: false, error: '001' }; // empty inputs
+    if(
+      !valoresMedios && (!uf || !municipio)
+    ) return { valid: false, error: '001'} //empty inputs
+    if(
+      !legal && !restauracao
+    ) return { valid: false, error: '001'} //empty inputs
+    if(
+      !area
+      || isNaN(area)
+    ) return { valid: false, error: '002'} // invalid area
+
+    return { valid: true, error: null }
+  }
+
   const handleChange = (variable, value) => { 
     // console.log(variable, value);
     switch(variable) {
@@ -156,10 +160,10 @@ export default function Calculate() {
         break
       case 'area':
         // console.log('type', typeof value, value)
-        if(typeof value !== 'number' || isNaN(value) ) {
-          alert("Entre um valor numérico em hectares no campo 'Área'");
-          return
-        }
+        // if(typeof value !== 'number' || isNaN(value) ) {
+        //   alert("Entre um valor numérico em hectares no campo 'Área'");
+        //   return
+        // }
         setArea(value);
         break
       case 'restauração':
@@ -189,6 +193,13 @@ export default function Calculate() {
 
   const handleCalculate = () => {
     // checa se todos os inputs são validos
+    setHasError(false);
+    const v = inputValidation();
+    console.log('validation', v)
+    if(!v.valid) {
+      setHasError(v.error)
+      return
+    }
 
     setIsLoading(true);
     let _custoTotalAssoreamento,
@@ -463,7 +474,7 @@ export default function Calculate() {
               <div className="flex flex-col mx-8 my-4 gap-4">
                 <ThemeProvider theme={theme} >
                 <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" error={hasError && app === ''} sx={{ color: '#ffffff' }}>
+                    <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#ffffff' }}>
                       {calculadora.inputs.valores_medios.title}
                     </InputLabel>
                     <Select
@@ -667,7 +678,14 @@ export default function Calculate() {
                 </button>
                 {
                   hasError &&
-                  <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>Todos os campos são obrigatórios. Por favor, preencha os campos vazios e depois tente novamente.</Alert>
+                  <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
+                    {hasError === '001' 
+                     ? 'Todos os campos são obrigatórios. Por favor, preencha os campos vazios e depois tente novamente.'
+                     : hasError === '002'
+                      ? 'Entre um valor numérico positivo para a área.'
+                      : 'Ocorreu um erro inesperado!'
+                    }
+                  </Alert>
                 }
                 {/* <Typography variant="subtitle2">Todos os campos são obrigatórios. Por favor, preencha os campos vazios antes de submeter o cálculo.</Typography> */}
               </div>
