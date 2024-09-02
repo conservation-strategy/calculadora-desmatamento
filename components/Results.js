@@ -109,7 +109,7 @@ export default function Results({ custos, inputData }) {
   return (
     <div id="results" className="flex flex-col w-full bg-white"> 
       {/* <div className="px-8 py-10 flex items-center justify-between w-full mt-40 border-t-8 border-black"> */}
-      <div className="px-14 py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-4 max-[530px]:items-start">
+      <div className="max-[500px]:px-8 px-14 py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-4 max-[530px]:items-start">
         {/* <div className="flex items-center gap-4 text-[#5A8A70] text-2xl md:text-2xl font-bold ">
           <RiBarChart2Fill />
           <h3 className="font-bold text-2xl ">{results.heading}</h3>
