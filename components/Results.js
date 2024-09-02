@@ -206,7 +206,7 @@ export default function Results({ custos, inputData }) {
           />
         </div>
       </div>
-      <div className="px-14 py-10 flex items-center justify-end w-full border-b-8 border-black max-[530px]:justify-center">
+      <div className="px-8 py-10 flex items-center justify-end w-full border-b-8 border-black max-[530px]:justify-center">
         <div className="flex items-center">
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
