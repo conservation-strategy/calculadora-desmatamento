@@ -107,20 +107,23 @@ export default function Results({ custos, inputData }) {
   }
   
   return (
-    <div id="results" className="flex flex-col w-full"> 
+    <div id="results" className="flex flex-col w-full bg-white"> 
       {/* <div className="px-8 py-10 flex items-center justify-between w-full mt-40 border-t-8 border-black"> */}
-      <div className="px-8 py-10 flex items-center justify-between w-full border-b-8 border-black max-[530px]:flex-col max-[530px]:gap-4 max-[530px]:items-start">
-        <div className="flex items-center gap-4 text-[#5A8A70] text-2xl md:text-2xl font-bold ">
+      <div className="max-[500px]:px-8 px-14 py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-4 max-[530px]:items-start">
+        {/* <div className="flex items-center gap-4 text-[#5A8A70] text-2xl md:text-2xl font-bold ">
           <RiBarChart2Fill />
           <h3 className="font-bold text-2xl ">{results.heading}</h3>
-        </div>
+        </div> */}
+        <h1 className={`font-bold gap-4 items-center`}>
+              <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{results.heading}</span>
+        </h1>
         <div className="flex items-center">
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
       </div>
       {/* <div className="px-[4.5rem] py-10 flex flex-col gap-12 w-full"> */}
       {/* <div className="px-8 py-10 flex flex-col gap-24 w-full max-w-[1200px] mx-auto"> */}
-      <div className="px-8 pb-10 pt-24 flex flex-col gap-20 w-full">
+      <div className="px-8 pb-10 pt-16 flex flex-col gap-20 w-full">
         <div className='flex flex-col gap-8 w-full max-w-[1200px] mx-auto'>
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col'>
