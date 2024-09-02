@@ -231,8 +231,8 @@ export default function DetailedInfoEnvironmentCost({ className, data, descripti
   return (
     // <div className={`w-full flex flex-col gap-4 bg-detailedInfoRectColor rounded-lg px-8 py-6 text-lg font-medium text-black ${className}`}>
     <div className={`w-full flex flex-col gap-4 bg-transparent rounded-lg text-lg font-medium text-black ${className}`}>
-      <div className={`w-full flex gap-20 justify-between font-light ${roboto.className} max-[900px]:flex-col max-[900px]:gap-0`}>
-        <div className="w-[75ch] max-w-[75ch] flex flex-col gap-10">
+      <div className={`w-full flex gap-20 justify-between font-light ${roboto.className} max-[900px]:flex-col`}>
+        <div className="min-[900px]:w-[75ch] max-w-[75ch] flex flex-col gap-10">
           <p className="text-pretty tracking-wide leading-[170%] font-normal text-base">
             {description.detailed_info.description} 
           </p>
