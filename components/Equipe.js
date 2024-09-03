@@ -39,9 +39,9 @@ export default function Calculate() {
           {equipe.heading}
         </h1> */}
 
-        <div className="max-w-screen-sm md:max-w-screen-2xl pl-14 py-10 md:py-16 prose prose-sm md:prose-lg text-justify max-w-none">
+        <div className="max-w-screen-sm md:max-w-screen-2xl mx-auto box-content max-[500px]:px-8 px-14 py-10 md:py-16 prose prose-sm md:prose-lg max-w-none">
         
-          <div className='flex flex-col gap-8'>
+          <div className='flex flex-col gap-8 text-balance'>
             {equipe.areas.map((item) => (
               <div key={item.title}>
                 <span className="text-xl md:text-2xl font-bold">{item.title}</span>
