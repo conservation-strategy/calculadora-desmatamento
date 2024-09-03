@@ -76,7 +76,8 @@
                     "name": "Calculadora de Impactos do Desmatamento",
                     "description": "é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desmatamento na Amazônia"
                 },
-                "heading": "Calculadora",
+                "heading": "Calculadora de Impactos do Desmatamento",
+                "subheading_mobile": "Calculadora",
                 "guia": {
                     "heading": "Guia de uso",
                     "local":{
@@ -251,7 +252,7 @@
                     "carbono":"Perda de Sequestro de Carbono",
                     "erosao":"Erosão e Assoreamento",
                     "pmnm":"Perda de Produtos Madeireiros ou Não-Madeireiros",
-                    "recreacao":"Perda de Pportunidades de Recreação",
+                    "recreacao":"Perda de Oportunidades de Recreação",
                     "total_eco":"Total de custos relacionados à perda de serviços ecossistêmicos",
                     "recuperacao":"Custos de recuperação",
                     "total":"Total"                
@@ -259,7 +260,7 @@
 
             },
             "sobre": {
-                "heading": "Sobre",
+                "heading": "Sobre a Calculadora",
                 "section_1": {
                     "heading": "O que é",
                     "description": "A Calculadora de Impactos do Desmatamento é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desflorestamento da Amazônia. A ferramenta utiliza uma fórmula econômica que relaciona os efeitos esperados no ambiente e na sociedade com variáveis como a região analisada, a legalidade do desmatamento e a prioridade de conservação da área. A calculadora pode ser utilizada para três finalidades principais:",
@@ -425,6 +426,7 @@
                     "description": " is a tool designed to evaluate the social and environmental damage resulting from deforestation in the Amazon"
                 },
                 "heading": "Deforestation Impact Calculator",
+                "subheading_mobile": "Calculator",
                 "guia": {
                     "heading": "User guide",
                     "local":{

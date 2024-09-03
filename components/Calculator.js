@@ -308,18 +308,18 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40">
-        <Header2 title={"Calculadora"} image="images/header2_bg_1.png" bgPosition={'center'} />
+        <Header2 title={calculadora.heading} image="images/header2_bg_1.png" bgPosition={'center'} />
 
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {calculadora.heading}
         </h1> */}
         <div className="w-full flex justify-center">
-          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col lg:flex-row lg:gap-8 h-auto mx-0 justify-between items-stretch pt-16 pb-16 max-[500px]:px-8 px-14">
+          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col gap-4 lg:flex-row lg:gap-8 h-auto mx-0 justify-between items-stretch pt-16 pb-16 max-[500px]:px-8 px-14">
             {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
             <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow`}>      
               <h1 className={`font-bold gap-4 items-center`}>
-                <span className="pl-5 border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
+                <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
               </h1>
               {/* <h3 className="py-1 font-bold text-[1.4rem]">{calculadora.guia.heading}</h3> */}
               <div className="mb-0 text-xl prose px-8 pb-4 pt-6 max-[375px]:px-0">              
@@ -404,264 +404,269 @@ export default function Calculate() {
             </div>
             
             {/* inputs */}
-            <div className="flex flex-col gap-1 w-full h-fit lg:w-1/2 mx-auto py-5 text-white bg-[#717171]">
-              {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
-              <div className="flex flex-col mx-8 my-4 gap-4">
-                <ThemeProvider theme={theme} >
-                <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#ffffff' }}>
-                      {calculadora.inputs.valores_medios.title}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={valoresMedios}
-                      onChange={(event) => handleChange('valoresMedios', event.target.value)}
-                      label="Retort"
-                      color="primary"
-                      // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
-                    >
-                      <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
-                      <MenuItem value={false}>{calculadora.inputs.valores_medios.values[1]}</MenuItem>
-                    </Select>
-                </FormControl>
-                {(valoresMedios === false) && 
-                <div className="flex grid-cols-2 gap-4 justify-between">
+            <div className="w-full h-fit lg:w-1/2 mx-auto">
+              <h1 className={`font-bold gap-4 items-center lg:hidden`}>
+              <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading_mobile}</span>
+              </h1>
+              <div className="flex flex-col gap-1 text-white bg-[#717171] py-5 mt-10 lg:mt-0">
+                {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
+                <div className="flex flex-col mx-8 my-4 gap-4">
+                  <ThemeProvider theme={theme} >
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#ffffff'}}>
-                      {calculadora.inputs.UF}
+                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' } }}>
+                        {calculadora.inputs.valores_medios.title}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={valoresMedios}
+                        onChange={(event) => handleChange('valoresMedios', event.target.value)}
+                        label="Retort"
+                        color="primary"
+                        // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
+                      >
+                        <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
+                        <MenuItem value={false}>{calculadora.inputs.valores_medios.values[1]}</MenuItem>
+                      </Select>
+                  </FormControl>
+                  {(valoresMedios === false) && 
+                  <div className="flex grid-cols-2 gap-4 justify-between">
+                    <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.UF}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={uf}
+                        onChange={(event) => handleChange('uf', event.target.value)}
+                        label="Estado"
+                        color="primary"
+                        disabled={!listaUf.length}
+                      >
+                        {listaUf.map((uf, i) => (
+                          <MenuItem key={i} value={uf}>{uf}</MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                    <FormControl className="w-full" variant="standard" error={hasError && municipio === ''}>
+                      <InputLabel id="" color="primary" sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.mun}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={municipio}
+                        onChange={(event) => handleChange('municipio', event.target.value)}
+                        label="Município"
+                        color="primary"
+                        disabled={!listaMunicipios.length}
+                      >
+                        {listaMunicipios.map((mun, i) => (
+                          <MenuItem key={i} value={mun}>{mun}</MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </div>}
+                  <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
+                    <TextField
+                      id="standard-basic"
+                      label={calculadora.inputs.area}
+                      variant="standard"
+                      color="primary"
+                      className="w-full"
+                      onChange={(event) => handleChange('area', Number(event.target.value))}
+                      error={hasError && !area}
+                      sx={{ color: '#ffffff'}}
+                    />
+                    <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#ffffff'}}>
+                        {calculadora.inputs.app}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={app}
+                        onChange={(event) => handleChange('app', event.target.value)}
+                        label="Retort"
+                        color="primary"
+                      >
+                        <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
+                        <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>              
+                  {/* <FormControl className="w-full" variant="standard">
+                    <InputLabel id="" color="primary" error={hasError && preservacao === ''}>
+                      Área prioritária para preservação
                     </InputLabel>
                     <Select
                       labelId=""
                       id=""
-                      value={uf}
-                      onChange={(event) => handleChange('uf', event.target.value)}
-                      label="Estado"
+                      value={preservacao}
+                      onChange={(event) => handleChange('preservação', event.target.value)}
+                      label="Unit(s) of measurement"
                       color="primary"
-                      disabled={!listaUf.length}
                     >
-                      {listaUf.map((uf, i) => (
-                        <MenuItem key={i} value={uf}>{uf}</MenuItem>
-                      ))}
+                      <MenuItem value={true}>Sim</MenuItem>
+                      <MenuItem value={false}>Não</MenuItem>
                     </Select>
-                  </FormControl>
-                  <FormControl className="w-full" variant="standard" error={hasError && municipio === ''}>
-                    <InputLabel id="" color="primary" sx={{ color: '#ffffff'}}>
-                      {calculadora.inputs.mun}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={municipio}
-                      onChange={(event) => handleChange('municipio', event.target.value)}
-                      label="Município"
-                      color="primary"
-                      disabled={!listaMunicipios.length}
-                    >
-                      {listaMunicipios.map((mun, i) => (
-                        <MenuItem key={i} value={mun}>{mun}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </div>}
-                <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
-                  <TextField
-                    id="standard-basic"
-                    label={calculadora.inputs.area}
-                    variant="standard"
-                    color="primary"
-                    className="w-full"
-                    onChange={(event) => handleChange('area', Number(event.target.value))}
-                    error={hasError && !area}
-                    sx={{ color: '#ffffff'}}
-                  />
+                  </FormControl> */}
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#ffffff'}}>
-                      {calculadora.inputs.app}
+                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
+                      {calculadora.inputs.recreacao}
                     </InputLabel>
                     <Select
                       labelId=""
                       id=""
-                      value={app}
-                      onChange={(event) => handleChange('app', event.target.value)}
-                      label="Retort"
+                      value={recreacao}
+                      onChange={(event) => handleChange('recreação', event.target.value)}
+                      label="Unit(s) of measurement"
                       color="primary"
                     >
                       <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
                       <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
                     </Select>
                   </FormControl>
-                </div>              
-                {/* <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="primary" error={hasError && preservacao === ''}>
-                    Área prioritária para preservação
-                  </InputLabel>
-                  <Select
-                    labelId=""
-                    id=""
-                    value={preservacao}
-                    onChange={(event) => handleChange('preservação', event.target.value)}
-                    label="Unit(s) of measurement"
-                    color="primary"
-                  >
-                    <MenuItem value={true}>Sim</MenuItem>
-                    <MenuItem value={false}>Não</MenuItem>
-                  </Select>
-                </FormControl> */}
-                <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
-                    {calculadora.inputs.recreacao}
-                  </InputLabel>
-                  <Select
-                    labelId=""
-                    id=""
-                    value={recreacao}
-                    onChange={(event) => handleChange('recreação', event.target.value)}
-                    label="Unit(s) of measurement"
-                    color="primary"
-                  >
-                    <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
-                    <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
-                    {calculadora.inputs.uso_solo.title}
-                  </InputLabel>
-                  <Select
-                    labelId=""
-                    id=""
-                    value={usoPosterior}
-                    onChange={(event) => handleChange('usoPosterior', event.target.value)}
-                    label="Unit(s) of measurement"
-                    color="primary"
-                  >
-                    <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
-                    <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
-                  </Select>
-                </FormControl>     
-                <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#ffffff'}}>
-                    {calculadora.inputs.legalidade.title}
-                  </InputLabel>
-                  <Select
-                    labelId=""
-                    id=""
-                    value={legal}
-                    onChange={(event) => handleChange('legal', event.target.value)}
-                    label="Unit(s) of measurement"
-                    color="primary"
-                  >
-                    <MenuItem value={true}>Legal</MenuItem>
-                    <MenuItem value={false}>Ilegal</MenuItem>
-                  </Select>
-                </FormControl>
-                {(legal === false) && <FormControl className="w-full" variant="standard">
-                  <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#ffffff'}}>
-                    {calculadora.inputs.restauracao.title}
-                  </InputLabel>
-                  <Select
-                    labelId=""
-                    id=""
-                    value={restauracao}
-                    onChange={(event) => handleChange('restauração', event.target.value)}
-                    label="Unit(s) of measurement"
-                    color="primary"
-                  >
-                    <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
-                    <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>
-                  </Select>
-                </FormControl>}
-                </ThemeProvider>
-                {/* <Button
-                  sx={{
-                    boxShadow: "sm",
-                    fontWeight: "bold",
-                    width: "100%",
-                    padding: "16px",
-                    marginY: "32px",
-                    color: "#166534",
-                    borderColor: "#4ade80",
-                    "&:hover": {
+                  <FormControl className="w-full" variant="standard">
+                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
+                      {calculadora.inputs.uso_solo.title}
+                    </InputLabel>
+                    <Select
+                      labelId=""
+                      id=""
+                      value={usoPosterior}
+                      onChange={(event) => handleChange('usoPosterior', event.target.value)}
+                      label="Unit(s) of measurement"
+                      color="primary"
+                    >
+                      <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
+                      <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
+                    </Select>
+                  </FormControl>     
+                  <FormControl className="w-full" variant="standard">
+                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#ffffff'}}>
+                      {calculadora.inputs.legalidade.title}
+                    </InputLabel>
+                    <Select
+                      labelId=""
+                      id=""
+                      value={legal}
+                      onChange={(event) => handleChange('legal', event.target.value)}
+                      label="Unit(s) of measurement"
+                      color="primary"
+                    >
+                      <MenuItem value={true}>Legal</MenuItem>
+                      <MenuItem value={false}>Ilegal</MenuItem>
+                    </Select>
+                  </FormControl>
+                  {(legal === false) && <FormControl className="w-full" variant="standard">
+                    <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#ffffff'}}>
+                      {calculadora.inputs.restauracao.title}
+                    </InputLabel>
+                    <Select
+                      labelId=""
+                      id=""
+                      value={restauracao}
+                      onChange={(event) => handleChange('restauração', event.target.value)}
+                      label="Unit(s) of measurement"
+                      color="primary"
+                    >
+                      <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
+                      <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>
+                    </Select>
+                  </FormControl>}
+                  </ThemeProvider>
+                  {/* <Button
+                    sx={{
+                      boxShadow: "sm",
+                      fontWeight: "bold",
+                      width: "100%",
+                      padding: "16px",
+                      marginY: "32px",
+                      color: "#166534",
                       borderColor: "#4ade80",
-                      backgroundColor: "#22c55e",
-                    },
-                    backgroundColor: "#4ade80",
-                    "&:hover:not(:disabled)": {
-                      backgroundColor: "#22c55e",
-                    },
-                  }}
-                  variant="outlined"
-                  color="primary"
-                  size="medium"
-                  // href="/"
-                  // target="_blank"
-                  onClick={handleCalculate}
-                >
-                  Calculate
-                </Button> */}
-                <button
-                  className={`w-full py-4 mt-8 rounded flex justify-center items-center font-bold text-[#FCF8F7] uppercase transition-all border border-[#6AA65B] bg-[#6AA65B] shadow-sm  ${isLoading ? 'bg-[#436A39] border-[#436A39] text-[#FCF8F7] cursor-default hover:bg-[#40615C] hover:border-[#40615C]' : 'hover:bg-[#40615C] hover:border-[#40615C] cursor-pointer'}`}
-                  onClick={handleCalculate}
-                  disabled={isLoading}
-                >
-                  {calculadora.button}
-                  { 
-                    isLoading && 
-                    <CircularProgress size={16} color="inherit" sx={{ ml: 1 }}/>
-                  }
-                </button>
-                {
-                  hasError &&
-                  <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
-                    {hasError === '001' 
-                     ? calculadora.inputs.errors[1]
-                     : hasError === '002'
-                      ? calculadora.inputs.errors[2]
-                      : calculadora.inputs.errors[0]
+                      "&:hover": {
+                        borderColor: "#4ade80",
+                        backgroundColor: "#22c55e",
+                      },
+                      backgroundColor: "#4ade80",
+                      "&:hover:not(:disabled)": {
+                        backgroundColor: "#22c55e",
+                      },
+                    }}
+                    variant="outlined"
+                    color="primary"
+                    size="medium"
+                    // href="/"
+                    // target="_blank"
+                    onClick={handleCalculate}
+                  >
+                    Calculate
+                  </Button> */}
+                  <button
+                    className={`w-full py-4 mt-8 rounded flex justify-center items-center font-bold text-[#FCF8F7] uppercase transition-all border border-[#6AA65B] bg-[#6AA65B] shadow-sm  ${isLoading ? 'bg-[#436A39] border-[#436A39] text-[#FCF8F7] cursor-default hover:bg-[#40615C] hover:border-[#40615C]' : 'hover:bg-[#40615C] hover:border-[#40615C] cursor-pointer'}`}
+                    onClick={handleCalculate}
+                    disabled={isLoading}
+                  >
+                    {calculadora.button}
+                    { 
+                      isLoading && 
+                      <CircularProgress size={16} color="inherit" sx={{ ml: 1 }}/>
                     }
-                  </Alert>
-                }
-                {/* <Typography variant="subtitle2">Todos os campos são obrigatórios. Por favor, preencha os campos vazios antes de submeter o cálculo.</Typography> */}
+                  </button>
+                  {
+                    hasError &&
+                    <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
+                      {hasError === '001' 
+                      ? calculadora.inputs.errors[1]
+                      : hasError === '002'
+                        ? calculadora.inputs.errors[2]
+                        : calculadora.inputs.errors[0]
+                      }
+                    </Alert>
+                  }
+                  {/* <Typography variant="subtitle2">Todos os campos são obrigatórios. Por favor, preencha os campos vazios antes de submeter o cálculo.</Typography> */}
+                </div>
               </div>
             </div>
           </div>
         </div>
         {
-          custoTotal && 
+          custoTotal || true && 
           <Results 
-            custos={{ 
-              custoTotal: custoTotal,  
-              custosDeRecuperacao: custoRecup, 
-              custosAmbientais: {
-                custoAssoreamento,
-                custoBiopros,
-                custoCarbono,
-                custoMadeireiro,
-                custoNaoMadeireiro,
-                custoMadeireiroOuNaoMadeireiro,
-                custoRecreacao,
-                total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao
-              },
-              custoDeOportunidade: usoPosterior === 'agricultura' ? area*lucroSoja : usoPosterior === 'pecuária' ? area*lucroPecuaria : undefined
-            }}
-            // custos={ {
-            //   custoTotal: 21951251,
-            //   custosDeRecuperacao: 15354229,
+            // custos={{ 
+            //   custoTotal: custoTotal,  
+            //   custosDeRecuperacao: custoRecup, 
             //   custosAmbientais: {
-            //     custoAssoreamento: 1291008,
-            //     custoBiopros: 102696,
-            //     custoCarbono: 4587672,
-            //     custoMadeireiro: 1000,
-            //     custoNaoMadeireiro: 210671,
-            //     custoMadeireiroOuNaoMadeireiro: 211671 / 2,
-            //     custoRecreacao: 174304,
-            //     total: 6597021
+            //     custoAssoreamento,
+            //     custoBiopros,
+            //     custoCarbono,
+            //     custoMadeireiro,
+            //     custoNaoMadeireiro,
+            //     custoMadeireiroOuNaoMadeireiro,
+            //     custoRecreacao,
+            //     total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao
             //   },
-            //   custoDeOportunidade: 1800000
-            // } }
-            inputData={{ city: dadosMunicipio.Município, uf: dadosMunicipio.UF, ha: area, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }}
-            // inputData={{ city: 'Pedra Branca do Amapari', uf: 'AP', ha: 90, legal: false, restauracao: 'direta', usoPosterior: 'agricultura', app: true, recreacao: true, valoresMedios: false }}
+            //   custoDeOportunidade: usoPosterior === 'agricultura' ? area*lucroSoja : usoPosterior === 'pecuária' ? area*lucroPecuaria : undefined
+            // }}
+            custos={ {
+              custoTotal: 21951251,
+              custosDeRecuperacao: 15354229,
+              custosAmbientais: {
+                custoAssoreamento: 1291008,
+                custoBiopros: 102696,
+                custoCarbono: 4587672,
+                custoMadeireiro: 1000,
+                custoNaoMadeireiro: 210671,
+                custoMadeireiroOuNaoMadeireiro: 211671 / 2,
+                custoRecreacao: 174304,
+                total: 6597021
+              },
+              custoDeOportunidade: 1800000
+            } }
+            // inputData={{ city: dadosMunicipio.Município, uf: dadosMunicipio.UF, ha: area, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }}
+            inputData={{ city: 'Pedra Branca do Amapari', uf: 'AP', ha: 90, legal: false, restauracao: 'direta', usoPosterior: 'agricultura', app: true, recreacao: true, valoresMedios: false }}
           />
           // <div id="graph" className="flex flex-col justify-center items-center">
           //    Testes (seção temporária)

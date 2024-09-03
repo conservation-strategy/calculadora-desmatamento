@@ -38,12 +38,13 @@ export default function TableData({ data, description }) {
   // inputData =  { city, uf, ha, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }
   
   return (
-    <TableContainer component={Paper} elevation={0} sx={{ maxWidth: 950,borderRadius: '0px', border: '1px solid rgba(0, 0, 0, 0.3)' }}>
-      <Table sx={{ minWidth: 650 }}>
+    <TableContainer component={Paper} elevation={0} sx={{ width: 'fit-content', borderRadius: '0px', border: '1px solid rgba(0, 0, 0, 0.3)' }}>
+      {/* <Table sx={{ minWidth: 650 }}> */}
+      <Table sx={{ width: '100%', '@media(min-width: 1080px)': { width: 800} }}>
         <TableHead>
           <TableRow>
             <TableCell sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Descrição do custo</TableCell>
-            <TableCell align="right" sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Valor</TableCell>
+            <TableCell align="right" sx={{ p: 3, fontSize: '1em', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Valor</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,10 +53,10 @@ export default function TableData({ data, description }) {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '1rem', borderColor: 'rgba(0, 0, 0, 0.3)' }}>
+              <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
                 {row.name}
               </TableCell>
-              <TableCell align="right" sx={{ p: 2.5, fontSize: '1.1rem', borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
+              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'nowrap', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
