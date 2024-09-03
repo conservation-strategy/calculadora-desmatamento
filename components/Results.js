@@ -11,7 +11,7 @@ import StackBarsData from './StackBarsData';
 import DetailedInfoEnvironmentCost from './DetailedInfoEnvironmentCost';
 import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
-import { Language } from '../context/provider';
+import { Language, currencies, useCurrency } from '../context/provider';
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -78,10 +78,9 @@ const InfoRectangle = ({ city, uf, ha, description }) => {
 
 export default function Results({ custos, inputData }) {
   const { custoTotal, custosDeRecuperacao, custosAmbientais, custoDeOportunidade } = custos;
-  
   const { content, language } = useContext(Language);
   const { results } = content;
-
+  const { setLanguageBlocker, currency, setCurrency } = useCurrency();
   const [loaded, setLoaded] = useState(false);
   const [currentBarHeights, setCurrentBarHeights] = useState({
     recoverCost: 0,
@@ -91,6 +90,10 @@ export default function Results({ custos, inputData }) {
   const [currentURL, setCurrentURL] = useState('');
   // to-do: get from context
   const isBrasil = true;
+
+  useEffect(() => {
+    setLanguageBlocker();
+  },[]);
 
   useEffect(() => {
     setLoaded(true);
@@ -104,6 +107,11 @@ export default function Results({ custos, inputData }) {
 
   const handleBarHeightsChange = (newBarHeights) => {
     setCurrentBarHeights(newBarHeights);
+  }
+
+  const handleChangeCurrency = () => {
+    if(currency === currencies.real) setCurrency(currencies.dollar);
+    else setCurrency(currencies.real);
   }
   
   return (
@@ -125,7 +133,12 @@ export default function Results({ custos, inputData }) {
       {/* <div className="px-8 py-10 flex flex-col gap-24 w-full max-w-[1200px] mx-auto"> */}
       <div className="px-6 pb-10 max-[530px]:pt-6 pt-16 flex flex-col items-center gap-20 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full'>
-          <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
+          {/* botao de idioma */}
+          <button className='p-4 border bg-black text-white' onClick={handleChangeCurrency}>
+            {currency === currencies.real ? currencies.dollar : currencies.real}
+          </button>
+          {/* --------------- */}
+          <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>          
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col'>
             <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch'>
               <SectionBodyText>

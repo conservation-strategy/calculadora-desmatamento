@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { formatCurrencyNoDecimals } from "../utils";
 import DonutChartLegend from "./LegendDonutChart";
+import { useCurrency } from "../context/provider";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function DonutChart({
@@ -23,6 +24,8 @@ export default function DonutChart({
   const percentages = {}
   data.forEach((value, index) => percentages[dataLabels[index]] = (value / totalData * 100).toFixed(2) + '%' );
   console.log('percentages', percentages);
+
+  const { currency, exchangeRate } = useCurrency();
 
   const checkScrollPosition = useCallback(() => {
     if (chartContainerRef.current) {
@@ -171,7 +174,7 @@ export default function DonutChart({
     tooltip: {
       y: {
         formatter: function (val, opts) {
-          return formatCurrencyNoDecimals(val);
+          return formatCurrencyNoDecimals(currency, val/exchangeRate);
         }
       }
     },
