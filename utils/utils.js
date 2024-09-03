@@ -156,10 +156,10 @@ export function formatCostNumber(number) {
     return `${integerPart}`;
 }
 
-export function formatCurrencyNoDecimals(number) {
+export function formatCurrencyNoDecimals(currency, number) {
     const rounded = Math.round(number);
     const formatted = rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return `R$ ${formatted}`;
+    return `${currency} ${formatted}`;
 }
 
 export function formatDate(locale, website) {
