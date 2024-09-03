@@ -108,21 +108,15 @@ export default function Results({ custos, inputData }) {
   
   return (
     <div id="results" className="flex flex-col items-center w-full bg-white max-[500px]:px-8 px-14"> 
-      {/* <div className="px-8 py-10 flex items-center justify-between w-full mt-40 border-t-8 border-black"> */}
-      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-14 max-[530px]:items-start">
-        {/* <div className="flex items-center gap-4 text-[#5A8A70] text-2xl md:text-2xl font-bold ">
-          <RiBarChart2Fill />
-          <h3 className="font-bold text-2xl ">{results.heading}</h3>
-        </div> */}
+      {/* <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-14 max-[530px]:items-start"> */}
+      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:pb-6 max-[530px]:flex-col-reverse max-[530px]:gap-14 max-[530px]:items-start">
         <h1 className={`font-bold gap-4 items-center`}>
             <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{results.heading}</span>
         </h1>
-        <div className="flex items-center">
+        <div className="max-[530px]:w-full flex items-center ">
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
       </div>
-      {/* <div className="px-[4.5rem] py-10 flex flex-col gap-12 w-full"> */}
-      {/* <div className="px-8 py-10 flex flex-col gap-24 w-full max-w-[1200px] mx-auto"> */}
       <div className="px-6 pb-10 max-[530px]:pt-6 pt-16 flex flex-col items-center gap-20 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full'>
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
@@ -144,7 +138,6 @@ export default function Results({ custos, inputData }) {
             </div>
           </div>
         </div>
-        {/* <div className='py-10 flex w-full bg-gray-100 max-w-[100vw] '> */}
         <div className='max-w-screen-sm md:max-w-[1480px] py-10 flex w-full'>
           <div className='flex flex-col gap-12 justify-center w-full'>
             <div className='flex flex-col gap-6 justify-center'>
@@ -207,7 +200,7 @@ export default function Results({ custos, inputData }) {
         </div>
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">
-        <div className="flex items-center">
+        <div className="max-[530px]:w-full flex items-center">
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
       </div>

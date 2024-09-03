@@ -66,7 +66,7 @@ const DownloadPDFButton = ({ data, language }) => {
     <button 
       onClick={handleDownload} 
       disabled={isLoading}
-      className={` ${styles.button} | flex items-center gap-2 rounded bg-black font-medium text-white tracking-wide p-4 disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={` ${styles.button} | w-full flex justify-center items-center gap-2 rounded bg-black font-medium text-white tracking-wide p-4 disabled:opacity-50 disabled:cursor-not-allowed`}
     >
       <RiFile3Line size={`1.5rem`} />
       {isLoading ? (language === 'pt' ? 'GERANDO O PDF...' : 'GENERATING PDF...') : 'DOWNLOAD PDF'}
