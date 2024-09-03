@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import data from "../data/language.json";
 
 export const PORTUGUES = "pt";
@@ -6,6 +6,11 @@ export const ENGLISH = "en";
 
 export const Language = createContext(null);
 export const Quotation = createContext(null);
+
+export const currencies = {
+    real: 'R$',
+    dollar: 'U$'
+}
 
 const findContent = (language) => {
     const content = data.content.filter((item) => item.id === language);
@@ -16,6 +21,9 @@ export function AppContextProvider ({children}) {
     const [language, setLanguage] = useState(PORTUGUES);
     const [content, setContent] = useState(findContent(PORTUGUES));
     const [quotation, setQuotation] = useState();
+    const [currency, setCurrency] = useState();
+    const [exchangeRate, setExchangeRate] = useState();
+    const blocker = useRef(false);
 
     useEffect(() => {
         async function fetchQuotation() {
@@ -44,11 +52,35 @@ export function AppContextProvider ({children}) {
 
     useEffect(() => {
         changeContentLanguage(language);
-    }, [language])
+    }, [language]);
+
+    const setLanguageBlocker = useCallback(() => {
+        blocker.current = true;
+    }, [blocker])
+
+    useEffect(() => {
+        if(!blocker.current) {
+            setCurrency(
+                language === ENGLISH
+                 ? currencies.dollar
+                 : currencies.real
+            );
+        }
+    }, [language]);
+
+    useEffect(() => {
+        if(!quotation) return
+        setExchangeRate(
+            currency === currencies.dollar
+             ? quotation.value
+             : 1
+        );
+    }, [currency, quotation]);
+
 
     return (
         <Language.Provider value={{ content, language, setLanguage }}>
-            <Quotation.Provider value={{ quotation }}>
+            <Quotation.Provider value={{ quotation, currency, setCurrency, exchangeRate, setLanguageBlocker }}>
                 {children}
             </Quotation.Provider>
         </Language.Provider>
@@ -57,23 +89,17 @@ export function AppContextProvider ({children}) {
 
 export function useQuotation() {
     const context = useContext(Quotation);
-    if(context.quotation) {
-        const { fallback, data } = context.quotation;
-        if(fallback) {
-            return { 
-                fallback,
-                value: data.response.rates.BRL,
-                date: data.response.date
-            }
-        } else {
-            const quot = data.value[0];
-            const value = (quot.cotacaoCompra + quot.cotacaoVenda) / 2;
-            return {
-                fallback,
-                value,
-                date: quot.dataHoraCotacao
-            }
-        }
-    }
+    return context.quotation;
 }
 
+
+export function useCurrency() {
+    const context = useContext(Quotation);
+    const { currency, setCurrency, exchangeRate, setLanguageBlocker } = context;
+    return { 
+        currency, 
+        setCurrency,
+        exchangeRate,
+        setLanguageBlocker
+    }
+}
