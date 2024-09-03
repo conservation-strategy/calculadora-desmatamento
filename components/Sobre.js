@@ -31,15 +31,15 @@ export default function Calculate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-mt-40 border-b-8 border-black">
+      <div className="-mt-40">
         <Header2 title={"Sobre"} image='images/header2_bg_2.png' bgPosition={'top'}/>
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {sobre.heading}
         </h1> */}
 
-        <div className="border-black border-t-8 prose prose-sm md:prose-lg max-w-none">
-          <div className="flex flex-col lg:gap-8 lg:flex-row px-10 md:px-20 py-10 md:py-16">
+        <div className="prose prose-sm md:prose-lg max-w-none flex flex-col justify-center items-center ">
+          <div className="max-w-screen-sm md:max-w-screen-2xl flex flex-col lg:gap-8 lg:flex-row py-10 md:py-16 mx-10 md:mx-14 ">
             <div className="lg:w-1/4 flex items-center"><h2>{sobre.section_1.heading}</h2></div>
             <div className="lg:w-3/4">
               <p>
@@ -52,11 +52,13 @@ export default function Calculate() {
               </ol>
             </div>
           </div>
-          <div className="px-10 md:px-20 py-10 md:pt-16 md:pb-20 bg-[rgba(227,229,226,0.6)]">
-            <h2>{sobre.section_2.heading}</h2>
-            <p className="md:pt-4">
-              {sobre.section_2.description}
-            </p>
+          <div className="w-full px-10 md:px-14 py-10 md:pt-16 md:pb-20 bg-[rgba(227,229,226,0.6)] flex justify-center items-center">
+            <div className="max-w-screen-sm md:max-w-screen-2xl">
+              <h2>{sobre.section_2.heading}</h2>
+              <p className="md:pt-4">
+                {sobre.section_2.description}
+              </p>
+            </div>
           </div>
         </div>
 

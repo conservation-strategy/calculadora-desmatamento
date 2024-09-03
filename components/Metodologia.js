@@ -32,72 +32,54 @@ export default function Calculate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-mt-40 pb-10 border-b-8 border-black">
+      <div className="-mt-40 pb-10">
         <Header2 title={"Metodologia"} image="images/header2_bg_1.png" bgPosition={'center'}/>
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
           {metodologia.heading}
         </h1> */}
 
-        <div className="px-10 py-10 md:py-16 prose prose-sm md:prose-lg max-w-none border-black border-t-8">
-        <h2>{metodologia.main.heading}</h2>
-        <p>
-          {metodologia.main.first_paragraph}
-        </p>
-        <img src="/images/img1.png"/>
-        {metodologia.main.paragraphs.map((item, i) => (
-          <p key={i}>{item}</p>
-        ))}
-        {/* <p>
-          A imagem exemplifica como a sociedade declara um valor diferente a uma residência em função dos atributos ao seu redor e sua oferta. Da mesma forma, uma única árvore em uma área totalmente desmatada terá mais valor do que a mesma espécie em um ambiente totalmente florestado. Por isso, não se pode determinar um valor absoluto de uma floresta, já que dependerá do contexto e das alternativas de seu uso ou não uso.
-        </p>
-        <p>
-          Além de determinado socialmente, o valor é algo marginal, uma vez que se refere a uma mudança de tendência esperada do estado dos recursos. Assim sendo, a determinação do que é perdido ou ganho com uma mudança de uso do solo, como a agricultura ou pecuária, está relacionada com a linha de base, ou seja, com a tendência que representa o status-quo como medida de variação da preferência dos indivíduos. Para chegar em valores monetários se faz uso de uma função de transferência de valor que busca correlacionar características contextuais com valores médios de perda econômica em diferentes países.
-        </p>
-        <p>
-          A medição das categorias de impacto que utilizamos faz uso de diferentes métodos de valoração. 
-        </p>
-        <p>
-          A mensuração das categorias de impacto utiliza diferentes métodos de valoração, que podem ser divididos em duas abordagens:
-        </p> */}
-        <ul>
-          {metodologia.main.list.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-          {/* <li>
-            Custo de substituição ou recuperação da área: representa o custo das técnicas apropriadas para recuperar o ambiente danificado e o bem-estar humano.
-          </li>
-          <li>
-            Perda de serviços ecossistêmicos. o desmatamento gera uma perda de bem-estar, uma vez que a floresta em pé proporciona vários serviços ecossistêmicos que seriam afetados, como sequestro de carbono, regulação hídrica e controle da erosão. Além disso, considera-se o custo de oportunidade que corresponde ao retorno econômico esperado das alternativas de uso da terra daqueles que a possuem. As opções relacionadas ao custo de oportunidade incluem fornecer recursos madeireiros e não madeireiros da floresta. Além do retorno econômico, também são considerados valores de bem-estar perdidos que não são comercializados no mercado, como serviços culturais e recreativos.
-          </li> */}
-        </ul>
-        <p>
-          {metodologia.main.last_paragraph}
-        </p>
-        <p>
-          <strong>{metodologia.footnote.heading}</strong>
-          <br/>
-          {metodologia.footnote.lines.map((item, i) => (
-            <span key={i}>
-            {item}
-            <br/>
-            </span>
-          ))}
-          {/* Conservação Estratégica (CSF) e Center for Climate Crimes Analysis (CCCA) (2022) Caso Casino: A Ligação entre o abastecimento de carne do Grupo Casino. Desmatamento e violações de direitos dos povos que habitam a Terra Indígena Uru-Eu-Wau-Wau na Amazônia Brasileira. 
-          <br/>
-          Disponível em:
-          <br/> */}
-          <a href="https://climatecrimeanalysis.org/wp-content/uploads/2022/08/CCCA-CasinoCase-Portuguese.pdf" target="_blank"> <small>https://climatecrimeanalysis.org/wp-content/uploads/2022/08/CCCA-CasinoCase-Portuguese.pdf</small></a>
-          {/* <br/>
-          <br/>
-          Para saber mais, leia nosso relatório metodológico completo de valoração de impactos do desmatamento na Amazônia, aqui. */}
+        <div className="flex justify-center items-center px-14">
+          <div className="max-w-screen-sm md:max-w-screen-2xl py-10 md:py-16 prose prose-sm md:prose-lg max-w-none">
+          {/* <h2>{metodologia.main.heading}</h2> */}
+            <p>
+              {metodologia.main.first_paragraph}
+            </p>
+            <div className="w-full flex justify-center items-center">
+              <img src="/images/img1.png"/>
+            </div>
+            {metodologia.main.paragraphs.map((item, i) => (
+              <p key={i}>{item}</p>
+            ))}
+            <ul>
+              {metodologia.main.list.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+            <p>
+              {metodologia.main.last_paragraph}
+            </p>
+            <p>
+              <strong>{metodologia.footnote.heading}</strong>
+              <br/>
+              {metodologia.footnote.lines.map((item, i) => (
+                <span key={i}>
+                {item}
+                <br/>
+                </span>
+              ))}
+              {/* Conservação Estratégica (CSF) e Center for Climate Crimes Analysis (CCCA) (2022) Caso Casino: A Ligação entre o abastecimento de carne do Grupo Casino. Desmatamento e violações de direitos dos povos que habitam a Terra Indígena Uru-Eu-Wau-Wau na Amazônia Brasileira. 
+              <br/>
+              Disponível em:
+              <br/> */}
+              <a href="https://climatecrimeanalysis.org/wp-content/uploads/2022/08/CCCA-CasinoCase-Portuguese.pdf" target="_blank"> <small>https://climatecrimeanalysis.org/wp-content/uploads/2022/08/CCCA-CasinoCase-Portuguese.pdf</small></a>
+              {/* <br/>
+              <br/>
+              Para saber mais, leia nosso relatório metodológico completo de valoração de impactos do desmatamento na Amazônia, aqui. */}
 
-        </p>
-
-
-
+            </p>
+          </div>
         </div>
-
       </div>
     </>
   )

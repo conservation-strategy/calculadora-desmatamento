@@ -31,7 +31,7 @@ export default function Calculate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-mt-40 pb-10 border-b-8 border-black">
+      <div className="-mt-40 pb-10">
         <Header2 title={"Equipe"} image="images/header2_bg_2.png" bgPosition={'top'}/>
 
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
@@ -39,7 +39,7 @@ export default function Calculate() {
           {equipe.heading}
         </h1> */}
 
-        <div className="pl-10 py-10 md:py-16 border-black border-t-8 prose prose-sm md:prose-lg text-justify max-w-none">
+        <div className="max-w-screen-sm md:max-w-screen-2xl pl-14 py-10 md:py-16 prose prose-sm md:prose-lg text-justify max-w-none">
         
           <div className='flex flex-col gap-8'>
             {equipe.areas.map((item) => (

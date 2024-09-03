@@ -37,6 +37,7 @@ import { lucroPecuaria, lucroSoja } from "../utils/globals";
 import { useContext } from "react";
 import { Language, useQuotation } from "../context/provider"
 import Header2 from "./Header2"
+import AccordionGuide from "./AccordionGuide"
 
 const theme = createTheme({
   palette: {
@@ -314,155 +315,89 @@ export default function Calculate() {
           {calculadora.heading}
         </h1> */}
         <div className="w-full flex justify-center">
-          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col lg:flex-row h-auto mx-0 justify-between items-stretch pt-16 pb-16 max-[500px]:px-8 px-14">
+          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col lg:flex-row lg:gap-8 h-auto mx-0 justify-between items-stretch pt-16 pb-16 max-[500px]:px-8 px-14">
             {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
             <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow`}>      
               <h1 className={`font-bold gap-4 items-center`}>
-                <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{calculadora.guia.heading}</span>
+                <span className="pl-5 border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
               </h1>
               {/* <h3 className="py-1 font-bold text-[1.4rem]">{calculadora.guia.heading}</h3> */}
-              <div className="mb-0 text-xl prose px-8 py-4 max-[375px]:px-0">              
+              <div className="mb-0 text-xl prose px-8 pb-4 pt-6 max-[375px]:px-0">              
                 <div className="text-white">
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff','&.MuiAccordion-root': { boxShadow: 'none', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0 }, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}  }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                      sx={{ color: '#ffffff' }}
-                    >
-                      <span className="text-lg font-bold">{calculadora.guia.local.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2" component="div">
-                        <span>{calculadora.guia.local.intro}</span>
-                        <ul className="flex flex-col gap-1 my-4">
-                          {calculadora.guia.local.list.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                        <span>{calculadora.guia.local.conclusion}</span>
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel2a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.app.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2">
-                        {calculadora.guia.app.description[0]}
+                  <AccordionGuide 
+                    summary={calculadora.guia.local.title} 
+                    isFirstItem={true}
+                  >
+                    <div className="text-sm">
+                      <span>{calculadora.guia.local.intro}</span>
+                      <ul className="flex flex-col gap-1 my-4">
+                        {calculadora.guia.local.list.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                      <span>{calculadora.guia.local.conclusion}</span>
+                    </div>
+                  </AccordionGuide>
+                  <AccordionGuide 
+                    summary={calculadora.guia.app.title} 
+                  >
+                    <div className="text-sm">
+                      {calculadora.guia.app.description[0]}
+                      <br/>
+                      <br/>
+                      {calculadora.guia.app.description[1]}
+                      <br/>
+                      <br/>
+                      <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
+                    </div>
+                  </AccordionGuide>
+                  <AccordionGuide 
+                    summary={calculadora.guia.recreacao.title} 
+                  >
+                    <div className="text-sm">
+                      <span>
+                        {calculadora.guia.recreacao.description[0]}
+                      </span>
+                      <br/>
+                      <br/>
+                      <span>{calculadora.guia.recreacao.description[1]}</span>
+                    </div>
+                  </AccordionGuide>
+                  <AccordionGuide 
+                    summary={calculadora.guia.legalidade.title} 
+                  >
+                    <div className="text-sm">
+                      <span>
+                        {calculadora.guia.legalidade.description}
+                      </span>
+                    </div>
+                  </AccordionGuide>
+                  <AccordionGuide 
+                    summary={calculadora.guia.restauracao.title} 
+                  >
+                    <div className="text-sm">
+                      <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
+                      {calculadora.guia.restauracao.description[0]}
                         <br/>
                         <br/>
-                        {calculadora.guia.app.description[1]}
-                        <br/>
-                        <br/>
-                        <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                  {/* <Accordion sx={{ '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel3a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.conservacao.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2">
-                        <span>{calculadora.guia.conservacao.description[0]}</span>
-                        <br/>
-                        <br/>
-                        <span>{calculadora.guia.conservacao.description[1]}</span>
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion> */}
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel4a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.recreacao.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2">
-                        <span>
-                          {calculadora.guia.recreacao.description[0]}
-                        </span>
-                        <br/>
-                        <br/>
-                        <span>{calculadora.guia.recreacao.description[1]}</span>
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1, px: 0  }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel4a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.legalidade.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2">
-                        <span>
-                          {calculadora.guia.legalidade.description}
-                        </span>
-                        {/* <br/>
-                        <br/>
-                        <span>
-                          {calculadora.guia.legalidade.description[1]}
-                        </span> */}
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', p: 1 , px: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel5a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.restauracao.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2">
-                        <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
-                        {calculadora.guia.restauracao.description[0]}
-                          <br/>
-                          <br/>
-                        <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
-                        {calculadora.guia.restauracao.description[1]}
-                        
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                  <Accordion sx={{ backgroundColor: 'transparent', color: '#ffffff', '&.MuiAccordion-root': { mb: 3, boxShadow: 'none', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.17)', p: 1, px: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }, '&.MuiAccordion-root .MuiAccordionSummary-root': { px: 0}, '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}    }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel6a-header"
-                    >
-                      <span className="text-base font-bold">{calculadora.guia.uso.title}</span>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography variant="body2" component="div">
-                        <span>{calculadora.guia.uso.description}</span>
-                        <ol className="flex flex-col gap-1 mt-4">
-                          {calculadora.guia.uso.list.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                          {/* <li>Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações;</li>
-                          <li>Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;</li>
-                          <li>Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais.</li> */}
-                        </ol>
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
+                      <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
+                      {calculadora.guia.restauracao.description[1]}
+                    </div>
+                  </AccordionGuide>
+                  <AccordionGuide
+                    summary={calculadora.guia.uso.title}
+                    isLastItem={true}
+                    isFirstItem={false}
+                  >
+                    <div className="text-sm">
+                      <span>{calculadora.guia.uso.description}</span>
+                      <ol className="flex flex-col gap-1 mt-4">
+                        {calculadora.guia.uso.list.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  </AccordionGuide>
                 </div>
                 
               </div>

@@ -16,7 +16,7 @@ function Header2({ title, image , bgPosition}) {
         >
             <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.6)]'></div>
             <div className='w-full max-w-screen-sm md:max-w-screen-2xl z-10 relative'>
-                <div className='font-bold text-2xl min-[375px]:text-[1.75rem] md:text-3xl text-white pt-10'>
+                <div className='font-bold text-2xl min-[375px]:text-[1.75rem] md:text-4xl text-white pt-10'>
                     {title}
                 </div>
             </div>
