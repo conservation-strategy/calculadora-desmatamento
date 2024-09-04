@@ -186,3 +186,20 @@ export function formatDate(locale, website) {
     }
   }
   
+  export function formatDateToBrazilianStandard(date) {
+    // Ensure the input is a valid Date object
+    const inputDate = new Date(date);
+    
+    // Check if the date is valid
+    if (isNaN(inputDate.getTime())) {
+      return 'Invalid Date';
+    }
+  
+    // Get day, month, and year
+    const day = inputDate.getDate().toString().padStart(2, '0');
+    const month = (inputDate.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed
+    const year = inputDate.getFullYear();
+  
+    // Return the formatted date
+    return `${day}/${month}/${year}`;
+  }

@@ -174,6 +174,12 @@
             },
             "results": {
                 "heading": "Resultados",
+                "note": {
+                  "intro": "*Nota: utilizamos alguns valores de referência denominados em U$, sendo necessário realizar a conversão para mostrar o valor em R$.",
+                  "quotation": "Cotação utilizada:",
+                  "date": "data:",
+                  "source": "fonte"
+                },
                 "section_1": {
                     "heading": "Custo total estimado",
                     "intro": {
@@ -538,6 +544,12 @@
             },
             "results": {
                 "heading": "Results",
+                "note": {
+                  "intro": "*Note: We use some reference values denominated in US$, requiring conversion to display the value in R$ (Brazilian Reais).",
+                  "quotation": "Quotation used:",
+                  "date": "date:",
+                  "source": "source:"
+                },
                 "section_1": {
                     "heading": "Total estimated cost",
                     "intro": {

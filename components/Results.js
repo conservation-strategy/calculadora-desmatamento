@@ -1,7 +1,7 @@
 import { Roboto, Roboto_Condensed } from 'next/font/google';
 import { RiArticleFill, RiBarChart2Fill, RiBarChartBoxFill } from "react-icons/ri";
 import DownloadPDFButton from "./DownloadPDFButton";
-import { formatCostNumber } from '../utils';
+import { formatCostNumber, formatDateToBrazilianStandard } from '../utils';
 import { useContext, useEffect, useRef, useState } from 'react';
 import BarsData from './BarsData';
 import HighlightedCost from './HighlightedCost';
@@ -104,7 +104,7 @@ const CompleteInfoRectangle = ({ city, uf, ha, description }) => {
   )
 }
 
-export default function Results({ custos, inputData }) {
+export default function Results({ custos, inputData, quotation }) {
   const { custoTotal, custosDeRecuperacao, custosAmbientais, custoDeOportunidade } = custos;
   const { content, language } = useContext(Language);
   const { results } = content;
@@ -152,6 +152,13 @@ export default function Results({ custos, inputData }) {
         <div className="max-[530px]:w-full flex items-center ">
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
+      </div>
+      <div className='w-full max-w-screen-sm md:max-w-screen-2xl text-left text-xs italic'>
+        {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
+        {results.note.intro}{' '}
+        {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{', '}
+        {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{', '}
+        {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
       </div>
       <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-6'>
