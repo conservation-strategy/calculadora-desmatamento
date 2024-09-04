@@ -29,8 +29,8 @@ export default function Home() {
           style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
           <div className={styles.filter}></div>
-          <div className={`max-w-screen-sm md:max-w-screen-2xl flex mx-auto px-4 items-center h-full`}>
-            <div className="flex flex-col w-full items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 px-4 lg:px-12 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
+          <div className={`w-full flex max-[500px]:px-8 px-14 items-center h-full`}>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
               <h1 className={`text-2xl md:text-4xl font-light text-left mb-2 pt-0 md:w-2/3 xl:w-[34ch] z-10`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
                 {home.hero.text.article + " "}
                 <span className="font-bold">
@@ -108,13 +108,13 @@ export default function Home() {
           
         </div>
 
-        <div className="w-full bg-darkGreen"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl font-bold px-12 py-16 md:px-16 max-[500px]:px-8 md:py-20 gap-4 items-center ${styles.section__title}`}>
+        <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-darkGreen"> 
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl font-bold py-16 md:py-20 gap-4 items-center ${styles.section__title}`}>
             <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_1.heading}</span>
           </h1>
         </div>
 
-        <div className={`pt-10 pb-20 px-12 md:px-16 max-[500px]:px-8 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
+        <div className={`pt-10 pb-20 px-[5.5rem] max-[500px]:px-8 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
           <div className={`flex flex-col md:flex-row gap-20 mx-auto `}>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconPlant size={80} strokeWidth={1} />
@@ -135,64 +135,20 @@ export default function Home() {
               </span>
             </div>
           </div>
-          
-          {/* <div className="w-full lg:w-1/2 p-10">
-            <div className={`prose prose-lg leading-normal ${styles.section__body}`}>
-              <p>
-                {home.main.section_1.description.intro}
-              </p>
-              <div className="">
-                <ul className="flex flex-col pl-4">
-                  {home.main.section_1.description.list.map((item, i) => (
-                    <li key={i} className="mb-0 font-bold">{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <p className="mt-4">
-                {home.main.section_1.description.conclusion}
-              </p>
-            </div>
-          </div> */}
-
-          {/* <div className="flex items-center justify-center w-full lg:w-1/2 bg-black">
-            {!showVideo
-              ? <div className="flex items-center w-full h-full bg-white max-w-[943px] cursor-pointer" onClick={() => setShowVideo(true)}>
-                  <img
-                  width='100%'
-                  height='100%'
-                  alt='video'
-                  src='images/video_placeholder.png'
-                  />
-                </div>
-              : <div style={{ aspectRatio: 16 / 9, width: '100%', maxWidth: '943px' }}>
-                  <iframe
-                    width='100%'
-                    height='100%'
-                    src="https://www.youtube.com/embed/kJxyPxpZPDU?si=iFAxGlzFzTU8-uyK" 
-                    title="YouTube video player" 
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" 
-                    allowFullScreen
-                  ></iframe>
-                </div>
-            }
-          </div> */}
         </div>
 
         {/* <h1 className={`flex text-2xl md:text-2xl font-bold p-10 gap-4 items-center ${styles.section__title}`}>
           {home.main.section_2.heading}
         </h1> */}
 
-        <div className="w-full bg-neutral100"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold px-12 py-16 md:px-16 max-[500px]:px-8 md:py-20 gap-4 items-center ${styles.section__title}`}>
+        <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100"> 
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold py-16 md:py-20 gap-4 items-center ${styles.section__title}`}>
             <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_2.heading}</span>
           </h1>
         </div>
 
-        <div className={`flex flex-col items-center bg-neutral100`}>
-          <div className={`flex flex-col lg:flex-row gap-20 px-14 max-[500px]:px-8 max-[424px]:gap-14`}>
+        <div className={`w-full flex flex-col items-center bg-neutral100`}>
+          <div className={`flex flex-col lg:flex-row gap-20 px-[5.5rem] max-[500px]:px-8 max-[424px]:gap-14`}>
             <div className="w-full flex flex-col justify-start items-start p-6 sm:p-12 sm:py-6 bg-neutral200 gap-4 shadow-none lg:max-w-[55ch]">
               <div className="flex flex-col items-start">
                 {/* <img className="h-32 mx-auto pt-8" src="/images/ico1.svg" /> */}
@@ -234,7 +190,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-4 max-[424px]:mt-6">
+          <div className="w-screen mt-4 max-[424px]:mt-6 flex justify-center items-center">
             <Image
               // className="pt-[24px]"
               src="/images/info-home.svg"

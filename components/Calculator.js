@@ -409,7 +409,7 @@ export default function Calculate() {
               <h1 className={`font-bold gap-4 items-center lg:hidden`}>
               <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading_mobile}</span>
               </h1>
-              <div className="flex flex-col gap-1 text-white bg-[#717171] py-5 mt-10 lg:mt-0">
+              <div className="flex flex-col gap-1 text-white bg-[#717171] py-5 mt-10 lg:mt-0 max-[1023px]:mx-8">
                 {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
                 <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4">
                   <ThemeProvider theme={theme} >
