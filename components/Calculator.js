@@ -633,40 +633,40 @@ export default function Calculate() {
           </div>
         </div>
         {
-          custoTotal || true && 
+          custoTotal && 
           <Results 
-            // custos={{ 
-            //   custoTotal: custoTotal,  
-            //   custosDeRecuperacao: custoRecup, 
-            //   custosAmbientais: {
-            //     custoAssoreamento,
-            //     custoBiopros,
-            //     custoCarbono,
-            //     custoMadeireiro,
-            //     custoNaoMadeireiro,
-            //     custoMadeireiroOuNaoMadeireiro,
-            //     custoRecreacao,
-            //     total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao
-            //   },
-            //   custoDeOportunidade: usoPosterior === 'agricultura' ? area*lucroSoja : usoPosterior === 'pecuária' ? area*lucroPecuaria : undefined
-            // }}
-            custos={ {
-              custoTotal: 21951251,
-              custosDeRecuperacao: 15354229,
+            custos={{ 
+              custoTotal: custoTotal,  
+              custosDeRecuperacao: custoRecup, 
               custosAmbientais: {
-                custoAssoreamento: 1291008,
-                custoBiopros: 102696,
-                custoCarbono: 4587672,
-                custoMadeireiro: 1000,
-                custoNaoMadeireiro: 210671,
-                custoMadeireiroOuNaoMadeireiro: 211671 / 2,
-                custoRecreacao: 174304,
-                total: 6597021
+                custoAssoreamento,
+                custoBiopros,
+                custoCarbono,
+                custoMadeireiro,
+                custoNaoMadeireiro,
+                custoMadeireiroOuNaoMadeireiro,
+                custoRecreacao,
+                total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao
               },
-              custoDeOportunidade: 1800000
-            } }
-            // inputData={{ city: dadosMunicipio.Município, uf: dadosMunicipio.UF, ha: area, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }}
-            inputData={{ city: 'Pedra Branca do Amapari', uf: 'AP', ha: 90, legal: false, restauracao: 'direta', usoPosterior: 'agricultura', app: true, recreacao: true, valoresMedios: false }}
+              custoDeOportunidade: usoPosterior === 'agricultura' ? area*lucroSoja : usoPosterior === 'pecuária' ? area*lucroPecuaria : undefined
+            }}
+            // custos={ {
+            //   custoTotal: 21951251,
+            //   custosDeRecuperacao: 15354229,
+            //   custosAmbientais: {
+            //     custoAssoreamento: 1291008,
+            //     custoBiopros: 102696,
+            //     custoCarbono: 4587672,
+            //     custoMadeireiro: 1000,
+            //     custoNaoMadeireiro: 210671,
+            //     custoMadeireiroOuNaoMadeireiro: 211671 / 2,
+            //     custoRecreacao: 174304,
+            //     total: 6597021
+            //   },
+            //   custoDeOportunidade: 1800000
+            // } }
+            inputData={{ city: dadosMunicipio.Município, uf: dadosMunicipio.UF, ha: area, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }}
+            // inputData={{ city: 'Pedra Branca do Amapari', uf: 'AP', ha: 90, legal: false, restauracao: 'direta', usoPosterior: 'agricultura', app: true, recreacao: true, valoresMedios: false }}
           />
           // <div id="graph" className="flex flex-col justify-center items-center">
           //    Testes (seção temporária)

@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { Language, ENGLISH } from "../context/provider";
+import { Language, useCurrency } from "../context/provider";
 import { formatCostNumber } from "../utils";
 
 const DonutChartLegendItem = ( { cost, total, label, color, language } ) => {
   const percent = parseInt(cost / total * 100);
+  const { currency } = useCurrency();
   return (
     <div className="flex items-begin gap-3 mb-2">
       <div className="h-4 min-h-4 w-4 min-w-4 mt-[6px]" style={{ backgroundColor: color }}></div>
@@ -19,7 +20,7 @@ const DonutChartLegendItem = ( { cost, total, label, color, language } ) => {
             : label
           }
         </span>
-        <span>{language === ENGLISH ? `${cost} (${percent}%)` : `R$ ${formatCostNumber(cost)} (${percent}%)`}</span>
+        <span>{`${currency} ${formatCostNumber(cost)} (${percent}%)`}</span>
       </div>
     </div>
   );

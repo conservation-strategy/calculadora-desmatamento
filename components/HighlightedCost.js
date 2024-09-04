@@ -7,8 +7,8 @@ const roboto = Roboto({
   subsets: ['latin'],
 })
 
-export default function HighlightedCost({ cost, size = 'large', color, justifyLeft = false }) {
-  const { currency, exchangeRate } = useCurrency();
+export default function HighlightedCost({ cost, currency, size = 'large', color, justifyLeft = false }) {
+  // const { currency, exchangeRate } = useCurrency();
 
   return (
     <div className={`
@@ -40,7 +40,7 @@ export default function HighlightedCost({ cost, size = 'large', color, justifyLe
           }
           ${roboto.className}
         `}>
-        {formatCostNumber(cost/exchangeRate)}
+        {formatCostNumber(cost)}
       </span>
     </div>
   )

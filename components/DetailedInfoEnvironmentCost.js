@@ -4,7 +4,7 @@ import { Roboto,Roboto_Condensed } from "next/font/google";
 import DonutChart from "./DonutChart";
 import HighlightedCost from "./HighlightedCost";
 import { ClickHand } from "../utils/customIcons/ClickHand";
-import { Language, ENGLISH } from "../context/provider";
+import { Language, ENGLISH, useCurrency } from "../context/provider";
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -142,6 +142,7 @@ const infoLabelDictionaryEN = {
 // to-do: trocar a altura fixa h-[216px] por uma altura máxima responsiva, levando em conta a largura da janela
 const SliceInfo = ({ info, open, description }) => {
   const { language } = useContext(Language);
+  const { currency, exchangeRate } = useCurrency();
 
   // console.log ('[SliceInfo] info.label', info?.label);
 
@@ -189,7 +190,7 @@ const SliceInfo = ({ info, open, description }) => {
               }
             </p>
           </div>
-          <HighlightedCost cost={info?.value} justifyLeft={true} />
+          <HighlightedCost cost={info?.value/exchangeRate} currency={currency} justifyLeft={true} />
         </div>
       </div>
     </>
@@ -198,6 +199,7 @@ const SliceInfo = ({ info, open, description }) => {
 
 export default function DetailedInfoEnvironmentCost({ className, data, description }) {
   const { language } = useContext(Language);
+  const { exchangeRate } = useCurrency();
 
   // const [value, setValue] = useState(0);
   const [currentTab, setCurrentTab] = useState(0);
@@ -226,7 +228,7 @@ export default function DetailedInfoEnvironmentCost({ className, data, descripti
   }
 
   let costData = [data.custoBiopros, data.custoCarbono, data.custoAssoreamento, data.custoMadeireiroOuNaoMadeireiro, data.custoRecreacao];
-  const processedCostData = costData.map(value => Math.round((value)));
+  const processedCostData = costData.map(value => Math.round((value/exchangeRate)));
 
   return (
     // <div className={`w-full flex flex-col gap-4 bg-detailedInfoRectColor rounded-lg px-8 py-6 text-lg font-medium text-black ${className}`}>

@@ -25,7 +25,7 @@ export default function DonutChart({
   data.forEach((value, index) => percentages[dataLabels[index]] = (value / totalData * 100).toFixed(2) + '%' );
   console.log('percentages', percentages);
 
-  const { currency, exchangeRate } = useCurrency();
+  const { currency } = useCurrency();
 
   const checkScrollPosition = useCallback(() => {
     if (chartContainerRef.current) {
@@ -174,7 +174,7 @@ export default function DonutChart({
     tooltip: {
       y: {
         formatter: function (val, opts) {
-          return formatCurrencyNoDecimals(currency, val/exchangeRate);
+          return formatCurrencyNoDecimals(currency, val);
         }
       }
     },

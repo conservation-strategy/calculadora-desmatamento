@@ -80,7 +80,7 @@ export default function Results({ custos, inputData }) {
   const { custoTotal, custosDeRecuperacao, custosAmbientais, custoDeOportunidade } = custos;
   const { content, language } = useContext(Language);
   const { results } = content;
-  const { setLanguageBlocker, currency, setCurrency } = useCurrency();
+  const { setLanguageBlocker, currency, setCurrency, exchangeRate } = useCurrency();
   const [loaded, setLoaded] = useState(false);
   const [currentBarHeights, setCurrentBarHeights] = useState({
     recoverCost: 0,
@@ -134,7 +134,7 @@ export default function Results({ custos, inputData }) {
       <div className="px-6 pb-10 max-[530px]:pt-6 pt-16 flex flex-col items-center gap-20 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full'>
           {/* botao de idioma */}
-          <button className='p-4 border bg-black text-white' onClick={handleChangeCurrency}>
+          <button className='p-4 border bg-black text-white w-fit bottom-0 left-0 fixed' onClick={handleChangeCurrency}>
             {currency === currencies.real ? currencies.dollar : currencies.real}
           </button>
           {/* --------------- */}
@@ -149,7 +149,7 @@ export default function Results({ custos, inputData }) {
                 }
                 {results.section_1.intro.parts[1]}
               </SectionBodyText>
-              <HighlightedCost color='red' cost={custoTotal} justifyLeft={true}/>
+              <HighlightedCost color='red' cost={custoTotal/exchangeRate} currency={currency} justifyLeft={true}/>
               <SectionBodyComment>{results.section_1.description.parts[0]}{custosDeRecuperacao ? ' '+results.section_1.description.conditional : ''} {results.section_1.description.parts[2]}</SectionBodyComment>
             </div>
             <div className='w-full max-w-xl place-content-center'>

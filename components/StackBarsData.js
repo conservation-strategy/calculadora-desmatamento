@@ -5,6 +5,7 @@ import { RiInformationLine } from "react-icons/ri";
 import { styled } from '@mui/material/styles';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import styles from '../styles/StackBarsData.module.css';
+import { useCurrency } from "../context/provider";
 
 const robotoCondensed = Roboto_Condensed({
   weight: ['300', '400', '700'],
@@ -61,12 +62,12 @@ const BarLabel = ({ children, isZeroCost = false, isRec = false, isEnv = false }
 // to-do: deixar a largura das barras responsivas
 const OpportunityBarContainer = forwardRef(({ cost, label, className, isOpCost = false, description, usoPosterior }, ref) => {
   const uso = usoPosterior === "pecuária" ? description.usos[0] : description.usos[1];
-
+  const { currency, exchangeRate } = useCurrency();
   return (
       <div className="flex flex-col gap-8">
         <div className={`relative flex flex-col gap-1 items-end border-r border-[#a6a6a6] pr-3 ${styles.oportunityBar}`}>
           <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm `}>{description.title + ' ' + uso}</span>
-          <HighlightedCost cost={cost} size='small' />
+          <HighlightedCost cost={cost/exchangeRate} currency={currency} size='small' />
           <Tooltip 
             title={description.tooltip.parts[0] + ' ' + uso + ' ' + description.tooltip.parts[1]}
             componentsProps={{
@@ -168,19 +169,19 @@ const CustomTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-const TooltipContent = ({ label, cost, isRec, isEnv }) => {
+const TooltipContent = ({ label, cost, currency, isRec, isEnv }) => {
   console.log('isZeroCost', cost >= 0 && cost < 0.01);
   return (
     <div className="flex flex-col gap-2 p-2 items-begin [@media(max-width:768px)]:max-w-[130px]">
       <BarLabel isZeroCost={cost >= 0 && cost < 0.01} isRec={isRec} isEnv={isEnv}>{label}</BarLabel>
-      <HighlightedCost cost={cost} size='text-[1.4rem] [@media(max-width:844px)]:text-[1.25rem] [@media(max-width:844px)]:text-base' />
+      <HighlightedCost cost={cost} currency={currency} size='text-[1.4rem] [@media(max-width:844px)]:text-[1.25rem] [@media(max-width:844px)]:text-base' />
     </div>
   );
 }
 
 const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, className }, ref) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+  const { currency, exchangeRate } = useCurrency();
   return (
     <CustomTooltip 
       open 
@@ -203,7 +204,7 @@ const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, classNam
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      title={<TooltipContent label={label} cost={cost} isEnv={true} />}
+      title={<TooltipContent label={label} cost={cost/exchangeRate} currency={currency} isEnv={true} />}
       sx={{ 
         '& .MuiTooltip-tooltip .MuiTooltip-arrow': { 
           color: isHovered ? 'var(--envValueTooltipHoverColor)' : 'var(--envValueTooltipColor)',
@@ -230,6 +231,7 @@ const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, classNam
 
 const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className }, ref) => {
   const [isHovered, setIsHovered] = useState(false);
+  const{ currency, exchangeRate } = useCurrency();
 
   return (
     <CustomTooltip 
@@ -253,7 +255,7 @@ const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className },
           ],
         },
       }}
-      title={<TooltipContent label={label} cost={cost} isRec={true} />}
+      title={<TooltipContent label={label} cost={cost/exchangeRate} currency={currency} isRec={true} />}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       sx={{ 
@@ -290,11 +292,12 @@ const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className },
 });
 
 const StackBarsContainer = ({ children, cost, description }) => {
+  const { currency, exchangeRate } = useCurrency();
   return (
     <div className="flex flex-col items-end gap-8" style={{ marginLeft: `${TOOLTIP_WIDTH/3}px` }}>
       <div className="w-full flex flex-col items-end border-r border-[#a6a6a6] pr-3 gap-1 [@media(max-width:844px)]:max-w-[150px]">
         <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm`}>{description}</span>
-        <HighlightedCost cost={cost} size='small' />
+        <HighlightedCost cost={cost/exchangeRate} currency={currency}  size='small' />
       </div>
       <div className="w-full h-auto h-max-[700px] flex flex-col gap-0 items-end">
         {children}
@@ -319,6 +322,7 @@ export default function StackBarsData({
   // const lineRef = useRef(null);
   // const [lineTop, setLineTop] = useState(0);
   const [data, setData] = useState([custosDeRecuperacao, custosAmbientais, custoDeOportunidade]);
+  const { currency, exchangeRate } = useCurrency();
 
   // useEffect(() => {
   //   if (recuperacaoRef.current && ambientaisRef.current && oportunidadeRef.current) {
@@ -416,7 +420,7 @@ export default function StackBarsData({
       </StackBarsContainer>
       <OpportunityBarContainer 
         ref={oportunidadeRef}
-        cost={custoDeOportunidade}
+        cost={custoDeOportunidade/exchangeRate}
         usoPosterior={usoPosterior}
         label="Custo de oportunidade da pecuária"
         isOpCost={true}
