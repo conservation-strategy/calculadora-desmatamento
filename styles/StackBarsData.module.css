@@ -104,3 +104,10 @@
   gap: 24px;
   margin-left: calc(200px / 3);
 }
+
+.tooltipIcon {
+  @media(max-width: 339px) {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}

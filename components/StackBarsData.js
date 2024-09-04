@@ -85,9 +85,10 @@ const OpportunityBarContainer = forwardRef(({ cost, label, className, isOpCost =
                 }
               }
             }}
+            enterTouchDelay={100}
           >
-          <div className="absolute top-0 left-full ml-2 text-[1.4rem] text-gray-500 cursor-pointer">
-            <RiInformationLine />
+          <div className="absolute top-0 left-full ml-2 max-[339px]:ml-1 text-[1.4rem] text-gray-500 cursor-pointer">
+            <RiInformationLine className={styles.tooltipIcon}/>
           </div>
         </Tooltip>
         </div>
