@@ -598,6 +598,10 @@
                         "lines": [
                             "Hover over the chart slices to see more details about each cost.",
                             "Tip: click on each slice to fix a value and compare it to the others."
+                        ],
+                        "lines_mobile": [
+                            "Touch on a chart slice to see more details about each cost.",
+                            "Tip: Touch the slice again to undo the selection."
                         ]
                     },
                     "data_labels": [

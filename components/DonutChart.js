@@ -305,6 +305,7 @@ export default function DonutChart({
               data={data}
               dataLabels={dataLabels}
               dataColors={dataColors}
+              open={shouldRenderChart}
             />
         </div>
     )

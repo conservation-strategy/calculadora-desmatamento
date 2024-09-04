@@ -143,6 +143,8 @@ const infoLabelDictionaryEN = {
 const SliceInfo = ({ info, open, description }) => {
   const { language } = useContext(Language);
 
+  console.log('[SliceInfo] info', info);
+
   // console.log ('[SliceInfo] info.label', info?.label);
 
   // const sliceBodyText = 
@@ -159,7 +161,10 @@ const SliceInfo = ({ info, open, description }) => {
   //   );
   const carbonExtraInfo = 
     language === ENGLISH
-    ? <span>Amount of carbon lost:&nbsp;<span className="font-[500] text-2xl">{info?.extraCarbonValue}</span>&nbsp;tons of CO2.</span>
+    ? <div className="mt-2 pl-3 border-l-2 border-[#CBA888] flex flex-col gap-2">
+        <span className="font-[400]">Amount of carbon lost:</span>
+        <span className="font-[600] text-xl">{formatCostNumber(info?.extraCarbonValue)}&nbsp;<span className="font-[400] text-sm">tons of CO2.</span></span>
+      </div>
     : <div className="mt-2 pl-3 border-l-2 border-[#CBA888] flex flex-col gap-2">
         <span className="font-[400]">Quantidade de carbono perdida:</span>
         <span className="font-[600] text-xl">{formatCostNumber(info?.extraCarbonValue)}&nbsp;<span className="font-[400] text-sm">toneladas de CO2.</span></span>
