@@ -37,7 +37,10 @@ export function custoTotalCarbono (
     // console.log('entradas', entradas)
     const _vpl = vpl(entradas, txDesconto)
     // console.log('vpl', _vpl)
-    return _vpl * txCambio * (1 - imposto) * hectareAfetadoComPeso;
+    return {
+        custo: _vpl * txCambio * (1 - imposto) * hectareAfetadoComPeso,
+        saldoCarbonoPorHa
+    };
 }
 
 // const v = custoTotalCarbono(1, 392, 'pecuária', true);
