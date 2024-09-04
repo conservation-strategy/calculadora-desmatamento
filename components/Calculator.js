@@ -431,6 +431,9 @@ export default function Calculate() {
                           '& .MuiInput-underline:after': {
                             borderBottomColor: '#ffffff',
                           },
+                          '& .MuiSelect-select': {
+                            color: '#ffffff',
+                          },
                         }}
                         IconComponent={(props) => (
                           <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
@@ -461,6 +464,9 @@ export default function Calculate() {
                           },
                           '& .MuiInput-underline:after': {
                             borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiSelect-select': {
+                            color: '#ffffff',
                           },
                         }}
                         IconComponent={(props) => (
@@ -500,6 +506,9 @@ export default function Calculate() {
                           '& .MuiInput-underline:after': {
                             borderBottomColor: '#ffffff',
                           },
+                          '& .MuiSelect-select': {
+                            color: '#ffffff',
+                          },
                         }}
                         IconComponent={(props) => (
                           <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
@@ -531,6 +540,23 @@ export default function Calculate() {
                         '& .MuiInput-underline:after': {
                           borderBottomColor: '#ffffff',
                         },
+                        '& .MuiInputBase-input.MuiInput-input': {
+                          color: '#ffffff',
+                          backgroundColor: 'transparent',
+                        },
+                        '&.Mui-focused': {
+                          backgroundColor: 'transparent',
+                        },
+                        '&.Mui-focused .MuiInputBase-input': {
+                          backgroundColor: 'transparent',
+                        },
+                        '& .MuiInputBase-input.Mui-focused': {
+                          backgroundColor: 'transparent',
+                        },
+                        '& .MuiInputBase-input:-webkit-autofill': {
+                          WebkitBoxShadow: '0 0 0 1000px #717171 inset', // Reset the autofill background color
+                          WebkitTextFillColor: '#ffffff', // Set the autofill text color
+                        },
                       }}
                       InputLabelProps={{
                         sx: { color: 'ffffff', fontSize: '1rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } }, // Adjust the size as needed
@@ -553,6 +579,9 @@ export default function Calculate() {
                           },
                           '& .MuiInput-underline:after': {
                             borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiSelect-select': {
+                            color: '#ffffff',
                           },
                         }}
                         IconComponent={(props) => (
@@ -598,6 +627,9 @@ export default function Calculate() {
                         '& .MuiInput-underline:after': {
                           borderBottomColor: '#ffffff',
                         },
+                        '& .MuiSelect-select': {
+                          color: '#ffffff',
+                        },
                       }}
                       IconComponent={(props) => (
                         <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
@@ -624,6 +656,9 @@ export default function Calculate() {
                         },
                         '& .MuiInput-underline:after': {
                           borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiSelect-select': {
+                          color: '#ffffff',
                         },
                       }}
                       IconComponent={(props) => (
@@ -652,6 +687,9 @@ export default function Calculate() {
                         '& .MuiInput-underline:after': {
                           borderBottomColor: '#ffffff',
                         },
+                        '& .MuiSelect-select': {
+                          color: '#ffffff',
+                        },
                       }}
                       IconComponent={(props) => (
                           <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
@@ -678,6 +716,9 @@ export default function Calculate() {
                         },
                         '& .MuiInput-underline:after': {
                           borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiSelect-select': {
+                          color: '#ffffff',
                         },
                       }}
                       IconComponent={(props) => (
