@@ -9,7 +9,7 @@ export const Quotation = createContext(null);
 
 export const currencies = {
     real: 'R$',
-    dollar: 'U$'
+    dollar: 'US$'
 }
 
 const findContent = (language) => {
