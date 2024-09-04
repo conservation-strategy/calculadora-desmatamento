@@ -145,8 +145,8 @@ export default function Results({ custos, inputData }) {
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
       </div>
-      <div className="px-6 pb-10 max-[530px]:pt-6 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-14 w-full">
-        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-10'>
+      <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
+        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-6'>
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col-reverse [@media(max-width:900px)]:gap-10'>
             <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch [@media(max-width:900px)]:max-w-full'>
@@ -168,7 +168,7 @@ export default function Results({ custos, inputData }) {
         </div>
         <div className='max-w-screen-sm md:max-w-[1480px] py-10 flex w-full'>
           <div className='flex flex-col gap-12 justify-center w-full'>
-            <div className='flex flex-col gap-6 justify-center'>
+            <div className='flex flex-col gap-8 [@media(max-width:900px)]:gap-6 justify-center'>
               <SectionSubtitle>{results.section_2.heading}</SectionSubtitle>
               <SectionBodyText className='max-w-55ch'>
                 {results.section_2.description.intro + ' '}
@@ -183,7 +183,7 @@ export default function Results({ custos, inputData }) {
             </div>
             {/* <div className={`flex justify-center pt-10 | ${styles.linePatternHorizontal}`}> */}
             {/* <div className={`flex justify-center pt-10 bg-gray-100`}> */}
-            <div className={`flex justify-center pt-10 border border-transparent border-b-[#d3d3d3]`}>
+            <div className={`flex justify-center pt-10 max-[844px]:pt-0 border border-transparent border-b-[#d3d3d3]`}>
               {/* <BarsData 
                 custosDeRecuperacao={custosDeRecuperacao} 
                 custosAmbientais={custosAmbientais.total}
@@ -201,7 +201,7 @@ export default function Results({ custos, inputData }) {
             </div>
           </div>
         </div>
-        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-10 justify-begin w-full my-10'>
+        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 [@media(max-width:900px)]:gap-6 justify-begin w-full my-10'>
           <SectionSubtitle>{results.section_3.heading}</SectionSubtitle>
           <DetailedInfoEnvironmentCost 
             className={`${roboto.className} ${robotoCondensed.className}`}
@@ -213,7 +213,7 @@ export default function Results({ custos, inputData }) {
             data={custosAmbientais}
           /> */}
         </div>
-        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-14 justify-begin w-full'>
+        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 justify-begin w-full'>
           <SectionSubtitle>Resumo dos resultados</SectionSubtitle>
           <div className='w-full flex flex-col gap-6'>
             <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Dados de entrada</h4>
@@ -234,7 +234,7 @@ export default function Results({ custos, inputData }) {
               }}
             />
           </div>
-          <div className='w-full flex flex-col gap-6'>
+          <div className='w-full flex flex-col gap-6 mt-4'>
             <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Custos estimados</h4>
             <TableOutputData 
               data={{

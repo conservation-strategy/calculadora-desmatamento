@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { formatCurrencyNoDecimals } from "../utils";
-import DonutChartLegend from "./LegendDonutChart";
+import LegendDonutChart from "./LegendDonutChart";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function DonutChart({
@@ -301,7 +301,7 @@ export default function DonutChart({
               <p>Selected Slice: {currentSliceInfo?.label}</p>
               <p>Value: {currentSliceInfo?.value}</p>
             </div> */}
-            <DonutChartLegend 
+            <LegendDonutChart 
               data={data}
               dataLabels={dataLabels}
               dataColors={dataColors}

@@ -226,7 +226,7 @@ export default function DetailedInfoEnvironmentCost({ className, data, descripti
   }
 
   let costData = [data.custoBiopros, data.custoCarbono, data.custoAssoreamento, data.custoMadeireiroOuNaoMadeireiro, data.custoRecreacao];
-  const processedCostData = costData.map(value => Math.round((value)));
+  const processedCostData = costData.map(value => Math.round(value));
 
   return (
     // <div className={`w-full flex flex-col gap-4 bg-detailedInfoRectColor rounded-lg px-8 py-6 text-lg font-medium text-black ${className}`}>

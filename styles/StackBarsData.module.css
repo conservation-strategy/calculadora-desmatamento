@@ -41,21 +41,37 @@
 
 @media(max-width: 1024px) {
   .oportunityBar,
-  .stackBar{
+  .stackBar {
     width: 200px;
   }
 }
 @media(max-width: 844px) {
   .oportunityBar,
-  .stackBar{
+  .stackBar {
     width: 150px;
   }
 }
 @media(max-width: 634px) {
   .oportunityBar,
-  .stackBar{
+  .stackBar {
     width: 120px;
   }
+}
+@media(max-width: 529px) {
+  .oportunityBar,
+  .stackBar {
+    width: 150px;
+  }
+}
+@media(max-width: 429px) {
+  .oportunityBar,
+  .stackBar {
+    width: 120px;
+  }
+
+  /* .stackBar:hover {
+    transform: scale(2);
+  } */
 }
 
 
@@ -69,6 +85,12 @@
 .stackBar:hover {
   /* border: 2px solid inherit; */
   transform: scale(1.01);
+}
+
+@media(max-width: 429px) {
+  .stackBar:hover {
+    transform: scale(1.05);
+  }
 }
 
 .stackBar:hover span {

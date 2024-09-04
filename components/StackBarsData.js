@@ -5,6 +5,7 @@ import { RiInformationLine } from "react-icons/ri";
 import { styled } from '@mui/material/styles';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import styles from '../styles/StackBarsData.module.css';
+import LegendStackBar from "./LegendStackBar";
 
 const robotoCondensed = Roboto_Condensed({
   weight: ['300', '400', '700'],
@@ -65,7 +66,7 @@ const OpportunityBarContainer = forwardRef(({ cost, label, className, isOpCost =
   return (
       <div className="flex flex-col gap-8">
         <div className={`relative flex flex-col gap-1 items-end border-r border-[#a6a6a6] pr-3 ${styles.oportunityBar}`}>
-          <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm `}>{description.title + ' ' + uso}</span>
+          <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm text-right`}>{description.title + ' ' + uso}</span>
           <HighlightedCost cost={cost} size='small' />
           <Tooltip 
             title={description.tooltip.parts[0] + ' ' + uso + ' ' + description.tooltip.parts[1]}
@@ -122,6 +123,9 @@ const CustomTooltip = styled(({ className, ...props }) => (
       disablePortal: true,
       sx: {
         zIndex: 9,
+        '@media(max-width:529px)': {
+          display: 'none',
+        },
       },
       placement: 'left',
       modifiers: [
@@ -178,7 +182,7 @@ const TooltipContent = ({ label, cost, isRec, isEnv }) => {
   );
 }
 
-const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, className }, ref) => {
+const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, color }, ref) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -217,7 +221,7 @@ const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, classNam
     >
       <div 
         ref={ref}
-        className={`${styles['stackBar']} | w-[280px] w-max-[280px] h-min-[10px] flex flex-col gap-1 justify-center items-center text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out bg-envValueColor`} // ${isHovered ? 'bg-envValueTooltipHoverColor' : 'bg-envValueColor'}`}
+        className={`${styles['stackBar']} | w-[280px] w-max-[280px] h-min-[10px] flex flex-col gap-1 justify-center items-center text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out ${color === 'low' ? 'bg-lowValueColor' : 'bg-highValueColor'}`} // ${isHovered ? 'bg-envValueTooltipHoverColor' : 'bg-envValueColor'}`}
       >
         {
           costPercent > 0.01 &&
@@ -228,7 +232,7 @@ const EnvironmentBarContainer = forwardRef(({ cost, costPercent, label, classNam
   );
 });
 
-const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className }, ref) => {
+const RecoverBarContainer = forwardRef(({ cost, costPercent, label, color }, ref) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -278,7 +282,7 @@ const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className },
     >
       <div 
         ref={ref}
-        className={`${styles['stackBar']} | w-[280px] w-max-[280px] h-min-[10px] flex flex-col gap-1 justify-center items-center text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out bg-recValueColor`}
+        className={`${styles['stackBar']} | w-[280px] w-max-[280px] h-min-[10px] flex flex-col gap-1 justify-center items-center text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out ${color === 'low' ? 'bg-lowValueColor' : 'bg-highValueColor'}`}
       >
         {
           costPercent > 0.01 &&
@@ -291,9 +295,9 @@ const RecoverBarContainer = forwardRef(({ cost, costPercent, label, className },
 
 const StackBarsContainer = ({ children, cost, description }) => {
   return (
-    <div className="flex flex-col items-end gap-8" style={{ marginLeft: `${TOOLTIP_WIDTH/3}px` }}>
+    <div className="flex flex-col items-end gap-8 ml-tooltip-width max-[529px]:ml-0">
       <div className="w-full flex flex-col items-end border-r border-[#a6a6a6] pr-3 gap-1 [@media(max-width:844px)]:max-w-[150px]">
-        <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm`}>{description}</span>
+        <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm text-right`}>{description}</span>
         <HighlightedCost cost={cost} size='small' />
       </div>
       <div className="w-full h-auto h-max-[700px] flex flex-col gap-0 items-end">
@@ -386,74 +390,59 @@ export default function StackBarsData({
   console.log('[StackBarsData] custosAmbientaisPercent', custosAmbientaisPercent);
 
   return (
-    <div className={`w-full flex gap-24 justify-center items-end ${styles.globalVars} max-[634px]:gap-8 max-[900px]:gap-12`}>
-      {/* <div 
-        ref={lineRef}
-        className="absolute left-0 right-0 border-t border-dashed border-black mx-4 transition-[height] duration-500 ease-in-out"
-        style={{ top: `${lineTop}px` }}
-      ></div> */}
-
-      <StackBarsContainer cost={custosTotal} description={description.stack}>
-        <RecoverBarContainer 
-          ref={recuperacaoRef}
-          cost={custosDeRecuperacao}
-          costPercent={custosDeRecuperacaoPercent}
-          label={ 
-            isLegal ?
-              description.tooltips[0] + description.legal
-            :
-              description.tooltips[0] + ":"
-          }
-          className={custosDeRecuperacao < custosAmbientais ? 'bg-lowValueColor' : 'bg-highValueColor'}
+    <div className="flex flex-col gap-12 justify-center">
+      <div className="hidden max-[529px]:flex py-4 px-6 border border-[#d3d3d3]">
+        <LegendStackBar 
+          data={[Math.round(custosDeRecuperacao), Math.round(custosAmbientais)]}
+          dataLabels={[
+            (
+              isLegal ?
+                description.tooltips[0] + description.legal
+              :
+                description.tooltips[0] + ":"
+            ),
+            description.tooltips[1]
+          ]}
+          dataColors={[
+            custosDeRecuperacao < custosAmbientais ? 'low' : 'high',
+            custosDeRecuperacao > custosAmbientais ? 'low' : 'high'
+          ]}
         />
-        <EnvironmentBarContainer 
-          ref={ambientaisRef}
-          cost={custosAmbientais}
-          costPercent={custosAmbientaisPercent}
-          label={description.tooltips[1]}
-          className={custosDeRecuperacao > custosAmbientais ? 'bg-lowValueColor' : 'bg-highValueColor'}
-        />
-      </StackBarsContainer>
-      <OpportunityBarContainer 
-        ref={oportunidadeRef}
-        cost={custoDeOportunidade}
-        usoPosterior={usoPosterior}
-        label="Custo de oportunidade da pecuária"
-        isOpCost={true}
-        // className={'border-optValueColor border'}
-        className={'bg-optValueColor'}
-        description={description.opportunity}
-      />
-      {/* <Tooltip 
-          title={tooltipText} 
-          componentsProps={{
-            tooltip: {
-              sx: {
-                px: 2,
-                py: 1.5,
-                letterSpacing: '0.3px',
-                textWrap: 'pretty',
-                borderRadius: '8px',  
-                fontSize: '0.9rem',
-              }
+      </div>
+      <div className={`w-full flex gap-24 justify-center items-end ${styles.globalVars} max-[634px]:gap-8 max-[900px]:gap-12`}>
+        <StackBarsContainer cost={custosTotal} description={description.stack}>
+          <RecoverBarContainer 
+            ref={recuperacaoRef}
+            cost={custosDeRecuperacao}
+            costPercent={custosDeRecuperacaoPercent}
+            label={ 
+              isLegal ?
+                description.tooltips[0] + description.legal
+              :
+                description.tooltips[0] + ":"
             }
-          }}
-        >
-        <div className="absolute top-[-5px] left-full ml-2 text-[1.4rem] text-gray-500 cursor-pointer">
-          <RiInformationLine />
-        </div>
-      </Tooltip> */}
-
-      {/* <div ref={oportunidadeRef} className="py-4 pl-4 w-full min-h-[100px] bg-transparent flex flex-col justify-begin items-center text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out">
-        <div className="flex flex-col gap-2 border-black border border-dashed p-4">
-          <HighlightedCost cost={custoDeOportunidade} size='x-small' color='black' />
-          <span className="text-barLabelColor font-sans font-bold text-sm">Custo de oportunidade da pecuária/soja</span>
-        </div>
-      </div> */}
-      {/* <div ref={oportunidadeRef} className="relative border-black border border-dashed py-4 px-6 w-full bg-transparent flex flex-col gap-1 justify-between items-start text-barLabelColor font-sans text-lg transition-[height] duration-500 ease-in-out">
-        <HighlightedCost cost={custoDeOportunidade} size='small' color='black' />
-        <BarLabel>Custo de oportunidade da pecuária</BarLabel>
-      </div> */}
+            // className={custosDeRecuperacao < custosAmbientais ? 'bg-lowValueColor' : 'bg-highValueColor'}
+            color={custosDeRecuperacao < custosAmbientais ? 'low' : 'high'}
+          />
+          <EnvironmentBarContainer 
+            ref={ambientaisRef}
+            cost={custosAmbientais}
+            costPercent={custosAmbientaisPercent}
+            label={description.tooltips[1]}
+            // className={custosDeRecuperacao > custosAmbientais ? 'bg-lowValueColor' : 'bg-highValueColor'}
+            color={custosDeRecuperacao > custosAmbientais ? 'low' : 'high'}
+          />
+        </StackBarsContainer>
+        <OpportunityBarContainer 
+          ref={oportunidadeRef}
+          cost={custoDeOportunidade}
+          usoPosterior={usoPosterior}
+          label="Custo de oportunidade da pecuária"
+          isOpCost={true}
+          className={'bg-optValueColor'}
+          description={description.opportunity}
+        />
+      </div>
     </div>
   )
 }

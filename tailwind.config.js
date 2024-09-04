@@ -85,6 +85,9 @@ module.exports = {
         // highlightRed: '#EA6557',
         highlightRed: '#C6402F',
       },
+      margin: {
+        'tooltip-width': 'calc(200px / 3)',
+      }
     },
   },
   plugins: [

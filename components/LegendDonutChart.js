@@ -25,7 +25,7 @@ const DonutChartLegendItem = ( { cost, total, label, color, language } ) => {
   );
 }
 
-const DonutChartLegend = ( { data, dataLabels, dataColors } ) => {
+const LegendDonutChart = ( { data, dataLabels, dataColors } ) => {
   const { language } = useContext(Language);
 
   const total = data.reduce((acc, curr) => acc + curr, 0);
@@ -66,4 +66,4 @@ const DonutChartLegend = ( { data, dataLabels, dataColors } ) => {
   );
 };
 
-export default DonutChartLegend;
+export default LegendDonutChart;
