@@ -6,12 +6,13 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsData from './BarsData';
 import HighlightedCost from './HighlightedCost';
 import DetailedInfoRectangle from './DetailedInfoRectangle';
-import TableData from './TableData';
+import TableOutputData from './TableOutputData';
 import StackBarsData from './StackBarsData';
 import DetailedInfoEnvironmentCost from './DetailedInfoEnvironmentCost';
 import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
 import { Language } from '../context/provider';
+import TableInputData from './TableInputData';
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -42,7 +43,7 @@ const SectionBodyText = ({ children, className }) => {
 
 const SectionBodyComment = ({ children }) => {
   return (
-    <div className='flex max-w-42ch'>
+    <div className='flex max-w-42ch [@media(max-width:900px)]:max-w-full'>
       <p className={`text-base text-pretty tracking-wide leading-relaxed border-l border-[#6E6E6E] pl-4 mt-4 text-[#3D3D3D] ${roboto.className}`}>{children}</p>
     </div>
   )
@@ -51,23 +52,50 @@ const SectionBodyComment = ({ children }) => {
 const InfoRectangle = ({ city, uf, ha, description }) => {
   return (
     <div 
-      className='flex w-full max-w-2xl bg-transparent text-[#203C26] rounded-[0.3rem] p-12 text-lg font-medium border border-[#d3d3d3] [@media(max-width:586px)]:p-10 [@media(max-width:442px)]:p-6'
+      className='flex w-full max-w-2xl bg-transparent text-[#203C26] rounded-[0.3rem] p-12 text-base sm:text-lg font-medium border border-[#d3d3d3] max-sm:p-10 max-[442px]:p-7'
       style={{ boxShadow: 'rgba(100, 100, 111, 0.05) 0px 7px 29px 0px' }}
     >
       <div className="w-full flex flex-col gap-8 whitespace-nowrap">
-        <div className="h-auto flex flex-wrap justify-between border-b border-[#d3d3d3] pb-4">
-          <span className={`${robotoCondensed.className} opacity-80`}>
+        <div className="h-auto flex flex-col gap-3 border-b border-[#d3d3d3] pb-4 lg:flex-row lg:justify-between">
+          <span className={`${robotoCondensed.className} opacity-80 max-md:whitespace-normal`}>
           {city && uf ? description.city : description.location}
           </span>
-          <span className={`${roboto.className} font-medium opacity-90`}>
+          <span className={`${roboto.className} font-medium opacity-90 max-md:whitespace-normal`}>
             {city && uf ? `${city} / ${uf}` : description.amazon}
           </span>
         </div>
-        <div className="flex justify-between border-b border-[#d3d3d3] pb-4">
-          <span className={`${robotoCondensed.className} opacity-80`}>
+        <div className="flex flex-col gap-3 border-b border-[#d3d3d3] pb-4 md:flex-row md:justify-between">
+          <span className={`${robotoCondensed.className} opacity-80 max-md:whitespace-normal`}>
             {description.area}
           </span>
-          <span className={`${roboto.className} font-medium opacity-90`}>
+          <span className={`${roboto.className} font-medium opacity-90 max-md:whitespace-normal`}>
+            {`${ha} ha`}
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const CompleteInfoRectangle = ({ city, uf, ha, description }) => {
+  return (
+    <div 
+      className='flex w-full max-w-2xl bg-transparent text-[#203C26] p-8 border border-[#d3d3d3] text-base sm:text-lg font-medium max-sm:p-6'
+    >
+      <div className="w-full flex flex-col gap-8 whitespace-nowrap">
+        <div className="h-auto flex flex-col gap-3 border-b border-[#d3d3d3] pb-4 lg:flex-row lg:justify-between">
+          <span className={`${robotoCondensed.className} opacity-80 max-md:whitespace-normal`}>
+          {city && uf ? description.city : description.location}
+          </span>
+          <span className={`${roboto.className} font-medium opacity-90 max-md:whitespace-normal`}>
+            {city && uf ? `${city} / ${uf}` : description.amazon}
+          </span>
+        </div>
+        <div className="flex flex-col gap-3 border-b border-[#d3d3d3] pb-4 md:flex-row md:justify-between">
+          <span className={`${robotoCondensed.className} opacity-80 max-md:whitespace-normal`}>
+            {description.area}
+          </span>
+          <span className={`${roboto.className} font-medium opacity-90 max-md:whitespace-normal`}>
             {`${ha} ha`}
           </span>
         </div>
@@ -117,11 +145,11 @@ export default function Results({ custos, inputData }) {
           <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
         </div>
       </div>
-      <div className="px-6 pb-10 max-[530px]:pt-6 pt-16 flex flex-col items-center gap-20 w-full">
-        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full'>
+      <div className="px-6 pb-10 max-[530px]:pt-6 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-14 w-full">
+        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-10'>
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
-          <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col'>
-            <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch'>
+          <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col-reverse [@media(max-width:900px)]:gap-10'>
+            <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch [@media(max-width:900px)]:max-w-full'>
               <SectionBodyText>
                 {results.section_1.intro.parts[0] + ' '}
                 {!inputData.valoresMedios
@@ -133,7 +161,7 @@ export default function Results({ custos, inputData }) {
               <HighlightedCost color='red' cost={custoTotal} justifyLeft={true}/>
               <SectionBodyComment>{results.section_1.description.parts[0]}{custosDeRecuperacao ? ' '+results.section_1.description.conditional : ''} {results.section_1.description.parts[2]}</SectionBodyComment>
             </div>
-            <div className='w-full max-w-xl place-content-center'>
+            <div className='w-full max-w-xl [@media(max-width:900px)]:hidden [@media(max-width:900px)]:max-w-full place-content-center'>
               <InfoRectangle city={inputData.city} uf={inputData.uf} ha={inputData.ha} description={results.section_1.info_rectangle} />
             </div>
           </div>
@@ -185,18 +213,40 @@ export default function Results({ custos, inputData }) {
             data={custosAmbientais}
           /> */}
         </div>
-        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-10 justify-begin w-full'>
+        <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-14 justify-begin w-full'>
           <SectionSubtitle>Resumo dos resultados</SectionSubtitle>
-          <TableData 
-            data={{
-              custosDeRecuperacao,
-              custosAmbientais,
-              custoDeOportunidade,
-              custoTotal,
-              inputData
-            }}
-            description={results.table}
-          />
+          <div className='w-full flex flex-col gap-6'>
+            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Dados de entrada</h4>
+            {/* <div className='hidden w-full max-w-xl [@media(max-width:900px)]:block [@media(max-width:900px)]:max-w-full place-content-center'> */}
+                {/* <CompleteInfoRectangle city={inputData.city} uf={inputData.uf} ha={inputData.ha} description={results.section_1.info_rectangle} /> */}
+            {/* </div> */}
+            <TableInputData 
+              data={{
+                city: inputData.city,
+                uf: inputData.uf,
+                location: results.section_1.info_rectangle.amazon,
+                ha: inputData.ha,
+                app: inputData.app,
+                recreacao: inputData.recreacao,
+                usoPosterior: inputData.usoPosterior,
+                legal: inputData.legal,
+                restauracao: inputData.restauracao,
+              }}
+            />
+          </div>
+          <div className='w-full flex flex-col gap-6'>
+            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Custos estimados</h4>
+            <TableOutputData 
+              data={{
+                custosDeRecuperacao,
+                custosAmbientais,
+                custoDeOportunidade,
+                custoTotal,
+                inputData
+              }}
+              description={results.table}
+            />
+          </div>
         </div>
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">

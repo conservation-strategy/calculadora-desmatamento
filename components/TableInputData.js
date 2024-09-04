@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from "react";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { formatCostNumber, formatCurrencyNoDecimals } from '../utils';
+import { Language } from '../context/provider';
 
 function createData(
   name,
@@ -19,20 +21,24 @@ function createData(
 //        colocar os inputs na tabela (inputData ta dentro do obj data)
 //          inputData={{ city: dadosMunicipio.Município, uf: dadosMunicipio.UF, ha: area, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }}
 
-export default function TableData({ data, description }) {
-  // console.log('table data',data)
+export default function TableInputData({ data }) {
+  console.log('[TableInputData] data', data);
+  const { content } = useContext(Language);
+  const { calculadora, results } = content;
   
   const rows = [
-    createData(description.bioprospeccao, data.custosAmbientais.custoBiopros),
-    createData(description.carbono, data.custosAmbientais.custoCarbono),
-    createData(description.erosao, data.custosAmbientais.custoAssoreamento),
-    createData(description.pmnm, data.custosAmbientais.custoMadeireiroOuNaoMadeireiro),
-    // createData('Perda de produtos não-mdeireiros', data.custosAmbientais.custoNaoMadeireiro),
-    createData(description.recreacao, data.custosAmbientais.custoRecreacao),
-    createData(description.total_eco, data.custosAmbientais.total),
-    createData(description.recuperacao, data.custosDeRecuperacao),
-    // createData('Custo de oportunidade da pecuária', data.custoDeOportunidade),
-    createData(description.total, data.custoTotal),
+    ,
+    {...(
+      data.city && data.uf ? 
+        { name: results.section_1.info_rectangle.city, value: `${data.city} / ${data.uf}` } :
+        { name: results.section_1.info_rectangle.locatio, value: data.location }
+    )},
+    {name: calculadora.inputs.area, value: data.ha},
+    {name: calculadora.inputs.app, value: data.app ? calculadora.inputs.true : calculadora.inputs.false},
+    {name: calculadora.inputs.recreacao, value: data.recreacao ? calculadora.inputs.true : calculadora.inputs.false},
+    {name: calculadora.inputs.uso_solo.title, value: data.usoPosterior},
+    {name: calculadora.inputs.legalidade.title, value: data.legal ? calculadora.inputs.true : calculadora.inputs.false},
+    {name: calculadora.inputs.restauracao.title, value: data.restauracao},
   ]
 
   // inputData =  { city, uf, ha, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }
@@ -43,8 +49,8 @@ export default function TableData({ data, description }) {
       <Table sx={{ width: '100%', '@media(min-width: 1080px)': { width: 800} }}>
         <TableHead>
           <TableRow>
-            <TableCell sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Descrição do custo</TableCell>
-            <TableCell align="right" sx={{ p: 3, fontSize: '1em', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Valor</TableCell>
+            <TableCell sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>{calculadora.input_table.col1}</TableCell>
+            <TableCell align="right" sx={{ p: 3, fontSize: '1em', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>{calculadora.input_table.col2}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -56,7 +62,7 @@ export default function TableData({ data, description }) {
               <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
                 {row.name}
               </TableCell>
-              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'nowrap', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
+              <TableCell align="right" sx={{ p: 2.5, textTransform: 'capitalize', whiteSpace: 'normal', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{row.value}</TableCell>
             </TableRow>
           ))}
         </TableBody>

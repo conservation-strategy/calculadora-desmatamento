@@ -136,6 +136,10 @@
                         ]
                     }
                 },
+                "input_table": {
+                    "col1": "Descrição",
+                    "col2": "Valor"
+                },
                 "inputs": {
                     "valores_medios": {
                         "title": "Valores médios ou específicos?",
@@ -484,6 +488,10 @@
                             "Estimating potential revenues the government could generate from its forest assets."
                         ]
                     }
+                },
+                "input_table": {
+                    "col1": "Description",
+                    "col2": "Value"
                 },
                 "inputs": {
                     "valores_medios": {
