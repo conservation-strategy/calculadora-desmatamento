@@ -31,7 +31,7 @@ export default function TableInputData({ data }) {
     {...(
       data.city && data.uf ? 
         { name: results.section_1.info_rectangle.city, value: `${data.city} / ${data.uf}` } :
-        { name: results.section_1.info_rectangle.locatio, value: data.location }
+        { name: results.section_1.info_rectangle.location, value: data.location }
     )},
     {name: calculadora.inputs.area, value: data.ha},
     {name: calculadora.inputs.app, value: data.app ? calculadora.inputs.true : calculadora.inputs.false},
