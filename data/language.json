@@ -255,7 +255,14 @@
                         "Perda de Oportunidades de Recreação"
                     ]                    
                 },
-                "table": {                
+                "table": {
+                    "heading": "Resumo dos resultados",
+                    "input_heading": "Dados de entrada",
+                    "output_heading": "Custos estimados",
+                    "column_headings":[
+                        "Descrição do custo",
+                        "Valor"
+                    ],
                     "bioprospeccao":"Restabelecimento do Potencial de Bioprospecção",
                     "carbono":"Perda de Sequestro de Carbono",
                     "erosao":"Erosão e Assoreamento",
@@ -612,14 +619,21 @@
                         "Recreation Cost"
                     ]
                 },
-                "table": {                    
+                "table": {
+                    "heading": "Summary",
+                    "input_heading": "Inputs",
+                    "output_heading": "Estimated costs",
+                    "column_headings":[
+                        "Cost description",
+                        "Value"
+                    ],    
                     "bioprospeccao":"Loss of Future Potential with Bioprospecting",
                     "carbono":"Loss of Carbon Sequestration",
                     "erosao":"Erosion and Siltation",
                     "pmnm":"Loss of Producing Timber or Non-Timber Products",
                     "recreacao":"Loss of Recreational Opportunities",
-                    "recuperacao":"Total loss of ecosystem services",
-                    "total_eco":"Restoration costs",
+                    "recuperacao":"Restoration costs",
+                    "total_eco":"Total loss of ecosystem services",
                     "total":"Total"                    
                 }
 

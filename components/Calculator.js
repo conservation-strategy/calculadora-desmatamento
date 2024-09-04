@@ -73,7 +73,7 @@ export default function Calculate() {
   const [custoAssoreamento, setCustoAssoreamento] = useState();
   const [custoBiopros, setCustoBiopros] = useState();
   const [custoCarbono,setCustoCarbono] = useState();
-  // const [custoEspecies, setCustoEspecies] = useState();
+  const [carbonoToneladas, setCarbonoToneladas] = useState();
   const [custoRecup, setCustoRecup] = useState();
   const [custoMadeireiro, setCustoMadeireiro] = useState();
   const [custoNaoMadeireiro, setCustoNaoMadeireiro] = useState();
@@ -246,11 +246,11 @@ export default function Calculate() {
       _custoTotalBioPros
     );
     setCustoCarbono(
-      _custoTotalCarbono
+      _custoTotalCarbono.custo
     );
-    // setCustoEspecies(
-    //   _custoTotalEspecies
-    // );
+    setCarbonoToneladas(
+      _custoTotalCarbono.saldoCarbonoPorHa * area
+    )
     setCustoMadeireiro(
       _custoTotalMadeireiro
     );
@@ -281,7 +281,7 @@ export default function Calculate() {
     setCustoTotal(
       _custoTotalAssoreamento + 
       _custoTotalBioPros + 
-      _custoTotalCarbono + 
+      _custoTotalCarbono.custo + 
       // _custoTotalMadeireiro +
       // _custoTotalNaoMadeireiro +
       _custoTotalMadeireiroOuNaoMadeireiro +
@@ -309,7 +309,7 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40">
-        <Header2 title={calculadora.heading} image="images/header2_bg.jpg" bgPosition={'center'} />
+        <Header2 title={calculadora.heading} image="images/header2_bg.jpg" />
 
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />
@@ -799,7 +799,8 @@ export default function Calculate() {
                 custoNaoMadeireiro,
                 custoMadeireiroOuNaoMadeireiro,
                 custoRecreacao,
-                total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao
+                total: custoAssoreamento + custoBiopros + custoCarbono + (custoMadeireiro + custoNaoMadeireiro) / 2 + custoRecreacao,
+                carbonoToneladas
               },
               custoDeOportunidade: usoPosterior === 'agricultura' ? area*lucroSoja : usoPosterior === 'pecuária' ? area*lucroPecuaria : undefined
             }}

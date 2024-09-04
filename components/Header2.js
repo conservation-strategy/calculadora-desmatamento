@@ -11,7 +11,7 @@ function Header2({ title, image , bgPosition}) {
 
     return (
         <div
-            className={`flex items-center justify-center pt-24 pb-16 bg-cover bg-${bgPosition} max-[500px]:px-8 px-14 bg-black relative mt-20`}
+            className={`flex items-center justify-center pt-24 pb-16 bg-cover bg-${bgPosition ?? 'center'} max-[500px]:px-8 px-14 bg-black relative mt-20`}
             style={{ backgroundImage: `url(${image})` }}
         >
             <div className='w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.6)]'></div>

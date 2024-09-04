@@ -46,8 +46,8 @@ export default function TableOutputData({ data, description }) {
       <Table sx={{ width: '100%', '@media(min-width: 1080px)': { width: 800} }}>
         <TableHead>
           <TableRow>
-            <TableCell sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Descrição do custo</TableCell>
-            <TableCell align="right" sx={{ p: 3, fontSize: '1em', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>Valor</TableCell>
+            <TableCell sx={{ p: 3, fontSize: '1rem', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>{description.column_headings[0]}</TableCell>
+            <TableCell align="right" sx={{ p: 3, fontSize: '1em', fontWeight: 'bold', borderColor: 'rgba(0, 0, 0, 0.3)' }}>{description.column_headings[1]}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
