@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       : {
         fallback: data.fallback,
         value: (data.data.value[0].cotacaoCompra + data.data.value[0].cotacaoVenda) / 2,
-        date: data.data.value.dataHoraCotacao
+        date: data.data.value[0].dataHoraCotacao
       }
 
 
