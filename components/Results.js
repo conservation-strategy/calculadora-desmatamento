@@ -227,9 +227,9 @@ export default function Results({ custos, inputData }) {
           /> */}
         </div>
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 justify-begin w-full'>
-          <SectionSubtitle>Resumo dos resultados</SectionSubtitle>
+          <SectionSubtitle>{results.table.heading}</SectionSubtitle>
           <div className='w-full flex flex-col gap-6'>
-            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Dados de entrada</h4>
+            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>{results.table.input_heading}</h4>
             {/* <div className='hidden w-full max-w-xl [@media(max-width:900px)]:block [@media(max-width:900px)]:max-w-full place-content-center'> */}
                 {/* <CompleteInfoRectangle city={inputData.city} uf={inputData.uf} ha={inputData.ha} description={results.section_1.info_rectangle} /> */}
             {/* </div> */}
@@ -248,7 +248,7 @@ export default function Results({ custos, inputData }) {
             />
           </div>
           <div className='w-full flex flex-col gap-6 mt-4'>
-            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>Custos estimados</h4>
+            <h4 className={`font-bold text-xl ${robotoCondensed.className}`}>{results.table.output_heading}</h4>
             <TableOutputData 
               data={{
                 custosDeRecuperacao,
