@@ -12,6 +12,8 @@ export default function DonutChart({
     onSliceHover,
     onSliceSelection
 }) {
+  const { currency } = useCurrency();
+
   const chartRef = useRef(null);
   const [chartInnerElement, setChartInnerElement] = useState(null);
   const [hoveredSlice, setHoveredSlice] = useState(null);
@@ -23,9 +25,7 @@ export default function DonutChart({
   const totalData = data.reduce((acc, curr) => acc + curr, 0);
   const percentages = {}
   data.forEach((value, index) => percentages[dataLabels[index]] = (value / totalData * 100).toFixed(2) + '%' );
-  console.log('percentages', percentages);
-
-  const { currency } = useCurrency();
+  // console.log('percentages', percentages);
 
   const checkScrollPosition = useCallback(() => {
     if (chartContainerRef.current) {
@@ -171,6 +171,7 @@ export default function DonutChart({
         }
     },
     labels: dataLabels,
+    key: currency,
     tooltip: {
       y: {
         formatter: function (val, opts) {
