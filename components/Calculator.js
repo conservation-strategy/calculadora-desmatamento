@@ -15,6 +15,7 @@ import InputLabel from "@mui/material/InputLabel"
 import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useEffect, useState } from "react";
 import { 
   custoTotalAssoreamento, 
@@ -30,7 +31,7 @@ import {
 } from "../utils";
 import dynamic from "next/dynamic";
 import Graficos from "./Graficos";
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert, Box, CircularProgress } from "@mui/material";
 import data from "../data/dados-municipio.json";
 import Results from "./Results";
 import { lucroPecuaria, lucroSoja } from "../utils/globals";
@@ -410,10 +411,10 @@ export default function Calculate() {
               </h1>
               <div className="flex flex-col gap-1 text-white bg-[#717171] py-5 mt-10 lg:mt-0">
                 {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
-                <div className="flex flex-col mx-8 my-4 gap-4">
+                <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4">
                   <ThemeProvider theme={theme} >
                   <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' } }}>
+                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } } }}>
                         {calculadora.inputs.valores_medios.title}
                       </InputLabel>
                       <Select
@@ -423,6 +424,17 @@ export default function Calculate() {
                         onChange={(event) => handleChange('valoresMedios', event.target.value)}
                         label="Retort"
                         color="primary"
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#ffffff',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                        )}
                         // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
                       >
                         <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
@@ -432,7 +444,7 @@ export default function Calculate() {
                   {(valoresMedios === false) && 
                   <div className="flex grid-cols-2 gap-4 justify-between">
                     <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' }}}>
+                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' } }}}>
                         {calculadora.inputs.UF}
                       </InputLabel>
                       <Select
@@ -443,14 +455,34 @@ export default function Calculate() {
                         label="Estado"
                         color="primary"
                         disabled={!listaUf.length}
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#ffffff',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                        )}
                       >
                         {listaUf.map((uf, i) => (
                           <MenuItem key={i} value={uf}>{uf}</MenuItem>
                         ))}
                       </Select>
                     </FormControl>
-                    <FormControl className="w-full" variant="standard" error={hasError && municipio === ''}>
-                      <InputLabel id="" color="primary" sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem' }}}>
+                    <FormControl 
+                      className="w-full" 
+                      variant="standard" 
+                      error={hasError && municipio === ''}
+                      sx={{
+                        '&:has(.Mui-disabled) .MuiFormLabel-root.MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.6)',
+                        }
+                      }}
+                    >
+                      <InputLabel id="" color="primary" sx={{ color: '#ffffff', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' } }}}>
                         {calculadora.inputs.mun}
                       </InputLabel>
                       <Select
@@ -461,6 +493,17 @@ export default function Calculate() {
                         label="Município"
                         color="primary"
                         disabled={!listaMunicipios.length}
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#ffffff',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                        )}
                       >
                         {listaMunicipios.map((mun, i) => (
                           <MenuItem key={i} value={mun}>{mun}</MenuItem>
@@ -477,10 +520,24 @@ export default function Calculate() {
                       className="w-full"
                       onChange={(event) => handleChange('area', Number(event.target.value))}
                       error={hasError && !area}
-                      sx={{ color: '#ffffff'}}
+                      sx={{
+                        color: '#ffffff',
+                        '& .MuiFormLabel-root.MuiInputLabel-root': {
+                          color: '#ffffff',
+                        },
+                        '& .MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiInput-underline:after': {
+                          borderBottomColor: '#ffffff',
+                        },
+                      }}
+                      InputLabelProps={{
+                        sx: { color: 'ffffff', fontSize: '1rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } }, // Adjust the size as needed
+                      }}
                     />
                     <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#ffffff'}}>
+                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#ffffff', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
                         {calculadora.inputs.app}
                       </InputLabel>
                       <Select
@@ -490,6 +547,17 @@ export default function Calculate() {
                         onChange={(event) => handleChange('app', event.target.value)}
                         label="Retort"
                         color="primary"
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#ffffff',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#ffffff',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                        )}
                       >
                         <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
                         <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
@@ -513,7 +581,7 @@ export default function Calculate() {
                     </Select>
                   </FormControl> */}
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
+                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
                       {calculadora.inputs.recreacao}
                     </InputLabel>
                     <Select
@@ -523,13 +591,24 @@ export default function Calculate() {
                       onChange={(event) => handleChange('recreação', event.target.value)}
                       label="Unit(s) of measurement"
                       color="primary"
+                      sx={{
+                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiInput-underline:after': {
+                          borderBottomColor: '#ffffff',
+                        },
+                      }}
+                      IconComponent={(props) => (
+                        <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                      )}
                     >
                       <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
                       <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
                     </Select>
                   </FormControl>
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff'}}>
+                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#ffffff', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
                       {calculadora.inputs.uso_solo.title}
                     </InputLabel>
                     <Select
@@ -539,13 +618,24 @@ export default function Calculate() {
                       onChange={(event) => handleChange('usoPosterior', event.target.value)}
                       label="Unit(s) of measurement"
                       color="primary"
+                      sx={{
+                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiInput-underline:after': {
+                          borderBottomColor: '#ffffff',
+                        },
+                      }}
+                      IconComponent={(props) => (
+                        <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                      )}
                     >
                       <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
                       <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
                     </Select>
                   </FormControl>     
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#ffffff'}}>
+                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#ffffff', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
                       {calculadora.inputs.legalidade.title}
                     </InputLabel>
                     <Select
@@ -555,6 +645,17 @@ export default function Calculate() {
                       onChange={(event) => handleChange('legal', event.target.value)}
                       label="Unit(s) of measurement"
                       color="primary"
+                      sx={{
+                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiInput-underline:after': {
+                          borderBottomColor: '#ffffff',
+                        },
+                      }}
+                      IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                      )}
                     >
                       <MenuItem value={true}>Legal</MenuItem>
                       <MenuItem value={false}>Ilegal</MenuItem>
@@ -571,6 +672,17 @@ export default function Calculate() {
                       onChange={(event) => handleChange('restauração', event.target.value)}
                       label="Unit(s) of measurement"
                       color="primary"
+                      sx={{
+                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
+                        '& .MuiInput-underline:after': {
+                          borderBottomColor: '#ffffff',
+                        },
+                      }}
+                      IconComponent={(props) => (
+                          <ArrowDropDownIcon {...props} style={{ color: '#ffffff' }} />
+                      )}
                     >
                       <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
                       <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>

@@ -122,7 +122,7 @@ export default function Navbar() {
       `}
     > 
       <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex gap-12 justify-between items-center">
-        <div className="justify-start items-end pl-2">
+        <div className="justify-start items-end">
           {" "}
           {/*Left area*/}
           <div className="flex items-center gap-12">
