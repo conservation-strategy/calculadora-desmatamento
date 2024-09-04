@@ -3,7 +3,6 @@ export default async function handler(req, res) {
   try {
     console.log('Fetching primary API data...');
     let data = await fetchDollarQuotation();
-    // console.log('Primary API response:', data);
 
     if(data.data.value) {
       if(data.data.value.length === 0) {
@@ -12,17 +11,13 @@ export default async function handler(req, res) {
           _date.setDate(_date.getDate() - 1);
           console.log(`Fetching primary API data for date: ${_date}`);
           data = await fetchDollarQuotation(_date);
-          // console.log('Primary API response for previous date:', data);
           if(data.data.value && data.data.value.length > 0) break
         }
       }
     }
-    // console.log('value', data.data.value);
-    // console.log('length', data.value.length);
     if(!data.data.value || data.data.value.length === 0) {
       console.log('Primary API returned empty data, trying fallback API...');
       data = await fetchDollarQuotation(new Date(), true);
-      // console.log('Fallback API response:', data);
     }
     
     const now = new Date();
@@ -33,8 +28,21 @@ export default async function handler(req, res) {
     
     const maxAge = Math.floor((nextUpdate - spTime) / 1000);
 
+    const response = data.fallback
+      ? {
+        fallback: data.fallback,
+        value: data.data.response.rates.BRL,
+        date: data.data.response.date
+      }
+      : {
+        fallback: data.fallback,
+        value: (data.data.value[0].cotacaoCompra + data.data.value[0].cotacaoVenda) / 2,
+        date: data.data.value.dataHoraCotacao
+      }
+
+
     res.setHeader('Cache-Control', `public, s-maxage=${maxAge}, stale-while-revalidate, stale-if-error`);
-    res.status(200).json(data);
+    res.status(200).json(response);
   } catch (error) {
     console.error("Error fetching dollar quotation:", error);
     res.setHeader('Cache-Control', 'public, max-age=60, stale-if-error=600');
@@ -85,15 +93,18 @@ async function fetchDollarQuotation(date=new Date(), fallback=false) {
 
 // DEFAULT RESPONSE EXAMPLE
 // {
-//   "@odata.context": "https://was-p.bcnet.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata$metadata#_CotacaoDolarDia(cotacaoCompra,cotacaoVenda,dataHoraCotacao)",
-//   "value": [
-//       {
-//           "cotacaoCompra": 5.4231,
-//           "cotacaoVenda": 5.4237,
-//           "dataHoraCotacao": "2024-08-19 13:10:28.41"
-//       }
-//   ]
-// }  
+//   "fallback": false,
+//   "data": {
+//     "@odata.context": "https://was-p.bcnet.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata$metadata#_CotacaoDolarDia(cotacaoCompra,cotacaoVenda,dataHoraCotacao)",
+//     "value": [
+//         {
+//             "cotacaoCompra": 5.4231,
+//             "cotacaoVenda": 5.4237,
+//             "dataHoraCotacao": "2024-08-19 13:10:28.41"
+//         }
+//     ]
+//   }
+// }
 
 //  FALLBACK RESPONSE EXAMPLE
 // {

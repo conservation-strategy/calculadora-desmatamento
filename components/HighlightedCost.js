@@ -1,12 +1,15 @@
 import { Roboto } from 'next/font/google';
-import { formatCostNumber, formatCurrencyNoDecimals } from "../utils";
+import { formatCostNumber } from "../utils";
+import { useCurrency } from '../context/provider';
 
 const roboto = Roboto({
   weight: ['400', '500','700'],
   subsets: ['latin'],
 })
 
-export default function HighlightedCost({ cost, size = 'large', color, justifyLeft = false }) {
+export default function HighlightedCost({ cost, currency, size = 'large', color, justifyLeft = false }) {
+  // const { currency, exchangeRate } = useCurrency();
+
   return (
     <div className={`
         text-[#000000]
@@ -24,7 +27,7 @@ export default function HighlightedCost({ cost, size = 'large', color, justifyLe
         }
         ${roboto.className} 
         `}>
-          R$ 
+          {currency} 
       </span>
       <span 
         className={`

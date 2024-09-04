@@ -1,6 +1,7 @@
 import React, { use, useEffect, useRef, useState } from 'react';
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from 'recharts';
 import { formatCurrencyNoDecimals } from '../utils';
+import { useCurrency } from '../context/provider';
 
 const COLORS = ['#639DE3', '#FF8C00', '#5A8A70', '#EA6557', '#6D213C'];
 
@@ -96,6 +97,7 @@ const customLabel = ({
 export default function DoughnutChartStatic({ data }) {
   const [chartSize, setChartSize] = useState({ width: 500, height: 500 });
   const chartRef = useRef(null);
+  const { currency, exchangeRate } = useCurrency();
 
   const custosData = [
     { name: 'Custo Bioprospecção', value: data.custoBiopros },
@@ -198,7 +200,7 @@ export default function DoughnutChartStatic({ data }) {
               ...props,
               colors: colorsKV,
               percentValue: parseInt(percentData[props.name] * 100),
-              valueConverted: formatCurrencyNoDecimals(Number(props.value)),
+              valueConverted: formatCurrencyNoDecimals(currency, Number(props.value) / exchangeRate),
             })
           }
         >

@@ -11,7 +11,7 @@ import StackBarsData from './StackBarsData';
 import DetailedInfoEnvironmentCost from './DetailedInfoEnvironmentCost';
 import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
-import { Language } from '../context/provider';
+import { Language, currencies, useCurrency } from '../context/provider';
 import TableInputData from './TableInputData';
 
 const roboto = Roboto({
@@ -106,10 +106,9 @@ const CompleteInfoRectangle = ({ city, uf, ha, description }) => {
 
 export default function Results({ custos, inputData }) {
   const { custoTotal, custosDeRecuperacao, custosAmbientais, custoDeOportunidade } = custos;
-  
   const { content, language } = useContext(Language);
   const { results } = content;
-
+  const { setLanguageBlocker, currency, setCurrency, exchangeRate } = useCurrency();
   const [loaded, setLoaded] = useState(false);
   const [currentBarHeights, setCurrentBarHeights] = useState({
     recoverCost: 0,
@@ -119,6 +118,10 @@ export default function Results({ custos, inputData }) {
   const [currentURL, setCurrentURL] = useState('');
   // to-do: get from context
   const isBrasil = true;
+
+  useEffect(() => {
+    setLanguageBlocker();
+  },[]);
 
   useEffect(() => {
     setLoaded(true);
@@ -132,6 +135,11 @@ export default function Results({ custos, inputData }) {
 
   const handleBarHeightsChange = (newBarHeights) => {
     setCurrentBarHeights(newBarHeights);
+  }
+
+  const handleChangeCurrency = () => {
+    if(currency === currencies.real) setCurrency(currencies.dollar);
+    else setCurrency(currencies.real);
   }
   
   return (
@@ -147,6 +155,11 @@ export default function Results({ custos, inputData }) {
       </div>
       <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-6'>
+          {/* botao de idioma */}
+          <button className='p-4 border bg-black text-white w-fit bottom-0 left-0 fixed' onClick={handleChangeCurrency}>
+            {currency === currencies.real ? currencies.dollar : currencies.real}
+          </button>
+          {/* --------------- */}
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col-reverse [@media(max-width:900px)]:gap-10'>
             <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch [@media(max-width:900px)]:max-w-full'>
@@ -158,7 +171,7 @@ export default function Results({ custos, inputData }) {
                 }
                 {results.section_1.intro.parts[1]}
               </SectionBodyText>
-              <HighlightedCost color='red' cost={custoTotal} justifyLeft={true}/>
+              <HighlightedCost color='red' cost={custoTotal/exchangeRate} currency={currency} justifyLeft={true}/>
               <SectionBodyComment>{results.section_1.description.parts[0]}{custosDeRecuperacao ? ' '+results.section_1.description.conditional : ''} {results.section_1.description.parts[2]}</SectionBodyComment>
             </div>
             <div className='w-full max-w-xl [@media(max-width:900px)]:hidden [@media(max-width:900px)]:max-w-full place-content-center'>

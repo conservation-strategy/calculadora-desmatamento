@@ -6,7 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { formatCostNumber, formatCurrencyNoDecimals } from '../utils';
+import { formatCurrencyNoDecimals } from '../utils';
+import { useCurrency } from '../context/provider';
+
 
 function createData(
   name,
@@ -21,6 +23,7 @@ function createData(
 
 export default function TableOutputData({ data, description }) {
   // console.log('table data',data)
+  const { currency, exchangeRate } = useCurrency();
   
   const rows = [
     createData(description.bioprospeccao, data.custosAmbientais.custoBiopros),
@@ -56,7 +59,7 @@ export default function TableOutputData({ data, description }) {
               <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
                 {row.name}
               </TableCell>
-              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'normal', '@media(min-width: 346px)': { whiteSpace: 'nowrap' }, fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
+              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'normal', '@media(min-width: 346px)': { whiteSpace: 'nowrap' }, fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(currency, row.cost / exchangeRate)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
