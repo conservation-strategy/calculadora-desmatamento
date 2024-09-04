@@ -38,7 +38,11 @@ export default function TableInputData({ data }) {
     {name: calculadora.inputs.recreacao, value: data.recreacao ? calculadora.inputs.true : calculadora.inputs.false},
     {name: calculadora.inputs.uso_solo.title, value: data.usoPosterior},
     {name: calculadora.inputs.legalidade.title, value: data.legal ? calculadora.inputs.true : calculadora.inputs.false},
-    {name: calculadora.inputs.restauracao.title, value: data.restauracao},
+    {...(
+      !data.legal ?
+        {name: calculadora.inputs.restauracao.title, value: data.restauracao} :
+        {}
+    )},
   ]
 
   // inputData =  { city, uf, ha, legal, restauracao, usoPosterior, app, recreacao, valoresMedios }
@@ -54,17 +58,20 @@ export default function TableInputData({ data }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
-                {row.name}
-              </TableCell>
-              <TableCell align="right" sx={{ p: 2.5, textTransform: 'capitalize', whiteSpace: 'normal', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{row.value}</TableCell>
-            </TableRow>
-          ))}
+          {rows.map((row) => {
+            if (!row.name || !row.value) return null;
+            return (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
+                  {row.name}
+                </TableCell>
+                <TableCell align="right" sx={{ p: 2.5, textTransform: 'capitalize', whiteSpace: 'normal', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{row.value}</TableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>

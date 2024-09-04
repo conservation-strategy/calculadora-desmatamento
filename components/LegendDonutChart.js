@@ -33,7 +33,7 @@ const LegendDonutChart = ( { data, dataLabels, dataColors, open = false } ) => {
 
   return (
     // <div className="flex gap-24 justify-center text-[1rem]">
-    <div className={`flex max-[447px]:flex-col gap-24 max-[767px]:gap-12 max-[529px]:gap-8 max-[429px]:gap-2 max-[447px]:items-center justify-center text-[1rem] max-[547px]:text-sm duration-500 transition-opacity  ${open ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex max-[447px]:flex-col gap-24 max-[767px]:gap-12 max-[529px]:gap-8 max-[429px]:gap-2 max-[447px]:items-start justify-center text-[1rem] max-[547px]:text-sm duration-500 transition-opacity  ${open ? 'opacity-100' : 'opacity-0'}`}>
       <div className="flex flex-col gap-2">
         {
           data.map((value, index) => {
