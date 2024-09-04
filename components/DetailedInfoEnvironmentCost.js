@@ -12,75 +12,22 @@ const roboto = Roboto({
   subsets: ['latin'],
 })
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ py: 3, px: 2 }}>{children}</Box>}
-    </div>
-  );
-}
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const dataLabels = ['Custo Bioprospecção', 'Custo Carbono', 'Custo Erosão', 'Custo Madeireiro ou Não-Madeireiro', 'Custo Recreação'];
 const dataColors = ['#639DE3', '#FF8C00', '#5A8A70', '#EA6557', '#6D213C'];
 
-const labelTitleDictionary = {
-  'Restabelecimento do Potencial de Bioprospecção': 'Restabelecimento do Potencial de Bioprospecção',
-  'Perda de Sequestro de Carbono': 'Perda de Sequestro de Carbono',
-  'Erosão e Assoreamento': 'Erosão e Assoreamento',
-  'Perda de Produtos Madeireiros ou Não-Madeireiros': 'Custo de oportunidade de produção de produtos madeireiros ou não madeireiros',
-  'Perda de Oportunidades de Recreação': 'Perda de Oportunidades de Recreação',
-};
+const translateLabelPT_EN = {
+  'Restabelecimento do Potencial de Bioprospecção': 'Bioprospecting Cost',
+  'Perda de Sequestro de Carbono': 'Carbon Cost',
+  'Erosão e Assoreamento': 'Erosion Cost',
+  'Perda de Produtos Madeireiros ou Não-Madeireiros': 'Timber and Non-Timber Cost',
+  'Perda de Oportunidades de Recreação': 'Recreation Cost',
+}
 
-const labelTitleDictionaryEN = {
-  'Bioprospecting Cost': 'Loss of Future Potential with Bioprospecting',
-  'Carbon Cost': 'Loss of Carbon Sequestration',
-  'Erosion Cost': 'Erosion and Siltation',
-  'Timber and Non-Timber Cost': 'Opportunity Cost of Producing Timber or Non-Timber Products',
-  'Recreation Cost': 'Loss of Recreational Opportunities',
-};
-
-const labelBodyDictionary = {
-  'Restabelecimento do Potencial de Bioprospecção': 'Custos para restaurar o potencial da floresta em fornecer novos compostos biológicos com valor comercial e medicinal.',
-  'Perda de Sequestro de Carbono': 'Impacto na capacidade da floresta de capturar e armazenar carbono, contribuindo para as mudanças climáticas.',
-  'Erosão e Assoreamento': 'Danos causados pela perda de solo e sedimentação dos corpos d\'água, afetando a qualidade e disponibilidade de recursos hídricos.',
-  'Perda de Produtos Madeireiros ou Não-Madeireiros': 'Redução na disponibilidade de recursos naturais, como borracha, castanha e madeira que a floresta proporciona à sociedade.',
-  'Perda de Oportunidades de Recreação': 'Redução nas oportunidades de atividades recreativas e turísticas que a floresta proporciona.',
-};
-
-const labelBodyDictionaryEN = {
-  'Bioprospecting Cost': "Deforestation results in the loss of the forest's future potential to provide new biological compounds with commercial and medicinal value.",
-  'Carbon Cost': 'Impact on the forest\'s ability to capture and store carbon, contributing to climate change.',
-  'Erosion Cost': 'Damage caused by soil loss and sedimentation in water bodies, impacting the quality and availability of water resources.',
-  'Timber and Non-Timber Cost': 'Reduction in the availability of natural resources, such as rubber, nuts, and timber that the forest provides to society.',
-  'Recreation Cost': 'Reduction in the recreational and tourism activities that the forest provides.',
-};
-
-const labelColorDictionary = {
-  'Restabelecimento do Potencial de Bioprospecção': 'rgba(99, 157, 227, 0.3)',
-  'Perda de Sequestro de Carbono': 'rgba(255, 140, 0, 0.3)',
-  'Erosão e Assoreamento': 'rgba(90, 138, 112, 0.3)',
-  'Perda de Produtos Madeireiros ou Não-Madeireiros': 'rgba(234, 101, 83, 0.3)',
-  'Perda de Oportunidades de Recreação': 'rgba(109, 33, 60, 0.3)',
-  'Bioprospecting Cost': 'rgba(99, 157, 227, 0.3)',
-  'Carbon Cost': 'rgba(255, 140, 0, 0.3)',
-  'Erosion Cost': 'rgba(90, 138, 112, 0.3)',
-  'Timber and Non-Timber Cost': 'rgba(234, 101, 83, 0.3)',
-  'Recreation Cost': 'rgba(109, 33, 60, 0.3)',
+const translateLabelEN_PT = {
+  'Bioprospecting Cost': 'Restabelecimento do Potencial de Bioprospecção',
+  'Carbon Cost': 'Perda de Sequestro de Carbono',
+  'Erosion Cost': 'Erosão e Assoreamento',
+  'Timber and Non-Timber Cost': 'Perda de Produtos Madeireiros ou Não-Madeireiros',
+  'Recreation Cost': 'Perda de Oportunidades de Recreação',
 }
 
 const infoLabelDictionaryPT = {
@@ -139,12 +86,28 @@ const infoLabelDictionaryEN = {
   },
 }
 
+const SliceBodyText = ({ title, body }) => {
+  // console.log('[SliceBodyText] title', title);
+  // console.log('[SliceBodyText] body', body);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="tracking-wide font-medium text-lg">
+        {title}
+      </p>
+      <p className="tracking-wide font-normal text-sm text-[#3D3D3D]">
+        {body}
+      </p>
+  </div>
+  )
+}
+
 // to-do: trocar a altura fixa h-[216px] por uma altura máxima responsiva, levando em conta a largura da janela
 const SliceInfo = ({ info, open, description }) => {
   const { language } = useContext(Language);
   const { currency, exchangeRate } = useCurrency();
 
-  console.log('[SliceInfo] info', info);
+  // console.log('[SliceInfo] info', info);
 
   // console.log ('[SliceInfo] info.label', info?.label);
 
@@ -202,11 +165,25 @@ const SliceInfo = ({ info, open, description }) => {
             w-full flex flex-col gap-4 p-8 transition-opacity ${open ? 'pointer-events-auto opacity-100 mb-8' : 'pointer-events-none opacity-0 h-[195px] max-[558px]:h-[225px] max-[423px]:h-[256px]'}
           `}
           style={{
-            backgroundColor: language === ENGLISH ? infoLabelDictionaryEN[info?.label]?.color : (infoLabelDictionaryPT[info?.label]?.color ?? '#D9D9D9'),
+            backgroundColor: language === ENGLISH
+              ? infoLabelDictionaryEN[info?.label]?.color ?? (infoLabelDictionaryEN[translateLabelPT_EN[info?.label]]?.color ?? '#D9D9D9') // the second part solves a bug when the language changes while there is a slice info rendered
+              : (infoLabelDictionaryPT[info?.label]?.color ?? (infoLabelDictionaryPT[translateLabelEN_PT[info?.label]]?.color ?? '#D9D9D9')),
             boxShadow: open ? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' : 'none',
           }}
         >
-          <div className="flex flex-col gap-2">
+          <SliceBodyText 
+            title={
+              language === ENGLISH
+                ? infoLabelDictionaryEN[info?.label]?.title ?? infoLabelDictionaryEN[translateLabelPT_EN[info?.label]]?.title // the second part solves a bug when the language changes while there is a slice info rendered
+                : infoLabelDictionaryPT[info?.label]?.title ?? infoLabelDictionaryPT[translateLabelEN_PT[info?.label]]?.title
+            }
+            body={
+              language === ENGLISH
+                ? infoLabelDictionaryEN[info?.label]?.body ?? infoLabelDictionaryEN[translateLabelPT_EN[info?.label]]?.body // same here
+                : infoLabelDictionaryPT[info?.label]?.body ?? infoLabelDictionaryPT[translateLabelEN_PT[info?.label]]?.body
+            }
+          />
+          {/* <div className="flex flex-col gap-2">
             <p className="tracking-wide font-medium text-lg">
               {
                 language === ENGLISH
@@ -221,7 +198,7 @@ const SliceInfo = ({ info, open, description }) => {
                   : infoLabelDictionaryPT[info?.label]?.body
               }
             </p>
-          </div>
+          </div> */}
           <HighlightedCost cost={info?.value/exchangeRate} currency={currency} justifyLeft={true} />
           {
             info?.label === 'Carbon Cost' || info?.label === 'Perda de Sequestro de Carbono'
