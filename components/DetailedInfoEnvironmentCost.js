@@ -5,6 +5,7 @@ import DonutChart from "./DonutChart";
 import HighlightedCost from "./HighlightedCost";
 import { ClickHand } from "../utils/customIcons/ClickHand";
 import { Language, ENGLISH } from "../context/provider";
+import { formatCostNumber } from "../utils";
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -144,9 +145,29 @@ const SliceInfo = ({ info, open, description }) => {
 
   // console.log ('[SliceInfo] info.label', info?.label);
 
+  // const sliceBodyText = 
+  //   language === ENGLISH
+  //   ? (
+  //     info?.label === 'Carbon Cost' 
+  //     ? infoLabelDictionaryEN[info?.label]?.body + ` The amount of carbon lost is: ${<span className="font-[500]">{info?.extraCarbonValue}</span>} tons of CO2.`
+  //     : infoLabelDictionaryEN[info?.label]?.body
+  //   )
+  //   : (
+  //     info?.label === 'Perda de Sequestro de Carbono' 
+  //     ? <span>{infoLabelDictionaryPT[info?.label]?.body}<br />{' Quantidade de carbono perdida: '}<span className="font-[500]">{info?.extraCarbonValue}</span>{' toneladas de CO2.'}</span>
+  //     : infoLabelDictionaryPT[info?.label]?.body
+  //   );
+  const carbonExtraInfo = 
+    language === ENGLISH
+    ? <span>Amount of carbon lost:&nbsp;<span className="font-[500] text-2xl">{info?.extraCarbonValue}</span>&nbsp;tons of CO2.</span>
+    : <div className="mt-2 pl-3 border-l-2 border-[#CBA888] flex flex-col gap-2">
+        <span className="font-[400]">Quantidade de carbono perdida:</span>
+        <span className="font-[600] text-xl">{formatCostNumber(info?.extraCarbonValue)}&nbsp;<span className="font-[400] text-sm">toneladas de CO2.</span></span>
+      </div>;
+
   return (
     <>
-      <div className={`w-full relative flex flex-col justify-begin min-[769px]:h-[216px]`}>
+      <div className={`w-full relative flex flex-col justify-begin min-[901px]:h-[216px]`}>
       {/* <div className={`w-full relative flex flex-col justify-begin`}> */}
         {
           !open &&
@@ -196,6 +217,10 @@ const SliceInfo = ({ info, open, description }) => {
             </p>
           </div>
           <HighlightedCost cost={info?.value} justifyLeft={true} />
+          {
+            info?.label === 'Carbon Cost' || info?.label === 'Perda de Sequestro de Carbono'
+            && <div className='tracking-wide font-normal text-sm text-[#3D3D3D]'>{carbonExtraInfo}</div>
+          }
         </div>
       </div>
     </>
@@ -243,7 +268,7 @@ export default function DetailedInfoEnvironmentCost({ className, data, descripti
             {description.detailed_info.description} 
           </p>
           <div className={'h-full w-full flex flex-col justify-begin items-center'}>
-            <SliceInfo info={currentSliceInfo} open={hoveredSlice || selectedSlice} description={description.slice_info}/>
+            <SliceInfo info={{...currentSliceInfo, extraCarbonValue: data?.carbonoToneladas || 0}} open={hoveredSlice || selectedSlice} description={description.slice_info}/>
           </div>
         </div>
         <div className="w-full max-w-1/2 flex justify-center items-center mt-[-5rem]">

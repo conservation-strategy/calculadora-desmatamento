@@ -661,7 +661,8 @@ export default function Calculate() {
                 custoNaoMadeireiro: 210671,
                 custoMadeireiroOuNaoMadeireiro: 211671 / 2,
                 custoRecreacao: 174304,
-                total: 6597021
+                total: 6597021,
+                carbonoToneladas: 4587672
               },
               custoDeOportunidade: 1800000
             } }
