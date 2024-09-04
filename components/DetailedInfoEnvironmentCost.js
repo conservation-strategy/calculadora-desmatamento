@@ -138,7 +138,6 @@ const infoLabelDictionaryEN = {
   },
 }
 
-
 // to-do: trocar a altura fixa h-[216px] por uma altura máxima responsiva, levando em conta a largura da janela
 const SliceInfo = ({ info, open, description }) => {
   const { language } = useContext(Language);
@@ -147,7 +146,8 @@ const SliceInfo = ({ info, open, description }) => {
 
   return (
     <>
-      <div className={`w-full relative flex flex-col justify-begin h-[216px]`}>
+      <div className={`w-full relative flex flex-col justify-begin min-[769px]:h-[216px]`}>
+      {/* <div className={`w-full relative flex flex-col justify-begin`}> */}
         {
           !open &&
           <div className={`absolute top-0 left-0 w-full flex flex-row gap-4 bg-[#D9D9D9] p-8 opacity-50`}>
@@ -155,10 +155,16 @@ const SliceInfo = ({ info, open, description }) => {
               <ClickHand size='28' color='#3D3D3D' />
             </div>
             <div className="flex flex-col gap-2">
-              <p className="tracking-wide font-medium text-base text-[#333333]">
+              <p className="hidden max-[768px]:block tracking-wide font-medium text-base max-[324px]:text-sm text-[#333333]">
+                {description.lines_mobile[0]}
+              </p>
+              <p className="hidden max-[768px]:block tracking-wide font-normal text-sm text-[#3D3D3D]">
+                {description.lines_mobile[1]}
+              </p>
+              <p className="block max-[768px]:hidden tracking-wide font-medium text-base text-[#333333]">
                 {description.lines[0]}
               </p>
-              <p className="tracking-wide font-normal text-sm text-[#3D3D3D]">
+              <p className="block max-[768px]:hidden tracking-wide font-normal text-sm text-[#3D3D3D]">
                 {description.lines[1]}
               </p>
             </div>
@@ -166,7 +172,7 @@ const SliceInfo = ({ info, open, description }) => {
         }
         <div 
           className={`
-            w-full flex flex-col gap-4 p-8  transition-opacity ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}
+            w-full flex flex-col gap-4 p-8 transition-opacity ${open ? 'pointer-events-auto opacity-100 mb-8' : 'pointer-events-none opacity-0 h-[195px] max-[558px]:h-[225px] max-[423px]:h-[256px]'}
           `}
           style={{
             backgroundColor: language === ENGLISH ? infoLabelDictionaryEN[info?.label]?.color : (infoLabelDictionaryPT[info?.label]?.color ?? '#D9D9D9'),
@@ -230,7 +236,7 @@ export default function DetailedInfoEnvironmentCost({ className, data, descripti
 
   return (
     // <div className={`w-full flex flex-col gap-4 bg-detailedInfoRectColor rounded-lg px-8 py-6 text-lg font-medium text-black ${className}`}>
-    <div className={`w-full flex flex-col gap-4 bg-transparent rounded-lg text-lg font-medium text-black ${className}`}>
+    <div className={`w-full flex bg-transparent rounded-lg text-lg font-medium text-black ${className}`}>
       <div className={`w-full flex gap-20 justify-between font-light ${roboto.className} max-[900px]:flex-col`}>
         <div className="min-[900px]:w-[75ch] max-w-[75ch] flex flex-col gap-10">
           <p className="text-pretty tracking-wide leading-[170%] font-normal text-base">

@@ -283,7 +283,7 @@ export default function DonutChart({
 
 // to-do: deixar a altura do container e do chart responsiva
     return (
-        <div className="w-full flex flex-col gap-10" ref={chartContainerRef}>
+        <div className="w-full flex flex-col gap-10 max-[479px]:items-center" ref={chartContainerRef}>
             {shouldRenderChart && (
               <Chart
                 ref={chartRef}

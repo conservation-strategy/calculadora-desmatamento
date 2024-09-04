@@ -56,7 +56,7 @@ export default function TableOutputData({ data, description }) {
               <TableCell component="th" scope="row" sx={{ p: 2.5, fontWeight: '500', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>
                 {row.name}
               </TableCell>
-              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'nowrap', fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
+              <TableCell align="right" sx={{ p: 2.5, whiteSpace: 'normal', '@media(min-width: 346px)': { whiteSpace: 'nowrap' }, fontSize: '0.8rem', '@media(min-width: 430px)': { fontSize: '1.1rem' }, borderColor: 'rgba(0, 0, 0, 0.3)' }}>{formatCurrencyNoDecimals(row.cost)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

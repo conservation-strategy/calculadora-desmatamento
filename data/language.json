@@ -241,6 +241,10 @@
                         "lines": [
                             "Passe o mouse sobre o gráfico para ver mais detalhes sobre cada custo.",
                             "Dica: clique em uma fatia para fixar um valor e compará-lo com os demais."
+                        ],
+                        "lines_mobile": [
+                            "Toque em alguma fatia do gráfico para ver mais detalhes sobre cada custo.",
+                            "Dica: clique novamente na fatia para desfazer a seleção."
                         ]
                     },
                     "data_labels": [
