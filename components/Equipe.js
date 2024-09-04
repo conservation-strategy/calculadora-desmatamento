@@ -32,7 +32,7 @@ export default function Calculate() {
       </Head>
 
       <div className="-mt-40 pb-10">
-        <Header2 title={"Equipe"} image="images/header2_bg_2.png" bgPosition={'top'}/>
+        <Header2 title={"Equipe"} image="images/header2_bg.jpg" bgPosition={'top'}/>
 
         {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
           <RiPlantFill />

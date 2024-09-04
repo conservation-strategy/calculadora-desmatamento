@@ -7,7 +7,7 @@ import chromium from '@sparticuz/chromium';
 import { formatCurrencyNoDecimals } from '../../utils';
 import fs from 'fs';
 import path from 'path';
-import { generateHTML } from '../../utils/generateHTML';
+import { generateHTML_PT } from '../../utils/generateHTML-PT';
 
 export default async function handler(req, res) {
   // // Render the React component to HTML
@@ -106,11 +106,12 @@ export default async function handler(req, res) {
       // Create a new page
       const page = await browser.newPage();
 
-      const logoPath = path.join(process.cwd(), 'public', 'images', 'logo.svg');
+      // const logoPath = path.join(process.cwd(), 'public', 'images', 'logo.svg');
+      const logoPath = path.join(process.cwd(), 'public', 'images', 'logo-desmatamento.svg');
       const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
 
       // const htmlContent = fs.readFileSync(path.join(process.cwd(), 'public', 'teste.html'), 'utf8');
-      const htmlContent = generateHTML({
+      const htmlContent = generateHTML_PT({
         inputData, 
         custos, 
         chartHtml, 
