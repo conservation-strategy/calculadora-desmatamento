@@ -13,6 +13,8 @@ import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
 import { Language, currencies, useCurrency } from '../context/provider';
 import TableInputData from './TableInputData';
+import { ClickAwayListener } from '@mui/material';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -116,6 +118,8 @@ export default function Results({ custos, inputData, quotation }) {
     opportunityCost: 0,
   });
   const [currentURL, setCurrentURL] = useState('');
+  const [isCurrencyInfoOpen, setIsCurrencyInfoOpen] = useState(false);
+
   // to-do: get from context
   const isBrasil = true;
 
@@ -138,10 +142,14 @@ export default function Results({ custos, inputData, quotation }) {
   }
 
   const handleChangeCurrency = () => {
-    if(currency === currencies.real) setCurrency(currencies.dollar);
+    if (currency === currencies.real) setCurrency(currencies.dollar);
     else setCurrency(currencies.real);
   }
   
+  const toggleContainer = () => {
+    setIsCurrencyInfoOpen(!isCurrencyInfoOpen);
+  };
+
   return (
     <div id="results" className="flex flex-col items-center w-full bg-white max-[500px]:px-8 px-14"> 
       {/* <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-14 max-[530px]:items-start"> */}
@@ -154,18 +162,69 @@ export default function Results({ custos, inputData, quotation }) {
         </div>
       </div>
       <div className='w-full max-w-screen-sm md:max-w-screen-2xl text-left text-xs italic'>
-        {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
-        {results.note.intro}{' '}
-        {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{'R$/US$, '}
-        {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{', '}
-        {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
+        <span className='max-w-[60ch]'>
+          {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
+          {results.note.intro}{' '}
+          {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{'R$/US$, '}
+          {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{', '}
+          {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
+        </span>
       </div>
       <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-6'>
           {/* botao de idioma */}
-          <button className='p-4 border bg-black text-white w-fit bottom-0 left-0 fixed' onClick={handleChangeCurrency}>
+          {/* <button className='p-4 border bg-black text-white w-fit bottom-0 left-0 fixed' onClick={handleChangeCurrency}>
             {currency === currencies.real ? currencies.dollar : currencies.real}
-          </button>
+          </button> */}
+          {/* <div className='bottom-0 left-0 fixed'>
+            <div
+              className={`bg-gray-100 p-2 rounded-md mr-2 overflow-hidden transition-all duration-300 ${
+                isCurrencyInfoOpen ? 'w-48' : 'w-0'
+              }`}
+            >
+              <p>Some info goes here...</p>
+            </div>
+            <button className='p-4 border bg-black text-white w-fit' onClick={handleChangeCurrency}>
+              {currency === currencies.real ? currencies.dollar : currencies.real}
+            </button>
+          </div> */}
+          <ClickAwayListener onClickAway={() => setIsCurrencyInfoOpen(false)}>
+            <div className="w-fit bottom-0 left-0 fixed">
+              {/* <div
+                className={`bg-gray-100 p-2 rounded-md mr-2 transition-all duration-300 transform ${
+                  isCurrencyInfoOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+                }`}
+              >
+                <p>Some info goes here...</p>
+              </div>
+              <button
+                className="bg-blue-500 text-white border-none p-2 cursor-pointer rounded-full flex items-center justify-center w-10 h-10"
+                onClick={toggleContainer}
+              >
+                <span className="text-lg">{isCurrencyInfoOpen ? '→' : '←'}</span>
+              </button> */}
+                <div className="flex items-center">
+                  <div
+                    className={`bg-gray-100 p-2 rounded-l-md transition-all duration-300 transform ${
+                      isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-48'
+                    }`}
+                  >
+                    <p>Some info goes here...</p>
+                  </div>
+                  <button
+                    className={`bg-darkGreen text-white border-none p-2 cursor-pointer rounded-r-md flex items-center justify-center w-7 h-10 transition-all duration-300 transform ${
+                      isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-[179px]'
+                    }`}
+                    onClick={toggleContainer}
+                  >
+                    {/* <span className="pl-2 text-lg">{isCurrencyInfoOpen ? '←' : '→'}</span> */}
+                    <span className="">{isCurrencyInfoOpen ? <IconChevronLeft /> : <IconChevronRight />}</span>
+                  </button>
+                </div>
+              </div>
+            </ClickAwayListener>
+          
+
           {/* --------------- */}
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col-reverse [@media(max-width:900px)]:gap-10'>
