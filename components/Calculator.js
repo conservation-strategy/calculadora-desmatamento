@@ -790,7 +790,8 @@ export default function Calculate() {
         </div>
         {
           custoTotal && 
-          <Results 
+          <Results
+            quotation={quotation}
             custos={{ 
               custoTotal: custoTotal,  
               custosDeRecuperacao: custoRecup, 
