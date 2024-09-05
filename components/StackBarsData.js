@@ -3,7 +3,7 @@ import HighlightedCost from "./HighlightedCost";
 import { Roboto_Condensed } from "next/font/google";
 import { RiInformationLine } from "react-icons/ri";
 import { styled } from '@mui/material/styles';
-import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import styles from '../styles/StackBarsData.module.css';
 import LegendStackBar from "./LegendStackBar";
 import { useCurrency } from "../context/provider";

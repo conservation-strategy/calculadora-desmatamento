@@ -1,5 +1,5 @@
 import { Roboto, Roboto_Condensed } from 'next/font/google';
-import { RiArticleFill, RiBarChart2Fill, RiBarChartBoxFill } from "react-icons/ri";
+import { RiArticleFill, RiBarChart2Fill, RiBarChartBoxFill, RiInformationLine } from "react-icons/ri";
 import DownloadPDFButton from "./DownloadPDFButton";
 import { formatCostNumber, formatDateToBrazilianStandard } from '../utils';
 import { useContext, useEffect, useRef, useState } from 'react';
@@ -13,8 +13,10 @@ import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
 import { Language, currencies, useCurrency } from '../context/provider';
 import TableInputData from './TableInputData';
-import { ClickAwayListener } from '@mui/material';
+import { ClickAwayListener, Tooltip } from '@mui/material';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import VisibilityTrigger from './VisibilityTrigger';
+import CurrencyToggle from './CurrencyToggle';
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -120,8 +122,7 @@ export default function Results({ custos, inputData, quotation }) {
   const [currentURL, setCurrentURL] = useState('');
   const [isCurrencyInfoOpen, setIsCurrencyInfoOpen] = useState(false);
 
-  // to-do: get from context
-  const isBrasil = true;
+  console.log('[Results] currency', currency);
 
   useEffect(() => {
     setLanguageBlocker();
@@ -153,67 +154,78 @@ export default function Results({ custos, inputData, quotation }) {
   return (
     <div id="results" className="flex flex-col items-center w-full bg-white max-[500px]:px-8 px-14"> 
       {/* <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-14 max-[530px]:items-start"> */}
-      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:pb-6 max-[530px]:flex-col-reverse max-[530px]:gap-14 max-[530px]:items-start">
-        <h1 className={`font-bold gap-4 items-center`}>
-            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{results.heading}</span>
-        </h1>
+      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-start justify-between gap-6 w-full max-[530px]:pb-6 max-[530px]:flex-col-reverse max-[530px]:gap-14 max-[530px]:items-start">
+        <div className='flex flex-col gap-6'>
+          <h1 className={`font-bold gap-4 items-center`}>
+              <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{results.heading}</span>
+          </h1>
+          {/* <div className='flex items-start max-w-[80ch] max-[1000px]:max-w-[65ch] max-[860px]:max-w-[55ch] px-6 text-left text-xs italic mt-'> */}
+          <div className='flex items-start px-6 max-[375px]:px-0 text-left text-xs italic mt-'>
+            <span className='flex flex-wrap'>
+              <span className=''>
+                {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
+                {/* {results.note.intro}{' '} */}
+                {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{'R$/US$, '}
+                {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{','}
+                &nbsp;
+                {/* {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'} */}
+              </span>
+              <span className='whitespace-nowrap relative'>
+                {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
+                <Tooltip 
+                  title={results.note.intro}
+                  componentsProps={{
+                    tooltip: {
+                      sx: {
+                        px: 2,
+                        py: 1.5,
+                        letterSpacing: '0.3px',
+                        textWrap: 'pretty',
+                        borderRadius: '8px',  
+                        fontSize: '0.9rem',
+                        backgroundColor: 'rgba(252, 252, 255, 1)',
+                        color: 'black',
+                        boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+                      }
+                    }
+                  }}
+                  enterTouchDelay={100}
+                >
+                  <span className="absolute right-[-18px] bottom-[3px]  max-[339px]:ml-1 text-[1.4rem] text-gray-500 cursor-pointer">
+                    <RiInformationLine color={'#313131'} style={{width: '0.9rem', height: '0.9rem'}} />
+                  </span>
+                </Tooltip>
+              </span>
+            </span>
+          </div>
+        </div>
         <div className="max-[530px]:w-full flex items-center ">
-          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
+          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, currentURL }} language={language} />
         </div>
       </div>
-      <div className='w-full max-w-screen-sm md:max-w-screen-2xl text-left text-xs italic'>
-        <span className='max-w-[60ch]'>
-          {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
-          {results.note.intro}{' '}
-          {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{'R$/US$, '}
-          {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{', '}
-          {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
-        </span>
-      </div>
-      <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-16 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
+      
+      <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-8 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
         <div className='max-w-screen-sm md:max-w-[1480px] flex flex-col gap-8 w-full [@media(max-width:900px)]:gap-6'>
-          {/* botao de idioma */}
+          {/* botao de moeda */}
           {/* <button className='p-4 border bg-black text-white w-fit bottom-0 left-0 fixed' onClick={handleChangeCurrency}>
             {currency === currencies.real ? currencies.dollar : currencies.real}
           </button> */}
-          {/* <div className='bottom-0 left-0 fixed'>
-            <div
-              className={`bg-gray-100 p-2 rounded-md mr-2 overflow-hidden transition-all duration-300 ${
-                isCurrencyInfoOpen ? 'w-48' : 'w-0'
-              }`}
-            >
-              <p>Some info goes here...</p>
-            </div>
-            <button className='p-4 border bg-black text-white w-fit' onClick={handleChangeCurrency}>
-              {currency === currencies.real ? currencies.dollar : currencies.real}
-            </button>
-          </div> */}
+          {/* --------------- */}
           <ClickAwayListener onClickAway={() => setIsCurrencyInfoOpen(false)}>
-            <div className="w-fit bottom-0 left-0 fixed">
-              {/* <div
-                className={`bg-gray-100 p-2 rounded-md mr-2 transition-all duration-300 transform ${
-                  isCurrencyInfoOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
-                }`}
-              >
-                <p>Some info goes here...</p>
-              </div>
-              <button
-                className="bg-blue-500 text-white border-none p-2 cursor-pointer rounded-full flex items-center justify-center w-10 h-10"
-                onClick={toggleContainer}
-              >
-                <span className="text-lg">{isCurrencyInfoOpen ? '→' : '←'}</span>
-              </button> */}
-                <div className="flex items-center">
+            <VisibilityTrigger targetElementId="results">
+              <div className="w-fit bottom-0 left-0 fixed">
+                <div className="flex items-end">
                   <div
-                    className={`bg-gray-100 p-2 rounded-l-md transition-all duration-300 transform ${
+                    className={`${roboto.className} flex flex-col gap-3 bg-gray-200 rounded-t-[6px] text-darkGreen px-4 py-3 rounded-l-md transition-all duration-300 transform ${
                       isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-48'
                     }`}
                   >
-                    <p>Some info goes here...</p>
+                    <p>{results.currency.intro}</p>
+                    <CurrencyToggle onCurrencyChange={handleChangeCurrency} currency={currency} />
                   </div>
                   <button
                     className={`bg-darkGreen text-white border-none p-2 cursor-pointer rounded-r-md flex items-center justify-center w-7 h-10 transition-all duration-300 transform ${
-                      isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-[179px]'
+                      isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-[173.422px]'
                     }`}
                     onClick={toggleContainer}
                   >
@@ -222,10 +234,9 @@ export default function Results({ custos, inputData, quotation }) {
                   </button>
                 </div>
               </div>
-            </ClickAwayListener>
-          
+            </VisibilityTrigger>
+          </ClickAwayListener>
 
-          {/* --------------- */}
           <SectionSubtitle>{results.section_1.heading}</SectionSubtitle>
           <div className='flex justify-between gap-20 w-full [@media(max-width:900px)]:flex-col-reverse [@media(max-width:900px)]:gap-10'>
             <div className='flex flex-col gap-6 w-full min-w-32ch max-w-45ch [@media(max-width:900px)]:max-w-full'>
@@ -330,7 +341,7 @@ export default function Results({ custos, inputData, quotation }) {
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">
         <div className="max-[530px]:w-full flex items-center">
-          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, isBrasil, currentURL }} language={language} />
+          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, currentURL }} language={language} />
         </div>
       </div>
       {/* <div id="staticChart" >
