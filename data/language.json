@@ -369,6 +369,10 @@
                         "team": ["Open Society"]
                     }
                 ]
+            },
+            "footer": {
+                "rights": "Todos os direitos reservados",
+                "disclaimer": "A CSF não se responsabiliza pelas consequências do uso da calculadora."
             }
         },
         {
@@ -740,6 +744,10 @@
                         "team": ["Open Society"]
                     }
                 ]
+            },
+            "footer": {
+                "rights": "All rights reserved",
+                "disclaimer": "CSF is not responsible for the consequences of using the calculator."
             }
         }
     ]

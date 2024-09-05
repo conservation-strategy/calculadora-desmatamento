@@ -1,11 +1,13 @@
-import Link from "next/link"
+import { useCallback, useContext } from "react";
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa/"
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { Language } from "../context/provider";
 
 export default function Footer() {
   const router = useRouter();
+  const { content } = useContext(Language);
+  const { footer } = content;
 
   const handleIconClick = useCallback(() => {
     const isHome = router.pathname === '/';
@@ -121,8 +123,8 @@ export default function Footer() {
               </a>
           </div>
         </div>
-        <div className="opacity-50 border-t-[1px] border-[#404040] max-[500px]:px-8 px-14 pt-4 mb-2 flex gap-6 w-full justify-center items-center pb-2 text-sm text-white font-medium">
-          <a
+        <div className="opacity-50 border-y-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 mb-2 flex gap-3 w-full justify-start items-center text-sm text-white font-medium">
+          {/* <a
             className="hover:text-white"
             href="https://www.conservation-strategy.org/"
             target="_blank"
@@ -136,9 +138,14 @@ export default function Footer() {
               sizes="(max-width: 1024px) 40px, 64px"
               priority
             />
-          </a>
-          &#169; CSF All rights reserved
+          </a> */}
+          <div className="flex gap-1 items-center font-normal">
+            <span className="font-medium">&#169; CSF </span> &middot; <span className="font-medium">{footer.rights}</span> &middot; <span className="opacity-90 text-white">{footer.disclaimer}</span>
+          </div>
         </div>
+        {/* <div className="flex w-full justify-center items-center mb-5 max-[500px]:px-8 px-14 ">
+          <span className="opacity-50 text-white text-xs pt-4">{footer.disclaimer}</span>
+        </div> */}
       </div>
     </div>
   )
