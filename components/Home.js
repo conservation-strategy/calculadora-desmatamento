@@ -190,7 +190,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-screen mt-4 max-[424px]:mt-6 flex justify-center items-center">
+          <div className="w-full mt-4 max-[424px]:mt-6 flex justify-center items-center">
             <Image
               // className="pt-[24px]"
               src="/images/info-home.svg"
