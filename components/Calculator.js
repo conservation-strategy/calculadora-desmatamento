@@ -557,6 +557,9 @@ export default function Calculate() {
                           WebkitBoxShadow: '0 0 0 1000px #717171 inset', // Reset the autofill background color
                           WebkitTextFillColor: '#ffffff', // Set the autofill text color
                         },
+                        '&:hover .MuiInput-underline.MuiInput-underline:before': {
+                          borderBottomColor: '#ffffff',
+                        },
                       }}
                       InputLabelProps={{
                         sx: { color: 'ffffff', fontSize: '1rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } }, // Adjust the size as needed
