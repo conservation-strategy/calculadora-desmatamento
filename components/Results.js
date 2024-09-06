@@ -165,7 +165,7 @@ export default function Results({ custos, inputData, quotation }) {
               <span className=''>
                 {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
                 {/* {results.note.intro}{' '} */}
-                {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{'R$/US$, '}
+                {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{' R$/US$, '}
                 {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{','}
                 &nbsp;
                 {/* {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'} */}
