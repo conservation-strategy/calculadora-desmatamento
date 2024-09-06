@@ -178,7 +178,7 @@
                   "intro": "Utilizamos alguns valores de referência denominados em US$, sendo necessário realizar a conversão para mostrar o valor em R$.",
                   "quotation": "Cotação utilizada:",
                   "date": "data:",
-                  "source": "fonte"
+                  "source": "fonte:"
                 },
                 "currency": {
                     "intro": "Mostrar valores em:"
