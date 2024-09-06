@@ -782,7 +782,7 @@ export const generateHTML_PT = ({
                                 </div>
                                 <div class="simple-bar-container">
                                     <div class="bar-label">
-                                        Rentabilidade da pecuária¹
+                                        Rentabilidade da ${inputData.usoPosterior === 'pecuária' ? 'pecuária' : 'agricultura'}¹
                                         <span><span class="currency-small">${currency} </span>${formatCostNumber(custos.custoDeOportunidade)}</span>
                                     </div>
                                     <div class="bar" id="opt" style="height: ${currentBarHeights.opportunityCost}px;">
@@ -937,7 +937,7 @@ export const generateHTML_PT = ({
                 <div class="notes-container">
                     <span>Notas</span>
                     <div class="note">
-                        <p>¹ O valor de rentabilidade da pecuária foi incluído como um dado externo para fins de comparação. Esse dado permite contextualizar os impactos financeiros do desmatamento em relação a uma alternativa econômica comum na região.</p>
+                        <p>¹ O valor de rentabilidade da ${inputData.usoPosterior ===  'pecuária' ? 'pecuária' : 'agricultura'} foi incluído como um dado externo para fins de comparação. Esse dado permite contextualizar os impactos financeiros do desmatamento em relação a uma alternativa econômica comum na região.</p>
                     </div>
                 </div>
             </div>
