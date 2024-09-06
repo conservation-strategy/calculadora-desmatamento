@@ -683,7 +683,7 @@ export const generateHTML_PT = ({
                                     ${
                                         !inputData.legal ?
                                             `<div class="info-row">
-                                                <span class="info-label">Legalidade do desmatamento</span>
+                                                <span class="info-label">Técnicas de restauração</span>
                                                 <span class="info-value">${inputData.restauracao === 'natural' ? 'Regeneração Natural' : 'Semeadura Direta'}</span>
                                             </div>`
                                         :
