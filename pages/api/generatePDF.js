@@ -43,8 +43,10 @@ export default async function handler(req, res) {
         custos, 
         chartHtml, 
         currentBarHeights,
-        isBrasil,
+        // isBrasil,
         currentURL,
+        currency,
+        // language
       } = req.body;
 
       // console.log('[PDFGenerator] chartHtml', chartHtml);
@@ -117,8 +119,9 @@ export default async function handler(req, res) {
         chartHtml, 
         currentBarHeights, 
         logoBase64,
-        isBrasil,
+        // isBrasil,
         currentURL,
+        currency
       });
 
       // console.log('[PDFGenerator] htmlContent', htmlContent);

@@ -1,7 +1,7 @@
 import { Roboto, Roboto_Condensed } from 'next/font/google';
 import { RiArticleFill, RiBarChart2Fill, RiBarChartBoxFill, RiInformationLine } from "react-icons/ri";
 import DownloadPDFButton from "./DownloadPDFButton";
-import { formatCostNumber, formatDateToBrazilianStandard } from '../utils';
+import { costsOverExchangeRate, formatCostNumber, formatDateToBrazilianStandard } from '../utils';
 import { useContext, useEffect, useRef, useState } from 'react';
 import BarsData from './BarsData';
 import HighlightedCost from './HighlightedCost';
@@ -200,7 +200,7 @@ export default function Results({ custos, inputData, quotation }) {
           </div>
         </div>
         <div className="max-[530px]:w-full flex items-center ">
-          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, currentURL }} language={language} />
+          <DownloadPDFButton data={{  custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency }} language={language} />
         </div>
       </div>
       
@@ -341,7 +341,7 @@ export default function Results({ custos, inputData, quotation }) {
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">
         <div className="max-[530px]:w-full flex items-center">
-          <DownloadPDFButton data={{ custos, inputData, currentBarHeights, currentURL }} language={language} />
+          <DownloadPDFButton data={{ custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL }} language={language} />
         </div>
       </div>
       {/* <div id="staticChart" >

@@ -203,3 +203,23 @@ export function formatDate(locale, website) {
     // Return the formatted date
     return `${day}/${month}/${year}`;
   }
+
+  export function costsOverExchangeRate(costs, exchangeRate) {
+    return {
+        custoTotal: costs.custoTotal / exchangeRate,
+        custosDeRecuperacao: costs.custosDeRecuperacao / exchangeRate,
+        custosAmbientais: {
+            custoAssoreamento: costs.custosAmbientais.custoAssoreamento / exchangeRate,
+            custoBiopros: costs.custosAmbientais.custoBiopros / exchangeRate,
+            custoCarbono: costs.custosAmbientais.custoCarbono / exchangeRate,
+            custoMadeireiro: costs.custosAmbientais.custoMadeireiro / exchangeRate,
+            custoNaoMadeireiro: costs.custosAmbientais.custoNaoMadeireiro / exchangeRate,
+            custoMadeireiroOuNaoMadeireiro: costs.custosAmbientais.custoMadeireiroOuNaoMadeireiro / exchangeRate,
+            custoRecreacao: costs.custosAmbientais.custoRecreacao / exchangeRate,
+            total: costs.custosAmbientais.total / exchangeRate,
+            carbonoToneladas: costs.custosAmbientais.carbonoToneladas
+        },
+        custoDeOportunidade: costs.custoDeOportunidade / exchangeRate
+    }
+  }
+

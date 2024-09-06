@@ -9,8 +9,9 @@ export const generateHTML_PT = ({
   chartHtml,
   currentBarHeights,
   logoBase64,
-  isBrasil,
+//   isBrasil,
   currentURL,
+  currency
 }) => {
 
     const isRecoverCostZero = custos.custosDeRecuperacao >= 0 && custos.custosDeRecuperacao < 0.01;
@@ -24,7 +25,7 @@ export const generateHTML_PT = ({
     const madeireiroOuNaoMadeireiroCostPercent = parseInt(custos.custosAmbientais.custoMadeireiroOuNaoMadeireiro / custos.custosAmbientais.total * 100);
     const recreacaoCostPercent = parseInt(custos.custosAmbientais.custoRecreacao / custos.custosAmbientais.total * 100);
 
-    const currentDate = formatDate(isBrasil ? 'pt-BR' : 'en-US', currentURL);
+    const currentDate = formatDate('pt-BR', currentURL);
 
     const colorsCostsLegend = {
         'custoBiopros': '#639DE3',
@@ -714,7 +715,7 @@ export const generateHTML_PT = ({
                                 <p>O custo total do desmatamento ${inputData.city && inputData.uf ? `no município ${inputData.city} (${inputData.uf})` : 'na Amazônia'}, calculado a partir dos valores inseridos, é de </p>
                             </div>
                             <div class="highlighted-cost">
-                                <span><span class="currency">R$ </span>${formatCostNumber(custos.custoTotal)}</span>
+                                <span><span class="currency">${currency} </span>${formatCostNumber(custos.custoTotal)}</span>
                             </div>
                             <div class="body-text">
                                 ${
@@ -737,7 +738,7 @@ export const generateHTML_PT = ({
                             <div class="bar-chart-container">
                                 <div class="tooltips-container">
                                     <div id="fixed-rec" class="fixed-tooltip-container">
-                                        <span class="tooltip-value"><span>R$ </span>${formatCostNumber(custos.custosDeRecuperacao)}</span>
+                                        <span class="tooltip-value"><span>${currency} </span>${formatCostNumber(custos.custosDeRecuperacao)}</span>
                                         <span class="tooltip-label">${ 
                                                 isRecoverCostZero ? 
                                                     'O valor estimado em <span class="bold-text">custos de recuperação</span> é zero para desmatamento legal.' 
@@ -748,18 +749,18 @@ export const generateHTML_PT = ({
                                         </span>
                                     </div>
                                     <div id="fixed-env" class="fixed-tooltip-container"> 
-                                        <span class="tooltip-value"><span>R$ </span>${formatCostNumber(custos.custosAmbientais.total)}</span>
+                                        <span class="tooltip-value"><span>${currency} </span>${formatCostNumber(custos.custosAmbientais.total)}</span>
                                         <span class="tooltip-label">Valor estimado em <span class="bold-text">perda de serviços ambientais</span><div class="marker"></div></span>
                                     </div>
                                 </div>
                                 <div class="stack-bar-container">
                                     <div class="bar-label">
                                         Custo total estimado
-                                        <span><span class="currency-small">R$ </span>${formatCostNumber(custos.custoTotal)}</span>
+                                        <span><span class="currency-small">${currency} </span>${formatCostNumber(custos.custoTotal)}</span>
                                     </div>
                                     <div class="bar" id="rec" style="height: ${currentBarHeights.recoverCost}px;">
                                         <div id="rec-tooltip" class="tooltip-container ${isRecoverCostZero ? 'tooltip-container--null-value' : ''}"> 
-                                            <span class="tooltip-value"><span>R$ </span>${formatCostNumber(custos.custosDeRecuperacao)}</span>
+                                            <span class="tooltip-value"><span>${currency} </span>${formatCostNumber(custos.custosDeRecuperacao)}</span>
                                             <span class="tooltip-label">${ 
                                                     isRecoverCostZero ? 
                                                         'O valor estimado em custos de recuperação é zero para desmatamento legal.' 
@@ -773,7 +774,7 @@ export const generateHTML_PT = ({
                                     </div>
                                     <div class="bar" id="env" style="height: ${currentBarHeights.environmentCost}px;">
                                         <div id="env-tooltip" class="tooltip-container ${isEnvironmentCostZero ? 'tooltip-container--null-value' : ''}"> 
-                                            <span class="tooltip-value"><span>R$ </span>${formatCostNumber(custos.custosAmbientais.total)}</span>
+                                            <span class="tooltip-value"><span>${currency} </span>${formatCostNumber(custos.custosAmbientais.total)}</span>
                                             <span class="tooltip-label">Valor estimado em perda de serviços ambientais <div class="marker"></div></span>
                                         </div>
                                         <div class="percent-label">${envCostPercent}%</div>
@@ -782,7 +783,7 @@ export const generateHTML_PT = ({
                                 <div class="simple-bar-container">
                                     <div class="bar-label">
                                         Rentabilidade da pecuária¹
-                                        <span><span class="currency-small">R$ </span>${formatCostNumber(custos.custoDeOportunidade)}</span>
+                                        <span><span class="currency-small">${currency} </span>${formatCostNumber(custos.custoDeOportunidade)}</span>
                                     </div>
                                     <div class="bar" id="opt" style="height: ${currentBarHeights.opportunityCost}px;">
                                         
@@ -826,35 +827,35 @@ export const generateHTML_PT = ({
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoCarbono};"></div>
                                     <div class="legend-text">
                                         <span class="legend-label">Perda de Sequestro de Carbono</span>
-                                        <span class="legend-value">${isBrasil ? `R$ ${formatCostNumber(custos.custosAmbientais.custoCarbono)}` : '$'} ${` (${carbonoCostPercent}%)`}</span>
+                                        <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoCarbono)}`} ${` (${carbonoCostPercent}%)`}</span>
                                     </div>
                                 </div>
                                 <div class="legend-item">
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoAssoreamento};"></div>
                                     <div class="legend-text">
                                         <span class="legend-label">Erosão e Assoreamento</span>
-                                        <span class="legend-value">${isBrasil ? `R$ ${formatCostNumber(custos.custosAmbientais.custoAssoreamento)}` : '$'} ${` (${assoreamentoCostPercent}%)`}</span>
+                                        <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoAssoreamento)}`} ${` (${assoreamentoCostPercent}%)`}</span>
                                     </div>
                                 </div>
                                 <div class="legend-item">
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoMadeireiroOuNaoMadeireiro};"></div>
                                     <div class="legend-text">
                                         <span class="legend-label">Perda de Produtos Madeireiros ou Não-Madeireiros</span>
-                                        <span class="legend-value">${isBrasil ? `R$ ${formatCostNumber(custos.custosAmbientais.custoMadeireiroOuNaoMadeireiro)}` : '$'} ${` (${madeireiroOuNaoMadeireiroCostPercent}%)`}</span>
+                                        <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoMadeireiroOuNaoMadeireiro)}`} ${` (${madeireiroOuNaoMadeireiroCostPercent}%)`}</span>
                                     </div>
                                 </div>
                                 <div class="legend-item">
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoRecreacao};"></div>
                                     <div class="legend-text">
                                         <span class="legend-label">Perda de Oportunidades de <br /> Recreação</span>
-                                        <span class="legend-value">${isBrasil ? `R$ ${formatCostNumber(custos.custosAmbientais.custoRecreacao)}` : '$'} ${` (${recreacaoCostPercent}%)`}</span>
+                                        <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoRecreacao)}`} ${` (${recreacaoCostPercent}%)`}</span>
                                     </div>
                                 </div>
                                 <div class="legend-item">
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoBiopros};"></div>
                                     <div class="legend-text">
                                         <span class="legend-label">Restabelecimento do Potencial de Bioprospecção</span>
-                                        <span class="legend-value">${isBrasil ? `R$ ${formatCostNumber(custos.custosAmbientais.custoBiopros)}` : '$'} ${` (${bioprosCostPercent}%)`}</span>
+                                        <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoBiopros)}`} ${` (${bioprosCostPercent}%)`}</span>
                                     </div>
                                 </div>
                                 
@@ -885,48 +886,48 @@ export const generateHTML_PT = ({
                               <thead>
                                   <tr>
                                   <th class="table-header">Descrição do custo</th>
-                                  <th class="table-header text-right">Valor (R$)</th>
+                                  <th class="table-header text-right">Valor (${currency})</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
                                   <td class="table-cell">Restabelecimento do potencial de bioprospecção</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.custoBiopros)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.custoBiopros)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Perda de sequestro de carbono</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.custoCarbono)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.custoCarbono)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Custo de erosão e assoreamento</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.custoAssoreamento)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.custoAssoreamento)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Perda de produtos madeireiros ou não-madeireiros</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.custoMadeireiroOuNaoMadeireiro)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.custoMadeireiroOuNaoMadeireiro)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Perda de oportunidades de recreação</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.custoRecreacao)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.custoRecreacao)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Total de custos relacionados à perda de serviços ecossistêmicos</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosAmbientais.total)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosAmbientais.total)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Custos de recuperação</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custosDeRecuperacao)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custosDeRecuperacao)}</td>
                                   </tr>
   
                                   <tr>
                                   <td class="table-cell">Custo total</td>
-                                  <td class="table-cell text-right">R$ ${formatCostNumber(custos.custoTotal)}</td>
+                                  <td class="table-cell text-right">${currency} ${formatCostNumber(custos.custoTotal)}</td>
                                   </tr>
                               </tbody>
                               </table>
