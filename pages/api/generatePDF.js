@@ -8,6 +8,8 @@ import { formatCurrencyNoDecimals } from '../../utils';
 import fs from 'fs';
 import path from 'path';
 import { generateHTML_PT } from '../../utils/generateHTML-PT';
+import { ENGLISH } from '../../context/provider';
+import { generateHTML_EN } from '../../utils/generateHTML-EN';
 
 export default async function handler(req, res) {
   // // Render the React component to HTML
@@ -46,7 +48,7 @@ export default async function handler(req, res) {
         // isBrasil,
         currentURL,
         currency,
-        // language
+        language
       } = req.body;
 
       // console.log('[PDFGenerator] chartHtml', chartHtml);
@@ -113,13 +115,22 @@ export default async function handler(req, res) {
       const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
 
       // const htmlContent = fs.readFileSync(path.join(process.cwd(), 'public', 'teste.html'), 'utf8');
-      const htmlContent = generateHTML_PT({
+      const htmlContent = language === ENGLISH 
+      ? generateHTML_EN({
         inputData, 
         custos, 
         chartHtml, 
         currentBarHeights, 
         logoBase64,
-        // isBrasil,
+        currentURL,
+        currency
+      })
+      : generateHTML_PT({
+        inputData, 
+        custos, 
+        chartHtml, 
+        currentBarHeights, 
+        logoBase64,
         currentURL,
         currency
       });

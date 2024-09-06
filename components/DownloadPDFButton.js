@@ -36,7 +36,7 @@ const DownloadPDFButton = ({ data, language }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({...data, chartHtml}),
+        body: JSON.stringify({...data, language, chartHtml}),
       });
 
       if (response.ok) {
