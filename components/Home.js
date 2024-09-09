@@ -56,7 +56,6 @@ export default function Home() {
                     whiteSpace: 'nowrap',
                     fontSize: '1rem',
                     '@media (max-width: 469px)': {
-                      fontSize: '0.8rem',
                       padding: "12px 28px",
                     },
                     '@media (max-width: 420px)': {
@@ -87,7 +86,6 @@ export default function Home() {
                     letterSpacing: "0.035em",
                     fontSize: '1rem',
                     '@media (max-width: 469px)': {
-                      fontSize: '0.8rem',
                       padding: "12px 28px",
                     },
                     '@media (max-width: 420px)': {
