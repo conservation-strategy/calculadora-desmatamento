@@ -123,7 +123,7 @@ export default function Footer() {
               </a>
           </div>
         </div>
-        <div className="opacity-50 border-y-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 mb-2 flex gap-3 w-full justify-start items-center text-sm text-white font-medium">
+        <div className="opacity-50 border-y-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 mb-2 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
           {/* <a
             className="hover:text-white"
             href="https://www.conservation-strategy.org/"
@@ -139,8 +139,14 @@ export default function Footer() {
               priority
             />
           </a> */}
-          <div className="flex gap-1 items-center font-normal">
-            <span className="font-medium">&#169; CSF </span> &middot; <span className="font-medium">{footer.rights}</span> &middot; <span className="opacity-90 text-white">{footer.disclaimer}</span>
+          <div className="flex gap-1 items-center font-normal max-[839px]:text-xs max-[839px]:flex-col">
+            <span>
+              <span className="font-medium whitespace-nowrap">&#169; CSF</span>
+              &nbsp;&middot;&nbsp;
+              <span className="font-medium whitespace-nowrap">{footer.rights}</span>
+              <span className="max-[839px]:hidden">&nbsp;&middot;&nbsp;</span>
+            </span>
+            <span className="opacity-90 text-white max-[839px]:text-center">{footer.disclaimer}</span>
           </div>
         </div>
         {/* <div className="flex w-full justify-center items-center mb-5 max-[500px]:px-8 px-14 ">
