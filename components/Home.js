@@ -155,7 +155,7 @@ export default function Home() {
                 <Image
                   className=" pt-8"
                   src="/images/restauracao.png"
-                  alt="CSF Logo"
+                  alt="Restauração"
                   width={88}
                   height={88}
                   // sizes="(max-width: 1024px) 40px, 64px"
@@ -175,7 +175,7 @@ export default function Home() {
                 <Image
                   className="pt-[24px]"
                   src="/images/serv-ecossistemicos.png"
-                  alt="CSF Logo"
+                  alt="Serviços ecossistêmicos"
                   width={100}
                   height={100}
                   priority

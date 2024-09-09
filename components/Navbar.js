@@ -165,7 +165,7 @@ export default function Navbar() {
         {/* overlay */}
         {
           <div
-            className={`fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col justify-between items-center transition-opacity duration-300 ease-in-out ${
+            className={`fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-16 items-center transition-opacity duration-300 ease-in-out ${
               isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >
@@ -185,7 +185,7 @@ export default function Navbar() {
                 <CloseIcon />
               </button>
             </div>
-            <div className="flex w-full h-full justify-center items-center">
+            <div className="flex w-full h-fit justify-center items-center">
               <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold uppercase">
                 {navbar.menu.map((item) => (
                   <li key={item.label} className="text-center hover:underline underline-offset-8 hover:text-white">
