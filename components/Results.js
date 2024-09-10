@@ -341,7 +341,7 @@ export default function Results({ custos, inputData, quotation }) {
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">
         <div className="max-[530px]:w-full flex items-center">
-          <DownloadPDFButton data={{ custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL }} language={language} />
+          <DownloadPDFButton data={{ custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency }} language={language} />
         </div>
       </div>
       {/* <div id="staticChart" >
