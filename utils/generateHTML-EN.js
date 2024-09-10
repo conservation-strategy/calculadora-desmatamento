@@ -338,7 +338,7 @@ export const generateHTML_EN = ({
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-end;
-                gap: 4rem;
+                gap: 1rem;
                 padding: 2rem;
                 padding-right: 1.5rem;
                 padding-bottom: 0;

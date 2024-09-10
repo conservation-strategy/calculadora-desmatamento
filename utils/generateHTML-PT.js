@@ -814,14 +814,14 @@ export const generateHTML_PT = ({
               <div class="content-wrapper">
                 <h3 class="section-subtitle">Perda de serviços ecossistêmicos</h3>
                 <div class="flex-container">
-                    <div class="content-column" style="gap: 2rem;">
+                    <div class="content-column" style="gap: 1.9rem;">
                         <div class="body-text">
                             <p>Com os valores estimados podemos analisar os custos ambientais do desmatamento na Amazônia. Esses custos incluem a perda de serviços ecossistêmicos como o potencial para a bioprospecção, o impacto negativo na capacidade da floresta de capturar e armazenar carbono, a erosão e sedimentação dos corpos d'água, e a redução na alternativas de uso da terra como a perda de potencial para recreação, assim como a perda de produtos florestais madeireiros e não madeireiros.</p>
                         </div>
                         <div class="doghnut-chart-container">
                             ${chartHtml}
                         </div>
-                        <div class="chart-legend-container" style="margin-top: -0.8rem;">
+                        <div class="chart-legend-container" style="margin-top: -1.2rem;">
                             <div class="chart-legend">
                                 <div class="legend-item">
                                     <div class="legend-color" style="background-color: ${colorsCostsLegend.custoCarbono};"></div>
@@ -858,15 +858,13 @@ export const generateHTML_PT = ({
                                         <span class="legend-value">${`${currency} ${formatCostNumber(custos.custosAmbientais.custoBiopros)}`} ${` (${bioprosCostPercent}%)`}</span>
                                     </div>
                                 </div>
-                                
-
                             </div>
                         </div>
                     </div>
                 </div>
               </div>
             </div>
-            <div class="footer" style="margin-top: -12px;">${currentDate}</div>
+            <div class="footer" style="margin-top: -32px;">${currentDate}</div>
           </div>
           <div class="page-container page-break">
             <div class="header--small">

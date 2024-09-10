@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from 'recharts';
 import { formatCurrencyNoDecimals } from '../utils';
 import { useCurrency } from '../context/provider';
@@ -95,7 +95,7 @@ const customLabel = ({
 }
 
 export default function DoughnutChartStatic({ data }) {
-  const [chartSize, setChartSize] = useState({ width: 500, height: 500 });
+  const [chartSize, setChartSize] = useState({ width: 400, height: 400 });
   const chartRef = useRef(null);
   const { currency, exchangeRate } = useCurrency();
 
@@ -116,46 +116,6 @@ export default function DoughnutChartStatic({ data }) {
     'Custo Madeireiro ou Não-Madeireiro': data.custoMadeireiroOuNaoMadeireiro / data.total,
     'Custo Recreação': data.custoRecreacao / data.total,
   }
-  // useEffect(() => {
-  //   if (chartRef.current) {
-  //     const rechartsPieElement = chartRef.current.querySelector('.recharts-pie');
-  //     // console.log('[DoughnutChartStatic] rechartsPieElement', rechartsPieElement);
-  //     if (!rechartsPieElement) return;
-      
-  //     const { width, height } = rechartsPieElement.getBoundingClientRect();
-  //     setChartSize({ width: width, height: height });
-
-  //     const svgElement = chartRef.current.querySelector('svg');
-  //     const bbox = svgElement.getBBox();
-  //     console.log('[DoughnutChartStatic] bbox', bbox);
-  //     console.log('[DoughnutChartStatic] rechartsPieElement.getBoundingClientRect()', rechartsPieElement.getBoundingClientRect());
-  //     console.log('[DoughnutChartStatic] widthSvg', bbox.width);
-  //     console.log('[DoughnutChartStatic] heightSvg', bbox.height);
-
-  //     const svgContainerElement = chartRef.current.querySelector('.recharts-wrapper');
-  //     if (svgContainerElement) {
-  //       const svgContainerEltBBox = svgContainerElement.getBoundingClientRect();
-  //       console.log('[DoughnutChartStatic] svgContainerEltBBox', svgContainerEltBBox);
-
-  //       // translate rechaertsPieElement in x
-  //       rechartsPieElement.style.left = `${svgContainerEltBBox.x}px`;
-  //       rechartsPieElement.style.top = `${svgContainerEltBBox.y}px`;
-  //     }
-  //   }
-  // }, [data]); // Recalculate when data changes
-
-  useEffect(() => {
-    if (chartRef.current) {
-      const svg = chartRef.current.querySelector('svg');
-      if (svg) {
-        const g = svg.querySelector('g.recharts-layer.recharts-pie');
-        if (g) {
-          const { width, height } = g.getBoundingClientRect();
-          setChartSize({ width: width, height: height });
-        }
-      }
-    }
-  }, [data]);
 
   // useEffect(() => {
   //   if (chartRef.current) {
@@ -163,32 +123,24 @@ export default function DoughnutChartStatic({ data }) {
   //     if (svg) {
   //       const g = svg.querySelector('g.recharts-layer.recharts-pie');
   //       if (g) {
-  //         const svgRect = svg.getBoundingClientRect();
-  //         const gRect = g.getBoundingClientRect();
-
-  //         console.log('[DoughnutChartStatic] gRect', gRect);
-  //         console.log('[DoughnutChartStatic] svgRect', svgRect);
-          
-  //         const translateX = -gRect.left + svgRect.left;
-  //         const translateY = -gRect.top + svgRect.top;
-          
-  //         g.setAttribute('transform', `translate(${translateX}, ${translateY})`);
+  //         const { width, height } = g.getBoundingClientRect();
+  //         setChartSize({ width: width, height: height });
   //       }
   //     }
   //   }
-  // }, [chartSize]);
+  // }, [data]);
 
   const outerRadius = Math.min(chartSize.width, chartSize.height) / 3;
   const innerRadius = outerRadius * 0.5;
 
   return (
     <div ref={chartRef} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <PieChart width={chartSize.width} height={chartSize.height}>
+      <PieChart  width={500} height={400}>
         <Pie
           id="pie-element"
           data={custosData}
-          cx={chartSize.width / 2}
-          cy={chartSize.height / 2}
+          cx={"50%"}
+          cy={"50%"}
           innerRadius={innerRadius}
           outerRadius={outerRadius}
           fill="#8884d8"
