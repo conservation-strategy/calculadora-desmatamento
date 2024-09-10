@@ -350,7 +350,7 @@ export default function Results({ custos, inputData, quotation }) {
       {/* <div id='test-chart' style={{ opacity: 0, zIndex: -1, position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none' }}> */}
       {
         loaded &&
-        <div style={{ display: 'flex', opacity: 0, zIndex: -1, position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none' }}>
+        <div style={{ display: 'flex', opacity: 0, zIndex: -1, position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', width: '50px', height: '50px', overflow: 'hidden' }}>
           <div id='doghnut-chart'>
             <DoughnutChartStatic data={custos.custosAmbientais} />
           </div>
