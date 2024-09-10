@@ -398,7 +398,8 @@ export default function StackBarsData({
     <div className="flex flex-col gap-12 justify-center">
       <div className="hidden max-[529px]:flex py-4 px-6 border border-[#d3d3d3]">
         <LegendStackBar 
-          data={[Math.round(custosDeRecuperacao), Math.round(custosAmbientais)]}
+          data={[Math.round(custosDeRecuperacao/exchangeRate), Math.round(custosAmbientais/exchangeRate)]}
+          currency={currency}
           dataLabels={[
             (
               isLegal ?

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ENGLISH, Language } from "../context/provider";
 import { formatCostNumber } from "../utils";
 
-const StackBarLegendItem = ( { cost, total, label, color, language } ) => {
+const StackBarLegendItem = ( { cost, total, label, color, language, currency } ) => {
   const percent = parseInt(cost / total * 100);
   return (
     <div className="flex items-begin gap-3">
@@ -12,14 +12,14 @@ const StackBarLegendItem = ( { cost, total, label, color, language } ) => {
           {label}
         </span>
         <span className="font-[400] leading-[1.5rem] tracking-wide">
-          {language === ENGLISH ? `${cost} (${percent}%)` : `R$ ${formatCostNumber(cost)} (${percent}%)`}
+          {`${currency} ${formatCostNumber(cost)} (${percent}%)`}
         </span>
       </div>
     </div>
   );
 }
 
-const LegendStackBar = ( { data, dataLabels, dataColors } ) => {
+const LegendStackBar = ( { data, dataLabels, dataColors, currency } ) => {
   const { language } = useContext(Language);
 
   const total = data.reduce((acc, curr) => acc + curr, 0);
@@ -37,6 +37,7 @@ const LegendStackBar = ( { data, dataLabels, dataColors } ) => {
                 label={dataLabels[index]} 
                 color={dataColors[index]} 
                 language={language}
+                currency={currency}
               />
             )
           })
