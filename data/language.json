@@ -120,10 +120,10 @@
                     },
                     "restauracao": {
                         "title": "Técnicas de Restauração",
-                        "name": ["Semeadura direta", "Regeneração natural"],
+                        "name": ["Regeneração natural", "Semeadura direta"],
                         "description": [
-                            " é uma técnica de restauração que envolve a dispersão de sementes diretamente no solo de áreas desmatadas ou degradadas. Essa técnica é especialmente útil na Amazônia devido à diversidade de espécies vegetais e à capacidade natural do solo de suportar o crescimento de uma grande variedade de plantas.",
-                            " é a prática de permitir que a vegetação se recupere por conta própria, sem intervenção humana significativa, em áreas degradadas. Essa técnica se baseia na capacidade intrínseca da floresta de se regenerar quando as condições ambientais são favoráveis."
+                            " é a prática de permitir que a vegetação se recupere por conta própria, sem intervenção humana significativa, em áreas degradadas. Essa técnica se baseia na capacidade intrínseca da floresta de se regenerar quando as condições ambientais são favoráveis.",
+                            " é uma técnica de restauração que envolve a dispersão de sementes diretamente no solo de áreas desmatadas ou degradadas. Essa técnica é especialmente útil na Amazônia devido à diversidade de espécies vegetais e à capacidade natural do solo de suportar o crescimento de uma grande variedade de plantas."
                         ]
                     },
                     "uso": {
@@ -160,7 +160,7 @@
                     },
                     "restauracao": {
                         "title": "Técnicas de Restauração",
-                        "values": ["Semeadura direta", "Regeneração natural"]
+                        "values": ["Regeneração natural", "Semeadura direta"]
                     },
                     "true": "Sim",
                     "false": "Não",
@@ -495,10 +495,10 @@
                     },
                     "restauracao": {
                         "title": "Restoration Techniques",
-                        "name": ["Direct Seeding", "Natural Regeneration"],
+                        "name": ["Natural Regeneration", "Direct Seeding"],
                         "description": [
-                            " is a restoration technique that involves dispersing seeds directly onto the soil of deforested or degraded areas. This technique is particularly useful in the Amazon due to the diversity of plant species and the soil's natural ability to support the growth of a wide variety of plants.",
-                            " is the practice of allowing vegetation to recover on its own, with minimal human intervention, in degraded areas. This technique relies on the forest's intrinsic ability to regenerate when environmental conditions are favorable."
+                            " is the practice of allowing vegetation to recover on its own, with minimal human intervention, in degraded areas. This technique relies on the forest's intrinsic ability to regenerate when environmental conditions are favorable.",
+                            " is a restoration technique that involves dispersing seeds directly onto the soil of deforested or degraded areas. This technique is particularly useful in the Amazon due to the diversity of plant species and the soil's natural ability to support the growth of a wide variety of plants."                    
                         ]
                     },
                     "uso": {
@@ -535,7 +535,7 @@
                     },
                     "restauracao": {
                         "title": "Restoration Techniques",
-                        "values": ["Direct Seeding", "Natural Regeneration"]
+                        "values": ["Natural Regeneration", "Direct Seeding"]
                     },
                     "true": "Yes",
                     "false": "No",
