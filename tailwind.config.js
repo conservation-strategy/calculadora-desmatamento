@@ -30,7 +30,7 @@ module.exports = {
         // Main colors
         lightGreen: '#5C8D4A',
         mediumGreen: '#558448',
-        darkGreen: '#101917',
+        darkGreen: '#182523',
         neutral100: '#FCF8F8',
         neutral200: '#F7EEEE',
 
