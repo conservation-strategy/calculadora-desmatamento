@@ -30,7 +30,7 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
         <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Conheça" />
         <meta property="og:description" content="Conheça a Calculadora de Impactos do Desmatamento, ferramenta de valoração dos danos
 sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
-        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/Principal_Fundo2.png" />
+        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo2.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/" />
         <meta property="og:type" content="website" />
       </Head>

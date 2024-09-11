@@ -315,7 +315,7 @@ de valoração. Faça análises detalhadas em instantes." />
         <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Ferramenta online" />
         <meta property="og:description" content="Calcule os danos sociais e ambientais do desmatamento na Amazônia com nossa ferramenta
 de valoração. Faça análises detalhadas em instantes." />
-        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/Principal_Fundo2.png" />
+        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo2.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/calculadora" />
         <meta property="og:type" content="website" />
       </Head>

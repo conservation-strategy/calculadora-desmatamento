@@ -39,7 +39,7 @@ como são feitas as análises de danos ambientais e sociais do desmatamento." />
         <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Metodologia de trabalho" />
         <meta property="og:description" content="Entenda a metodologia por trás da Calculadora de Impactos do Desmatamento. Descubra
 como são feitas as análises de danos ambientais e sociais do desmatamento." />
-        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/Principal_Fundo1.png" />
+        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo1.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/metodologia" />
         <meta property="og:type" content="website" />
       </Head>

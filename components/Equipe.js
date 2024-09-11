@@ -38,7 +38,7 @@ Desmatamento." />
         <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Conheça a equipe" />
         <meta property="og:description" content="Descubra a equipe responsável pelo desenvolvimento da Calculadora de Impactos do
 Desmatamento." />
-        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/Principal_Fundo3.png" />
+        <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo3.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/equipe" />
         <meta property="og:type" content="website" />
       </Head>
