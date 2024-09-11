@@ -36,7 +36,7 @@ export default function TableInputData({ data }) {
     {name: calculadora.inputs.area, value: data.ha},
     {name: calculadora.inputs.app, value: data.app ? calculadora.inputs.true : calculadora.inputs.false},
     {name: calculadora.inputs.recreacao, value: data.recreacao ? calculadora.inputs.true : calculadora.inputs.false},
-    {name: calculadora.inputs.uso_solo.title, value: data.usoPosterior},
+    {name: calculadora.inputs.uso_solo.title, value: data.usoPosterior === 'agricultura' ? calculadora.inputs.uso_solo.values[1] : calculadora.inputs.uso_solo.values[0] },
     {name: calculadora.inputs.legalidade.title, value: data.legal ? calculadora.inputs.true : calculadora.inputs.false},
     {...(
       !data.legal ?
