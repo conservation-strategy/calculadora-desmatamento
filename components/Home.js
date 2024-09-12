@@ -200,10 +200,10 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
             </div>
           </div>
 
-          <div className="w-full mt-4 max-[424px]:mt-6 flex justify-center items-center">
+          <div className="w-full mt-6 flex justify-center items-center">
             <Image
               // className="pt-[24px]"
-              src="/images/info-home.svg"
+              src="/images/info-home2.svg"
               alt="Infográfico"
               width={1536}
               height={3264.48}

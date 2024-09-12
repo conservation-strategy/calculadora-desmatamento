@@ -96,8 +96,6 @@ export default function Calculate() {
     uso: false,
   });
 
-  console.log('quotation', quotation);
-  // console.log(calculadora)
   useEffect(() => {
     setListaUf(getUFList(data));
   }, [])
