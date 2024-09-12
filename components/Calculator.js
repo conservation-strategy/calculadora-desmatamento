@@ -86,6 +86,16 @@ export default function Calculate() {
   const { content } = useContext(Language);
   const { calculadora } = content;
   const quotation = useQuotation();
+  // user guide
+  const [expandedGuides, setExpandedGuides] = useState({
+    local: false,
+    app: false,
+    recreacao: false,
+    legalidade: false,
+    restauracao: false,
+    uso: false,
+  });
+
   console.log('quotation', quotation);
   // console.log(calculadora)
   useEffect(() => {
@@ -328,20 +338,22 @@ de valoração. Faça análises detalhadas em instantes." />
           {calculadora.heading}
         </h1> */}
         <div className="w-full h-full flex justify-center">
-          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col gap-4 lg:flex-row lg:gap-8 h-auto mx-0 justify-between items-stretch max-[500px]:px-8 px-14">
+          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col gap-10 min-[900px]:flex-row min-[900px]:gap-16 h-auto mx-0 justify-between items-stretch max-[500px]:px-8 px-14">
             {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
-            <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow py-16`}>      
+            <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow pt-16 min-[900px]:py-16`}>      
               <h1 className={`font-bold gap-4 items-center`}>
                 {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span> */}
-                <span className="text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
+                <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
               </h1>
-              {/* <h3 className="py-1 font-bold text-[1.4rem]">{calculadora.guia.heading}</h3> */}
               {/* <div className="mb-0 text-xl prose px-8 pb-4 pt-6 max-[375px]:px-0">               */}
-              <div className="mb-0 text-xl prose pb-4 pr-8 pt-6 max-[375px]:px-0">              
+              {/* <div className="mb-0 text-xl prose pb-4 pr-8 pt-6 max-[375px]:px-0">               */}
+              <div className="mb-0 text-xl prose pb-4 pt-6 max-[375px]:px-0">              
                 <div className="text-white">
                   <AccordionGuide 
                     summary={calculadora.guia.local.title} 
                     isFirstItem={true}
+                    expanded={expandedGuides.local}
+                    onChange={() => setExpandedGuides(prev => ({...prev, local: !prev.local }))}
                   >
                     <div className="text-sm">
                       <span>{calculadora.guia.local.intro}</span>
@@ -354,7 +366,9 @@ de valoração. Faça análises detalhadas em instantes." />
                     </div>
                   </AccordionGuide>
                   <AccordionGuide 
-                    summary={calculadora.guia.app.title} 
+                    summary={calculadora.guia.app.title}
+                    expanded={expandedGuides.app}
+                    onChange={() => setExpandedGuides(prev => ({...prev, app: !prev.app }))}
                   >
                     <div className="text-sm">
                       {calculadora.guia.app.description[0]}
@@ -367,7 +381,9 @@ de valoração. Faça análises detalhadas em instantes." />
                     </div>
                   </AccordionGuide>
                   <AccordionGuide 
-                    summary={calculadora.guia.recreacao.title} 
+                    summary={calculadora.guia.recreacao.title}
+                    expanded={expandedGuides.recreacao}
+                    onChange={() => setExpandedGuides(prev => ({...prev, recreacao: !prev.recreacao }))}
                   >
                     <div className="text-sm">
                       <span>
@@ -379,7 +395,9 @@ de valoração. Faça análises detalhadas em instantes." />
                     </div>
                   </AccordionGuide>
                   <AccordionGuide 
-                    summary={calculadora.guia.legalidade.title} 
+                    summary={calculadora.guia.legalidade.title}
+                    expanded={expandedGuides.legalidade}
+                    onChange={() => setExpandedGuides(prev => ({...prev, legalidade: !prev.legalidade }))}
                   >
                     <div className="text-sm">
                       <span>
@@ -388,7 +406,9 @@ de valoração. Faça análises detalhadas em instantes." />
                     </div>
                   </AccordionGuide>
                   <AccordionGuide 
-                    summary={calculadora.guia.restauracao.title} 
+                    summary={calculadora.guia.restauracao.title}
+                    expanded={expandedGuides.restauracao}
+                    onChange={() => setExpandedGuides(prev => ({...prev, restauracao: !prev.restauracao }))}
                   >
                     <div className="text-sm">
                       <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
@@ -403,6 +423,8 @@ de valoração. Faça análises detalhadas em instantes." />
                     summary={calculadora.guia.uso.title}
                     isLastItem={true}
                     isFirstItem={false}
+                    expanded={expandedGuides.uso}
+                    onChange={() => setExpandedGuides(prev => ({...prev, uso: !prev.uso }))}
                   >
                     <div className="text-sm">
                       <span>{calculadora.guia.uso.description}</span>
@@ -418,21 +440,22 @@ de valoração. Faça análises detalhadas em instantes." />
               </div>
             </div>
 
-            <Divider orientation="vertical" flexItem className="border-[#525958] border-1" />
+            <Divider orientation="vertical" flexItem className="border-[#525958] border-1 hidden min-[900px]:flex" />
             
             {/* inputs */}
-            <div className="w-full h-fit lg:w-1/2 mx-auto flex flex-col gap-6 py-16 ">
+            <div className="w-full h-fit lg:w-1/2 mx-auto flex flex-col gap-6 pb-16 min-[900px]:py-16">
               <h1 className={`font-bold gap-4 items-center`}>
                 {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
-                <span className="pl-3 min-[375px]:pl-7 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span>
+                {/* <span className="pl-3 min-[375px]:pl-7 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
+                <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span>
               </h1>
               {/* <div className="flex flex-col gap-1 text-white bg-transparent mt-10 lg:mt-0 max-[1023px]:mx-8 max-[569px]:mx-0"> */}
-              <div className="flex flex-col gap-1 text-white bg-transparent mt-10 lg:mt-0 max-[1023px]:mx-8 max-[569px]:mx-0">
-                {/* <h3 className="px-8 font-bold text-[1.4rem]">{calculadora.heading}</h3> */}
-                <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4">
+              <div className="flex flex-col gap-1 text-white bg-transparent mt-0 min-[900px]:mt-0">
+                {/* <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4"> */}
+                <div className="flex flex-col my-0 min-[900px]:my-4 gap-4">
                   <ThemeProvider theme={theme} >
                   <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } } }}>
+                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
                         {calculadora.inputs.valores_medios.title}
                       </InputLabel>
                       <Select
@@ -465,7 +488,7 @@ de valoração. Faça análises detalhadas em instantes." />
                   {(valoresMedios === false) && 
                   <div className="flex grid-cols-2 gap-4 justify-between">
                     <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' } }}}>
+                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                         {calculadora.inputs.UF}
                       </InputLabel>
                       <Select
@@ -506,7 +529,7 @@ de valoração. Faça análises detalhadas em instantes." />
                         }
                       }}
                     >
-                      <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '0.9rem', '@media(max-width: 375px)': { fontSize: '0.9rem' } }}}>
+                      <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                         {calculadora.inputs.mun}
                       </InputLabel>
                       <Select
@@ -580,11 +603,11 @@ de valoração. Faça análises detalhadas em instantes." />
                         },
                       }}
                       InputLabelProps={{
-                        sx: { color: '#F7EEEE', fontSize: '1rem', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' } }, // Adjust the size as needed
+                        sx: { color: '#F7EEEE', fontSize: '1rem', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }, // Adjust the size as needed
                       }}
                     />
                     <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#F7EEEE', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
+                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
                         {calculadora.inputs.app}
                       </InputLabel>
                       <Select
@@ -631,7 +654,7 @@ de valoração. Faça análises detalhadas em instantes." />
                     </Select>
                   </FormControl> */}
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#F7EEEE', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
+                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                       {calculadora.inputs.recreacao}
                     </InputLabel>
                     <Select
@@ -661,7 +684,7 @@ de valoração. Faça análises detalhadas em instantes." />
                     </Select>
                   </FormControl>
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#F7EEEE', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
+                    <InputLabel id="" color="primary" error={hasError && usoPosterior === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                       {calculadora.inputs.uso_solo.title}
                     </InputLabel>
                     <Select
@@ -691,7 +714,7 @@ de valoração. Faça análises detalhadas em instantes." />
                     </Select>
                   </FormControl>     
                   <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#F7EEEE', '@media(max-width: 375px)': { fontSize: '0.9rem' }, '@media(max-width: 359px)': { fontSize: '0.75rem' }}}>
+                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                       {calculadora.inputs.legalidade.title}
                     </InputLabel>
                     <Select
@@ -721,7 +744,7 @@ de valoração. Faça análises detalhadas em instantes." />
                     </Select>
                   </FormControl>
                   {(legal === false) && <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#F7EEEE'}}>
+                    <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
                       {calculadora.inputs.restauracao.title}
                     </InputLabel>
                     <Select

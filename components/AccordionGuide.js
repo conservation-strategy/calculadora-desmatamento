@@ -25,9 +25,7 @@ const AccordionGuide = ({ summary, children, expanded = false, onChange = () => 
         '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}
       }}>
       <AccordionSummary
-        // expandIcon={<IconCaretDownFilled color="#F7EEEE" size={18} />}
-        // expandIcon={isOpen ? <IconMinus color="#F7EEEE" size={18} /> : <IconPlus color="#F7EEEE" size={18} />}
-        expandIcon={<IconPlus color="#F7EEEE" size={18} />}
+        expandIcon={expanded ? <IconMinus color="#F7EEEE" size={18} /> : <IconPlus color="#F7EEEE" size={18} />}
         aria-controls="panel2a-content"
         id="panel4a-header"
       >
