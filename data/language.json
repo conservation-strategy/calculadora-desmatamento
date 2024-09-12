@@ -77,7 +77,7 @@
                     "description": "é uma ferramenta de valoração dos danos sociais e ambientais causados pelo desmatamento na Amazônia"
                 },
                 "heading": "Calculadora de Impactos do Desmatamento",
-                "subheading_mobile": "Calculadora",
+                "subheading": "Calculadora",
                 "guia": {
                     "heading": "Guia de uso",
                     "local":{
@@ -452,7 +452,7 @@
                     "description": " is a tool designed to evaluate the social and environmental damage resulting from deforestation in the Amazon"
                 },
                 "heading": "Deforestation Impact Calculator",
-                "subheading_mobile": "Calculator",
+                "subheading": "Calculator",
                 "guia": {
                     "heading": "User guide",
                     "local":{

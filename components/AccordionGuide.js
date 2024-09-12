@@ -1,9 +1,11 @@
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
-import { IconCaretDownFilled } from "@tabler/icons-react";
+import { IconCaretDownFilled, IconMinus, IconPlus } from "@tabler/icons-react";
 
-const AccordionGuide = ({ summary, children, isFirstItem = false, isLastItem = false }) => {
+const AccordionGuide = ({ summary, children, expanded = false, onChange = () => {}, isFirstItem = false, isLastItem = false }) => {
   return (
-    <Accordion 
+    <Accordion
+      expanded={expanded}
+      onChange={onChange}
       sx={{ 
         backgroundColor: 'transparent',
         letterSpacing: '0.025em', 
@@ -23,7 +25,7 @@ const AccordionGuide = ({ summary, children, isFirstItem = false, isLastItem = f
         '&.MuiAccordion-root .MuiAccordionDetails-root': { px: 0}
       }}>
       <AccordionSummary
-        expandIcon={<IconCaretDownFilled color="#F7EEEE" size={18} />}
+        expandIcon={expanded ? <IconMinus color="#F7EEEE" size={18} /> : <IconPlus color="#F7EEEE" size={18} />}
         aria-controls="panel2a-content"
         id="panel4a-header"
       >
