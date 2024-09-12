@@ -440,7 +440,7 @@ de valoração. Faça análises detalhadas em instantes." />
               </div>
             </div>
 
-            <Divider orientation="vertical" flexItem className="border-[#525958] border-1 hidden min-[900px]:flex" />
+            <Divider orientation="vertical" flexItem sx={{ borderColor: '#525958', display: 'none', '@media(min-width: 900px)': { display: 'flex'}}} />
             
             {/* inputs */}
             <div className="w-full h-fit lg:w-1/2 mx-auto flex flex-col gap-6 pb-16 min-[900px]:py-16">
