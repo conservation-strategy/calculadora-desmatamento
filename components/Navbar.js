@@ -128,10 +128,20 @@ export default function Navbar() {
           <div className="flex items-center gap-12">
             <button>
               <Link href="/">
-                <Image
+                {/* <Image
                   // className="w-[70px]"
                   // src="/images/Desmatamento_VersãoInvertida.svg"
                   src="/images/logo-desmatamento.svg"
+                  alt="Calculadora Desmatamento Logo"
+                  width={64}
+                  height={64}
+                  sizes="(max-width: 1024px) 40px, 64px"
+                  priority
+                /> */}
+                <Image
+                  // className="w-[70px]"
+                  // src="/images/Desmatamento_VersãoInvertida.svg"
+                  src="/images/logo-color-white-border.png"
                   alt="Calculadora Desmatamento Logo"
                   width={64}
                   height={64}
@@ -165,15 +175,24 @@ export default function Navbar() {
         {/* overlay */}
         {
           <div
-            className={`fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-16 items-center transition-opacity duration-300 ease-in-out ${
+            className={`z-30 fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-16 items-center transition-opacity duration-300 ease-in-out ${
               isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >
-            <div className="w-full flex justify-between px-10 py-4">
+            <div className="w-full flex justify-between px-8 py-6">
               <div className="text-white text-2xl font-bold">
-                <Image
+                {/* <Image
                     className="w-10 lg:w-16"
                     src="/images/logo.svg"
+                    alt="CSF Logo"
+                    width={64}
+                    height={64}
+                    sizes="(max-width: 1024px) 40px, 64px"
+                    priority
+                /> */}
+                <Image
+                    // className="w-10 lg:w-20"
+                    src="/images/logo-desmatamento.svg"
                     alt="CSF Logo"
                     width={64}
                     height={64}
