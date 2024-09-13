@@ -37,13 +37,13 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
 
       <main className="mt-0">
         <div
-          className={`xl:pt-32 bg-cover bg-center px-0 lg:px-0 bg-black relative ${styles.hero}`}
+          className={`bg-cover bg-center px-0 lg:px-0 bg-black relative ${styles.hero}`}
           style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
           <div className={styles.filter}></div>
-          <div className={`w-full flex max-[500px]:px-8 px-14 items-center h-full`}>
-            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col items-start justify-between text-[#FCF8F7] pt-16 lg:pt-38 pb-10 lg:pb-10 gap-10 lg:gap-10 tracking-wide">
-              <h1 className={`text-2xl md:text-4xl font-light text-left mb-2 pt-0 md:w-2/3 xl:w-[34ch] z-10`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
+          <div className={`w-full flex max-[500px]:px-8 px-14 items-center justify-center h-full`}>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col items-center justify-between text-[#FCF8F7] gap-10 lg:gap-10 tracking-wide">
+              <h1 className={`text-balance text-2xl md:text-4xl font-light text-left mb-2 pt-0 text-center z-10 lg:max-w-[45ch]`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
                 {home.hero.text.article + " "}
                 <span className="font-bold">
                   {home.hero.text.name}
@@ -124,23 +124,23 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
           </h1>
         </div>
 
-        <div className={`pt-10 pb-20 px-[5.5rem] max-[500px]:px-8 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
-          <div className={`flex flex-col md:flex-row gap-20 mx-auto `}>
+        <div className={`pb-20 px-[5.5rem] max-[500px]:px-8 flex flex-col lg:flex-row mx-0 lg:mx-auto pt-0 justify-between items-stretch gap-0 md:gap-0 bg-darkGreen text-neutral100`}>
+          <div className={`w-full flex flex-col md:flex-row gap-16 min-[1025px]:gap-20 mx-auto justify-between md:max-w-screen-2xl xl:px-14`}>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconPlant size={80} strokeWidth={1} />
-              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
+              <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconChartPie size={80} strokeWidth={1} />
-              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
+              <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconTimeline size={80} strokeWidth={1} />
-              <span className={`text-lg lg:text-xl font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
+              <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
                 {home.main.section_1.description.list[0]}
               </span>
             </div>
