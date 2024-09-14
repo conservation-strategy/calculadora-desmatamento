@@ -29,13 +29,11 @@ export default function Footer() {
               onClick={handleIconClick}
               >
                 <Image
-                  // className="w-[70px]"
-                  src="/images/Desmatamento_VersãoInvertida.svg"
-                  // src="/images/logo-desmatamento3.svg"
+                  // src="/images/Desmatamento_VersãoInvertida.svg"
+                  src="/images/logo-desmatamento-color.png"
                   alt="Calculadora Desmatamento Logo"
                   width={44}
                   height={44}
-                  // sizes="(max-width: 1024px) 40px, 60px"
                   priority
                 />
               </div>
@@ -45,12 +43,11 @@ export default function Footer() {
               className="cursor-pointer"
               >
                 <Image
-                  // className="h-[calc(56px*1.1424)]"
-                  src="images/Garimpo_VersãoInvertida.svg"
+                  // src="images/Garimpo_VersãoInvertida.svg"
+                  src="/images/logo-garimpo-color.png"
                   alt="CSF Logo"
                   width={44}
                   height={44}
-                  // sizes="(max-width: 1024px) 40px, 60px"
                   priority
                 />
               </a>
@@ -60,12 +57,11 @@ export default function Footer() {
               className="cursor-pointer"
               >
                 <Image
-                  // className="h-[calc(56px*1.1424*0.7086*1.4112*1.9038)]"
-                  src="images/Indígena_VersãoInvertida.svg"
+                  // src="images/Indígena_VersãoInvertida.svg"
+                  src="/images/logo-indigena-color.png"
                   alt="CSF Logo"
                   width={44}
                   height={44}
-                  // sizes="(max-width: 1024px) 40px, 60px"
                   priority
                 />
               </a>

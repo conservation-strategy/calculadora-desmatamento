@@ -141,7 +141,7 @@ export default function Navbar() {
                 <Image
                   // className="w-[70px]"
                   // src="/images/Desmatamento_VersãoInvertida.svg"
-                  src="/images/logo-color-white-border.png"
+                  src="/images/logo-desmatamento-color.png"
                   alt="Calculadora Desmatamento Logo"
                   width={64}
                   height={64}
@@ -191,13 +191,13 @@ export default function Navbar() {
                     priority
                 /> */}
                 <Image
-                    // className="w-10 lg:w-20"
-                    src="/images/logo-desmatamento.svg"
-                    alt="CSF Logo"
-                    width={64}
-                    height={64}
-                    sizes="(max-width: 1024px) 40px, 64px"
-                    priority
+                  // className="w-10 lg:w-20"
+                  src="/images/logo-desmatamento.svg"
+                  alt="CSF Logo"
+                  width={64}
+                  height={64}
+                  sizes="(max-width: 1024px) 40px, 64px"
+                  priority
                 />
               </div>
               <button className="text-white" onClick={handleCloseDropdown}>
