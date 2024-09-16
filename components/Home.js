@@ -119,8 +119,8 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
         </div>
 
         <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-darkGreen"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl font-bold py-16 md:py-20 gap-4 items-center ${styles.section__title}`}>
-            <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_1.heading}</span>
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold py-16 md:py-20 gap-4 items-center`}>
+            <span className="pl-5 border-l-[6px] border-neutral100 text-neutral100 text-[1.2rem] min-[375px]:text-2xl min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_1.heading}</span>
           </h1>
         </div>
 
@@ -152,8 +152,8 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
         </h1> */}
 
         <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100"> 
-          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex text-2xl md:text-2xl font-bold py-16 md:py-20 gap-4 items-center ${styles.section__title}`}>
-            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_2.heading}</span>
+          <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold py-16 md:py-20 gap-4 items-center`}>
+            <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-[1.2rem] min-[375px]:text-2xl min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">{home.main.section_2.heading}</span>
           </h1>
         </div>
 

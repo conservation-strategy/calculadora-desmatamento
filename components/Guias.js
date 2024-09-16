@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Head from "next/head"
 import Button from "@mui/material/Button"
 import { RiPlantFill } from "react-icons/ri/"
@@ -15,24 +15,11 @@ import InputLabel from "@mui/material/InputLabel"
 import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 import Header2 from "./Header2"
+import { Language } from "../context/provider"
 
-export default function Calculate() {
-
-  const [expandedState, setExpandedState] = useState({
-    accordion1: true,
-    accordion2: true,
-    accordion3: true,
-    accordion4: true,
-    accordion5: true,
-    accordion6: true,
-  });
-
-  const handleToggle = (accordionKey) => {
-    setExpandedState(prevState => ({
-      ...prevState,
-      [accordionKey]: !prevState[accordionKey]
-    }));
-  }
+export default function Guias() {
+  const { content } = useContext(Language);
+  const { calculadora } = content;
 
   return (
     <>
@@ -43,150 +30,122 @@ export default function Calculate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-mt-40 pb-0 border-b-8 border-black">
-        <Header2/>
+      <div className="-mt-40">
+        <Header2 title={calculadora.guia.heading} image="images/header2_bg.jpg" />
+        <div className="w-full h-full flex flex-col justify-center">
+          {/* <div className="w-full pt-16 pb-20 px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-darkGreen">
+            <div className="p-8 px-10 bg-[#717171] text-neutral100 flex flex-col gap-4 w-1/2">
+              <h1 className={`max-w-screen-sm md:max-w-screen-2xl flex text-2xl justify-start font-bold`}>
+                <span className=" min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:leading-[2.5rem]">Sumário</span>
+              </h1>
 
-        <h1 className="flex text-2xl md:text-2xl font-bold p-10 border-b-8 border-black gap-4 items-center">
-          <RiPlantFill />
-          Guias de Uso
-        </h1>
+              <div className="px-6 flex flex-col gap-4 max-w-[95ch]">
+                <ol className="flex flex-col gap-4 mt-4 leading-8 text-lg ">
+                  <li>1. {calculadora.guia.local.title}</li>
+                  <li>2. {calculadora.guia.app.title}</li>
+                  <li>3. {calculadora.guia.recreacao.title}</li>
+                  <li>4. {calculadora.guia.legalidade.title}</li>
+                  <li>5. {calculadora.guia.restauracao.title}</li>
+                  <li>6. {calculadora.guia.uso.title}</li>
+                </ol>
+              </div>
+            </div>
+          </div> */}
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.local.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                <span>{calculadora.guia.local.intro}</span>
+                <ul className="px-10 flex flex-col gap-1 my-4 list-disc leading-8">
+                  {calculadora.guia.local.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <span>{calculadora.guia.local.conclusion}</span>
+              </div>
+            </div>
+          </div>
 
-        <div className="flex w-full md:w-2/3 pb-44 md:h-auto border-black">
-          <div className="mb-0 text-xl prose">
-            <h3 className="p-4 font-bold">Guia de uso</h3>
-            <Accordion expanded={expandedState.accordion1} onChange={() => handleToggle('accordion1')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography><strong>Defina o local</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2" component="div">
-                  <span>Você pode incluir algumas informações sobre o contexto da sua pesquisa para que a calculadora estime o valor dos impactos de forma mais precisa. <br /> A localização afeta variáveis como:</span>
-                  <ul className="flex flex-col gap-1 my-4">
-                    <li>Densidade de carbono por hectare </li>
-                    <li>Custo do frete para restauração</li>
-                    <li>Riqueza de espécies</li>
-                  </ul>
-                  <span>Caso não tenha informações específicas, você ainda pode realizar a pesquisa. Nesse caso, serão incluídos automaticamente valores médios de contexto e impacto. </span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion2} onChange={() => handleToggle('accordion2')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography><strong>Área de Preservação Permanente</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  <span>Uma Área de Preservação Permanente (APP) é uma área protegida, coberta ou não por vegetação nativa, com a função ambiental de preservar os recursos hídricos, a paisagem, a estabilidade geológica e a biodiversidade, facilitar o fluxo gênico de fauna e flora, proteger o solo e assegurar o bem-estar das populações humanas, conforme definição da Lei n. 12.651/2012.</span>
-                  <br />
-                  <br />
-                  <span>Com o propósito de estabelecer uma ideia de equivalência ecológica, a calculadora de desmatamento utiliza um multiplicador de 3,8 vezes o valor do dano quando a área analisada corresponde a uma Área de Preservação Permanente (APP), considerando sua extrema importância (Gasparinetti et al, 2017).</span>
-                  <br />
-                  <br />
-                  <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion3} onChange={() => handleToggle('accordion3')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel3a-header"
-              >
-                <Typography><strong>Área prioritária para conservação</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  <span>As Áreas Prioritárias para a Conservação, Utilização Sustentável e Repartição dos Benefícios da Biodiversidade são um instrumento de política pública para apoiar o planejamento e implementação de ações como a criação de unidades de conservação, licenciamento, fiscalização e fomento ao uso sustentável do solo. As regras para a identificação de tais áreas foram instituídas pelo Decreto nº 5092 de 21/05/2004 do Ministério do Meio Ambiente.</span>
-                  <br />
-                  <br />
-                  <span>Com o propósito de estabelecer uma ideia de equivalência ecológica, a calculadora de desmatamento utiliza um multiplicador de 1,8 vezes o valor do dano quando a área analisada corresponde a uma área prioritária para conservação</span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion4} onChange={() => handleToggle('accordion4')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel4a-header"
-              >
-                <Typography><strong>Área com potencial de recreação</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  <span>
-                    Uma floresta preservada possui inúmeros atrativos naturais, como trilhas, cachoeiras, observação da fauna e flora, atividades de ecoturismo e contato direto com a natureza exuberante. No entanto, quando ocorre o desmatamento, a destruição do ecossistema e a perda de biodiversidade diminuem significativamente as oportunidades recreativas e turísticas que a área poderia oferecer. Além disso, a degradação do ecossistema também pode afetar negativamente as comunidades locais e populações indígenas que dependem da floresta para atividades culturais e tradicionais, restringindo suas possibilidades recreativas e reduzindo seu bem-estar geral.
-                  </span>
-                  <br />
-                  <br />
-                  <span>Na valoração econômica, é crucial levar em conta o contexto do território. Em uma região com potencial de recreação, a calculadora considera os valores de recreação perdidos devido ao desmatamento, buscando quantificar os ganhos econômicos subtraídos pela supressão vegetal. Por outro lado, em áreas desmatadas isoladas, sem potencial de recreação, tais benefícios não serão contabilizados na calculadora.</span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion5} onChange={() => handleToggle('accordion5')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel4a-header"
-              >
-                <Typography><strong>Legalidade do desmatamento</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  <span>
-                    O Código Florestal Brasileiro (Lei 12.651/2012) define sob quais condições o desmatamento pode ou não acontecer no Brasil. Para que o desmatamento seja considerado legal, é necessário que se obtenha uma autorização dos órgãos competentes. Nas propriedades rurais, por exemplo, o processo de autorização ocorre a partir do Cadastro Ambiental Rural (CAR), um registro público eletrônico, obrigatório para todos os imóveis rurais do país. É por meio do CAR que se obtém o mapa da propriedade indicando todas as partes que a compõem, inclusive aquelas que não podem ser desmatadas, como áreas de Reserva Legal (RL) e Áreas de Proteção Permanente (APP). Além dessas, Unidades de Conservação (UC) e Terras Indígenas (TI) também não podem sofrer desflorestação, tornando a atividade nessas terras, ilegal.
-                  </span>
-                  <br />
-                  <br />
-                  <span>A legalidade do desmatamento significa que o custo de restauração não será contabilizado, pois não haverá a obrigação legal de restauro. Enquanto isso, todos os custos imputados na calculadora serão considerados no caso de ilegalidade do desmatamento</span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion6} onChange={() => handleToggle('accordion6')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel5a-header"
-              >
-                <Typography><strong>Hipóteses de valores</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  <span>
-                    A calculadora utiliza uma ponderação de valores da literatura. Os impactos podem ser calculados com base em valores médios (cenário conservador) ou máximos (cenário do princípio da precaução).
-                  </span>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion expanded={expandedState.accordion6} onChange={() => handleToggle('accordion6')}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel6a-header"
-              >
-                <Typography><strong>Usos da calculadora</strong></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2" component="div">
-                  <span>A Calculadora de Impactos do Garimpo pode ser utilizada para três finalidades principais:</span>
-                  <ul className="flex flex-col gap-1 mt-4">
-                    <li>1. Estimar valores de danos ambientais para apoiar a definição de compensações e indenizações;</li>
-                    <li>2. Estimar níveis eficientes de investimentos para planejamento e prevenção de impactos;</li>
-                    <li>3. Estimar receitas potenciais que o Estado poderia ter com seus ativos florestais.</li>
-                  </ul>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.app.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                {calculadora.guia.app.description[0]}
+                <br/>
+                <br/>
+                {calculadora.guia.app.description[1]}
+                <br/>
+                <br/>
+                <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.recreacao.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                <span>
+                  {calculadora.guia.recreacao.description[0]}
+                </span>
+                <br/>
+                <br/>
+                <span>{calculadora.guia.recreacao.description[1]}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.legalidade.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                <span>
+                  {calculadora.guia.legalidade.description}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.restauracao.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
+                {calculadora.guia.restauracao.description[0]}
+                  <br/>
+                  <br/>
+                <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
+                {calculadora.guia.restauracao.description[1]}
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
+            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.uso.title}</span>
+            </h1>
+            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
+              <div>
+                <span>{calculadora.guia.uso.description}</span>
+                <ol className="px-10 flex flex-col gap-1 mt-4 list-decimal">
+                  {calculadora.guia.uso.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </>
   )
