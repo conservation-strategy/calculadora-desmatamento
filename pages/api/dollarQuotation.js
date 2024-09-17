@@ -1,3 +1,4 @@
+import { fetchWithRetries } from "../../utils/fetch";
 
 export default async function handler(req, res) {
   try {
@@ -95,7 +96,7 @@ async function fetchDollarQuotation(date=new Date(), fallback=false) {
 
     apiUrl = `${baseUrl}/${endpoint}?${queryParams}`;
   }
-  const response = await fetch(apiUrl);
+  const response = await fetchWithRetries(apiUrl, 3);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
