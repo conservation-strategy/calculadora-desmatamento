@@ -20,106 +20,108 @@ export default function Footer() {
 
   return (
     <div className="container-lg p-0 mb-0 bg-black bg-opacity-100 px-0 lg:px-0">
-      <div className="mx-auto max-w-screen-sm md:max-w-screen-2xl  flex flex-col gap-0 text-white">
-        <div className="container-lg flex flex-col md:flex-row gap-8 justify-between items-center py-6 bg-black max-[500px]:px-8 px-14 ">
-          <div>
-            <div className="flex items-center gap-12 md:gap-12">
-              <div 
-              className="cursor-pointer"
-              onClick={handleIconClick}
-              >
-                <Image
-                  // src="/images/Desmatamento_VersãoInvertida.svg"
-                  src="/images/logo-desmatamento-color.png"
-                  alt="Calculadora Desmatamento Logo"
-                  width={44}
-                  height={44}
-                  priority
-                />
+      <div className="flex flex-col gap-0 text-white">
+        <div className="container-lg py-6 bg-black max-[500px]:px-8 px-14 ">
+          <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-8 justify-between items-center ">
+            <div>
+              <div className="flex items-center gap-12 md:gap-12">
+                <div 
+                className="cursor-pointer"
+                onClick={handleIconClick}
+                >
+                  <Image
+                    // src="/images/Desmatamento_VersãoInvertida.svg"
+                    src="/images/logo-desmatamento-color.png"
+                    alt="Calculadora Desmatamento Logo"
+                    width={44}
+                    height={44}
+                    priority
+                  />
+                </div>
+                <a
+                href="https://miningcalculator.conservation-strategy.org/"
+                target="_blank"
+                className="cursor-pointer"
+                >
+                  <Image
+                    // src="images/Garimpo_VersãoInvertida.svg"
+                    src="/images/logo-garimpo-color.png"
+                    alt="CSF Logo"
+                    width={44}
+                    height={44}
+                    priority
+                  />
+                </a>
+                <a 
+                href="https://indigenouscalculator.conservation-strategy.org/home"
+                target="_blank"
+                className="cursor-pointer"
+                >
+                  <Image
+                    // src="images/Indígena_VersãoInvertida.svg"
+                    src="/images/logo-indigena-color.png"
+                    alt="CSF Logo"
+                    width={44}
+                    height={44}
+                    priority
+                  />
+                </a>
+                {/* <a>
+                  <GarimpoIcon/>
+                </a>
+                <a>
+                  <IndigenaIcon />
+                </a> */}
               </div>
-              <a
-              href="https://miningcalculator.conservation-strategy.org/"
-              target="_blank"
-              className="cursor-pointer"
-              >
-                <Image
-                  // src="images/Garimpo_VersãoInvertida.svg"
-                  src="/images/logo-garimpo-color.png"
-                  alt="CSF Logo"
-                  width={44}
-                  height={44}
-                  priority
-                />
-              </a>
-              <a 
-              href="https://indigenouscalculator.conservation-strategy.org/home"
-              target="_blank"
-              className="cursor-pointer"
-              >
-                <Image
-                  // src="images/Indígena_VersãoInvertida.svg"
-                  src="/images/logo-indigena-color.png"
-                  alt="CSF Logo"
-                  width={44}
-                  height={44}
-                  priority
-                />
-              </a>
-              {/* <a>
-                <GarimpoIcon/>
-              </a>
-              <a>
-                <IndigenaIcon />
-              </a> */}
+              {/* <div className="flex w-full justify-center pb-2 text-sm text-white font-medium pt-2">
+                &#169; CSF All rights reserved
+              </div> */}
             </div>
-            {/* <div className="flex w-full justify-center pb-2 text-sm text-white font-medium pt-2">
-              &#169; CSF All rights reserved
-            </div> */}
-          </div>
-          <div className="flex gap-8 min-[425px]:gap-12 text-gray-500">
-            <a
-                className="hover:text-white"
-                href="https://www.linkedin.com/company/conservationstrategyfund/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedin size={28} />{" "}
-              </a>
+            <div className="flex gap-8 min-[425px]:gap-12 text-gray-500">
               <a
-                className="hover:text-white"
-                href="https://www.youtube.com/user/numbers4nature"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaYoutube size={28} />{" "}
-              </a>
-              <a
-                className="hover:text-white"
-                href="https://www.instagram.com/conservationstrategyfund/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaInstagram size={28} />
-              </a>
-              <a
-                className="hover:text-white"
-                href="https://x.com/numbers4nature"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <XIcon />
-              </a>              
-              <a
-                className="hover:text-white"
-                href="https://www.facebook.com/conservationstrategyfund"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaFacebook size={28} />{" "}
-              </a>
+                  className="hover:text-white"
+                  href="https://www.linkedin.com/company/conservationstrategyfund/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedin size={28} />{" "}
+                </a>
+                <a
+                  className="hover:text-white"
+                  href="https://www.youtube.com/user/numbers4nature"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaYoutube size={28} />{" "}
+                </a>
+                <a
+                  className="hover:text-white"
+                  href="https://www.instagram.com/conservationstrategyfund/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaInstagram size={28} />
+                </a>
+                <a
+                  className="hover:text-white"
+                  href="https://x.com/numbers4nature"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <XIcon />
+                </a>              
+                <a
+                  className="hover:text-white"
+                  href="https://www.facebook.com/conservationstrategyfund"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaFacebook size={28} />{" "}
+                </a>
+            </div>
           </div>
         </div>
-        <div className="opacity-50 border-t-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 mb-2 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
+        <div className="opacity-50 border-t-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
           {/* <a
             className="hover:text-white"
             href="https://www.conservation-strategy.org/"
@@ -135,7 +137,7 @@ export default function Footer() {
               priority
             />
           </a> */}
-          <div className="flex gap-1 items-center font-normal max-[839px]:text-xs max-[839px]:flex-col">
+          <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex gap-1 items-center font-normal max-[839px]:text-xs max-[839px]:flex-col">
             <span>
               <span className="font-medium whitespace-nowrap">&#169; CSF</span>
               &nbsp;&middot;&nbsp;
