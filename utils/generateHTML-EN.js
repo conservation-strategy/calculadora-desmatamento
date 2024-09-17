@@ -1,14 +1,12 @@
 import { formatCostNumber, formatDate } from ".";
 
-// PROX PASSO AQUI: Ver por caixinha e cor
-// ta apertando quando tem quebra de linha 
-
 export const generateHTML_EN = ({
   inputData,
   custos,
   chartHtml,
   currentBarHeights,
-  logoBase64,
+  logoUrl,
+  logoCSFUrl,
 //   isBrasil,
   currentURL,
   currency
@@ -107,8 +105,14 @@ export const generateHTML_EN = ({
                 flex-grow: 0;
             }
 
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
             .title {
-                color: #FFFFFF;
+                color: #F7EEEE;
                 font-size: 1.5rem;
                 font-weight: bold;
                 font-family: 'Roboto', sans-serif;
@@ -117,6 +121,10 @@ export const generateHTML_EN = ({
 
             .header--small .title {
                 font-size: 1rem;
+            }
+
+            .csf-logo {
+                opacity: 0.5;
             }
 
             .footer {
@@ -636,10 +644,11 @@ export const generateHTML_EN = ({
         <div class="page-container page-break">
             <div class="header">
                 <div class="logo">
-                    <img src="data:image/svg+xml;base64,${logoBase64}" alt="CSF Logo" width="56" height="56" />
+                    <img src="${logoUrl}" alt="CSF Logo" width="56" height="56" />
+                    <span class="title">Deforestation Impact Calculator</span>
                 </div>
-                <div class="title">
-                    <span>Deforestation Impact Calculator</span>
+                <div class="csf-logo">
+                    <img src="${logoCSFUrl}" alt="CSF Logo" width="36" height="36" />
                 </div>
             </div>
             <div class="results-container">
@@ -700,10 +709,11 @@ export const generateHTML_EN = ({
           <div class="page-container page-break">
             <div class="header--small">
                 <div class="logo">
-                    <img src="data:image/svg+xml;base64,${logoBase64}" alt="CSF Logo" width="36" height="36" />
+                    <img src="${logoUrl}" alt="CSF Logo" width="36" height="36" />
+                    <span class="title">Deforestation Impact Calculator</span>
                 </div>
-                <div class="title">
-                    <span>Deforestation Impact Calculator</span>
+                <div class="csf-logo">
+                    <img src="${logoCSFUrl}" alt="CSF Logo" width="24" height="24" />
                 </div>
             </div>
             <div class="results-container" style="gap: 2rem;">
@@ -803,12 +813,13 @@ export const generateHTML_EN = ({
           </div>
           <div class="page-container page-break">
             <div class="header--small">
-              <div class="logo">
-                  <img src="data:image/svg+xml;base64,${logoBase64}" alt="CSF Logo" width="36" height="36" />
-              </div>
-              <div class="title">
-                  <span>Deforestation Impact Calculator</span>
-              </div>
+                <div class="logo">
+                    <img src="${logoUrl}" alt="CSF Logo" width="36" height="36" />
+                    <span class="title">Deforestation Impact Calculator</span>
+                </div>
+                <div class="csf-logo">
+                    <img src="${logoCSFUrl}" alt="CSF Logo" width="24" height="24" />
+                </div>
             </div>
             <div class="results-container" style="justify-content: flex-start; margin-top: 1rem;">
               <div class="content-wrapper">
@@ -870,12 +881,13 @@ export const generateHTML_EN = ({
           </div>
           <div class="page-container page-break">
             <div class="header--small">
-              <div class="logo">
-                  <img src="data:image/svg+xml;base64,${logoBase64}" alt="CSF Logo" width="36" height="36" />
-              </div>
-              <div class="title">
-                  <span>Deforestation Impact Calculator</span>
-              </div>
+                <div class="logo">
+                    <img src="${logoUrl}" alt="CSF Logo" width="36" height="36" />
+                    <span class="title">Deforestation Impact Calculator</span>
+                </div>
+                <div class="csf-logo">
+                    <img src="${logoCSFUrl}" alt="CSF Logo" width="24" height="24" />
+                </div>
             </div>
             <div class="results-container" style="justify-content: flex-start; margin-top: 1rem;">
               <div class="content-wrapper">

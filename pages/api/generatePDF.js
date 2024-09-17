@@ -111,8 +111,11 @@ export default async function handler(req, res) {
       const page = await browser.newPage();
 
       // const logoPath = path.join(process.cwd(), 'public', 'images', 'logo.svg');
-      const logoPath = path.join(process.cwd(), 'public', 'images', 'logo-desmatamento.svg');
-      const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
+      // const logoPath = path.join(process.cwd(), 'public', 'images', 'logo-desmatamento.svg');
+      // const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
+      const logoUrl = process.env.PUBLIC_URL + '/images/logo-desmatamento-color.png';
+      const logoCSFUrl = process.env.PUBLIC_URL + '/images/logo.svg';
+
 
       // const htmlContent = fs.readFileSync(path.join(process.cwd(), 'public', 'teste.html'), 'utf8');
       const htmlContent = language === ENGLISH 
@@ -121,7 +124,8 @@ export default async function handler(req, res) {
         custos, 
         chartHtml, 
         currentBarHeights, 
-        logoBase64,
+        logoUrl,
+        logoCSFUrl,
         currentURL,
         currency
       })
@@ -130,7 +134,8 @@ export default async function handler(req, res) {
         custos, 
         chartHtml, 
         currentBarHeights, 
-        logoBase64,
+        logoUrl,
+        logoCSFUrl,
         currentURL,
         currency
       });
