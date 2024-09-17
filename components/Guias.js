@@ -52,96 +52,108 @@ export default function Guias() {
             </div>
           </div> */}
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.local.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                <span>{calculadora.guia.local.intro}</span>
-                <ul className="px-10 flex flex-col gap-1 my-4 list-disc leading-8">
-                  {calculadora.guia.local.list.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <span>{calculadora.guia.local.conclusion}</span>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.local.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-8`}>
+                <div className="leading-8">
+                  <span>{calculadora.guia.local.intro}</span>
+                  <ul className="px-10 flex flex-col gap-1 my-4 list-disc leading-8">
+                    {calculadora.guia.local.list.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <span>{calculadora.guia.local.conclusion}</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.app.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                {calculadora.guia.app.description[0]}
-                <br/>
-                <br/>
-                {calculadora.guia.app.description[1]}
-                <br/>
-                <br/>
-                <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.app.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-9`}>
+                <div className="leading-8">
+                  {calculadora.guia.app.description[0]}
+                  <br/>
+                  <br/>
+                  {calculadora.guia.app.description[1]}
+                  <br/>
+                  <br/>
+                  <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.recreacao.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                <span>
-                  {calculadora.guia.recreacao.description[0]}
-                </span>
-                <br/>
-                <br/>
-                <span>{calculadora.guia.recreacao.description[1]}</span>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.recreacao.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-8`}>
+                <div className="leading-8">
+                  <span>
+                    {calculadora.guia.recreacao.description[0]}
+                  </span>
+                  <br/>
+                  <br/>
+                  <span>{calculadora.guia.recreacao.description[1]}</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.legalidade.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                <span>
-                  {calculadora.guia.legalidade.description}
-                </span>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.legalidade.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-8`}>
+                <div className="leading-8">
+                  <span>
+                    {calculadora.guia.legalidade.description}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral100 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.restauracao.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
-                {calculadora.guia.restauracao.description[0]}
-                  <br/>
-                  <br/>
-                <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
-                {calculadora.guia.restauracao.description[1]}
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.restauracao.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-8`}>
+                <div className="leading-8">
+                  <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
+                  {calculadora.guia.restauracao.description[0]}
+                    <br/>
+                    <br/>
+                  <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
+                  {calculadora.guia.restauracao.description[1]}
+                </div>
               </div>
             </div>
           </div>
 
           <div className="w-full px-12 md:px-16 max-[500px]:px-8 bg-neutral200 text-extraDarkGreen"> 
-            <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
-              <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.uso.title}</span>
-            </h1>
-            <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] text-base min-[425px]:text-lg leading-8`}>
-              <div>
-                <span>{calculadora.guia.uso.description}</span>
-                <ol className="px-10 flex flex-col gap-1 mt-4 list-decimal">
-                  {calculadora.guia.uso.list.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ol>
+            <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto">
+              <h1 className={`mx-auto max-w-screen-sm md:max-w-screen-2xl flex font-bold pt-16 pb-12 gap-4 items-center`}>
+                <span className="pl-4 border-l-[6px] border-extraDarkGreen text-[1.3rem] min-[375px]:text-2xl min-[430px]:text-2xl min-[375px]:leading-[2.5rem]">{calculadora.guia.uso.title}</span>
+              </h1>
+              <div className={`pb-20 min-[375px]:px-5 max-w-[95ch] 2xl:max-w-none text-base min-[425px]:text-lg leading-8`}>
+                <div className="leading-8">
+                  <span>{calculadora.guia.uso.description}</span>
+                  <ol className="px-10 flex flex-col gap-1 mt-4 list-decimal">
+                    {calculadora.guia.uso.list.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </div>
           </div>

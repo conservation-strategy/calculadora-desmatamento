@@ -175,11 +175,11 @@ export default function Navbar() {
         {/* overlay */}
         {
           <div
-            className={`z-30 fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-16 items-center transition-opacity duration-300 ease-in-out ${
+            className={`z-30 fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-8 items-center transition-opacity duration-300 ease-in-out ${
               isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >
-            <div className="w-full flex justify-between px-8 py-6">
+            <div className="w-full flex justify-between max-[500px]:px-8 px-14 py-6">
               <div className="text-white text-2xl font-bold">
                 {/* <Image
                     className="w-10 lg:w-16"
