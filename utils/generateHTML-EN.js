@@ -9,7 +9,8 @@ export const generateHTML_EN = ({
   logoCSFUrl,
 //   isBrasil,
   currentURL,
-  currency
+  currency,
+  quotation
 }) => {
 
     const isRecoverCostZero = custos.custosDeRecuperacao >= 0 && custos.custosDeRecuperacao < 0.01;
@@ -722,7 +723,7 @@ export const generateHTML_EN = ({
                     <div class="flex-container" style="margin-top: -0.5rem;">
                         <div class="content-column" >
                             <div class="body-text">
-                                <p>The total cost of deforestation ${inputData.city && inputData.uf ? `in the municipality of ${inputData.city} (${inputData.uf})` : 'in the Amazon'}, calculated based on the values entered, is </p>
+                                <p>The total cost of deforestation ${inputData.city && inputData.uf ? `in the municipality of ${inputData.city} (${inputData.uf})` : 'in the Amazon'}, calculated based on the values entered, is ${currency === 'R$' ? '¹' : ''}</p>
                             </div>
                             <div class="highlighted-cost">
                                 <span><span class="currency">${currency} </span>${formatCostNumber(custos.custoTotal)}</span>
@@ -949,7 +950,8 @@ export const generateHTML_EN = ({
                 <div class="notes-container">
                     <span>Notas</span>
                     <div class="note">
-                        <p>¹ The profitability value of ${inputData.usoPosterior === 'pecuária' ? 'livestock farming' : 'agriculture'} was included as external data for comparison purposes. This data allows for contextualizing the financial impacts of deforestation in relation to a common economic alternative in the region.</p>
+                        ${currency === 'R$' ? `<p>¹ We use some reference values denominated in US$, requiring conversion to display the value in R$ (Brazilian Reais). Quotation used: <i>${Number(quotation.value).toFixed(2)} R$/US$</i>, date: <i>${quotation.date.slice(0,10)}</i>, source: <i>${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}</i>.</p>` : ''}
+                        <p>${currency === 'R$' ? '²': '¹'} The profitability value of ${inputData.usoPosterior === 'pecuária' ? 'livestock farming' : 'agriculture'} was included as external data for comparison purposes. This data allows for contextualizing the financial impacts of deforestation in relation to a common economic alternative in the region.</p>
                     </div>
                 </div>
             </div>

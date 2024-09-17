@@ -11,7 +11,7 @@ import StackBarsData from './StackBarsData';
 import DetailedInfoEnvironmentCost from './DetailedInfoEnvironmentCost';
 import styles from '../styles/Results.module.css';
 import DoughnutChartStatic from './DoughnutChartStatic';
-import { Language, currencies, useCurrency } from '../context/provider';
+import { ENGLISH, Language, currencies, useCurrency } from '../context/provider';
 import TableInputData from './TableInputData';
 import { ClickAwayListener, Tooltip } from '@mui/material';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
@@ -166,7 +166,7 @@ export default function Results({ custos, inputData, quotation }) {
                 {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
                 {/* {results.note.intro}{' '} */}
                 {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{' R$/US$, '}
-                {results.note.date}{' '}{formatDateToBrazilianStandard(quotation.date)}{','}
+                {results.note.date}{' '}{language === ENGLISH ? quotation.date.slice(0, 10) : formatDateToBrazilianStandard(quotation.date)}{','}
                 &nbsp;
                 {/* {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'} */}
               </span>
@@ -200,7 +200,7 @@ export default function Results({ custos, inputData, quotation }) {
           </div>
         </div>
         <div className="max-[530px]:w-full flex items-center ">
-          <DownloadPDFButton data={{  custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency }} language={language} />
+          <DownloadPDFButton data={{  custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency, quotation }} language={language} />
         </div>
       </div>
       
@@ -341,7 +341,7 @@ export default function Results({ custos, inputData, quotation }) {
       </div>
       <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-end w-full max-[530px]:justify-center">
         <div className="max-[530px]:w-full flex items-center">
-          <DownloadPDFButton data={{ custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency }} language={language} />
+          <DownloadPDFButton data={{ custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency, quotation }} language={language} />
         </div>
       </div>
       {/* <div id="staticChart" >

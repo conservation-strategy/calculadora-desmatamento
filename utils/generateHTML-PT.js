@@ -1,4 +1,4 @@
-import { formatCostNumber, formatDate } from ".";
+import { formatCostNumber, formatDate, formatDateToBrazilianStandard } from ".";
 
 // PROX PASSO AQUI: Ver por caixinha e cor
 // ta apertando quando tem quebra de linha 
@@ -12,7 +12,8 @@ export const generateHTML_PT = ({
   logoCSFUrl,
 //   isBrasil,
   currentURL,
-  currency
+  currency,
+  quotation
 }) => {
 
     const isRecoverCostZero = custos.custosDeRecuperacao >= 0 && custos.custosDeRecuperacao < 0.01;
@@ -725,7 +726,7 @@ export const generateHTML_PT = ({
                     <div class="flex-container" style="margin-top: -0.5rem;">
                         <div class="content-column" >
                             <div class="body-text">
-                                <p>O custo total do desmatamento ${inputData.city && inputData.uf ? `no município ${inputData.city} (${inputData.uf})` : 'na Amazônia'}, calculado a partir dos valores inseridos, é de </p>
+                                <p>O custo total do desmatamento ${inputData.city && inputData.uf ? `no município ${inputData.city} (${inputData.uf})` : 'na Amazônia'}, calculado a partir dos valores inseridos, é de ${currency === 'R$' ? '¹' : ''} </p>
                             </div>
                             <div class="highlighted-cost">
                                 <span><span class="currency">${currency} </span>${formatCostNumber(custos.custoTotal)}</span>
@@ -795,7 +796,7 @@ export const generateHTML_PT = ({
                                 </div>
                                 <div class="simple-bar-container">
                                     <div class="bar-label">
-                                        Rentabilidade da ${inputData.usoPosterior === 'pecuária' ? 'pecuária' : 'agricultura'}¹
+                                        Rentabilidade da ${inputData.usoPosterior === 'pecuária' ? 'pecuária' : 'agricultura'}${currency === 'R$' ? '²' : '¹'}
                                         <span><span class="currency-small">${currency} </span>${formatCostNumber(custos.custoDeOportunidade)}</span>
                                     </div>
                                     <div class="bar" id="opt" style="height: ${currentBarHeights.opportunityCost}px;">
@@ -950,7 +951,8 @@ export const generateHTML_PT = ({
                 <div class="notes-container">
                     <span>Notas</span>
                     <div class="note">
-                        <p>¹ O valor de rentabilidade da ${inputData.usoPosterior ===  'pecuária' ? 'pecuária' : 'agricultura'} foi incluído como um dado externo para fins de comparação. Esse dado permite contextualizar os impactos financeiros do desmatamento em relação a uma alternativa econômica comum na região.</p>
+                        ${currency === 'R$' ? `<p>¹ Utilizamos alguns valores referência denominados em US$, sendo necessária a conversão para apresentar os valores em R$. Cotação utilizada: <i>${Number(quotation.value).toFixed(2)} R$/US$</i>, data: <i>${formatDateToBrazilianStandard(quotation.date)}</i>, fonte: <i>${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}</i>.</p>` : ''}
+                        <p>${currency === 'R$' ? '²': '¹'} O valor de rentabilidade da ${inputData.usoPosterior ===  'pecuária' ? 'pecuária' : 'agricultura'} foi incluído como um dado externo para fins de comparação. Esse dado permite contextualizar os impactos financeiros do desmatamento em relação a uma alternativa econômica comum na região.</p>
                     </div>
                 </div>
             </div>

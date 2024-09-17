@@ -48,6 +48,7 @@ export default async function handler(req, res) {
         // isBrasil,
         currentURL,
         currency,
+        quotation,
         language
       } = req.body;
 
@@ -127,7 +128,8 @@ export default async function handler(req, res) {
         logoUrl,
         logoCSFUrl,
         currentURL,
-        currency
+        currency,
+        quotation
       })
       : generateHTML_PT({
         inputData, 
@@ -137,7 +139,8 @@ export default async function handler(req, res) {
         logoUrl,
         logoCSFUrl,
         currentURL,
-        currency
+        currency,
+        quotation
       });
 
       // console.log('[PDFGenerator] htmlContent', htmlContent);
