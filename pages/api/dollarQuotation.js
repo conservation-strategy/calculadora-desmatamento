@@ -1,24 +1,38 @@
 
 export default async function handler(req, res) {
   try {
-    console.log('Fetching primary API data...');
-    let data = await fetchDollarQuotation();
+    let data;
+    let _fallback = false;
+    try {
+      console.log('Fetching primary API data...');
+      data = await fetchDollarQuotation();
 
-    if(data.data.value) {
-      if(data.data.value.length === 0) {
-        const _date = new Date();
-        for(let i=0; i<2; i++) {
-          _date.setDate(_date.getDate() - 1);
-          console.log(`Fetching primary API data for date: ${_date}`);
-          data = await fetchDollarQuotation(_date);
-          if(data.data.value && data.data.value.length > 0) break
+      if(data.data.value) {
+        if(data.data.value.length === 0) {
+          const _date = new Date();
+          for(let i=0; i<2; i++) {
+            _date.setDate(_date.getDate() - 1);
+            console.log(`Fetching primary API data for date: ${_date}`);
+            data = await fetchDollarQuotation(_date);
+            if(data.data.value && data.data.value.length > 0) break
+          }
         }
       }
+      if(!data.data.value || data.data.value.length === 0) {
+        _fallback = true;
+        console.log('Primary API returned empty data, trying fallback API...');
+        data = await fetchDollarQuotation(new Date(), _fallback);
+      }
+    } catch (error) {
+      if(!_fallback) {
+        console.log('Primary API returned error:', error.message);
+        console.log('trying fallback API...')
+        data = await fetchDollarQuotation(new Date(), true);
+      } else {
+        throw new Error('Fallback API failed:', error.message)
+      }
     }
-    if(!data.data.value || data.data.value.length === 0) {
-      console.log('Primary API returned empty data, trying fallback API...');
-      data = await fetchDollarQuotation(new Date(), true);
-    }
+    console.log(data);
     
     const now = new Date();
     const spTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
