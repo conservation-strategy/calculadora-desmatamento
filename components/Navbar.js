@@ -118,7 +118,7 @@ export default function Navbar() {
     <div
       id="navbar"
       className={`
-        container-lg sticky top-0 flex py-6 max-[500px]:px-8 px-14 bg-[#0A0F0F] bg-opacity-100 z-20 transition-opacity duration-300
+        container-lg sticky top-0 flex py-6 max-[500px]:px-8 px-14 bg-[#0A0F0F] bg-opacity-100 z-40 transition-opacity duration-300
         ${hasScrolled ? 'opacity-90' : 'opacity-100'}
       `}
     > 
