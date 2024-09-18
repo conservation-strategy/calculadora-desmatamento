@@ -19,3 +19,5 @@ export async function fetchWithRetries(url, retries, baseDelay = 1000) {
     }
     throw new Error(`Failed to fetch after ${retries} retries`);
 }
+
+// module.exports = { fetchWithRetries };
