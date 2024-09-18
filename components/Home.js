@@ -135,13 +135,13 @@ sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconChartPie size={80} strokeWidth={1} />
               <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
-                {home.main.section_1.description.list[0]}
+                {home.main.section_1.description.list[1]}
               </span>
             </div>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconTimeline size={80} strokeWidth={1} />
               <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
-                {home.main.section_1.description.list[0]}
+                {home.main.section_1.description.list[2]}
               </span>
             </div>
           </div>
