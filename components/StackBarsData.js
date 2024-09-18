@@ -63,12 +63,12 @@ const BarLabel = ({ children, isZeroCost = false, isRec = false, isEnv = false }
 // to-do: deixar a largura das barras responsivas
 const OpportunityBarContainer = forwardRef(({ cost, label, className, isOpCost = false, description, usoPosterior }, ref) => {
   const uso = usoPosterior === "pecuária" ? description.usos[0] : description.usos[1];
-  const { currency, exchangeRate } = useCurrency();
+  const { currency } = useCurrency();
   return (
       <div className="flex flex-col gap-8">
         <div className={`relative flex flex-col gap-1 items-end border-r border-[#a6a6a6] pr-3 ${styles.oportunityBar}`}>
           <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm text-right`}>{description.title + ' ' + uso}</span>
-          <HighlightedCost cost={cost/exchangeRate} currency={currency} size='small' />
+          <HighlightedCost cost={cost} currency={currency} size='small' />
           <Tooltip 
             title={description.tooltip.parts[0] + ' ' + uso + ' ' + description.tooltip.parts[1]}
             componentsProps={{
