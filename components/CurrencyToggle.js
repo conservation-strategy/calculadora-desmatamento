@@ -7,6 +7,12 @@ import ToggleButtonGroup, {
   toggleButtonGroupClasses,
 } from '@mui/material/ToggleButtonGroup';
 import { currencies } from '../context/provider';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+  weight: ['300', '400', '500','700'],
+  subsets: ['latin'],
+})
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   [`& .${toggleButtonGroupClasses.grouped}`]: {
@@ -29,7 +35,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     },
 }));
 
-export default function CurrencyToggle({ onCurrencyChange, currency }) {
+export default function CurrencyToggle({ onCurrencyChange, currency, dense = false }) {
   // const { currency } = useCurrency();
   const [currentCurrency, setCurrentCurrency] = React.useState(currency === currencies.real ? 'real' : 'dollar');
 
@@ -45,25 +51,33 @@ export default function CurrencyToggle({ onCurrencyChange, currency }) {
 
   return (
     <>
-      <label className='themeSwitcherThree relative inline-flex cursor-pointer select-none items-center'>
+      <label className={`themeSwitcherThree relative inline-flex cursor-pointer select-none items-center ${roboto.className}`}>
         <input
           type='checkbox'
           checked={currentCurrency === 'real'}
           onChange={handleToggleCurrency}
           className='sr-only'
         />
-        <div className='shadow-card flex gap-1 h-[46px] w-[90px] items-center justify-center rounded-md bg-white'>
+        <div className={`shadow-card flex gap-1 w-[90px] items-center justify-center rounded bg-white ${dense ? 'h-[38px]' : 'h-[46px]'}`}>
           <span
-            className={`flex h-10 w-10 items-center justify-center rounded ${
-              currentCurrency === 'real' ? 'bg-[#6AA65B] text-white' : 'text-body-color'
-            }`}
+            className={
+              `flex w-10 items-center justify-center rounded-sm 
+              ${
+                currentCurrency === 'real' ? 'bg-[#6AA65B] text-white' : 'text-body-color'
+              }
+              ${dense ? 'h-8' : 'h-10'}
+            `}
           >
             R$
           </span>
           <span
-            className={`flex h-10 w-10 items-center justify-center rounded ${
-              currentCurrency === 'dollar' ? 'bg-[#6AA65B] text-white' : 'text-body-color'
-            }`}
+            className={`
+              flex h-10 w-10 items-center justify-center rounded-sm
+              ${
+                currentCurrency === 'dollar' ? 'bg-[#6AA65B] text-white' : 'text-body-color'
+              }
+              ${dense ? 'h-8' : 'h-10'}
+            `}
           >
             US$
           </span>

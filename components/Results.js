@@ -17,6 +17,7 @@ import { ClickAwayListener, Tooltip } from '@mui/material';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import VisibilityTrigger from './VisibilityTrigger';
 import CurrencyToggle from './CurrencyToggle';
+import Currency from './Currency';
 
 const roboto = Roboto({
   weight: ['300', '400', '500','700'],
@@ -154,54 +155,22 @@ export default function Results({ custos, inputData, quotation }) {
   return (
     <div id="results" className="flex flex-col items-center w-full bg-white max-[500px]:px-8 px-14"> 
       {/* <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-center justify-between w-full max-[530px]:flex-col max-[530px]:gap-14 max-[530px]:items-start"> */}
-      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 flex items-start justify-between gap-6 w-full max-[530px]:pb-6 max-[530px]:flex-col-reverse max-[530px]:gap-14 max-[530px]:items-start">
-        <div className='flex flex-col gap-6'>
+      <div className="max-w-screen-sm md:max-w-screen-2xl py-10 pb-10 flex items-start justify-between gap-6 w-full max-[530px]:pb-6 max-[530px]:flex-col-reverse max-[530px]:gap-14 max-[530px]:items-start">
+        <div className='flex flex-col gap-12'>
           <h1 className={`font-bold gap-4 items-center`}>
-              <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl min-[375px]:eading-[2.5rem]">{results.heading}</span>
+              <span className="pl-5 border-l-[6px] border-darkGreen text-darkGreen text-2xl min-[375px]:text-[1.75rem] min-[430px]:text-3xl">{results.heading}</span>
           </h1>
-          {/* <div className='flex items-start max-w-[80ch] max-[1000px]:max-w-[65ch] max-[860px]:max-w-[55ch] px-6 text-left text-xs italic mt-'> */}
-          <div className='flex items-start px-6 max-[375px]:px-0 text-left text-xs italic mt-'>
-            <span className='flex flex-wrap'>
-              <span className=''>
-                {/* {`Cotação utilizada: ${Number(quotation.value).toFixed(2)} R$/U$, data: ${formatDateToBrazilianStandard(quotation.date)}, fonte: ${quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}.`} */}
-                {/* {results.note.intro}{' '} */}
-                {results.note.quotation}{' '}{Number(quotation.value).toFixed(2)}{' R$/US$, '}
-                {results.note.date}{' '}{language === ENGLISH ? quotation.date.slice(0, 10) : formatDateToBrazilianStandard(quotation.date)}{','}
-                &nbsp;
-                {/* {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'} */}
-              </span>
-              <span className='whitespace-nowrap relative'>
-                {results.note.source}{' '}{quotation.fallback ? 'Currencybeacon' : 'Banco Central do Brasil'}{'.'}
-                <Tooltip 
-                  title={results.note.intro}
-                  componentsProps={{
-                    tooltip: {
-                      sx: {
-                        px: 2,
-                        py: 1.5,
-                        letterSpacing: '0.3px',
-                        textWrap: 'pretty',
-                        borderRadius: '8px',  
-                        fontSize: '0.9rem',
-                        backgroundColor: 'rgba(252, 252, 255, 1)',
-                        color: 'black',
-                        boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
-                      }
-                    }
-                  }}
-                  enterTouchDelay={100}
-                >
-                  <span className="absolute right-[-18px] bottom-[3px]  max-[339px]:ml-1 text-[1.4rem] text-gray-500 cursor-pointer">
-                    <RiInformationLine color={'#313131'} style={{width: '0.9rem', height: '0.9rem'}} />
-                  </span>
-                </Tooltip>
-              </span>
-            </span>
-          </div>
+          {/* <div className='px-6 w-full'>
+            <Currency currency={currency} onCurrencyChange={handleChangeCurrency} quotation={quotation} />
+          </div> */}
         </div>
         <div className="max-[530px]:w-full flex items-center ">
           <DownloadPDFButton data={{  custos: costsOverExchangeRate(custos, exchangeRate), inputData, currentBarHeights, currentURL, currency, quotation }} language={language} />
         </div>
+      </div>
+
+      <div className='flex justify-start px-6 w-full max-[375px]:px-0'>
+        <Currency currency={currency} onCurrencyChange={handleChangeCurrency} quotation={quotation} />
       </div>
       
       <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-8 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
@@ -212,8 +181,8 @@ export default function Results({ custos, inputData, quotation }) {
           </button> */}
           {/* --------------- */}
           <ClickAwayListener onClickAway={() => setIsCurrencyInfoOpen(false)}>
-            <VisibilityTrigger targetElementId="results">
-              <div className="w-fit bottom-0 left-0 fixed">
+            <VisibilityTrigger targetElementId="results" excludentElementId="currency-box">
+              <div className="w-fit bottom-10 left-0 fixed z-30">
                 <div className="flex items-end">
                   <div
                     className={`${roboto.className} flex flex-col gap-3 bg-gray-200 rounded-t-[6px] text-darkGreen px-4 py-3 rounded-l-md transition-all duration-300 transform ${
@@ -224,7 +193,7 @@ export default function Results({ custos, inputData, quotation }) {
                     <CurrencyToggle onCurrencyChange={handleChangeCurrency} currency={currency} />
                   </div>
                   <button
-                    className={`bg-darkGreen text-white border-none p-2 cursor-pointer rounded-r-md flex items-center justify-center w-7 h-10 transition-all duration-300 transform ${
+                    className={`bg-[#47605C] text-white border-none p-2 cursor-pointer rounded-r-md flex items-center justify-center w-7 h-10 transition-all duration-300 transform ${
                       isCurrencyInfoOpen ? 'translate-x-0' : '-translate-x-[173.422px]'
                     }`}
                     onClick={toggleContainer}
