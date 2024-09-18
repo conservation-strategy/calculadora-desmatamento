@@ -169,8 +169,10 @@ export default function Results({ custos, inputData, quotation }) {
         </div>
       </div>
 
-      <div className='flex justify-start px-6 w-full max-[375px]:px-0'>
-        <Currency currency={currency} onCurrencyChange={handleChangeCurrency} quotation={quotation} />
+      <div className='px-6 max-[375px]:px-0 flex flex-col items-center w-full'>
+        <div className='max-w-screen-sm md:max-w-[1480px] flex justify-start w-full'>
+          <Currency currency={currency} onCurrencyChange={handleChangeCurrency} quotation={quotation} />
+        </div>
       </div>
       
       <div className="px-6 pb-10 max-[530px]:pt-10 max-[375px]:px-0 pt-8 flex flex-col items-center gap-20 [@media(max-width:900px)]:gap-10 w-full">
