@@ -28,9 +28,13 @@ export function AppContextProvider ({children}) {
     useEffect(() => {
         async function fetchQuotation() {
           try {
-            const response = await fetch('/api/dollarQuotation');
+            let response = await fetch('/api/dollarQuotation');
             if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
+              console.log(`External API HTTP error! status: ${response.status}. Using CI repository as a fallback...`);
+              response = await fetch('/api/dollarQuotationCI');
+              if(!response.ok) {
+                throw new Error(`Failed CI API call! status: ${response.status}`);
+              }
             }
             const data = await response.json();
             // console.log('data', data);
