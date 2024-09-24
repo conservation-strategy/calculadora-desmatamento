@@ -13,7 +13,7 @@ export function custoTotalRecSuperficialComFrete (
     distanciaDesmatamentoCentroUrbanoFrete
 ) {
     console.log('restauracao' , restauracao);
-    const precoSuperficialSoloPorHa = restauracao === 'natural' ? 14690 : restauracao === 'direta' ? 23400 : undefined;
+    const precoSuperficialSoloPorHa = restauracao === 'natural' ? 1800 : restauracao === 'direta' ? 23400 : undefined;
     if(precoSuperficialSoloPorHa === undefined) {
         throw new Error('tecnica de restauracao inválida');
     }
