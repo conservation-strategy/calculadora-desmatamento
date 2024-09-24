@@ -15,7 +15,7 @@ export function custoTotalRecSuperficialComFrete (
     console.log('restauracao' , restauracao);
     const precoSuperficialSoloPorHa = restauracao === 'natural' ? 14690 : restauracao === 'direta' ? 23400 : undefined;
     if(precoSuperficialSoloPorHa === undefined) {
-        throw new Error('Valor de impacto inválido');
+        throw new Error('tecnica de restauracao inválida');
     }
     const custoSuperficialSoloSemFrete = precoSuperficialSoloPorHa * hectareAfetado;
     // console.log('custo sem frete', custoSuperficialSoloSemFrete)
@@ -36,15 +36,15 @@ export function custoTotalRecSuperficialComFrete (
     const custoTotalFreteSuperficialIdaeVolta = (custoFretecomMotoristaRecSuperficial + custoCombustívelFreteRecSuperficial + custoFreteMudaSuperficialTotal) * 2;
     // console.log('custo ida e volta', custoTotalFreteSuperficialIdaeVolta)
     // console.log('custo total caminhoes', custoTotalFreteSuperficialIdaeVolta*numeroCaminhoesRecupSuperficialMudas);
-    const custoTotalFreteRecSuperficialFinal = custoTotalFreteSuperficialIdaeVolta * numeroCaminhoesRecupSuperficialMudas * hectareAfetado;
+    const custoTotalFreteRecSuperficialFinal = custoTotalFreteSuperficialIdaeVolta * numeroCaminhoesRecupSuperficialMudas
     // console.log('custo total frete', custoTotalFreteRecSuperficialFinal)
 
     return custoSuperficialSoloSemFrete + custoTotalFreteRecSuperficialFinal
 }
 
 // const v = custoTotalRecSuperficialComFrete(
-//     1,
-//     'conservador',
+//     20,
+//     'natural',
 //     100.835290995657
 // )
 // console.log(v)
