@@ -29,7 +29,8 @@
     "react-dom": "18.2.0",
     "react-dom-server": "^0.0.5",
     "react-icons": "^4.11.0",
-    "recharts": "^2.12.7"
+    "recharts": "^2.12.7",
+    "nextjs-google-analytics": "^2.3.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
