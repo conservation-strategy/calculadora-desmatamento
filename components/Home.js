@@ -17,19 +17,19 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Calculadora de Impactos do Desmatamento | Conheça</title>
+        <title>Deforestation Impacts Calculator | Learn More</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Meta Tags for SEO */}
-        <meta name="description" content="Conheça a Calculadora de Impactos do Desmatamento, ferramenta de valoração dos danos
-sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
+        <meta name="description" content="Learn about the Deforestation Impacts Calculator, a valuation tool for the social and
+environmental damages caused by deforestation in the Amazon. Try it now!" />
         {/* <meta name="keywords" content="calculadora, desmatamento, impactos, ambiente, ecossistema" /> */}
 
         {/* Open Graph Tags (for social sharing) */}
-        <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Conheça" />
-        <meta property="og:description" content="Conheça a Calculadora de Impactos do Desmatamento, ferramenta de valoração dos danos
-sociais e ambientais causados pelo desmatamento na Amazônia. Acesse já!" />
+        <meta property="og:title" content="Deforestation Impacts Calculator | Learn More" />
+        <meta property="og:description" content="Learn about the Deforestation Impacts Calculator, a valuation tool for the social and
+environmental damages caused by deforestation in the Amazon. Try it now!" />
         <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo2.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/" />
         <meta property="og:type" content="website" />
