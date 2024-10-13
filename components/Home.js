@@ -2,13 +2,14 @@
 
 import Head from "next/head"
 import Button from "@mui/material/Button"
-import { RiPlantLine } from "react-icons/ri/"
+// import { RiPlantLine } from "react-icons/ri/"
 import { useContext } from "react"
 import { Language, ENGLISH } from "../context/provider"
 import React from "react"
 import Image from "next/image"
 import { IconChartPie, IconPlant, IconTimeline } from '@tabler/icons-react';
 import styles from '../styles/Home.module.css';
+import Link from "next/link"
 
 export default function Home() {
   const { content, language } = useContext(Language);
@@ -51,67 +52,71 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                 {home.hero.text.description}
               </h1>
               <div className={`${styles.buttons__container} z-10`}>
-                <Button
-                  sx={{
-                    borderRadius: '3px',
-                    backgroundColor: "#558448",
-                    "&:hover": {
-                      backgroundColor: "#40615C",
-                    },
-                    padding: {
-                      xs: "12px 24px",
-                      sm: "16px 32px"
-                    },
-                    color: "#FCF8F7",
-                    fontWeight: "600",
-                    letterSpacing: "0.035em",
-                    whiteSpace: 'nowrap',
-                    fontSize: '1rem',
-                    '@media (max-width: 469px)': {
-                      padding: "12px 28px",
-                    },
-                    '@media (max-width: 420px)': {
-                      width: '100%',
-                    }
-                  }}
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  href="/guias-de-uso"
-                  target="_self"
-                >
-                  {home.hero.button_1}
-                </Button>
-                <Button
-                  sx={{
-                    borderRadius: '3px',
-                    backgroundColor: "#558448",
-                    "&:hover": {
-                      backgroundColor: "#40615C",
-                    },
-                    padding: {
-                      xs: "12px 24px",
-                      sm: "16px 32px"
-                    },
-                    color: "#FCF8F7",
-                    fontWeight: "600",
-                    letterSpacing: "0.035em",
-                    fontSize: '1rem',
-                    '@media (max-width: 469px)': {
-                      padding: "12px 28px",
-                    },
-                    '@media (max-width: 420px)': {
-                      width: '100%',
-                    }
-                  }}
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  href="/calculadora"
-                  target="_self"
-                >
-                  {home.hero.button_2}
-                </Button>
+                <Link href={'/guias-de-uso'}>
+                  <Button
+                    sx={{
+                      borderRadius: '3px',
+                      backgroundColor: "#558448",
+                      "&:hover": {
+                        backgroundColor: "#40615C",
+                      },
+                      padding: {
+                        xs: "12px 24px",
+                        sm: "16px 32px"
+                      },
+                      color: "#FCF8F7",
+                      fontWeight: "600",
+                      letterSpacing: "0.035em",
+                      whiteSpace: 'nowrap',
+                      fontSize: '1rem',
+                      '@media (max-width: 469px)': {
+                        padding: "12px 28px",
+                      },
+                      '@media (max-width: 420px)': {
+                        width: '100%',
+                      }
+                    }}
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    // href="/guias-de-uso"
+                    // target="_self"
+                  >
+                    {home.hero.button_1}
+                  </Button>
+                </Link>
+                <Link href={'/calculadora'}>
+                  <Button
+                    sx={{
+                      borderRadius: '3px',
+                      backgroundColor: "#558448",
+                      "&:hover": {
+                        backgroundColor: "#40615C",
+                      },
+                      padding: {
+                        xs: "12px 24px",
+                        sm: "16px 32px"
+                      },
+                      color: "#FCF8F7",
+                      fontWeight: "600",
+                      letterSpacing: "0.035em",
+                      fontSize: '1rem',
+                      '@media (max-width: 469px)': {
+                        padding: "12px 28px",
+                      },
+                      '@media (max-width: 420px)': {
+                        width: '100%',
+                      }
+                    }}
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    // href="/calculadora"
+                    // target="_self"
+                  >
+                    {home.hero.button_2}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -135,13 +140,13 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconChartPie size={80} strokeWidth={1} />
               <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
-                {home.main.section_1.description.list[0]}
+                {home.main.section_1.description.list[1]}
               </span>
             </div>
             <div className={`flex flex-col gap-4 max-w-[40ch] md:max-w-[32ch] `}>
               <IconTimeline size={80} strokeWidth={1} />
               <span className={`text-lg min-[1025px]:text-xl min-[1025px]:leading-[2.2rem] font-medium leading-[2.1rem] lg:leading-[2.1rem]`}>
-                {home.main.section_1.description.list[0]}
+                {home.main.section_1.description.list[2]}
               </span>
             </div>
           </div>

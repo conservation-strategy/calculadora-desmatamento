@@ -159,7 +159,7 @@
                         "values": ["Legal", "Ilegal"]
                     },
                     "restauracao": {
-                        "title": "Técnicas de Restauração",
+                        "title": "Técnicas de restauração exigidas",
                         "values": ["Regeneração natural", "Semeadura direta"]
                     },
                     "true": "Sim",
@@ -526,7 +526,7 @@
                         "values": ["Legal", "Ilegal"]
                     },
                     "restauracao": {
-                        "title": "Restoration Techniques",
+                        "title": "Required restoration techniques",
                         "values": ["Natural Regeneration", "Direct Seeding"]
                     },
                     "true": "Yes",
