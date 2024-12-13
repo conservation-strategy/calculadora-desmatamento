@@ -40,6 +40,8 @@ import { Language, useQuotation } from "../context/provider"
 import Header2 from "./Header2"
 import AccordionGuide from "./AccordionGuide"
 
+import { event as gaEvent } from "nextjs-google-analytics";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -297,6 +299,10 @@ export default function Calculate() {
       _custoTotalRecreacao
     );
     setIsLoading(false);
+
+    gaEvent("submit_form", {
+      form_name: "Calculator"
+    });
   }
 
   // console.log('app', app)
