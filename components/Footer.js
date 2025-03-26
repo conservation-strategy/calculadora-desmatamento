@@ -104,11 +104,11 @@ export default function Footer() {
                 </a>
                 <a
                   className="hover:text-white"
-                  href="https://x.com/numbers4nature"
+                  href="https://bsky.app/profile/numbers4nature.bsky.social"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <XIcon />
+                  <IconBlueSky size={28}/>
                 </a>              
                 <a
                   className="hover:text-white"
@@ -208,4 +208,16 @@ const IndigenaIcon = () => {
       />
     </div>
   )  
+}
+
+const IconBlueSky = ({ size }) => {
+  return (
+    <div
+    style={{ width: `${size}px`}}
+    >
+      <svg width="100%" height="100%" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.31076 4.45666C10.1195 6.57247 13.141 10.8619 14.25 13.1637V19.2436C14.25 19.1142 14.2002 19.2604 14.093 19.5755C13.5142 21.2813 11.2533 27.9388 6.08346 22.6165C3.36128 19.8143 4.6215 17.0121 9.57662 16.1661C6.7419 16.65 3.55498 15.8503 2.68064 12.7151C2.42875 11.8132 2 6.2578 2 5.50748C2 1.74903 5.28415 2.93039 7.31076 4.45666ZM21.1892 4.45666C18.3805 6.57247 15.359 10.8619 14.25 13.1637V19.2436C14.25 19.1142 14.2998 19.2604 14.407 19.5755C14.9858 21.2813 17.2467 27.9388 22.4165 22.6165C25.1387 19.8143 23.8785 17.0121 18.9234 16.1661C21.7581 16.65 24.945 15.8503 25.8194 12.7151C26.0712 11.8132 26.5 6.2578 26.5 5.50748C26.5 1.74903 23.2162 2.93039 21.1892 4.45666Z" fill="currentColor"/>
+      </svg>
+    </div>
+  )
 }
