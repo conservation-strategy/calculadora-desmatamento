@@ -40,6 +40,8 @@ import { Language, useQuotation } from "../context/provider"
 import Header2 from "./Header2"
 import AccordionGuide from "./AccordionGuide"
 
+import { event as gaEvent } from "nextjs-google-analytics";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -297,6 +299,10 @@ export default function Calculate() {
       _custoTotalRecreacao
     );
     setIsLoading(false);
+
+    gaEvent("submit_form", {
+      form_name: "Calculator"
+    });
   }
 
   // console.log('app', app)
@@ -310,19 +316,19 @@ export default function Calculate() {
   return (
     <>
       <Head>
-        <title>Calculadora de Impactos do Desmatamento | Ferramenta online</title>
+        <title>Deforestation Impacts Calculator | Online tool</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Meta Tags for SEO */}
-        <meta name="description" content="Calcule os danos sociais e ambientais do desmatamento na Amazônia com nossa ferramenta
-de valoração. Faça análises detalhadas em instantes." />
+        <meta name="description" content="Calculate the social and environmental damages of deforestation in the Amazon with our
+valuation tool. Perform detailed analyses instantly." />
         {/* <meta name="keywords" content="calculadora, desmatamento, impactos, ambiente, ecossistema" /> */}
 
         {/* Open Graph Tags (for social sharing) */}
-        <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Ferramenta online" />
-        <meta property="og:description" content="Calcule os danos sociais e ambientais do desmatamento na Amazônia com nossa ferramenta
-de valoração. Faça análises detalhadas em instantes." />
+        <meta property="og:title" content="Deforestation Impacts Calculator | Online tool" />
+        <meta property="og:description" content="Calculate the social and environmental damages of deforestation in the Amazon with our
+valuation tool. Perform detailed analyses instantly." />
         <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo2.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/calculadora" />
         <meta property="og:type" content="website" />

@@ -26,19 +26,19 @@ export default function Calculate() {
   return (
     <>
       <Head>
-        <title>Calculadora de Impactos do Desmatamento | Metodologia de trabalho</title>
+        <title>Deforestation Impacts Calculator | Work Methodology</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Meta Tags for SEO */}
-        <meta name="description" content="Entenda a metodologia por trás da Calculadora de Impactos do Desmatamento. Descubra
-como são feitas as análises de danos ambientais e sociais do desmatamento." />
+        <meta name="description" content="Understand the methodology behind the Deforestation Impacts Calculator. Discover how
+damage analyses are performed for deforestation activities." />
         {/* <meta name="keywords" content="calculadora, desmatamento, impactos, ambiente, ecossistema" /> */}
 
         {/* Open Graph Tags (for social sharing) */}
-        <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Metodologia de trabalho" />
-        <meta property="og:description" content="Entenda a metodologia por trás da Calculadora de Impactos do Desmatamento. Descubra
-como são feitas as análises de danos ambientais e sociais do desmatamento." />
+        <meta property="og:title" content="Deforestation Impacts Calculator | Work Methodology" />
+        <meta property="og:description" content="Understand the methodology behind the Deforestation Impacts Calculator. Discover how
+damage analyses are performed for deforestation activities." />
         <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo1.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/metodologia" />
         <meta property="og:type" content="website" />

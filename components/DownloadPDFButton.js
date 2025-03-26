@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { RiFile3Line } from "react-icons/ri";
 import styles from '../styles/DownloadPDFButton.module.css';
 
+import { event as gaEvent } from "nextjs-google-analytics";
+
 function serializeSVG(svg) {
   const serializer = new XMLSerializer();
   let svgString = serializer.serializeToString(svg);
@@ -48,6 +50,11 @@ const DownloadPDFButton = ({ data, language }) => {
         link.download = 'resultado.pdf';
         link.click();
         link.remove();
+
+        gaEvent("download_pdf", {
+          pdf_name: "Report",
+        });
+        
         // const blob = await response.blob();
         // const url = window.URL.createObjectURL(blob);
         // window.open(url);

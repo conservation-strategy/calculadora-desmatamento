@@ -25,19 +25,19 @@ export default function Calculate() {
   return (
     <>
       <Head>
-        <title>Calculadora de Impactos do Desmatamento | Conheça a equipe</title>
+        <title>Deforestation Impacts Calculator | Meet the Team</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Meta Tags for SEO */}
-        <meta name="description" content="Descubra a equipe responsável pelo desenvolvimento da Calculadora de Impactos do
-Desmatamento." />
+        <meta name="description" content="Get to know the team responsible for developing the Deforestation Impacts Calculator, a
+tool designed to assess the impacts of deforestation activities." />
         {/* <meta name="keywords" content="calculadora, desmatamento, impactos, ambiente, ecossistema" /> */}
 
         {/* Open Graph Tags (for social sharing) */}
-        <meta property="og:title" content="Calculadora de Impactos do Desmatamento | Conheça a equipe" />
-        <meta property="og:description" content="Descubra a equipe responsável pelo desenvolvimento da Calculadora de Impactos do
-Desmatamento." />
+        <meta property="og:title" content="Deforestation Impacts Calculator | Meet the Team" />
+        <meta property="og:description" content="Get to know the team responsible for developing the Deforestation Impacts Calculator, a
+tool designed to assess the impacts of deforestation activities." />
         <meta property="og:image" content="https://deforestationcalculator.conservation-strategy.org/images/logo-fundo3.png" />
         <meta property="og:url" content="https://deforestationcalculator.conservation-strategy.org/equipe" />
         <meta property="og:type" content="website" />
