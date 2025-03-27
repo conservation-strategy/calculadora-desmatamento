@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Language } from "../context/provider";
 
+
 export default function Footer() {
   const router = useRouter();
   const { content } = useContext(Language);
