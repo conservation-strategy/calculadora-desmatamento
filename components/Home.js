@@ -15,6 +15,7 @@ export default function Home() {
   const { content, language } = useContext(Language);
   const { home } = content;
   
+  
   return (
     <>
       <Head>
