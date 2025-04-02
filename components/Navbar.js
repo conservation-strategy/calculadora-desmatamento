@@ -154,6 +154,14 @@ export default function Navbar() {
             {/* <span className="text-white font-bold text-[1.125rem]">
               {navbar.title_CSF}
             </span> */}
+            <ul className="flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
+            {navbar.menu.map((item) => (
+              <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+            </ul>
+
           </div>
         </div>
         {/* center-area */}
@@ -223,13 +231,13 @@ export default function Navbar() {
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
-          <ul className="flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
+          {/* <ul className="flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <div className="flex gap-4">
             <button 
               className={`${styles.language} relative text-[1rem] text-white font-semibold flex items-center gap-1 tracking-wide`}
