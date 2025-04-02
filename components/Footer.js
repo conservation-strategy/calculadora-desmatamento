@@ -20,9 +20,9 @@ export default function Footer() {
   },[router]);
 
   return (
-    <div className="container-lg p-0 mb-0 bg-black bg-opacity-100 px-0 lg:px-0">
+    <div className="container-lg p-0 mb-0 bg-csf-neutral-1 bg-opacity-100 px-0 lg:px-0">
       <div className="flex flex-col gap-0 text-white">
-        <div className="container-lg py-6 bg-black max-[500px]:px-8 px-14 ">
+        <div className="container-lg py-6 max-[500px]:px-8 px-14 ">
           <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-8 justify-between items-center ">
             <div>
               <div className="flex items-center gap-12 md:gap-12">
@@ -32,7 +32,7 @@ export default function Footer() {
                 >
                   <Image
                     // src="/images/Desmatamento_VersãoInvertida.svg"
-                    src="/images/logo-desmatamento-color.png"
+                    src="/images/logo-desmatamento_principal.svg"
                     alt="Calculadora Desmatamento Logo"
                     width={44}
                     height={44}
@@ -46,7 +46,7 @@ export default function Footer() {
                 >
                   <Image
                     // src="images/Garimpo_VersãoInvertida.svg"
-                    src="/images/logo-garimpo-color.png"
+                    src="/images/logo-garimpo_principal.svg"
                     alt="CSF Logo"
                     width={44}
                     height={44}
@@ -60,7 +60,7 @@ export default function Footer() {
                 >
                   <Image
                     // src="images/Indígena_VersãoInvertida.svg"
-                    src="/images/logo-indigena-color.png"
+                    src="/images/logo-indigena_principal.svg"
                     alt="CSF Logo"
                     width={44}
                     height={44}
@@ -78,7 +78,7 @@ export default function Footer() {
                 &#169; CSF All rights reserved
               </div> */}
             </div>
-            <div className="flex gap-8 min-[425px]:gap-12 text-gray-500">
+            <div className="flex gap-8 min-[425px]:gap-12 text-gray-300">
               <a
                   className="hover:text-white"
                   href="https://www.linkedin.com/company/conservationstrategyfund/"
