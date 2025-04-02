@@ -118,8 +118,8 @@ export default function Navbar() {
     <div
       id="navbar"
       className={`
-        container-lg sticky top-0 flex py-6 max-[500px]:px-8 px-14 bg-csf-main bg-opacity-100 z-40 transition-opacity duration-300
-        ${hasScrolled ? 'opacity-90' : 'opacity-100'}
+        container-lg sticky top-0 flex py-4 max-[500px]:px-8 px-14 bg-csf-main bg-opacity-100 z-40 transition-opacity duration-300
+        ${hasScrolled ? 'opacity-95' : 'opacity-100'}
       `}
     > 
       <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex gap-12 justify-between items-center">
@@ -223,7 +223,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
-          <ul className="flex gap-8 text-gray-100 text-[0.875rem] tracking-widest font-semibold">
+          <ul className="flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
@@ -232,7 +232,7 @@ export default function Navbar() {
           </ul>
           <div className="flex gap-4">
             <button 
-              className={`${styles.language} relative text-[0.875rem] text-white font-semibold flex items-center gap-1 tracking-widest`}
+              className={`${styles.language} relative text-[1rem] text-white font-semibold flex items-center gap-1 tracking-wide`}
               // onClick={onChangeLanguage}
               onClick={handleLanguageButtonClick}
             >
