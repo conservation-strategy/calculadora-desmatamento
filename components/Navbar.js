@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useContext } from "react"
 import { Language, PORTUGUES, ENGLISH } from "../context/provider";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { Divider, Menu, MenuItem, styled, Switch } from "@mui/material";
+import { Divider, Menu, MenuItem, styled } from "@mui/material";
 import styles from '../styles/Navbar.module.css';
 import LanguageToggle from "./LanguageToggle";
 
@@ -223,7 +223,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
-          <ul className="flex gap-8 text-gray-100 text-[0.875rem] tracking-widest font-semibold uppercase">
+          <ul className="flex gap-8 text-gray-100 text-[0.875rem] tracking-widest font-semibold">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
@@ -232,11 +232,11 @@ export default function Navbar() {
           </ul>
           <div className="flex gap-4">
             <button 
-              className={`${styles.language} relative uppercase text-[0.875rem] text-white font-semibold flex items-center gap-1`}
+              className={`${styles.language} relative text-[0.875rem] text-white font-semibold flex items-center gap-1 tracking-widest`}
               // onClick={onChangeLanguage}
               onClick={handleLanguageButtonClick}
             >
-              {language}
+              {language === PORTUGUES ? "Português" : "English"}
               <RiArrowDropDownLine color="white" size={24} />
             </button>
             <StyledMenu

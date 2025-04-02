@@ -5,9 +5,9 @@
 .language:hover::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 2px;
   left: 0;
-  width: 2.75rem;
+  width: 100%;
   height: 1px;
   background-color: #FFFFFF;
   opacity: 1;
