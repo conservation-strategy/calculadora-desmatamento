@@ -42,7 +42,7 @@ const StyledMenu = styled((props) => (
         marginRight: theme.spacing(1.5),
       },
       '&:hover': {
-        backgroundColor: 'rgba(73, 222, 128, 0.5)',
+        backgroundColor: 'rgba(106, 166, 91, 0.5)',
       },
       '&:active': {
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
@@ -118,7 +118,7 @@ export default function Navbar() {
     <div
       id="navbar"
       className={`
-        container-lg sticky top-0 flex py-6 max-[500px]:px-8 px-14 bg-[#0A0F0F] bg-opacity-100 z-40 transition-opacity duration-300
+        container-lg sticky top-0 flex py-6 max-[500px]:px-8 px-14 bg-[#6AA65B] bg-opacity-100 z-40 transition-opacity duration-300
         ${hasScrolled ? 'opacity-90' : 'opacity-100'}
       `}
     > 
@@ -142,7 +142,7 @@ export default function Navbar() {
                 <Image
                   // className="w-[70px]"
                   // src="/images/Desmatamento_VersãoInvertida.svg"
-                  src="/images/logo-desmatamento-color.png"
+                  src="/images/logo-desmatamento_principal.svg"
                   alt="Calculadora Desmatamento Logo"
                   width={64}
                   height={64}
