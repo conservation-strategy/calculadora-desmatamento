@@ -232,6 +232,7 @@
                                 "pecuária",
                                 "agricultura"
                             ],
+                            "soja": "valor da soja",
                             "tooltip": {
                                 "parts": [
                                     "O valor de rentabilidade da", 
@@ -599,6 +600,7 @@
                                 "livestock farming",
                                 "agriculture"
                             ],
+                            "soja": "soy value",
                             "tooltip": {
                                 "parts": [
                                     "The profitability value of", 

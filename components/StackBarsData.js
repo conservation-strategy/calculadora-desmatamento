@@ -68,6 +68,7 @@ const OpportunityBarContainer = forwardRef(({ cost, label, className, isOpCost =
       <div className="flex flex-col gap-8">
         <div className={`relative flex flex-col gap-1 items-end border-r border-[#a6a6a6] pr-3 ${styles.oportunityBar}`}>
           <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm text-right`}>{description.title + ' ' + uso}</span>
+          <span className={`text-barLabelColor tracking-wide text-base ${robotoCondensed.className} [@media(max-width:844px)]:text-sm text-right`}>{(usoPosterior === 'agricultura' ? ` (${description.soja})` : '')}</span>
           <HighlightedCost cost={cost} currency={currency} size='small' />
           <Tooltip 
             title={description.tooltip.parts[0] + ' ' + uso + ' ' + description.tooltip.parts[1]}
