@@ -56,10 +56,10 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                 <Link href={'/guias-de-uso'}>
                   <Button
                     sx={{
-                      borderRadius: '3px',
-                      backgroundColor: "#558448",
+                      borderRadius: '12px',
+                      backgroundColor: "#6AA65B",
                       "&:hover": {
-                        backgroundColor: "#40615C",
+                        backgroundColor: "#47605C",
                       },
                       padding: {
                         xs: "12px 24px",
@@ -89,10 +89,10 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                 <Link href={'/calculadora'}>
                   <Button
                     sx={{
-                      borderRadius: '3px',
-                      backgroundColor: "#558448",
+                      borderRadius: '24px',
+                      backgroundColor: "#6AA65B",
                       "&:hover": {
-                        backgroundColor: "#40615C",
+                        backgroundColor: "#47605C",
                       },
                       padding: {
                         xs: "12px 24px",
