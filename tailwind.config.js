@@ -35,6 +35,12 @@ module.exports = {
         neutral100: '#FCF8F8',
         neutral200: '#F7EEEE',
 
+        // paleta scf
+        "csf-main": "#6AA65B",
+        "csf-dark": "#47605C",
+        "csf-neutral-1": "#717171",
+        "csf-neutral-2": "#D8D8D8",
+
         // BarsData.js
         lowValueColor: '#FFB65C',
         highValueColor: '#E07B00',
