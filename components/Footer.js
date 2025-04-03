@@ -20,7 +20,7 @@ export default function Footer() {
   },[router]);
 
   return (
-    <div className="container-lg p-0 mb-0 bg-csf-neutral-1 bg-opacity-100 px-0 lg:px-0">
+    <div className="container-lg p-0 mb-0 bg-csf-neutral-2 bg-opacity-100 px-0 lg:px-0">
       <div className="flex flex-col gap-0 text-white">
         <div className="container-lg py-6 max-[500px]:px-8 px-14 ">
           <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-8 justify-between items-center ">
@@ -78,9 +78,9 @@ export default function Footer() {
                 &#169; CSF All rights reserved
               </div> */}
             </div>
-            <div className="flex gap-8 min-[425px]:gap-12 text-gray-300">
+            <div className="flex gap-8 min-[425px]:gap-12 text-gray-700">
               <a
-                  className="hover:text-white"
+                  className="hover:text-black"
                   href="https://www.linkedin.com/company/conservationstrategyfund/"
                   target="_blank"
                   rel="noreferrer"
@@ -88,7 +88,7 @@ export default function Footer() {
                   <FaLinkedin size={28} />{" "}
                 </a>
                 <a
-                  className="hover:text-white"
+                  className="hover:text-black"
                   href="https://www.youtube.com/user/numbers4nature"
                   target="_blank"
                   rel="noreferrer"
@@ -96,7 +96,7 @@ export default function Footer() {
                   <FaYoutube size={28} />{" "}
                 </a>
                 <a
-                  className="hover:text-white"
+                  className="hover:text-black"
                   href="https://www.instagram.com/conservationstrategyfund/"
                   target="_blank"
                   rel="noreferrer"
@@ -104,7 +104,7 @@ export default function Footer() {
                   <FaInstagram size={28} />
                 </a>
                 <a
-                  className="hover:text-white"
+                  className="hover:text-black"
                   href="https://bsky.app/profile/numbers4nature.bsky.social"
                   target="_blank"
                   rel="noreferrer"
@@ -112,7 +112,7 @@ export default function Footer() {
                   <IconBlueSky size={28}/>
                 </a>              
                 <a
-                  className="hover:text-white"
+                  className="hover:text-black"
                   href="https://www.facebook.com/conservationstrategyfund"
                   target="_blank"
                   rel="noreferrer"
@@ -122,7 +122,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="opacity-50 border-t-[1px] border-[#F1F1F1] max-[500px]:px-8 px-14 py-4 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
+        <div className="opacity-50 border-t-[1px] border-[#6c6c6c] max-[500px]:px-8 px-14 py-4 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-black font-medium">
           {/* <a
             className="hover:text-white"
             href="https://www.conservation-strategy.org/"
@@ -145,7 +145,7 @@ export default function Footer() {
               <span className="font-medium whitespace-nowrap">{footer.rights}</span>
               <span className="max-[839px]:hidden">&nbsp;&middot;&nbsp;</span>
             </span>
-            <span className="opacity-90 text-white max-[839px]:text-center">{footer.disclaimer}</span>
+            <span className="opacity-90 text-black max-[839px]:text-center">{footer.disclaimer}</span>
           </div>
         </div>
         {/* <div className="flex w-full justify-center items-center mb-5 max-[500px]:px-8 px-14 ">
