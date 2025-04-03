@@ -335,291 +335,342 @@ valuation tool. Perform detailed analyses instantly." />
       </Head>
 
       <div className="-mt-40">
-        <Header2 title={calculadora.heading} image="images/header2_bg.jpg" />
+        <div 
+        className="flex flex-col"
+        style={{ minHeight: 'calc(100vh + 160px)' }}
+        >
+          <Header2 title={calculadora.heading} image="images/header2_bg.jpg" />
 
-        {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
-          <RiPlantFill />
-          {calculadora.heading}
-        </h1> */}
-        <div className="w-full h-full flex justify-center">
-          <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col gap-10 min-[900px]:flex-row min-[900px]:gap-16 h-auto mx-0 justify-between items-stretch max-[500px]:px-8 px-14">
-            {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
-            <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow pt-16 min-[900px]:py-16`}>      
-              <h1 className={`font-bold gap-4 items-center`}>
-                {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span> */}
-                <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
-              </h1>
-              {/* <div className="mb-0 text-xl prose px-8 pb-4 pt-6 max-[375px]:px-0">               */}
-              {/* <div className="mb-0 text-xl prose pb-4 pr-8 pt-6 max-[375px]:px-0">               */}
-              <div className="mb-0 text-xl prose pb-4 pt-6 max-[375px]:px-0">              
-                <div className="text-white">
-                  <AccordionGuide 
-                    summary={calculadora.guia.local.title} 
-                    isFirstItem={true}
-                    expanded={expandedGuides.local}
-                    onChange={() => setExpandedGuides(prev => ({...prev, local: !prev.local }))}
-                  >
-                    <div className="text-sm">
-                      <span>{calculadora.guia.local.intro}</span>
-                      <ul className="flex flex-col gap-1 my-4">
-                        {calculadora.guia.local.list.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                      <span>{calculadora.guia.local.conclusion}</span>
-                    </div>
-                  </AccordionGuide>
-                  <AccordionGuide 
-                    summary={calculadora.guia.app.title}
-                    expanded={expandedGuides.app}
-                    onChange={() => setExpandedGuides(prev => ({...prev, app: !prev.app }))}
-                  >
-                    <div className="text-sm">
-                      {calculadora.guia.app.description[0]}
-                      <br/>
-                      <br/>
-                      {calculadora.guia.app.description[1]}
-                      <br/>
-                      <br/>
-                      <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
-                    </div>
-                  </AccordionGuide>
-                  <AccordionGuide 
-                    summary={calculadora.guia.recreacao.title}
-                    expanded={expandedGuides.recreacao}
-                    onChange={() => setExpandedGuides(prev => ({...prev, recreacao: !prev.recreacao }))}
-                  >
-                    <div className="text-sm">
-                      <span>
-                        {calculadora.guia.recreacao.description[0]}
-                      </span>
-                      <br/>
-                      <br/>
-                      <span>{calculadora.guia.recreacao.description[1]}</span>
-                    </div>
-                  </AccordionGuide>
-                  <AccordionGuide 
-                    summary={calculadora.guia.legalidade.title}
-                    expanded={expandedGuides.legalidade}
-                    onChange={() => setExpandedGuides(prev => ({...prev, legalidade: !prev.legalidade }))}
-                  >
-                    <div className="text-sm">
-                      <span>
-                        {calculadora.guia.legalidade.description}
-                      </span>
-                    </div>
-                  </AccordionGuide>
-                  <AccordionGuide 
-                    summary={calculadora.guia.restauracao.title}
-                    expanded={expandedGuides.restauracao}
-                    onChange={() => setExpandedGuides(prev => ({...prev, restauracao: !prev.restauracao }))}
-                  >
-                    <div className="text-sm">
-                      <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
-                      {calculadora.guia.restauracao.description[0]}
-                        <br/>
-                        <br/>
-                      <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
-                      {calculadora.guia.restauracao.description[1]}
-                    </div>
-                  </AccordionGuide>
-                  <AccordionGuide
-                    summary={calculadora.guia.uso.title}
-                    isLastItem={true}
-                    isFirstItem={false}
-                    expanded={expandedGuides.uso}
-                    onChange={() => setExpandedGuides(prev => ({...prev, uso: !prev.uso }))}
-                  >
-                    <div className="text-sm">
-                      <span>{calculadora.guia.uso.description}</span>
-                      <ol className="flex flex-col gap-1 mt-4">
-                        {calculadora.guia.uso.list.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ol>
-                    </div>
-                  </AccordionGuide>
-                </div>
-                
-              </div>
-            </div>
-
-            <Divider orientation="vertical" flexItem sx={{ borderColor: '#525958', display: 'none', '@media(min-width: 900px)': { display: 'flex'}}} />
-            
-            {/* inputs */}
-            <div className="w-full h-fit lg:w-1/2 mx-auto flex flex-col gap-6 pb-16 min-[900px]:py-16">
-              <h1 className={`font-bold gap-4 items-center`}>
-                {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
-                {/* <span className="pl-3 min-[375px]:pl-7 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
-                <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span>
-              </h1>
-              {/* <div className="flex flex-col gap-1 text-white bg-transparent mt-10 lg:mt-0 max-[1023px]:mx-8 max-[569px]:mx-0"> */}
-              <div className="flex flex-col gap-1 text-white bg-transparent mt-0 min-[900px]:mt-0">
-                {/* <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4"> */}
-                <div className="flex flex-col my-0 min-[900px]:my-4 gap-4">
-                  <ThemeProvider theme={theme} >
-                  <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
-                        {calculadora.inputs.valores_medios.title}
-                      </InputLabel>
-                      <Select
-                        labelId=""
-                        id=""
-                        value={valoresMedios}
-                        onChange={(event) => handleChange('valoresMedios', event.target.value)}
-                        label="Retort"
-                        color="primary"
-                        sx={{
-                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                            borderBottomColor: '#F7EEEE',
-                          },
-                          '& .MuiInput-underline:after': {
-                            borderBottomColor: '#F7EEEE',
-                          },
-                          '& .MuiSelect-select': {
-                            color: '#F7EEEE',
-                          },
-                        }}
-                        IconComponent={(props) => (
-                          <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                        )}
-                        // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
-                      >
-                        <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
-                        <MenuItem value={false}>{calculadora.inputs.valores_medios.values[1]}</MenuItem>
-                      </Select>
-                  </FormControl>
-                  {(valoresMedios === false) && 
-                  <div className="flex grid-cols-2 gap-4 justify-between">
-                    <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                        {calculadora.inputs.UF}
-                      </InputLabel>
-                      <Select
-                        labelId=""
-                        id=""
-                        value={uf}
-                        onChange={(event) => handleChange('uf', event.target.value)}
-                        label="Estado"
-                        color="primary"
-                        disabled={!listaUf.length}
-                        sx={{
-                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                            borderBottomColor: '#F7EEEE',
-                          },
-                          '& .MuiInput-underline:after': {
-                            borderBottomColor: '#F7EEEE',
-                          },
-                          '& .MuiSelect-select': {
-                            color: '#F7EEEE',
-                          },
-                        }}
-                        IconComponent={(props) => (
-                          <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                        )}
-                      >
-                        {listaUf.map((uf, i) => (
-                          <MenuItem key={i} value={uf}>{uf}</MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                    <FormControl 
-                      className="w-full" 
-                      variant="standard" 
-                      error={hasError && municipio === ''}
-                      sx={{
-                        '&:has(.Mui-disabled) .MuiFormLabel-root.MuiInputLabel-root': {
-                          color: 'rgba(255, 255, 255, 0.6)',
-                        }
-                      }}
+          {/* <h1 className="flex text-2xl md:text-2xl font-bold p-10 px-8 border-b-8 border-black gap-4 items-center">
+            <RiPlantFill />
+            {calculadora.heading}
+          </h1> */}
+          <div className="w-full h-full flex flex-1 justify-center items-center">
+            <div className="max-w-screen-sm md:max-w-screen-2xl box-content w-full flex flex-col gap-10 min-[900px]:flex-row min-[900px]:gap-16 h-auto mx-0 justify-between items-stretch max-[500px]:px-8 px-14">
+              {/* <div className={`flex w-full md:w-2/3 pb-44 md:border-r-8 md:flex-grow border-black ${hasError ? 'pb-56' : 'pb-44'}`}> */}
+              <div className={`flex flex-col w-full lg:w-1/2 md:flex-grow pt-16 min-[900px]:py-16`}>      
+                <h1 className={`font-bold gap-4 items-center`}>
+                  {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span> */}
+                  <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.guia.heading}</span>
+                </h1>
+                {/* <div className="mb-0 text-xl prose px-8 pb-4 pt-6 max-[375px]:px-0">               */}
+                {/* <div className="mb-0 text-xl prose pb-4 pr-8 pt-6 max-[375px]:px-0">               */}
+                <div className="mb-0 text-xl prose pb-4 pt-6 max-[375px]:px-0">              
+                  <div className="text-white">
+                    <AccordionGuide 
+                      summary={calculadora.guia.local.title} 
+                      isFirstItem={true}
+                      expanded={expandedGuides.local}
+                      onChange={() => setExpandedGuides(prev => ({...prev, local: !prev.local }))}
                     >
-                      <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                        {calculadora.inputs.mun}
-                      </InputLabel>
-                      <Select
-                        labelId=""
-                        id=""
-                        value={municipio}
-                        onChange={(event) => handleChange('municipio', event.target.value)}
-                        label="Município"
-                        color="primary"
-                        disabled={!listaMunicipios.length}
+                      <div className="text-sm">
+                        <span>{calculadora.guia.local.intro}</span>
+                        <ul className="flex flex-col gap-1 my-4">
+                          {calculadora.guia.local.list.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                        <span>{calculadora.guia.local.conclusion}</span>
+                      </div>
+                    </AccordionGuide>
+                    <AccordionGuide 
+                      summary={calculadora.guia.app.title}
+                      expanded={expandedGuides.app}
+                      onChange={() => setExpandedGuides(prev => ({...prev, app: !prev.app }))}
+                    >
+                      <div className="text-sm">
+                        {calculadora.guia.app.description[0]}
+                        <br/>
+                        <br/>
+                        {calculadora.guia.app.description[1]}
+                        <br/>
+                        <br/>
+                        <span className="leading-4"><small> Gasparinetti, P.; Burner, A.; Vilela, T (2017) Definição de níveis de equivalência ecológica para a lei de compensação florestal do DF segundo o método de experimento de escolha. Conservação Estratégica. Série Técnica- Edição 51.</small></span>
+                      </div>
+                    </AccordionGuide>
+                    <AccordionGuide 
+                      summary={calculadora.guia.recreacao.title}
+                      expanded={expandedGuides.recreacao}
+                      onChange={() => setExpandedGuides(prev => ({...prev, recreacao: !prev.recreacao }))}
+                    >
+                      <div className="text-sm">
+                        <span>
+                          {calculadora.guia.recreacao.description[0]}
+                        </span>
+                        <br/>
+                        <br/>
+                        <span>{calculadora.guia.recreacao.description[1]}</span>
+                      </div>
+                    </AccordionGuide>
+                    <AccordionGuide 
+                      summary={calculadora.guia.legalidade.title}
+                      expanded={expandedGuides.legalidade}
+                      onChange={() => setExpandedGuides(prev => ({...prev, legalidade: !prev.legalidade }))}
+                    >
+                      <div className="text-sm">
+                        <span>
+                          {calculadora.guia.legalidade.description}
+                        </span>
+                      </div>
+                    </AccordionGuide>
+                    <AccordionGuide 
+                      summary={calculadora.guia.restauracao.title}
+                      expanded={expandedGuides.restauracao}
+                      onChange={() => setExpandedGuides(prev => ({...prev, restauracao: !prev.restauracao }))}
+                    >
+                      <div className="text-sm">
+                        <span className="font-bold">{calculadora.guia.restauracao.name[0]}</span>
+                        {calculadora.guia.restauracao.description[0]}
+                          <br/>
+                          <br/>
+                        <span className="font-bold">{calculadora.guia.restauracao.name[1]}</span>
+                        {calculadora.guia.restauracao.description[1]}
+                      </div>
+                    </AccordionGuide>
+                    <AccordionGuide
+                      summary={calculadora.guia.uso.title}
+                      isLastItem={true}
+                      isFirstItem={false}
+                      expanded={expandedGuides.uso}
+                      onChange={() => setExpandedGuides(prev => ({...prev, uso: !prev.uso }))}
+                    >
+                      <div className="text-sm">
+                        <span>{calculadora.guia.uso.description}</span>
+                        <ol className="flex flex-col gap-1 mt-4">
+                          {calculadora.guia.uso.list.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ol>
+                      </div>
+                    </AccordionGuide>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <Divider orientation="vertical" flexItem sx={{ borderColor: '#525958', display: 'none', '@media(min-width: 900px)': { display: 'flex'}}} />
+              
+              {/* inputs */}
+              <div className="w-full h-fit lg:w-1/2 mx-auto flex flex-col gap-6 pb-16 min-[900px]:py-16">
+                <h1 className={`font-bold gap-4 items-center`}>
+                  {/* <span className="pl-3 border-l-[4px] min-[375px]:pl-5 min-[375px]:border-l-[6px] border-neutral100 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
+                  {/* <span className="pl-3 min-[375px]:pl-7 text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span> */}
+                  <span className="max-[374px]:pl-3 max-[374px]:border-l-[4px] max-[899px]:pl-5 max-[899px]:border-l-[6px] text-neutral200 tracking-[0.04em] text-xl min-[375px]:text-[1.5rem] min-[430px]:text-2xl md:text-3xl min-[375px]:leading-[2.5rem]">{calculadora.subheading}</span>
+                </h1>
+                {/* <div className="flex flex-col gap-1 text-white bg-transparent mt-10 lg:mt-0 max-[1023px]:mx-8 max-[569px]:mx-0"> */}
+                <div className="flex flex-col gap-1 text-white bg-transparent mt-0 min-[900px]:mt-0">
+                  {/* <div className="flex flex-col mx-8 max-[529px]:mx-[1.8rem] my-4 gap-4"> */}
+                  <div className="flex flex-col my-0 min-[900px]:my-4 gap-4">
+                    <ThemeProvider theme={theme} >
+                    <FormControl className="w-full" variant="standard">
+                        <InputLabel id="" error={hasError && valoresMedios === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
+                          {calculadora.inputs.valores_medios.title}
+                        </InputLabel>
+                        <Select
+                          labelId=""
+                          id=""
+                          value={valoresMedios}
+                          onChange={(event) => handleChange('valoresMedios', event.target.value)}
+                          label="Retort"
+                          color="primary"
+                          sx={{
+                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiInput-underline:after': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiSelect-select': {
+                              color: '#F7EEEE',
+                            },
+                          }}
+                          IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                          )}
+                          // sx={{ backgroundColor: '#717171', color: '#ffffff'}}
+                        >
+                          <MenuItem  value={true}>{calculadora.inputs.valores_medios.values[0]}</MenuItem>
+                          <MenuItem value={false}>{calculadora.inputs.valores_medios.values[1]}</MenuItem>
+                        </Select>
+                    </FormControl>
+                    {(valoresMedios === false) && 
+                    <div className="flex grid-cols-2 gap-4 justify-between">
+                      <FormControl className="w-full" variant="standard">
+                        <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                          {calculadora.inputs.UF}
+                        </InputLabel>
+                        <Select
+                          labelId=""
+                          id=""
+                          value={uf}
+                          onChange={(event) => handleChange('uf', event.target.value)}
+                          label="Estado"
+                          color="primary"
+                          disabled={!listaUf.length}
+                          sx={{
+                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiInput-underline:after': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiSelect-select': {
+                              color: '#F7EEEE',
+                            },
+                          }}
+                          IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                          )}
+                        >
+                          {listaUf.map((uf, i) => (
+                            <MenuItem key={i} value={uf}>{uf}</MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                      <FormControl 
+                        className="w-full" 
+                        variant="standard" 
+                        error={hasError && municipio === ''}
                         sx={{
-                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                          '&:has(.Mui-disabled) .MuiFormLabel-root.MuiInputLabel-root': {
+                            color: 'rgba(255, 255, 255, 0.6)',
+                          }
+                        }}
+                      >
+                        <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                          {calculadora.inputs.mun}
+                        </InputLabel>
+                        <Select
+                          labelId=""
+                          id=""
+                          value={municipio}
+                          onChange={(event) => handleChange('municipio', event.target.value)}
+                          label="Município"
+                          color="primary"
+                          disabled={!listaMunicipios.length}
+                          sx={{
+                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiInput-underline:after': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiSelect-select': {
+                              color: '#F7EEEE',
+                            },
+                          }}
+                          IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                          )}
+                        >
+                          {listaMunicipios.map((mun, i) => (
+                            <MenuItem key={i} value={mun}>{mun}</MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </div>}
+                    <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
+                      <TextField
+                        id="standard-basic"
+                        label={calculadora.inputs.area}
+                        variant="standard"
+                        color="primary"
+                        className="w-full"
+                        onChange={(event) => handleChange('area', Number(event.target.value))}
+                        error={hasError && !area}
+                        sx={{
+                          color: '#F7EEEE',
+                          '& .MuiFormLabel-root.MuiInputLabel-root': {
+                            color: '#F7EEEE',
+                          },
+                          '& .MuiInput-underline:before': {
                             borderBottomColor: '#F7EEEE',
                           },
                           '& .MuiInput-underline:after': {
                             borderBottomColor: '#F7EEEE',
                           },
-                          '& .MuiSelect-select': {
+                          '& .MuiInputBase-input.MuiInput-input': {
                             color: '#F7EEEE',
+                            backgroundColor: 'transparent',
+                          },
+                          '&.Mui-focused': {
+                            backgroundColor: 'transparent',
+                          },
+                          '&.Mui-focused .MuiInputBase-input': {
+                            backgroundColor: 'transparent',
+                          },
+                          '& .MuiInputBase-input.Mui-focused': {
+                            backgroundColor: 'transparent',
+                          },
+                          '& .MuiInputBase-input:-webkit-autofill': {
+                            WebkitBoxShadow: '0 0 0 1000px #717171 inset', // Reset the autofill background color
+                            WebkitTextFillColor: '#F7EEEE', // Set the autofill text color
+                          },
+                          '&:hover .MuiInput-underline.MuiInput-underline:before': {
+                            borderBottomColor: '#F7EEEE',
                           },
                         }}
-                        IconComponent={(props) => (
-                          <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                        )}
-                      >
-                        {listaMunicipios.map((mun, i) => (
-                          <MenuItem key={i} value={mun}>{mun}</MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </div>}
-                  <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
-                    <TextField
-                      id="standard-basic"
-                      label={calculadora.inputs.area}
-                      variant="standard"
-                      color="primary"
-                      className="w-full"
-                      onChange={(event) => handleChange('area', Number(event.target.value))}
-                      error={hasError && !area}
-                      sx={{
-                        color: '#F7EEEE',
-                        '& .MuiFormLabel-root.MuiInputLabel-root': {
-                          color: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:after': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInputBase-input.MuiInput-input': {
-                          color: '#F7EEEE',
-                          backgroundColor: 'transparent',
-                        },
-                        '&.Mui-focused': {
-                          backgroundColor: 'transparent',
-                        },
-                        '&.Mui-focused .MuiInputBase-input': {
-                          backgroundColor: 'transparent',
-                        },
-                        '& .MuiInputBase-input.Mui-focused': {
-                          backgroundColor: 'transparent',
-                        },
-                        '& .MuiInputBase-input:-webkit-autofill': {
-                          WebkitBoxShadow: '0 0 0 1000px #717171 inset', // Reset the autofill background color
-                          WebkitTextFillColor: '#F7EEEE', // Set the autofill text color
-                        },
-                        '&:hover .MuiInput-underline.MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                      }}
-                      InputLabelProps={{
-                        sx: { color: '#F7EEEE', fontSize: '1rem', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }, // Adjust the size as needed
-                      }}
-                    />
-                    <FormControl className="w-full" variant="standard">
-                      <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
-                        {calculadora.inputs.app}
+                        InputLabelProps={{
+                          sx: { color: '#F7EEEE', fontSize: '1rem', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }, // Adjust the size as needed
+                        }}
+                      />
+                      <FormControl className="w-full" variant="standard">
+                        <InputLabel id="" color="primary" error={hasError && app === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' } }}>
+                          {calculadora.inputs.app}
+                        </InputLabel>
+                        <Select
+                          labelId=""
+                          id=""
+                          value={app}
+                          onChange={(event) => handleChange('app', event.target.value)}
+                          label="Retort"
+                          color="primary"
+                          sx={{
+                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiInput-underline:after': {
+                              borderBottomColor: '#F7EEEE',
+                            },
+                            '& .MuiSelect-select': {
+                              color: '#F7EEEE',
+                            },
+                          }}
+                          IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                          )}
+                        >
+                          <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
+                          <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>              
+                    {/* <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && preservacao === ''}>
+                        Área prioritária para preservação
                       </InputLabel>
                       <Select
                         labelId=""
                         id=""
-                        value={app}
-                        onChange={(event) => handleChange('app', event.target.value)}
-                        label="Retort"
+                        value={preservacao}
+                        onChange={(event) => handleChange('preservação', event.target.value)}
+                        label="Unit(s) of measurement"
+                        color="primary"
+                      >
+                        <MenuItem value={true}>Sim</MenuItem>
+                        <MenuItem value={false}>Não</MenuItem>
+                      </Select>
+                    </FormControl> */}
+                    <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.recreacao}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={recreacao}
+                        onChange={(event) => handleChange('recreação', event.target.value)}
+                        label="Unit(s) of measurement"
                         color="primary"
                         sx={{
                           '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
@@ -640,194 +691,148 @@ valuation tool. Perform detailed analyses instantly." />
                         <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
                       </Select>
                     </FormControl>
-                  </div>              
-                  {/* <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && preservacao === ''}>
-                      Área prioritária para preservação
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={preservacao}
-                      onChange={(event) => handleChange('preservação', event.target.value)}
-                      label="Unit(s) of measurement"
-                      color="primary"
-                    >
-                      <MenuItem value={true}>Sim</MenuItem>
-                      <MenuItem value={false}>Não</MenuItem>
-                    </Select>
-                  </FormControl> */}
-                  <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && recreacao === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                      {calculadora.inputs.recreacao}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={recreacao}
-                      onChange={(event) => handleChange('recreação', event.target.value)}
-                      label="Unit(s) of measurement"
-                      color="primary"
-                      sx={{
-                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:after': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiSelect-select': {
-                          color: '#F7EEEE',
-                        },
-                      }}
-                      IconComponent={(props) => (
-                        <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                      )}
-                    >
-                      <MenuItem value={true}>{calculadora.inputs.true}</MenuItem>
-                      <MenuItem value={false}>{calculadora.inputs.false}</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && usoPosterior === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                      {calculadora.inputs.uso_solo.title}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={usoPosterior}
-                      onChange={(event) => handleChange('usoPosterior', event.target.value)}
-                      label="Unit(s) of measurement"
-                      color="primary"
-                      sx={{
-                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:after': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiSelect-select': {
-                          color: '#F7EEEE',
-                        },
-                      }}
-                      IconComponent={(props) => (
-                        <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                      )}
-                    >
-                      <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
-                      <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
-                    </Select>
-                  </FormControl>     
-                  <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                      {calculadora.inputs.legalidade.title}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={legal}
-                      onChange={(event) => handleChange('legal', event.target.value)}
-                      label="Unit(s) of measurement"
-                      color="primary"
-                      sx={{
-                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:after': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiSelect-select': {
-                          color: '#F7EEEE',
-                        },
-                      }}
-                      IconComponent={(props) => (
+                    <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && usoPosterior === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.uso_solo.title}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={usoPosterior}
+                        onChange={(event) => handleChange('usoPosterior', event.target.value)}
+                        label="Unit(s) of measurement"
+                        color="primary"
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiSelect-select': {
+                            color: '#F7EEEE',
+                          },
+                        }}
+                        IconComponent={(props) => (
                           <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                      )}
-                    >
-                      <MenuItem value={true}>Legal</MenuItem>
-                      <MenuItem value={false}>Ilegal</MenuItem>
-                    </Select>
-                  </FormControl>
-                  {(legal === false) && <FormControl className="w-full" variant="standard">
-                    <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                      {calculadora.inputs.restauracao.title}
-                    </InputLabel>
-                    <Select
-                      labelId=""
-                      id=""
-                      value={restauracao}
-                      onChange={(event) => handleChange('restauração', event.target.value)}
-                      label="Unit(s) of measurement"
-                      color="primary"
+                        )}
+                      >
+                        <MenuItem value={'pecuária'}>{calculadora.inputs.uso_solo.values[0]}</MenuItem>
+                        <MenuItem value={'agricultura'}>{calculadora.inputs.uso_solo.values[1]}</MenuItem>
+                      </Select>
+                    </FormControl>     
+                    <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && legal === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.legalidade.title}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={legal}
+                        onChange={(event) => handleChange('legal', event.target.value)}
+                        label="Unit(s) of measurement"
+                        color="primary"
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiSelect-select': {
+                            color: '#F7EEEE',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                        )}
+                      >
+                        <MenuItem value={true}>Legal</MenuItem>
+                        <MenuItem value={false}>Ilegal</MenuItem>
+                      </Select>
+                    </FormControl>
+                    {(legal === false) && <FormControl className="w-full" variant="standard">
+                      <InputLabel id="" color="primary" error={hasError && (legal === false && restauracao === '')} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                        {calculadora.inputs.restauracao.title}
+                      </InputLabel>
+                      <Select
+                        labelId=""
+                        id=""
+                        value={restauracao}
+                        onChange={(event) => handleChange('restauração', event.target.value)}
+                        label="Unit(s) of measurement"
+                        color="primary"
+                        sx={{
+                          '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiInput-underline:after': {
+                            borderBottomColor: '#F7EEEE',
+                          },
+                          '& .MuiSelect-select': {
+                            color: '#F7EEEE',
+                          },
+                        }}
+                        IconComponent={(props) => (
+                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                        )}
+                      >
+                        <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
+                        <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>
+                      </Select>
+                    </FormControl>}
+                    </ThemeProvider>
+                    {/* <Button
                       sx={{
-                        '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiInput-underline:after': {
-                          borderBottomColor: '#F7EEEE',
-                        },
-                        '& .MuiSelect-select': {
-                          color: '#F7EEEE',
-                        },
-                      }}
-                      IconComponent={(props) => (
-                          <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                      )}
-                    >
-                      <MenuItem value={"natural"}>{calculadora.inputs.restauracao.values[0]}</MenuItem>
-                      <MenuItem value={"direta"}>{calculadora.inputs.restauracao.values[1]}</MenuItem>
-                    </Select>
-                  </FormControl>}
-                  </ThemeProvider>
-                  {/* <Button
-                    sx={{
-                      boxShadow: "sm",
-                      fontWeight: "bold",
-                      width: "100%",
-                      padding: "16px",
-                      marginY: "32px",
-                      color: "#166534",
-                      borderColor: "#4ade80",
-                      "&:hover": {
+                        boxShadow: "sm",
+                        fontWeight: "bold",
+                        width: "100%",
+                        padding: "16px",
+                        marginY: "32px",
+                        color: "#166534",
                         borderColor: "#4ade80",
-                        backgroundColor: "#22c55e",
-                      },
-                      backgroundColor: "#4ade80",
-                      "&:hover:not(:disabled)": {
-                        backgroundColor: "#22c55e",
-                      },
-                    }}
-                    variant="outlined"
-                    color="primary"
-                    size="medium"
-                    // href="/"
-                    // target="_blank"
-                    onClick={handleCalculate}
-                  >
-                    Calculate
-                  </Button> */}
-                  <button
-                    className={`w-full py-4 mt-8 rounded flex justify-center items-center font-bold text-[#FCF8F7] uppercase transition-all border border-[#6AA65B] bg-[#6AA65B] shadow-sm  ${isLoading ? 'bg-[#436A39] border-[#436A39] text-[#FCF8F7] cursor-default hover:bg-[#40615C] hover:border-[#40615C]' : 'hover:bg-[#40615C] hover:border-[#40615C] cursor-pointer'}`}
-                    onClick={handleCalculate}
-                    disabled={isLoading}
-                  >
-                    {calculadora.button}
-                    { 
-                      isLoading && 
-                      <CircularProgress size={16} color="inherit" sx={{ ml: 1 }}/>
-                    }
-                  </button>
-                  {
-                    hasError &&
-                    <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
-                      {hasError === '001' 
-                      ? calculadora.inputs.errors[1]
-                      : hasError === '002'
-                        ? calculadora.inputs.errors[2]
-                        : calculadora.inputs.errors[0]
+                        "&:hover": {
+                          borderColor: "#4ade80",
+                          backgroundColor: "#22c55e",
+                        },
+                        backgroundColor: "#4ade80",
+                        "&:hover:not(:disabled)": {
+                          backgroundColor: "#22c55e",
+                        },
+                      }}
+                      variant="outlined"
+                      color="primary"
+                      size="medium"
+                      // href="/"
+                      // target="_blank"
+                      onClick={handleCalculate}
+                    >
+                      Calculate
+                    </Button> */}
+                    <button
+                      className={`w-full py-4 mt-8 rounded flex justify-center items-center font-bold text-[#FCF8F7] uppercase transition-all border border-[#6AA65B] bg-[#6AA65B] shadow-sm  ${isLoading ? 'bg-[#436A39] border-[#436A39] text-[#FCF8F7] cursor-default hover:bg-[#40615C] hover:border-[#40615C]' : 'hover:bg-[#40615C] hover:border-[#40615C] cursor-pointer'}`}
+                      onClick={handleCalculate}
+                      disabled={isLoading}
+                    >
+                      {calculadora.button}
+                      { 
+                        isLoading && 
+                        <CircularProgress size={16} color="inherit" sx={{ ml: 1 }}/>
                       }
-                    </Alert>
-                  }
-                  {/* <Typography variant="subtitle2">Todos os campos são obrigatórios. Por favor, preencha os campos vazios antes de submeter o cálculo.</Typography> */}
+                    </button>
+                    {
+                      hasError &&
+                      <Alert severity="error" sx={{ mb: 1, '& .MuiAlert-icon': { marginTop: '1px' } }}>
+                        {hasError === '001' 
+                        ? calculadora.inputs.errors[1]
+                        : hasError === '002'
+                          ? calculadora.inputs.errors[2]
+                          : calculadora.inputs.errors[0]
+                        }
+                      </Alert>
+                    }
+                    {/* <Typography variant="subtitle2">Todos os campos são obrigatórios. Por favor, preencha os campos vazios antes de submeter o cálculo.</Typography> */}
+                  </div>
                 </div>
               </div>
             </div>
