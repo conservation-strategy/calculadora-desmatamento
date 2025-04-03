@@ -122,7 +122,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="opacity-50 border-t-[1px] border-[#404040] max-[500px]:px-8 px-14 py-4 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
+        <div className="opacity-50 border-t-[1px] border-[#F1F1F1] max-[500px]:px-8 px-14 py-4 flex gap-3 w-full justify-start items-center max-[839px]:justify-center text-sm text-white font-medium">
           {/* <a
             className="hover:text-white"
             href="https://www.conservation-strategy.org/"
