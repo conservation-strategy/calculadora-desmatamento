@@ -154,7 +154,7 @@ export default function Navbar() {
             {/* <span className="text-white font-bold text-[1.125rem]">
               {navbar.title_CSF}
             </span> */}
-            <ul className="flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
+            <ul className="hidden lg:flex gap-8 text-gray-100 text-[1rem] tracking-wide font-semibold">
             {navbar.menu.map((item) => (
               <li key={item.label} className="hover:underline underline-offset-8 hover:text-white">
                 <Link href={item.href}>{item.label}</Link>
