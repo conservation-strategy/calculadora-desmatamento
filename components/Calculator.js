@@ -337,7 +337,7 @@ valuation tool. Perform detailed analyses instantly." />
       <div className="-mt-40">
         <div 
         className="flex flex-col"
-        style={{ minHeight: 'calc(100vh + 160px)' }}
+        style={{ minHeight: 'calc(100vh + 100px)' }}
         >
           <Header2 title={calculadora.heading} image="images/header2_bg.jpg" />
 
