@@ -140,13 +140,12 @@ export default function Navbar() {
                   priority
                 /> */}
                 <Image
-                  // className="w-[70px]"
-                  // src="/images/Desmatamento_VersãoInvertida.svg"
+                  className="w-[48px] md:w-[64px] h-auto"
                   src="/images/logo-desmatamento_principal.svg"
                   alt="Calculadora Desmatamento Logo"
                   width={64}
                   height={64}
-                  sizes="(max-width: 1024px) 40px, 64px"
+                  sizes="(max-width: 768px) 48px, 64px"
                   priority
                 />
               </Link>
@@ -200,12 +199,12 @@ export default function Navbar() {
                     priority
                 /> */}
                 <Image
-                  // className="w-10 lg:w-20"
+                  className="w-[48px] md:w-[64px] h-auto"
                   src="/images/logo-desmatamento.svg"
                   alt="CSF Logo"
                   width={64}
                   height={64}
-                  sizes="(max-width: 1024px) 40px, 64px"
+                  sizes="(max-width: 768px) 48px, 64px"
                   priority
                 />
               </div>
