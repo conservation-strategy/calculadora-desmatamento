@@ -1,16 +1,16 @@
 .hero {
-  height: calc(100vh - 85.9531px);
+  height: calc(100vh - 77.47px);
 }
 
 @media (min-width: 1024px) {
   .hero {
-    height: calc(100vh - 102px);
+    height: calc(100vh - 92.63px);
   }
 }
 
 @media (min-width: 1072px) {
   .hero {
-    height: calc(100vh - 108.727px);
+    height: calc(100vh - 92.63px);
   }
 }
 
