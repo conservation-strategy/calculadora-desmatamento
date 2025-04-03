@@ -3,7 +3,7 @@
 import Head from "next/head"
 import Button from "@mui/material/Button"
 // import { RiPlantLine } from "react-icons/ri/"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { Language, ENGLISH } from "../context/provider"
 import React from "react"
 import Image from "next/image"
@@ -14,6 +14,7 @@ import Link from "next/link"
 export default function Home() {
   const { content, language } = useContext(Language);
   const { home } = content;
+  const [isImgLoaded, setIsImgLoaded] = useState(false);
   
   
   return (
@@ -39,9 +40,19 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
 
       <main className="mt-0">
         <div
-          className={`bg-cover bg-center px-0 lg:px-0 bg-black relative ${styles.hero}`}
-          style={{ backgroundImage: `url("/images/banner2.jpg")`}}
+          className={`bg-cover bg-center px-0 lg:px-0 bg-neutral-1 relative ${styles.hero}`}
+          // style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
+          <div className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${!isImgLoaded ? 'opacity-0' : 'opacity-100' }`}>
+            <Image
+            src="/images/banner2.jpg"
+            alt="main background"
+            priority
+            fill
+            className="object-cover"
+            onLoad={() => setIsImgLoaded(true)}
+            />
+          </div>
           <div className={styles.filter}></div>
           <div className={`w-full flex max-[500px]:px-8 px-14 items-center justify-center h-full`}>
             <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col items-center justify-between text-[#FCF8F7] gap-10 lg:gap-10 tracking-wide">
