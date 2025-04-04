@@ -63,14 +63,14 @@ export default function Calculate() {
   const [uf, setUf] = useState('');  
   const [municipio, setMunicipio] = useState('');
   const [area, setArea] = useState('');
-  const [restauracao, setRestauracao] = useState('');
-  const [app, setApp] = useState('');
+  const [restauracao, setRestauracao] = useState('natural');
+  const [app, setApp] = useState(false);
   // const [preservacao, setPreservacao] = useState('');
   const [peso, setPeso] = useState('');
-  const [recreacao, setRecreacao] = useState('');
-  const [legal, setLegal] = useState('');
-  const [usoPosterior, setUsoPosterior] = useState('');
-  const [valoresMedios, setValoresMedios] = useState('');
+  const [recreacao, setRecreacao] = useState(false);
+  const [legal, setLegal] = useState(false);
+  const [usoPosterior, setUsoPosterior] = useState('pecuária');
+  const [valoresMedios, setValoresMedios] = useState(true);
   // cost outputs
   const [custoAssoreamento, setCustoAssoreamento] = useState();
   const [custoBiopros, setCustoBiopros] = useState();
@@ -494,81 +494,81 @@ valuation tool. Perform detailed analyses instantly." />
                         </Select>
                     </FormControl>
                     {(valoresMedios === false) && 
-                    <div className="flex grid-cols-2 gap-4 justify-between">
-                      <FormControl className="w-full" variant="standard">
-                        <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                          {calculadora.inputs.UF}
-                        </InputLabel>
-                        <Select
-                          labelId=""
-                          id=""
-                          value={uf}
-                          onChange={(event) => handleChange('uf', event.target.value)}
-                          label="Estado"
-                          color="primary"
-                          disabled={!listaUf.length}
+                      <div className="flex grid-cols-2 gap-4 justify-between">
+                        <FormControl className="w-full" variant="standard">
+                          <InputLabel id="" color="primary" error={hasError && uf === ''} sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                            {calculadora.inputs.UF}
+                          </InputLabel>
+                          <Select
+                            labelId=""
+                            id=""
+                            value={uf}
+                            onChange={(event) => handleChange('uf', event.target.value)}
+                            label="Estado"
+                            color="primary"
+                            disabled={!listaUf.length}
+                            sx={{
+                              '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                                borderBottomColor: '#F7EEEE',
+                              },
+                              '& .MuiInput-underline:after': {
+                                borderBottomColor: '#F7EEEE',
+                              },
+                              '& .MuiSelect-select': {
+                                color: '#F7EEEE',
+                              },
+                            }}
+                            IconComponent={(props) => (
+                              <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                            )}
+                          >
+                            {listaUf.map((uf, i) => (
+                              <MenuItem key={i} value={uf}>{uf}</MenuItem>
+                            ))}
+                          </Select>
+                        </FormControl>
+                        <FormControl 
+                          className="w-full" 
+                          variant="standard" 
+                          error={hasError && municipio === ''}
                           sx={{
-                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                              borderBottomColor: '#F7EEEE',
-                            },
-                            '& .MuiInput-underline:after': {
-                              borderBottomColor: '#F7EEEE',
-                            },
-                            '& .MuiSelect-select': {
-                              color: '#F7EEEE',
-                            },
+                            '&:has(.Mui-disabled) .MuiFormLabel-root.MuiInputLabel-root': {
+                              color: 'rgba(255, 255, 255, 0.6)',
+                            }
                           }}
-                          IconComponent={(props) => (
-                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                          )}
                         >
-                          {listaUf.map((uf, i) => (
-                            <MenuItem key={i} value={uf}>{uf}</MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                      <FormControl 
-                        className="w-full" 
-                        variant="standard" 
-                        error={hasError && municipio === ''}
-                        sx={{
-                          '&:has(.Mui-disabled) .MuiFormLabel-root.MuiInputLabel-root': {
-                            color: 'rgba(255, 255, 255, 0.6)',
-                          }
-                        }}
-                      >
-                        <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
-                          {calculadora.inputs.mun}
-                        </InputLabel>
-                        <Select
-                          labelId=""
-                          id=""
-                          value={municipio}
-                          onChange={(event) => handleChange('municipio', event.target.value)}
-                          label="Município"
-                          color="primary"
-                          disabled={!listaMunicipios.length}
-                          sx={{
-                            '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
-                              borderBottomColor: '#F7EEEE',
-                            },
-                            '& .MuiInput-underline:after': {
-                              borderBottomColor: '#F7EEEE',
-                            },
-                            '& .MuiSelect-select': {
-                              color: '#F7EEEE',
-                            },
-                          }}
-                          IconComponent={(props) => (
-                            <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
-                          )}
-                        >
-                          {listaMunicipios.map((mun, i) => (
-                            <MenuItem key={i} value={mun}>{mun}</MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </div>}
+                          <InputLabel id="" color="primary" sx={{ color: '#F7EEEE', '@media(max-width: 385px)': { fontSize: '1rem'}, '@media(max-width: 359px)': { fontSize: '0.9rem' }}}>
+                            {calculadora.inputs.mun}
+                          </InputLabel>
+                          <Select
+                            labelId=""
+                            id=""
+                            value={municipio}
+                            onChange={(event) => handleChange('municipio', event.target.value)}
+                            label="Município"
+                            color="primary"
+                            disabled={!listaMunicipios.length}
+                            sx={{
+                              '&.MuiInputBase-root.MuiInput-root.MuiInput-underline:before': {
+                                borderBottomColor: '#F7EEEE',
+                              },
+                              '& .MuiInput-underline:after': {
+                                borderBottomColor: '#F7EEEE',
+                              },
+                              '& .MuiSelect-select': {
+                                color: '#F7EEEE',
+                              },
+                            }}
+                            IconComponent={(props) => (
+                              <ArrowDropDownIcon {...props} style={{ color: '#F7EEEE' }} />
+                            )}
+                          >
+                            {listaMunicipios.map((mun, i) => (
+                              <MenuItem key={i} value={mun}>{mun}</MenuItem>
+                            ))}
+                          </Select>
+                        </FormControl>
+                      </div>}
                     <div className="grid grid-cols-2 max-[460px]:grid-cols-1 gap-4 justify-between">
                       <TextField
                         id="standard-basic"
