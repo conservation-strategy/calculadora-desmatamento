@@ -43,7 +43,7 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
           className={`bg-cover bg-center px-0 lg:px-0 bg-neutral-1 relative ${styles.hero}`}
           // style={{ backgroundImage: `url("/images/banner2.jpg")`}}
         >
-          <div className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${!isImgLoaded ? 'opacity-0' : 'opacity-100' }`}>
+          <div className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${!isImgLoaded ? 'opacity-0' : 'opacity-100' }`}>
             <Image
             src="/images/banner2.jpg"
             alt="main background"
