@@ -66,12 +66,12 @@ export default function Calculate() {
   const [restauracao, setRestauracao] = useState('natural');
   const [app, setApp] = useState(false);
   // const [preservacao, setPreservacao] = useState('');
-  const [peso, setPeso] = useState('');
   const [recreacao, setRecreacao] = useState(false);
   const [legal, setLegal] = useState(false);
   const [usoPosterior, setUsoPosterior] = useState('pecuária');
   const [valoresMedios, setValoresMedios] = useState(true);
   // cost outputs
+  const [peso, setPeso] = useState('');
   const [custoAssoreamento, setCustoAssoreamento] = useState();
   const [custoBiopros, setCustoBiopros] = useState();
   const [custoCarbono,setCustoCarbono] = useState();
