@@ -244,7 +244,7 @@ export default function Navbar() {
               onClick={handleLanguageButtonClick}
             >
               {language === PORTUGUES ? "Português" : "English"}
-              <RiArrowDropDownLine color="white" size={24} />
+              <RiArrowDropDownLine color="white" size={24} className={`transition-transform ${open ? '-rotate-180' : ''}`}/>
             </button>
             <StyledMenu
               elevation={0}
