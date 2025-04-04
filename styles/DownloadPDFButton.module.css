@@ -2,9 +2,9 @@
   transition: all 0.3s ease;
 }
 
-.button:hover {
+/* .button:hover {
   background-color: #454545;
-}
+} */
 
 .button:active:not(:disabled) {
   transform: scale(0.95);

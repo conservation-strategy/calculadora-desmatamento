@@ -63,8 +63,8 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                 </span>{" "}
                 {home.hero.text.description}
               </h1>
-              <div className={`${styles.buttons__container} z-10`}>
-                <Link href={'/guias-de-uso'}>
+              <div className={`${styles.buttons__container} z-10 w-full`}>
+                <Link href={'/guias-de-uso'} className="w-full max-w-[195px]">
                   <Button
                     sx={{
                       borderRadius: '12px',
@@ -84,6 +84,7 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                       '@media (max-width: 469px)': {
                         padding: "12px 28px",
                       },
+                      width: '100%',
                       '@media (max-width: 420px)': {
                         width: '100%',
                       }
@@ -97,10 +98,10 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                     {home.hero.button_1}
                   </Button>
                 </Link>
-                <Link href={'/calculadora'}>
+                <Link href={'/calculadora'} className="w-full max-w-[195px]">
                   <Button
                     sx={{
-                      borderRadius: '24px',
+                      borderRadius: '12px',
                       backgroundColor: "#6AA65B",
                       "&:hover": {
                         backgroundColor: "#47605C",
@@ -116,6 +117,7 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                       '@media (max-width: 469px)': {
                         padding: "12px 28px",
                       },
+                      width: '100%',
                       '@media (max-width: 420px)': {
                         width: '100%',
                       }
