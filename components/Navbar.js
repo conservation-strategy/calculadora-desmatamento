@@ -176,7 +176,7 @@ export default function Navbar() {
               </ul>
         </div> */}
 
-        <div className="block lg:hidden text-white">
+        <div className="flex items-center lg:hidden text-white">
           <button onClick={handleOpenDropdown}>
             <MenuIcon />
           </button>
@@ -188,7 +188,7 @@ export default function Navbar() {
               isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >
-            <div className="w-full flex justify-between max-[500px]:px-8 px-14 py-4">
+            <div className="w-full flex items-center justify-between max-[500px]:px-8 px-14 py-4">
               <div className="text-white text-2xl font-bold">
                 {/* <Image
                     className="w-10 lg:w-16"
@@ -202,7 +202,7 @@ export default function Navbar() {
                 <Image
                   className="w-[48px] md:w-[64px] h-auto"
                   src="/images/logo-desmatamento.svg"
-                  alt="CSF Logo"
+                  alt="Icone Calculadora Desmatamento"
                   width={64}
                   height={64}
                   sizes="(max-width: 768px) 48px, 64px"
