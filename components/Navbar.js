@@ -209,9 +209,9 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              <button className="text-white" onClick={handleCloseDropdown}>
-                <CloseIcon />
-              </button>
+                <button className="text-white" onClick={handleCloseDropdown}>
+                  <CloseIcon />
+                </button>
             </div>
             <div className="flex w-full h-fit justify-center items-center">
               <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold ">
@@ -226,6 +226,20 @@ export default function Navbar() {
                 </li>
               </ul>  
             </div>
+            <a 
+            className="-mt-2 mx-auto w-fit"
+            href="https://www.conservation-strategy.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+            onClick={handleCloseDropdown}
+            >
+                <img
+                src="/images/logo.svg"
+                className="opacity-60"
+                width={34}
+                height={34}
+                />                
+            </a>
           </div>
         }
 
@@ -273,6 +287,7 @@ export default function Navbar() {
             <Divider orientation="vertical" color="#F7EEEE" sx={{ opacity: 0.3, width: '1.5px' }} flexItem />
             <a
             href="https://www.conservation-strategy.org/"
+            rel="noopener noreferrer"
             target="_blank"
             className="cursor-pointer"
             >
