@@ -6,7 +6,8 @@ import { Language, PORTUGUES, ENGLISH } from "../context/provider";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { Divider, Menu, MenuItem, styled } from "@mui/material";
 import styles from '../styles/Navbar.module.css';
-import LanguageToggle from "./LanguageToggle";
+// import LanguageToggle from "./LanguageToggle";
+import { LanguageSelector } from "./LaguageSelector";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -213,14 +214,15 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex w-full h-fit justify-center items-center">
-              <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold uppercase">
+              <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold ">
                 {navbar.menu.map((item) => (
                   <li key={item.label} className="text-center hover:underline underline-offset-8 hover:text-white">
                     <Link href={item.href}>{item.label}</Link>
                   </li>
                 ))}
                 <li>
-                  <LanguageToggle onLanguageChange={handleChangeLanguage} />
+                  {/* <LanguageToggle onLanguageChange={handleChangeLanguage} /> */}
+                  <LanguageSelector />
                 </li>
               </ul>  
             </div>
