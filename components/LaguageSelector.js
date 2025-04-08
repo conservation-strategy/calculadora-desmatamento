@@ -24,7 +24,7 @@ export const LanguageSelector = () => {
         return () => {
             if(timeoutRef.current) clearTimeout(timeoutRef);
         }
-    })
+    }, [])
 
     return (
         <div className="relative text-white"
