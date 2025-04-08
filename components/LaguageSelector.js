@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, useRef } from "react";
+import { useState, useContext, useCallback, useRef, useEffect } from "react";
 import { Language, PORTUGUES, ENGLISH } from "../context/provider";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
@@ -15,10 +15,16 @@ export const LanguageSelector = () => {
     const onClickOutside = useCallback(() => {
         // if(!isOpen) return
         if(timeoutRef.current) clearTimeout(timeoutRef.current);
-        setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
             setIsOpen(false);
         }, 100);
     },[timeoutRef.current]);
+
+    useEffect(() => {
+        return () => {
+            if(timeoutRef.current) clearTimeout(timeoutRef);
+        }
+    })
 
     return (
         <div className="relative text-white"
