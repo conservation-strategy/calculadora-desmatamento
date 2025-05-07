@@ -8,6 +8,7 @@ import { Divider, Menu, MenuItem, styled } from "@mui/material";
 import styles from '../styles/Navbar.module.css';
 // import LanguageToggle from "./LanguageToggle";
 import { LanguageSelector } from "./LaguageSelector";
+import { IconChevronCompactDown } from "@tabler/icons-react";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -116,13 +117,24 @@ export default function Navbar() {
   }
 
   return (
+    <>
+    <div className="absolute z-20 top-0 right-0 left-0 mx-auto flex w-fit items-end pb-2 pointer-events-none text-[2.5rem] md:text-[3rem] xl:text-[4rem]"
+    style={{
+      height: '100vh',
+      height: '100dvh',
+      transition: 'opacity 1s ease-in-out',
+      opacity: hasScrolled ? 0 : 1
+    }}
+    >
+      <IconChevronCompactDown color="#fff" size={'1em'} stroke={1.5}/>
+    </div>
     <div
       id="navbar"
       className={`
         container-lg sticky top-0 flex py-4 max-[500px]:px-8 px-14 bg-csf-main bg-opacity-100 z-40 transition-opacity duration-300
         ${hasScrolled ? 'opacity-95' : 'opacity-100'}
       `}
-    > 
+    >       
       <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex gap-12 justify-between items-center">
         <div className="justify-start items-end">
           {" "}
@@ -306,6 +318,7 @@ export default function Navbar() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
