@@ -29,13 +29,13 @@ const StyledMenu = styled((props) => (
     borderRadius: 5,
     marginTop: theme.spacing(1),
     padding: 2,
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: '#717171',
     border: '1px solid rgba(255, 255, 255, 0.7)',
     color: theme.palette.grey[300],
     boxShadow:
       'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
     '& .MuiMenu-list': {
-      padding: '4px 0',
+      padding: '0 0',
     },
     '& .MuiMenuItem-root': {
       '& .MuiSvgIcon-root': {
@@ -193,68 +193,6 @@ export default function Navbar() {
             <MenuIcon />
           </button>
         </div>
-        {/* overlay */}
-        {
-          <div
-            className={`z-30 fixed top-0 left-0 w-screen h-screen bg-[#0A0F0F] bg-opacity-[0.95] flex flex-col gap-8 items-center transition-opacity duration-300 ease-in-out ${
-              isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-            }`}
-          >
-            <div className="w-full flex items-center justify-between max-[500px]:px-8 px-14 py-4">
-              <div className="text-white text-2xl font-bold">
-                {/* <Image
-                    className="w-10 lg:w-16"
-                    src="/images/logo.svg"
-                    alt="CSF Logo"
-                    width={64}
-                    height={64}
-                    sizes="(max-width: 1024px) 40px, 64px"
-                    priority
-                /> */}
-                <Image
-                  className="w-[48px] md:w-[64px] h-auto"
-                  src="/images/logo-desmatamento.svg"
-                  alt="Icone Calculadora Desmatamento"
-                  width={64}
-                  height={64}
-                  sizes="(max-width: 768px) 48px, 64px"
-                  priority
-                />
-              </div>
-                <button className="text-white" onClick={handleCloseDropdown}>
-                  <CloseIcon />
-                </button>
-            </div>
-            <div className="flex w-full h-fit justify-center items-center">
-              <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold ">
-                {navbar.menu.map((item) => (
-                  <li key={item.label} className="text-center hover:underline underline-offset-8 hover:text-white">
-                    <Link href={item.href}>{item.label}</Link>
-                  </li>
-                ))}
-                <li>
-                  {/* <LanguageToggle onLanguageChange={handleChangeLanguage} /> */}
-                  <LanguageSelector />
-                </li>
-              </ul>  
-            </div>
-            <a 
-            className="-mt-2 mx-auto w-fit"
-            href="https://www.conservation-strategy.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-            onClick={handleCloseDropdown}
-            >
-                <img
-                src="/images/logo.svg"
-                className="opacity-60"
-                width={34}
-                height={34}
-                />                
-            </a>
-          </div>
-        }
-
         <div className="flex items-center gap-8 justify-start lg:justify-end items-end lg:pt-0 hidden lg:flex pr-0">
           {" "}
           {/*Right area*/}
@@ -318,6 +256,67 @@ export default function Navbar() {
         </div>
       </div>
     </div>
+    {/* overlay */}            
+    <div
+      className={`z-50 fixed top-0 left-0 w-screen h-screen bg-csf-neutral-1 bg-opacity-[0.95] backdrop-blur-md flex flex-col gap-8 items-center transition-opacity duration-300 ease-in-out ${
+        isDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
+    >
+      <div className="w-full flex items-center justify-between max-[500px]:px-8 px-14 py-4">
+        <div className="text-white text-2xl font-bold">
+          {/* <Image
+              className="w-10 lg:w-16"
+              src="/images/logo.svg"
+              alt="CSF Logo"
+              width={64}
+              height={64}
+              sizes="(max-width: 1024px) 40px, 64px"
+              priority
+          /> */}
+          <Image
+            className="w-[48px] md:w-[64px] h-auto"
+            src="/images/logo-desmatamento.svg"
+            alt="Icone Calculadora Desmatamento"
+            width={64}
+            height={64}
+            sizes="(max-width: 768px) 48px, 64px"
+            priority
+          />
+        </div>
+          <button className="text-white" onClick={handleCloseDropdown}>
+            <CloseIcon />
+          </button>
+      </div>
+      <div className="flex w-full h-fit justify-center items-center">
+        <ul className="flex flex-col justify-center items-center gap-10 text-gray-100 text-2xl tracking-widest font-semibold ">
+          {navbar.menu.map((item) => (
+            <li key={item.label} className="text-center hover:underline underline-offset-8 hover:text-white">
+              <Link href={item.href}>{item.label}</Link>
+            </li>
+          ))}
+          <li>
+            {/* <LanguageToggle onLanguageChange={handleChangeLanguage} /> */}
+            <LanguageSelector />
+          </li>
+        </ul>  
+      </div>
+      <a 
+      className="-mt-2 mx-auto w-fit"
+      href="https://www.conservation-strategy.org/"
+      rel="noopener noreferrer"
+      target="_blank"
+      onClick={handleCloseDropdown}
+      >
+          <img
+          src="/images/logo.svg"
+          className="opacity-60"
+          width={34}
+          height={34}
+          />                
+      </a>
+    </div>
+       
+
     </>
   )
 }
