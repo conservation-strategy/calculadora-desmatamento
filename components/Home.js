@@ -57,11 +57,7 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
           <div className={`w-full flex max-[500px]:px-8 px-14 items-center justify-center h-full`}>
             <div className="w-full max-w-screen-sm md:max-w-screen-2xl mx-auto flex flex-col items-center justify-between text-[#FCF8F7] gap-10 lg:gap-10 tracking-wide">
               <h1 className={`text-balance text-2xl md:text-4xl font-light text-left mb-2 pt-0 text-center z-10 lg:max-w-[45ch]`} style={{ ...(language === ENGLISH ? {lineHeight: '135%'} : {lineHeight: '135%'}) }}>
-                {home.hero.text.article + " "}
-                <span className="font-bold">
-                  {home.hero.text.name}
-                </span>{" "}
-                {home.hero.text.description}
+                {home.hero.text}                
               </h1>
               <div className={`${styles.buttons__container} z-10 w-full`}>
                 <Link href={'/guias-de-uso'} className="w-full max-w-[195px]">
@@ -131,7 +127,7 @@ environmental damages caused by deforestation in the Amazon. Try it now!" />
                     {home.hero.button_2}
                   </Button>
                 </Link>
-              </div>
+              </div>              
             </div>
           </div>
           
