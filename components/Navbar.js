@@ -9,6 +9,7 @@ import styles from '../styles/Navbar.module.css';
 // import LanguageToggle from "./LanguageToggle";
 import { LanguageSelector } from "./LaguageSelector";
 import { IconChevronCompactDown } from "@tabler/icons-react";
+import { usePathname } from "next/navigation";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -55,6 +56,7 @@ const StyledMenu = styled((props) => (
 
 export default function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const { content, language, setLanguage } = useContext(Language);
   const { navbar } = content;
 
@@ -118,16 +120,17 @@ export default function Navbar() {
 
   return (
     <>
-    <div className="absolute z-20 top-0 right-0 left-0 mx-auto flex w-fit items-end pb-2 pointer-events-none text-[2.5rem] md:text-[3rem] xl:text-[4rem]"
-    style={{
-      height: '100vh',
-      height: '100dvh',
-      transition: 'opacity 1s ease-in-out',
-      opacity: hasScrolled ? 0 : 1
-    }}
-    >
-      <IconChevronCompactDown color="#fff" size={'1em'} stroke={1.5}/>
-    </div>
+      <div className="absolute z-20 top-0 right-0 left-0 mx-auto w-fit items-end pb-2 pointer-events-none text-[2.5rem] md:text-[3rem] xl:text-[4rem]"
+      style={{
+        display: pathname === '/' ? "flex" : "none",
+        height: '100vh',
+        height: '100dvh',
+        transition: 'opacity 1s ease-in-out',
+        opacity: hasScrolled ? 0 : 1
+      }}
+      >
+        <IconChevronCompactDown color="#fff" size={'1em'} stroke={1.5}/>
+      </div>
     <div
       id="navbar"
       className={`
